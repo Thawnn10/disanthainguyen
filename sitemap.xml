@@ -7,8 +7,8 @@
     <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://disanthaianguyen.vn/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://disanthaianguyen.vn/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://disanthainguyen.netlify.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://disanthainguyen.netlify.app/?lang=en"/>
     <image:image>
       <image:loc>https://disanthaianguyen.vn/images/og-image.jpg</image:loc>
       <image:title>Bản đồ Di sản Văn hóa Phi vật thể Thái Nguyên - Bắc Kạn</image:title>
@@ -20,6 +20,6 @@
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://disanthaianguyen.vn/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://disanthainguyen.netlify.app/?lang=en"/>
   </url>
 </urlset>
