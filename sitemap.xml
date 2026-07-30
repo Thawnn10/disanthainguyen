@@ -10,16 +10,9 @@
     <xhtml:link rel="alternate" hreflang="vi" href="https://disanthainguyen.netlify.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://disanthainguyen.netlify.app/?lang=en"/>
     <image:image>
-      <image:loc>https://disanthainguyen.netlify.app/light.png
+      <image:loc>https://disanthainguyen.netlify.app/light.png</image:loc>
       <image:title>Bản đồ Di sản Văn hóa Phi vật thể Thái Nguyên - Bắc Kạn</image:title>
       <image:caption>Di Sản Thái Nguyên · Âm Vang Di Sản</image:caption>
     </image:image>
-  </url>
-  <url>
-    <loc>https://disanthainguyen.netlify.app/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://disanthainguyen.netlify.app/?lang=en"/>
   </url>
 </urlset>
