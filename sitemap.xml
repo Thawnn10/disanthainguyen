@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://disanthaianguyen.vn/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://disanthaianguyen.vn/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://disanthaianguyen.vn/?lang=en"/>
+    <image:image>
+      <image:loc>https://disanthaianguyen.vn/images/og-image.jpg</image:loc>
+      <image:title>Bản đồ Di sản Văn hóa Phi vật thể Thái Nguyên - Bắc Kạn</image:title>
+      <image:caption>Di Sản Thái Nguyên · Âm Vang Di Sản</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://disanthaianguyen.vn/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://disanthaianguyen.vn/?lang=en"/>
+  </url>
+</urlset>
