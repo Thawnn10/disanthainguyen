@@ -9,6 +9,7 @@
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="vi" href="https://disanthainguyen.netlify.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://disanthainguyen.netlify.app/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://disanthainguyen.netlify.app/"/>
     <image:image>
       <image:loc>https://disanthainguyen.netlify.app/light.png</image:loc>
       <image:title>Bản đồ Di sản Văn hóa Phi vật thể Thái Nguyên - Bắc Kạn</image:title>
