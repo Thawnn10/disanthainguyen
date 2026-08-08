@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-    <!-- ========== SEO CORE META ========== -->
+
     <title>Di Sản Thái Nguyên · Âm Vang Di Sản | Bản Đồ Di Sản Văn Hóa Phi Vật Thể</title>
     <meta name="description" content="Khám phá bản đồ di sản văn hóa phi vật thể Thái Nguyên & Bắc Kạn với 17 huyện, 92 xã/phường. Lễ hội, nghệ thuật, tri thức dân gian — Chạm vào di sản, lắng nghe hồn xưa!">
     <meta name="keywords" content="di sản Thái Nguyên, bản đồ di sản, văn hóa phi vật thể, di sản văn hóa, Thái Nguyên, Bắc Kạn, lễ hội, nghệ thuật dân gian, tri thức dân gian, hát Then, hát Soóng Cọ, múa khèn, lễ hội Lồng Tồng, chè Tân Cương, ATK Định Hóa, số hóa di sản">
@@ -1733,201 +1733,140 @@
                 x2h = {},
                 hReg = {};
 
-            // Dữ liệu di sản - ĐÃ LOẠI BỎ: Lễ hội Đình Cả & Đình - Chùa Xuân La (Phú Bình), Lễ hội Đình - Chùa La Hiên (Võ Nhai)
             const dt = {
                 'Phú Bình': {
-                    x: ['Phú Bình', 'Tân Thành', 'Điềm Thụy', 'Kha Sơn', 'Tân Khánh'],
+                    x: ['Phú Bình', 'Tân Thành', 'Điềm Thụy', 'Kha Sơn', 'Tân Khánh', 'Úc Kỳ', 'Xuân Phương'],
                     d: [
-                        { n: 'Hát Soóng Cọ của người Sán Dìu', t: 'art', imgFolder: 'phubinh/hat_soong_co_sandi',
-                            desc: 'Cấu trúc & Quy tắc: Hát đối nam nữ theo thể thơ "Thất ngôn tứ tuyệt" (4 câu, mỗi câu 7 chữ) bằng tiếng Sán Dìu cổ. Quy tắc nghiêm ngặt: không hát lại câu của người khác trong cùng một đêm; cấm hát đối giữa những người cùng dòng họ.\n\nNội dung: Chia thành hát chúc Tết, hát mừng nhà mới, hát giao duyên (Chống Soóng) và hát dặn dò trước khi về nhà chồng.' },
-                        { n: 'Lễ hội Đình - Chùa Kha Sơn', t: 'fes', imgFolder: 'phubinh/le_hoi_dinh_chua_kha_son',
-                            desc: 'Giá trị tâm linh: Thờ Lạc Long Quân, Âu Cơ và Thánh Quý Minh Đại Vương.\n\nDi tích lịch sử: Nơi đây là An toàn khu (ATK) dự bị của Trung ương Đảng thời kỳ tiền khởi nghĩa (1941–1945), nơi từng đặt xưởng in báo Giải Phóng và cơ quan làm việc của nhiều đồng chí lãnh đạo cách mạng.' },
+                        { n: 'Hát Soóng Cọ của người Sán Dìu', t: 'art', imgFolder: 'phubinh/hat_soong_co_sandi', desc: 'Cấu trúc & Quy tắc: Hát đối nam nữ theo thể thơ "Thất ngôn tứ tuyệt" (4 câu, mỗi câu 7 chữ) bằng tiếng Sán Dìu cổ. Quy tắc nghiêm ngặt: không hát lại câu của người khác trong cùng một đêm; cấm hát đối giữa những người cùng dòng họ.\n\nNội dung: Chia thành hát chúc Tết, hát mừng nhà mới, hát giao duyên (Chống Soóng) và hát dặn dò trước khi về nhà chồng.' },
+                        { n: 'Lễ hội Đình - Chùa Kha Sơn', t: 'fes', imgFolder: 'phubinh/le_hoi_dinh_chua_kha_son', desc: 'Giá trị tâm linh: Thờ Lạc Long Quân, Âu Cơ và Thánh Quý Minh Đại Vương.\n\nDi tích lịch sử: Nơi đây là An toàn khu (ATK) dự bị của Trung ương Đảng thời kỳ tiền khởi nghĩa (1941–1945), nơi từng đặt xưởng in báo Giải Phóng và cơ quan làm việc của nhiều đồng chí lãnh đạo cách mạng.' },
+                        { n: 'Tương nếp Úc Kỳ', t: 'knw', imgFolder: 'tuong_nep', desc: 'Đặc sản và làng nghề làm tương truyền thống nổi tiếng tại xã Úc Kỳ, huyện Phú Bình. Tương được làm từ gạo nếp Thầu Dầu (đặc sản địa phương), đỗ tương và muối trắng, ủ trong chum sành theo phương pháp lên men thủ công giúp hạt tương còn nguyên vẹn, thơm ngọt đậm đà.' },
+                        { n: 'Đình Phương Độ', t: 'fes', imgFolder: 'phuong_do', desc: 'Di tích lịch sử - kiến trúc nghệ thuật cấp Quốc gia nằm ở xã Xuân Phương, huyện Phú Bình. Ngôi đình được xây dựng từ thời Lê (thế kỷ XV), thờ Đức thánh Dương Tự Minh, lưu giữ nét kiến trúc gỗ cổ kính nguyên vẹn.' }
                     ]
                 },
                 'Định Hóa': {
-                    x: ['Định Hóa', 'Bình Yên', 'Trung Hội', 'Phượng Tiến', 'Phú Định', 'Bình Thành', 'Kim Phượng',
-                        'Lam Vầy'
-                    ],
+                    x: ['Định Hóa', 'Bình Yên', 'Trung Hội', 'Phượng Tiến', 'Phú Định', 'Bình Thành', 'Kim Phượng', 'Lam Vầy', 'Đồng Thịnh'],
                     d: [
-                        { n: 'Hát Then - Đàn Tính của người Tày (UNESCO)', t: 'art', imgFolder: 'dinhhoa/hat_then_dan_tinh',
-                            desc: 'Cấu tạo Đàn Tính: Bầu đàn làm từ 1/2 quả bầu nậm khô; cần đàn làm bằng gỗ dâu rừng dài đúng 9 nắm tay của người đo; dây đàn trước đây se bằng sợi tơ tằm, nay dùng dây cước mềm.\n\nHành trình Then nghi lễ: Thầy Then (Then nam gọi là Ông Than, Then nữ gọi là Bà Then) dùng tiếng đàn Tính và chùm xóc nhạc sắt để dẫn dắt "Đoàn binh Then" vượt qua các Mường Trời (Mường Đất, Khau Đao, Đăm Đeng) dâng lễ vật cầu an, giải hạn, mừng thọ.' },
-                        { n: 'Lễ hội Lồng Tồng ATK Định Hóa (Di sản Quốc gia)', t: 'fes',
-                            imgFolder: 'dinhhoa/le_hoi_long_tong_atk',
-                            desc: 'Thời gian & Địa điểm: Mùng 9–10 tháng Giêng tại đèo De, xã Phú Đình (chân núi Hồng).\n\nNghi thức cốt lõi: Tịch điền (xuống đồng cày những đường cày đầu tiên bằng trâu khỏe), dâng mâm cỗ cúng Thần Nông gồm 9 màu xôi ngũ sắc.\n\nTrò chơi Tung còn: Cây nêu cao 15–20m dựng giữa đồng; quả còn bằng vải bọc hạt bông/ngô với 5 dải vải màu tượng trưng cho năm ngũ hành. Ném thủng vòng hồng tâm trên đỉnh nêu là điềm báo mùa màng thắng lợi.' },
-                        { n: 'Lễ Cấp sắc & Hát Páo Dung của người Dao', t: 'art',
-                            imgFolder: 'dinhhoa/le_cap_sac_pao_dung',
-                            desc: 'Lễ Cấp sắc: Thường làm ở cấp 3 đèn (Tam đằng) hoặc 7 đèn (Thất đằng). Người nam giới trải qua các nghi lễ nghiêm ngặt: nhảy múa rồng, đọc sắc phong chữ Nôm Dao, thề trước thần linh không làm điều ác, kính trọng cha mẹ.\n\nHát Páo Dung: Chia làm Páo Dung lễ nghi (dùng trong Cấp sắc, đám cưới), Páo Dung sinh hoạt (vừa làm vừa hát) và Páo Dung giao duyên đôi lứa.' },
-                        { n: 'Nghệ thuật Hát Lượn Cối & Múa Sa Sắc', t: 'art',
-                            imgFolder: 'dinhhoa/hat_luon_coi_mua_sa_sac',
-                            desc: 'Múa Sa Sắc (Múa Chuông): Nghệ nhân cầm 2–4 chiếc chuông đồng nhỏ có gắn chùm vải đỏ, vừa nhảy múa vừa rung chuông tạo nên nhịp điệu rộn rã tạ ơn tổ tiên.\n\nHát Lượn Cối: Làn điệu hát đối đáp nhịp nhàng theo nhịp giã gạo, thể hiện tình cảm lứa đôi mộc mạc.' }
+                        { n: 'Hát Then - Đàn Tính của người Tày (UNESCO)', t: 'art', imgFolder: 'dinhhoa/hat_then_dan_tinh', desc: 'Cấu tạo Đàn Tính: Bầu đàn làm từ 1/2 quả bầu nậm khô; cần đàn làm bằng gỗ dâu rừng dài đúng 9 nắm tay của người đo; dây đàn trước đây se bằng sợi tơ tằm, nay dùng dây cước mềm.\n\nHành trình Then nghi lễ: Thầy Then (Then nam gọi là Ông Than, Then nữ gọi là Bà Then) dùng tiếng đàn Tính và chùm xóc nhạc sắt để dẫn dắt "Đoàn binh Then" vượt qua các Mường Trời (Mường Đất, Khau Đao, Đăm Đeng) dâng lễ vật cầu an, giải hạn, mừng thọ.' },
+                        { n: 'Lễ hội Lồng Tồng ATK Định Hóa (Di sản Quốc gia)', t: 'fes', imgFolder: 'dinhhoa/le_hoi_long_tong_atk', desc: 'Thời gian & Địa điểm: Mùng 9–10 tháng Giêng tại đèo De, xã Phú Đình (chân núi Hồng).\n\nNghi thức cốt lõi: Tịch điền (xuống đồng cày những đường cày đầu tiên bằng trâu khỏe), dâng mâm cỗ cúng Thần Nông gồm 9 màu xôi ngũ sắc.\n\nTrò chơi Tung còn: Cây nêu cao 15–20m dựng giữa đồng; quả còn bằng vải bọc hạt bông/ngô với 5 dải vải màu tượng trưng cho năm ngũ hành. Ném thủng vòng hồng tâm trên đỉnh nêu là điềm báo mùa màng thắng lợi.' },
+                        { n: 'Lễ Cấp sắc & Hát Páo Dung của người Dao', t: 'art', imgFolder: 'dinhhoa/le_cap_sac_pao_dung', desc: 'Lễ Cấp sắc: Thường làm ở cấp 3 đèn (Tam đằng) hoặc 7 đèn (Thất đằng). Người nam giới trải qua các nghi lễ nghiêm ngặt: nhảy múa rồng, đọc sắc phong chữ Nôm Dao, thề trước thần linh không làm điều ác, kính trọng cha mẹ.\n\nHát Páo Dung: Chia làm Páo Dung lễ nghi (dùng trong Cấp sắc, đám cưới), Páo Dung sinh hoạt (vừa làm vừa hát) và Páo Dung giao duyên đôi lứa.' },
+                        { n: 'Nghệ thuật Hát Lượn Cối & Múa Sa Sắc', t: 'art', imgFolder: 'dinhhoa/hat_luon_coi_mua_sa_sac', desc: 'Múa Sa Sắc (Múa Chuông): Nghệ nhân cầm 2–4 chiếc chuông đồng nhỏ có gắn chùm vải đỏ, vừa nhảy múa vừa rung chuông tạo nên nhịp điệu rộn rã tạ ơn tổ tiên.\n\nHát Lượn Cối: Làn điệu hát đối đáp nhịp nhàng theo nhịp giã gạo, thể hiện tình cảm lứa đôi mộc mạc.' },
+                        { n: 'Múa rối cạn người Tày', t: 'art', imgFolder: 'mua_roi', desc: 'Di sản văn hóa phi vật thể cấp Quốc gia. Loại hình nghệ thuật trình diễn dân gian lâu đời này gắn liền với dòng họ Ma Quang ở xóm Thẩm Rộc (xã Bình Yên) và xóm Ru Nghệ (xã Đồng Thịnh), huyện Định Hóa. Rối cạn thường được biểu diễn vào dịp đầu xuân, lễ Lồng Tồng để cầu mùa màng bội thu, mưa thuận gió hòa.' }
                     ]
                 },
                 'Võ Nhai': {
                     x: ['Võ Nhai', 'Dân Tiến', 'Nghinh Tường', 'Thần Sa', 'La Hiên', 'Tràng Xá', 'Sảng Mộc'],
                     d: [
-                        { n: 'Hát Soóng Cọ người Sán Chí (Di sản Quốc gia)', t: 'art',
-                            imgFolder: 'vonhai/hat_soong_co_sanchi',
-                            desc: 'Đặc điểm: Khác với người Sán Dìu, tiếng Sán Chí thuộc nhóm ngôn ngữ Tày - Thái. Hát Soóng Cọ gồm "Soóng Cọ ban ngày" (hát ở hội, ngoài đồng) và "Chống Soóng" (hát ban đêm tại nhà khách).\n\nÝ nghĩa: Không chỉ là lời tỏ tình mà còn là kho tàng tri thức lịch sử về nguồn gốc dòng họ, kinh nghiệm xem thời tiết, trồng trọt.' },
-                        { n: 'Nghệ thuật Múa Khèn người H\'Mông (Di sản Quốc gia)', t: 'art',
-                            imgFolder: 'vonhai/mua_khen_hmong',
-                            desc: 'Cấu tạo cây khèn: Bầu khèn đẽo bằng gỗ phay, xuyên qua 6 ống trúc có kích thước lớn nhỏ khác nhau, bên trong gắn các lá đồng (lưỡi gà) tạo ra âm thanh đa thanh đặc trưng.\n\nVũ điệu Múa Khèn: Người múa thực hiện các động tác kỹ thuật cao: vừa thổi vừa xoay người 360 độ, múa đá chân đơn, múa lộn ngửa sát đất, bế bạn múa.' },
-                        { n: 'Nghi lễ Cấp sắc của người Dao', t: 'knw', imgFolder: 'vonhai/nghi_le_cap_sac_dao',
-                            desc: 'Cấp sắc Võ Nhai: Thường kéo dài 2–3 ngày đêm với sự tham gia của các thầy cúng cao tay (Sài Páo).' },
+                        { n: 'Hát Soóng Cọ người Sán Chí (Di sản Quốc gia)', t: 'art', imgFolder: 'vonhai/hat_soong_co_sanchi', desc: 'Đặc điểm: Khác với người Sán Dìu, tiếng Sán Chí thuộc nhóm ngôn ngữ Tày - Thái. Hát Soóng Cọ gồm "Soóng Cọ ban ngày" (hát ở hội, ngoài đồng) và "Chống Soóng" (hát ban đêm tại nhà khách).\n\nÝ nghĩa: Không chỉ là lời tỏ tình mà còn là kho tàng tri thức lịch sử về nguồn gốc dòng họ, kinh nghiệm xem thời tiết, trồng trọt.' },
+                        { n: 'Nghệ thuật Múa Khèn người H\'Mông (Di sản Quốc gia)', t: 'art', imgFolder: 'vonhai/mua_khen_hmong', desc: 'Cấu tạo cây khèn: Bầu khèn đẽo bằng gỗ phay, xuyên qua 6 ống trúc có kích thước lớn nhỏ khác nhau, bên trong gắn các lá đồng (lưỡi gà) tạo ra âm thanh đa thanh đặc trưng.\n\nVũ điệu Múa Khèn: Người múa thực hiện các động tác kỹ thuật cao: vừa thổi vừa xoay người 360 độ, múa đá chân đơn, múa lộn ngửa sát đất, bế bạn múa.' },
+                        { n: 'Nghi lễ Cấp sắc của người Dao', t: 'knw', imgFolder: 'vonhai/nghi_le_cap_sac_dao', desc: 'Cấp sắc Võ Nhai: Thường kéo dài 2–3 ngày đêm với sự tham gia của các thầy cúng cao tay (Sài Páo).' }
                     ]
                 },
                 'Phú Lương': {
                     x: ['Phú Lương', 'Vô Tranh', 'Yên Trạch', 'Hợp Thành'],
                     d: [
-                        { n: 'Nghệ thuật Múa Tắc Xình người Sán Chay (Di sản Quốc gia)', t: 'art',
-                            imgFolder: 'phuluong/mua_tac_xinh',
-                            desc: 'Tập trung tại: Xã Tức Tranh và Hợp Thành.\n\nÂm nhạc & Đạo cụ: Nhạc cụ làm từ ống tre/nứa khô. Ống "Tắc" ngắn hơn gõ vào nhau tạo tiếng chát; ống "Xình" dài hơn gõ thẳng xuống đất tạo tiếng ầm trầm.\n\nTriết lý 9 động tác: Thăm đường, Phát nương, Mài dao, Tra hạt, Dọn cỏ, Gặt lúa, Gánh lúa, Mừng mùa màng, Tạ ơn tổ tiên.' },
-                        { n: 'Lễ hội Đền Duổm (Di sản Quốc gia)', t: 'fes', imgFolder: 'phuluong/le_hoi_den_duom',
-                            desc: 'Thời gian: Mùng 6 tháng Giêng dưới chân núi Duổm (xã Động Đạt).\n\nThần tích: Tưởng nhớ Phò mã Dương Tự Minh (Thánh Duổm) — Thủ lĩnh phủ Phú Lương thời Lý, người có công đánh tan quân Tống xâm lược, giữ vững vùng biên cương phía Bắc và mở mang sản xuất cho dân lành.' },
-                        { n: 'Nghi lễ Cấp sắc của người Dao Tiền', t: 'knw',
-                            imgFolder: 'phuluong/nghi_le_cap_sac_dao_tien',
-                            desc: 'Nội dung: Thụ lễ cấp pháp danh chữ Nôm Dao, trao đèn và tranh thờ (Tranh Tam Thanh) để bảo hộ cho người nam giới suốt đời.' }
+                        { n: 'Nghệ thuật Múa Tắc Xình người Sán Chay (Di sản Quốc gia)', t: 'art', imgFolder: 'phuluong/mua_tac_xinh', desc: 'Tập trung tại: Xã Tức Tranh và Hợp Thành.\n\nÂm nhạc & Đạo cụ: Nhạc cụ làm từ ống tre/nứa khô. Ống "Tắc" ngắn hơn gõ vào nhau tạo tiếng chát; ống "Xình" dài hơn gõ thẳng xuống đất tạo tiếng ầm trầm.\n\nTriết lý 9 động tác: Thăm đường, Phát nương, Mài dao, Tra hạt, Dọn cỏ, Gặt lúa, Gánh lúa, Mừng mùa màng, Tạ ơn tổ tiên.' },
+                        { n: 'Lễ hội Đền Duổm (Di sản Quốc gia)', t: 'fes', imgFolder: 'phuluong/le_hoi_den_duom', desc: 'Thời gian: Mùng 6 tháng Giêng dưới chân núi Duổm (xã Động Đạt).\n\nThần tích: Tưởng nhớ Phò mã Dương Tự Minh (Thánh Duổm) — Thủ lĩnh phủ Phú Lương thời Lý, người có công đánh tan quân Tống xâm lược, giữ vững vùng biên cương phía Bắc và mở mang sản xuất cho dân lành.' },
+                        { n: 'Nghi lễ Cấp sắc của người Dao Tiền', t: 'knw', imgFolder: 'phuluong/nghi_le_cap_sac_dao_tien', desc: 'Nội dung: Thụ lễ cấp pháp danh chữ Nôm Dao, trao đèn và tranh thờ (Tranh Tam Thanh) để bảo hộ cho người nam giới suốt đời.' }
                     ]
                 },
                 'Đồng Hỷ': {
                     x: ['Đồng Hỷ', 'Quang Sơn', 'Trại Cau', 'Nam Hòa', 'Văn Hán', 'Văn Lăng'],
                     d: [
-                        { n: 'Hát Sấu Nhị & Múa Tắc Xình người Sán Chay', t: 'art',
-                            imgFolder: 'donghy/hat_sau_nhi_mua_tac_xinh',
-                            desc: 'Hát Sấu Nhị: Làn điệu hát mừng đám cưới, mừng nhà mới, dâng trà khách quý với nhịp điệu tươi vui, ấm áp tình làng nghĩa xóm.' },
-                        { n: 'Hát Sloong Hao của người Nùng', t: 'art', imgFolder: 'donghy/hat_sloong_hao',
-                            desc: 'Đặc trưng: Hình thức hát đối đáp nam nữ tự do. Nam nữ đứng thành hai hàng dọc ở các chợ phiên (chợ Chùa, chợ Sông Cau) hát chuyền tay nhau những câu thơ trữ tình.' },
-                        { n: 'Lễ hội Mơ Rái của người Nùng', t: 'fes', imgFolder: 'donghy/le_hoi_mo_rai',
-                            desc: 'Nghi thức: "Mơ Rái" nghĩa là cúng cầu mùa. Mở đầu bằng lễ cúng thần Rừng (Đoong Sờn) dưới gốc cây cổ thụ, dâng cỗ gà luộc nguyên con, xôi ngũ sắc và rượu men lá.' }
+                        { n: 'Hát Sấu Nhị & Múa Tắc Xình người Sán Chay', t: 'art', imgFolder: 'donghy/hat_sau_nhi_mua_tac_xinh', desc: 'Hát Sấu Nhị: Làn điệu hát mừng đám cưới, mừng nhà mới, dâng trà khách quý với nhịp điệu tươi vui, ấm áp tình làng nghĩa xóm.' },
+                        { n: 'Hát Sloong Hao của người Nùng', t: 'art', imgFolder: 'donghy/hat_sloong_hao', desc: 'Đặc trưng: Hình thức hát đối đáp nam nữ tự do. Nam nữ đứng thành hai hàng dọc ở các chợ phiên (chợ Chùa, chợ Sông Cau) hát chuyền tay nhau những câu thơ trữ tình.' },
+                        { n: 'Lễ hội Mơ Rái của người Nùng', t: 'fes', imgFolder: 'donghy/le_hoi_mo_rai', desc: 'Nghi thức: "Mơ Rái" nghĩa là cúng cầu mùa. Mở đầu bằng lễ cúng thần Rừng (Đoong Sờn) dưới gốc cây cổ thụ, dâng cỗ gà luộc nguyên con, xôi ngũ sắc và rượu men lá.' }
                     ]
                 },
                 'Đại Từ': {
-                    x: ['Đại Từ', 'Đức Lương', 'Phú Thịnh', 'La Bằng', 'Phú Lạc', 'An Khánh', 'Quân Chu', 'Vạn Phú',
-                        'Phú Xuyên'
-                    ],
+                    x: ['Đại Từ', 'Đức Lương', 'Phú Thịnh', 'La Bằng', 'Phú Lạc', 'An Khánh', 'Quân Chu', 'Vạn Phú', 'Phú Xuyên'],
                     d: [
-                        { n: 'Lễ hội Núi Văn - Núi Võ', t: 'fes', imgFolder: 'daitu/le_hoi_nui_van_nui_vo',
-                            desc: 'Thời gian: Rằm tháng Giêng tại xã Văn Yên và Mỹ Yên.\n\nThần tích: Tri ân Tướng quân Lưu Nhân Chú — người con ưu tú của đất Đại Từ, một trong 18 người tham gia Hội thề Lũng Nhai cùng Lê Lợi, giữ chức Tướng quốc thời Lê Thái Tổ.' },
-                        { n: 'Tri thức dân gian về chế biến Chè Đại Từ', t: 'knw', imgFolder: 'daitu/tri_thuc_che_dai_tu',
-                            desc: 'Vùng chè trọng điểm: Các xã ven chân núi Tam Đảo như La Bằng, Hoàng Nông, Yên Lãng.\n\nQuy trình thủ công: Búp chè hái theo quy chuẩn "1 tôm 2 lá"; diệt men bằng chảo củi gang; vò tay trên sào nứa để chè đắn chặt; sao khô và "lấy hương" bằng lửa củi nhẹ tạo hương thơm đặc trưng.' },
-                        { n: 'Lễ hội Đền Cửa Lăng & Chùa Bát', t: 'fes', imgFolder: 'daitu/le_hoi_den_cua_lang',
-                            desc: 'Giá trị: Tín ngưỡng làng xã gắn với cuộc kháng chiến chống quân Nguyên - Mông thời Trần.' }
+                        { n: 'Lễ hội Núi Văn - Núi Võ', t: 'fes', imgFolder: 'daitu/le_hoi_nui_van_nui_vo', desc: 'Thời gian: Rằm tháng Giêng tại xã Văn Yên và Mỹ Yên.\n\nThần tích: Tri ân Tướng quân Lưu Nhân Chú — người con ưu tú của đất Đại Từ, một trong 18 người tham gia Hội thề Lũng Nhai cùng Lê Lợi, giữ chức Tướng quốc thời Lê Thái Tổ.' },
+                        { n: 'Tri thức dân gian về chế biến Chè Đại Từ', t: 'knw', imgFolder: 'daitu/tri_thuc_che_dai_tu', desc: 'Vùng chè trọng điểm: Các xã ven chân núi Tam Đảo như La Bằng, Hoàng Nông, Yên Lãng.\n\nQuy trình thủ công: Búp chè hái theo quy chuẩn "1 tôm 2 lá"; diệt men bằng chảo củi gang; vò tay trên sào nứa để chè đắn chặt; sao khô và "lấy hương" bằng lửa củi nhẹ tạo hương thơm đặc trưng.' },
+                        { n: 'Lễ hội Đền Cửa Lăng & Chùa Bát', t: 'fes', imgFolder: 'daitu/le_hoi_den_cua_lang', desc: 'Giá trị: Tín ngưỡng làng xã gắn với cuộc kháng chiến chống quân Nguyên - Mông thời Trần.' }
                     ]
                 },
                 'TP. Thái Nguyên': {
                     x: ['Tân Cương', 'Phan Đình Phùng', 'Linh Sơn', 'Tích Lương', 'Gia Sàng', 'Quyết Thắng', 'Quán Triều'],
                     d: [
-                        { n: 'Tri thức trồng & chế biến Chè Tân Cương (Di sản Quốc gia)', t: 'knw',
-                            imgFolder: 'tpthainguyen/tri_thuc_che_tan_cuong',
-                            desc: 'Yếu tố Địa - Văn hóa: Vùng chè Tân Cương (gồm các xã Tân Cương, Phúc Xuân, Phúc Trìu) có thổ nhưỡng đất sỏi đỏ pha sét, nước từ dãy Tam Đảo chảy xuống sông Công.\n\nĐặc trưng thành phẩm: Cánh chè xoăn chặt như móc câu, bề mặt phủ lớp phấn trắng nhẹ; khi pha, nước trà có màu xanh vàng sánh như mật mông, hương thơm cốm non tự nhiên, vị "tiền chát nhẹ, hậu ngọt sâu".' },
-                        { n: 'Lễ hội Chùa Hang & Lễ hội Đền Đội Cấn', t: 'fes',
-                            imgFolder: 'tpthainguyen/le_hoi_chua_hang_doi_can',
-                            desc: 'Lễ hội Chùa Hang (19–21/1): Lễ Phật cầu an trong hang đá tự nhiên (Kim Sơn Tự) hùng vĩ.\n\nLễ hội Đền Đội Cấn: Tri ân Đội Cấn (Trịnh Văn Cấn) — thủ lĩnh Khởi nghĩa Thái Nguyên năm 1917 chống thực dân Pháp.' }
+                        { n: 'Tri thức trồng & chế biến Chè Tân Cương (Di sản Quốc gia)', t: 'knw', imgFolder: 'tpthainguyen/tri_thuc_che_tan_cuong', desc: 'Yếu tố Địa - Văn hóa: Vùng chè Tân Cương (gồm các xã Tân Cương, Phúc Xuân, Phúc Trìu) có thổ nhưỡng đất sỏi đỏ pha sét, nước từ dãy Tam Đảo chảy xuống sông Công.\n\nĐặc trưng thành phẩm: Cánh chè xoăn chặt như móc câu, bề mặt phủ lớp phấn trắng nhẹ; khi pha, nước trà có màu xanh vàng sánh như mật mông, hương thơm cốm non tự nhiên, vị "tiền chát nhẹ, hậu ngọt sâu".' },
+                        { n: 'Lễ hội Chùa Hang & Lễ hội Đền Đội Cấn', t: 'fes', imgFolder: 'tpthainguyen/le_hoi_chua_hang_doi_can', desc: 'Lễ hội Chùa Hang (19–21/1): Lễ Phật cầu an trong hang đá tự nhiên (Kim Sơn Tự) hùng vĩ.\n\nLễ hội Đền Đội Cấn: Tri ân Đội Cấn (Trịnh Văn Cấn) — thủ lĩnh Khởi nghĩa Thái Nguyên năm 1917 chống thực dân Pháp.' },
+                        { n: 'Chữ Nôm Dao', t: 'knw', imgFolder: 'chu_nom_dao', desc: 'Di sản văn hóa phi vật thể ghi chép tri thức dân gian, văn học, bài thuốc dân tộc và văn bản nghi lễ truyền thống của đồng bào người Dao tại Thái Nguyên và vùng phụ cận.' }
                     ]
                 },
                 'TP. Sông Công': {
                     x: ['Đại Phúc', 'Phường Sông Công', 'Bá Xuyên', 'Bách Quang'],
                     d: [
-                        { n: 'Lễ hội Đình - Chùa Bá Xuyên', t: 'fes', imgFolder: 'tpsongcong/le_hoi_dinh_chua_ba_xuyen',
-                            desc: 'Thờ Tả Đô đốc Trịnh Bảng, duy trì cuộc thi thi nấu cơm chay và kéo co truyền thống.' },
-                        { n: 'Lễ hội Đình Phố Hương', t: 'fes', imgFolder: 'tpsongcong/le_hoi_dinh_pho_huong',
-                            desc: 'Thờ Đức Thánh Quý Minh Đại Vương.' }
+                        { n: 'Lễ hội Đình - Chùa Bá Xuyên', t: 'fes', imgFolder: 'tpsongcong/le_hoi_dinh_chua_ba_xuyen', desc: 'Thờ Tả Đô đốc Trịnh Bảng, duy trì cuộc thi thi nấu cơm chay và kéo co truyền thống.' },
+                        { n: 'Lễ hội Đình Phố Hương', t: 'fes', imgFolder: 'tpsongcong/le_hoi_dinh_pho_huong', desc: 'Thờ Đức Thánh Quý Minh Đại Vương.' }
                     ]
                 },
                 'TP. Phổ Yên': {
                     x: ['Thành Công', 'Phổ Yên', 'Vạn Xuân', 'Trung Thành', 'Phúc Thuận'],
                     d: [
-                        { n: 'Lễ hội Vạn Xuân / Đền Cổ Pháp', t: 'fes', imgFolder: 'tpphoyen/le_hoi_van_xuan',
-                            desc: 'Tri ân Vua Lý Nam Đế (Lý Bôn) — người lãnh đạo khởi nghĩa đánh đuổi quân Nhương, lập ra nhà nước Vạn Xuân năm 544. Tiên Phong được xác định là vùng đất cội nguồn quê hương ông.' },
-                        { n: 'Lễ hội Đền Lục Đầu & Đền Lăng Mẫu', t: 'fes', imgFolder: 'tpphoyen/le_hoi_den_luc_dau',
-                            desc: 'Không gian thực hành tín ngưỡng thờ Mẫu Thượng Ngàn và Đức Thánh Trần.' }
+                        { n: 'Lễ hội Vạn Xuân / Đền Cổ Pháp', t: 'fes', imgFolder: 'tpphoyen/le_hoi_van_xuan', desc: 'Tri ân Vua Lý Nam Đế (Lý Bôn) — người lãnh đạo khởi nghĩa đánh đuổi quân Nhương, lập ra nhà nước Vạn Xuân năm 544. Tiên Phong được xác định là vùng đất cội nguồn quê hương ông.' },
+                        { n: 'Lễ hội Đền Lục Đầu & Đền Lăng Mẫu', t: 'fes', imgFolder: 'tpphoyen/le_hoi_den_luc_dau', desc: 'Không gian thực hành tín ngưỡng thờ Mẫu Thượng Ngàn và Đức Thánh Trần.' }
                     ]
                 },
                 'Pác Nặm': {
                     x: ['Bằng Thành', 'Nghiên Loan', 'Cao Minh'],
                     d: [
-                        { n: 'Lễ hội Lồng Tồng Bằng Thành (Di sản Quốc gia)', t: 'fes',
-                            imgFolder: 'pacnam/le_hoi_long_tong_bang_thanh',
-                            desc: 'Thời gian: Rằm tháng Giêng tại xã Bằng Thành.\n\nNội dung: Lễ hội xuống đồng quy mô lớn nhất vùng cao Pác Nặm. Hoạt động độc đáo: thi chọi bò vùng cao chọn giống tốt, thi chọi thỏ, tung còn và chọi gà.' },
-                        { n: 'Hát Then, Lượn Cọi & Hát Mời Trầu', t: 'art', imgFolder: 'pacnam/hat_then_luon_coi',
-                            desc: 'Lượn Cọi: Làn điệu dân ca Tày ngọt ngào, chất chứa nỗi niềm tâm sự, được hát theo thể thơ thất ngôn.\n\nHát Mời Trầu: Điệu hát giao tiếp mộc mạc, thể hiện nét văn hóa hiếu khách của người Tày vùng cao.' }
+                        { n: 'Lễ hội Lồng Tồng Bằng Thành (Di sản Quốc gia)', t: 'fes', imgFolder: 'pacnam/le_hoi_long_tong_bang_thanh', desc: 'Thời gian: Rằm tháng Giêng tại xã Bằng Thành.\n\nNội dung: Lễ hội xuống đồng quy mô lớn nhất vùng cao Pác Nặm. Hoạt động độc đáo: thi chọi bò vùng cao chọn giống tốt, thi chọi thỏ, tung còn và chọi gà.' },
+                        { n: 'Hát Then, Lượn Cọi & Hát Mời Trầu', t: 'art', imgFolder: 'pacnam/hat_then_luon_coi', desc: 'Lượn Cọi: Làn điệu dân ca Tày ngọt ngào, chất chứa nỗi niềm tâm sự, được hát theo thể thơ thất ngôn.\n\nHát Mời Trầu: Điệu hát giao tiếp mộc mạc, thể hiện nét văn hóa hiếu khách của người Tày vùng cao.' },
+                        { n: 'Chữ Nôm Tày', t: 'knw', imgFolder: 'chu_nom_tay', desc: 'Di sản văn hóa phi vật thể ghi chép tri thức dân gian, văn học, bài thuốc dân tộc và văn bản nghi lễ truyền thống của đồng bào người Tày tại Thái Nguyên và vùng phụ cận (như khu vực Bằng Thành, Bắc Kạn).' }
                     ]
                 },
                 'Ba Bể': {
                     x: ['Ba Bể', 'Chợ Rã', 'Phúc Lộc', 'Thượng Minh', 'Đồng Phúc'],
                     d: [
-                        { n: 'Lễ hội Lồng Tồng Ba Bể (Di sản Quốc gia)', t: 'fes',
-                            imgFolder: 'babe/le_hoi_long_tong_ba_be',
-                            desc: 'Thời gian & Địa điểm: Mùng 9–11 tháng Giêng trên bãi đua thuyền hồ Ba Bể (xã Nam Mẫu).\n\nNghi thức & Trò chơi: Cúng bái thần Rồng, thần Hồ; tổ chức thi đua thuyền độc mộc trên sóng nước hồ Ba Bể, thi bắn nỏ, chọi bò và hạ cây nêu.' },
-                        { n: 'Hát Then - Đàn Tính của người Tày (UNESCO)', t: 'art',
-                            imgFolder: 'babe/hat_then_dan_tinh_ba_be',
-                            desc: 'Không gian đặc biệt: Thực hành Then nghi lễ cúng sông nước, cầu cho hồ Ba Bể mưa thuận gió hòa, không bị lũ quét.' },
-                        { n: 'Múa Mãng của người Dao Tiền', t: 'art', imgFolder: 'babe/mua_mang',
-                            desc: 'Đặc điểm: Nghệ thuật múa mặt nạ (mặt nạ đẽo bằng gỗ hoặc bồi bằng giấy), tay cầm gậy gõ nhịp mô phỏng các vị thần linh xuống trần gian đánh đuổi thú dữ và tà khí.' }
+                        { n: 'Lễ hội Lồng Tồng Ba Bể (Di sản Quốc gia)', t: 'fes', imgFolder: 'babe/le_hoi_long_tong_ba_be', desc: 'Thời gian & Địa điểm: Mùng 9–11 tháng Giêng trên bãi đua thuyền hồ Ba Bể (xã Nam Mẫu).\n\nNghi thức & Trò chơi: Cúng bái thần Rồng, thần Hồ; tổ chức thi đua thuyền độc mộc trên sóng nước hồ Ba Bể, thi bắn nỏ, chọi bò và hạ cây nêu.' },
+                        { n: 'Hát Then - Đàn Tính của người Tày (UNESCO)', t: 'art', imgFolder: 'babe/hat_then_dan_tinh_ba_be', desc: 'Không gian đặc biệt: Thực hành Then nghi lễ cúng sông nước, cầu cho hồ Ba Bể mưa thuận gió hòa, không bị lũ quét.' },
+                        { n: 'Múa Mãng của người Dao Tiền', t: 'art', imgFolder: 'babe/mua_mang', desc: 'Đặc điểm: Nghệ thuật múa mặt nạ (mặt nạ đẽo bằng gỗ hoặc bồi bằng giấy), tay cầm gậy gõ nhịp mô phỏng các vị thần linh xuống trần gian đánh đuổi thú dữ và tà khí.' },
+                        { n: 'Nghề dệt thủ công', t: 'knw', imgFolder: 'det_thu_cong', desc: 'Nghề thủ công truyền thống của các dân tộc thiểu số vùng cao, thể hiện sự khéo léo và bản sắc văn hóa qua các hoa văn, trang phục truyền thống.' }
                     ]
                 },
                 'Ngân Sơn': {
                     x: ['Bằng Vân', 'Ngân Sơn', 'Nà Phặc', 'Hiệp Lực', 'Thượng Quan'],
                     d: [
-                        { n: 'Múa Khèn người H\'Mông (Di sản Quốc gia)', t: 'art',
-                            imgFolder: 'nganson/mua_khen_hmong_ngan_son',
-                            desc: 'Trọng điểm: Các xã Bằng Vân, Cốc Cán.\n\nĐặc trưng: Nghệ thuật diễn xướng kết hợp thể lực đỉnh cao. Chàng trai H\'Mông vừa thổi khèn vừa thực hiện các động tác nhào lộn, múa đá chân đồng điệu.' },
-                        { n: 'Lễ hội Phầy Lùng (Nà Phặc)', t: 'fes', imgFolder: 'nganson/le_hoi_phay_lung',
-                            desc: 'Lễ cúng "Thần Rồng" cầu tài lộc và mưa thuận gió hòa đầu năm.' },
-                        { n: 'Hát Lượn Slượt', t: 'art', imgFolder: 'nganson/hat_luon_sluot',
-                            desc: 'Làn điệu hát đối đáp bằng chữ Nôm Tày đầy tinh tế và lịch sự.' }
+                        { n: 'Múa Khèn người H\'Mông (Di sản Quốc gia)', t: 'art', imgFolder: 'nganson/mua_khen_hmong_ngan_son', desc: 'Trọng điểm: Các xã Bằng Vân, Cốc Cán.\n\nĐặc trưng: Nghệ thuật diễn xướng kết hợp thể lực đỉnh cao. Chàng trai H\'Mông vừa thổi khèn vừa thực hiện các động tác nhào lộn, múa đá chân đồng điệu.' },
+                        { n: 'Lễ hội Phầy Lùng (Nà Phặc)', t: 'fes', imgFolder: 'nganson/le_hoi_phay_lung', desc: 'Lễ cúng "Thần Rồng" cầu tài lộc và mưa thuận gió hòa đầu năm.' },
+                        { n: 'Hát Lượn Slượt', t: 'art', imgFolder: 'nganson/hat_luon_sluot', desc: 'Làn điệu hát đối đáp bằng chữ Nôm Tày đầy tinh tế và lịch sự.' }
                     ]
                 },
                 'Chợ Đồn': {
                     x: ['Nam Cường', 'Quảng Bạch', 'Yên Thịnh', 'Chợ Đồn', 'Yên Phong', 'Nghĩa Tá'],
                     d: [
-                        { n: 'Nghệ thuật Múa Bát của người Tày (Di sản Quốc gia)', t: 'art', imgFolder: 'chodon/mua_bat',
-                            desc: 'Đạo cụ: Nghệ nhân tay trái cầm chiếc bát sứ cổ, tay phải cầm đôi đũa tre gõ vào lòng bát tạo tiếng "tắc tắc xình".\n\nHình ảnh mô phỏng: Gieo mạ, gặt lúa; Ươm tơ, dệt vải; Làm rượu & dâng rượu kính tổ tiên.' },
-                        { n: 'Hát Then - Đàn Tính (UNESCO)', t: 'art', imgFolder: 'chodon/hat_then_atk',
-                            desc: 'Giá trị: Sự kết hợp giữa không gian Then nghi lễ thần cúng và tín ngưỡng nông nghiệp gắn liền với di tích lịch sử An toàn khu (ATK) Chợ Đồn.' },
-                        { n: 'Lễ hội Lồng Tồng Bằng Lũng & Nghĩa Tá', t: 'fes',
-                            imgFolder: 'chodon/le_hoi_long_tong_bang_lung',
-                            desc: 'Nghi thức mở cày gieo hạt đầu năm, gắn với tín ngưỡng nông nghiệp của người Tày.' }
+                        { n: 'Nghệ thuật Múa Bát của người Tày (Di sản Quốc gia)', t: 'art', imgFolder: 'chodon/mua_bat', desc: 'Đạo cụ: Nghệ nhân tay trái cầm chiếc bát sứ cổ, tay phải cầm đôi đũa tre gõ vào lòng bát tạo tiếng "tắc tắc xình".\n\nHình ảnh mô phỏng: Gieo mạ, gặt lúa; Ươm tơ, dệt vải; Làm rượu & dâng rượu kính tổ tiên.' },
+                        { n: 'Hát Then - Đàn Tính (UNESCO)', t: 'art', imgFolder: 'chodon/hat_then_atk', desc: 'Giá trị: Sự kết hợp giữa không gian Then nghi lễ thần cúng và tín ngưỡng nông nghiệp gắn liền với di tích lịch sử An toàn khu (ATK) Chợ Đồn.' },
+                        { n: 'Lễ hội Lồng Tồng Bằng Lũng & Nghĩa Tá', t: 'fes', imgFolder: 'chodon/le_hoi_long_tong_bang_lung', desc: 'Nghi thức mở cày gieo hạt đầu năm, gắn với tín ngưỡng nông nghiệp của người Tày.' },
+                        { n: 'Chữ Nôm Dao', t: 'knw', imgFolder: 'chu_nom_dao', desc: 'Di sản văn hóa phi vật thể ghi chép tri thức dân gian, văn học, bài thuốc dân tộc và văn bản nghi lễ truyền thống của đồng bào người Dao tại Thái Nguyên và vùng phụ cận.' }
                     ]
                 },
                 'Bạch Thông': {
                     x: ['Phủ Thông', 'Cẩm Giàng', 'Vinh Thông', 'Bạch Thông'],
                     d: [
-                        { n: 'Lễ hội Phủ Thông', t: 'fes', imgFolder: 'bachthong/le_hoi_phu_thong',
-                            desc: 'Thời gian: 10/1 Âm lịch. Tưởng nhớ các anh hùng liệt sĩ trận Phủ Thông lịch sử (1948) và Thành hoàng làng.' },
-                        { n: 'Hát Lượn Phong Slư', t: 'art', imgFolder: 'bachthong/hat_luon_phong_slu',
-                            desc: '"Phong slư" tức là thư tay. Làn điệu hát đối đáp dựa trên nội dung những lá thư tay viết bằng chữ Nôm Tày vô cùng trữ tình, kín đáo.' }
+                        { n: 'Lễ hội Phủ Thông', t: 'fes', imgFolder: 'bachthong/le_hoi_phu_thong', desc: 'Thời gian: 10/1 Âm lịch. Tưởng nhớ các anh hùng liệt sĩ trận Phủ Thông lịch sử (1948) và Thành hoàng làng.' },
+                        { n: 'Hát Lượn Phong Slư', t: 'art', imgFolder: 'bachthong/hat_luon_phong_slu', desc: '"Phong slư" tức là thư tay. Làn điệu hát đối đáp dựa trên nội dung những lá thư tay viết bằng chữ Nôm Tày vô cùng trữ tình, kín đáo.' }
                     ]
                 },
                 'Na Rì': {
                     x: ['Phong Quang', 'Văn Lang', 'Cường Lợi', 'Na Rì', 'Trần Phú', 'Côn Minh', 'Xuân Dương'],
                     d: [
-                        { n: 'Hát múa Nàng Hai xã Côn Minh (Di sản Quốc gia)', t: 'art',
-                            imgFolder: 'nari/hat_mua_nang_hai',
-                            desc: 'Thời gian: Diễn ra vào tháng 3 Âm lịch.\n\nBản chất: Nghi lễ đóng vai: Các cô gái trẻ đẹp đóng vai các Cô Tiên (Nàng Hai) cùng hai thầy Then dẫn đường lên Mường Trời mời Mẹ Trăng xuống trần gian ban cho mưa thuận gió hòa.' },
-                        { n: 'Múa Kỳ Lân - Sư Tử của người Tày, Nùng (Di sản Quốc gia)', t: 'art',
-                            imgFolder: 'nari/mua_ky_lan_su_tu',
-                            desc: 'Đặc trưng: Múa rộn rã trong dịp Tết Nguyên Đán và Trung Thu. Kết hợp các bài võ dân tộc, kỹ thuật vờn quả cầu lửa và trèo cột lấy thưởng đòi hỏi sự dẻo dai, dũng cảm.' }
+                        { n: 'Hát múa Nàng Hai xã Côn Minh (Di sản Quốc gia)', t: 'art', imgFolder: 'nari/hat_mua_nang_hai', desc: 'Thời gian: Diễn ra vào tháng 3 Âm lịch.\n\nBản chất: Nghi lễ đóng vai: Các cô gái trẻ đẹp đóng vai các Cô Tiên (Nàng Hai) cùng hai thầy Then dẫn đường lên Mường Trời mời Mẹ Trăng xuống trần gian ban cho mưa thuận gió hòa.' },
+                        { n: 'Múa Kỳ Lân - Sư Tử của người Tày, Nùng (Di sản Quốc gia)', t: 'art', imgFolder: 'nari/mua_ky_lan_su_tu', desc: 'Đặc trưng: Múa rộn rã trong dịp Tết Nguyên Đán và Trung Thu. Kết hợp các bài võ dân tộc, kỹ thuật vờn quả cầu lửa và trèo cột lấy thưởng đòi hỏi sự dẻo dai, dũng cảm.' }
                     ]
                 },
                 'Chợ Mới': {
                     x: ['Tân Kỳ', 'Thanh Mai', 'Thanh Thịnh', 'Chợ Mới', 'Yên Bình'],
                     d: [
-                        { n: 'Lễ hội Lồng Tồng Quảng Chu / Yên Đĩnh', t: 'fes',
-                            imgFolder: 'chomoi/le_hoi_long_tong_quang_chu',
-                            desc: 'Nghi thức mở cày gieo hạt đầu năm.' },
-                        { n: 'Nghi lễ Cấp sắc của người Dao', t: 'knw', imgFolder: 'chomoi/nghi_le_cap_sac_dao_chomoi',
-                            desc: 'Đánh dấu bước trưởng thành về mặt xã hội và tâm linh của nam giới.' }
+                        { n: 'Lễ hội Lồng Tồng Quảng Chu / Yên Đĩnh', t: 'fes', imgFolder: 'chomoi/le_hoi_long_tong_quang_chu', desc: 'Nghi thức mở cày gieo hạt đầu năm.' },
+                        { n: 'Nghi lễ Cấp sắc của người Dao', t: 'knw', imgFolder: 'chomoi/nghi_le_cap_sac_dao_chomoi', desc: 'Đánh dấu bước trưởng thành về mặt xã hội và tâm linh của nam giới.' }
                     ]
                 },
                 'TP. Bắc Kạn': {
                     x: ['Đức Xuân', 'Bắc Kạn'],
                     d: [
-                        { n: 'Lễ hội Lồng Tồng TP. Bắc Kạn', t: 'fes',
-                            imgFolder: 'tpbackan/le_hoi_long_tong_tp_bac_kan',
-                            desc: 'Đặc trưng: Sự giao thoa giữa nghi lễ nông nghiệp cổ truyền với nhịp sống đô thị miền núi qua các cuộc thi ẩm thực (giã bánh giầy, gói bánh chưng) và trò chơi dân gian.' },
-                        { n: 'Tập quán xã hội Hát Then - Đàn Tính', t: 'art',
-                            imgFolder: 'tpbackan/tap_quan_hat_then_pho_thi',
-                            desc: 'Hiện trạng: Môi trường thực hành Then linh hoạt thông qua hệ thống các Câu lạc bộ dân ca, vừa giữ gìn tính tâm linh vừa phục vụ phát triển du lịch địa phương.' }
+                        { n: 'Lễ hội Lồng Tồng TP. Bắc Kạn', t: 'fes', imgFolder: 'tpbackan/le_hoi_long_tong_tp_bac_kan', desc: 'Đặc trưng: Sự giao thoa giữa nghi lễ nông nghiệp cổ truyền với nhịp sống đô thị miền núi qua các cuộc thi ẩm thực (giã bánh giầy, gói bánh chưng) và trò chơi dân gian.' },
+                        { n: 'Tập quán xã hội Hát Then - Đàn Tính', t: 'art', imgFolder: 'tpbackan/tap_quan_hat_then_pho_thi', desc: 'Hiện trạng: Môi trường thực hành Then linh hoạt thông qua hệ thống các Câu lạc bộ dân ca, vừa giữ gìn tính tâm linh vừa phục vụ phát triển du lịch địa phương.' }
                     ]
                 }
             };
