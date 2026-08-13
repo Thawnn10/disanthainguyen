@@ -1657,6 +1657,314 @@
             background: rgba(139, 94, 60, 0.25);
             border-radius: 4px;
         }
+
+        /* ===== CHATBOT AI FLOATING WIDGET ===== */
+        .chat-fab {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--gold), var(--gold2));
+            color: #1A0F00;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+            transition: all var(--trans);
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+        .chat-fab:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 30px rgba(184, 134, 11, 0.5);
+        }
+        .chat-fab:active {
+            transform: scale(0.95);
+        }
+        .dark .chat-fab {
+            background: linear-gradient(135deg, var(--acc), #00ddaa);
+            color: #121816;
+            box-shadow: var(--neon);
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            z-index: 9999;
+            width: 380px;
+            max-width: calc(100vw - 24px);
+            height: 520px;
+            max-height: calc(100vh - 120px);
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: var(--sh2);
+            border: 1px solid rgba(139, 94, 60, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+            pointer-events: none;
+        }
+        .chat-window.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+        .chat-window.minimized {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.95);
+            pointer-events: none;
+        }
+        @media (max-width: 480px) {
+            .chat-window {
+                bottom: 0;
+                right: 0;
+                left: 0;
+                width: 100%;
+                height: 90vh;
+                max-height: 90vh;
+                border-radius: 20px 20px 0 0;
+                max-width: 100%;
+            }
+            .chat-fab {
+                bottom: 16px;
+                right: 16px;
+                width: 54px;
+                height: 54px;
+                font-size: 1.5rem;
+            }
+        }
+
+        .chat-header {
+            padding: 14px 18px;
+            background: var(--block-bg);
+            border-bottom: 1px solid var(--block-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .chat-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            min-width: 0;
+        }
+        .chat-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--red));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .chat-header-info h4 {
+            font-family: var(--fs);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--tx);
+            margin: 0;
+            line-height: 1.3;
+        }
+        .chat-header-info .status {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.7rem;
+            color: var(--tx2);
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4CAF50;
+            animation: pulse-green 1.5s infinite;
+        }
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.6); }
+            70% { box-shadow: 0 0 0 6px rgba(76, 175, 80, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+        }
+        .chat-header-actions {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .chat-header-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            background: var(--icon-btn-bg);
+            color: var(--tx);
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--trans);
+        }
+        .chat-header-btn:hover {
+            background: var(--icon-btn-hover);
+        }
+
+        .chat-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .chat-message {
+            max-width: 80%;
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-break: break-word;
+            animation: msg-in 0.25s ease;
+        }
+        @keyframes msg-in {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .chat-message.user {
+            align-self: flex-end;
+            background: var(--acc);
+            color: #fff;
+            border-bottom-right-radius: 4px;
+        }
+        .chat-message.ai {
+            align-self: flex-start;
+            background: var(--glassB);
+            border: 1px solid var(--block-border);
+            color: var(--tx);
+            border-bottom-left-radius: 4px;
+        }
+        .chat-typing {
+            align-self: flex-start;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 12px 16px;
+            background: var(--glassB);
+            border: 1px solid var(--block-border);
+            border-radius: 16px;
+            border-bottom-left-radius: 4px;
+        }
+        .chat-typing span {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--tx2);
+            animation: typing-bounce 1.2s infinite;
+        }
+        .chat-typing span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .chat-typing span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes typing-bounce {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+            30% {
+                transform: translateY(-5px);
+                opacity: 1;
+            }
+        }
+
+        .chat-footer {
+            padding: 12px 16px;
+            border-top: 1px solid var(--block-border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+            background: var(--block-bg);
+        }
+        .chat-input {
+            flex: 1;
+            height: 42px;
+            border-radius: 24px;
+            border: 1.5px solid var(--search-border);
+            background: var(--search-bg);
+            padding: 0 16px;
+            font-size: 0.9rem;
+            font-family: var(--fn);
+            color: var(--tx);
+            outline: none;
+            transition: all var(--trans);
+        }
+        .chat-input::placeholder {
+            color: var(--tx2);
+            opacity: 0.7;
+        }
+        .chat-input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.08);
+            background: var(--glass);
+        }
+        .dark .chat-input:focus {
+            box-shadow: var(--neon);
+            border-color: var(--acc);
+        }
+        .chat-send-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: none;
+            background: var(--gold);
+            color: #1A0F00;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--trans);
+            flex-shrink: 0;
+        }
+        .chat-send-btn:hover {
+            background: var(--gold2);
+            transform: scale(1.05);
+            box-shadow: 0 4px 14px rgba(184, 134, 11, 0.3);
+        }
+        .dark .chat-send-btn {
+            background: var(--acc);
+            color: #121816;
+            box-shadow: var(--neon);
+        }
+        .chat-send-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
     </style>
 </head>
 <body>
@@ -1805,6 +2113,32 @@
             </div>
         </div>
     </div>
+
+    <!-- CHATBOT AI FLOATING WIDGET -->
+    <div class="chat-fab" id="chat-fab" role="button" aria-label="Mở trợ lý AI" title="Trợ Lý Di Sản AI">
+        <i class="fa-solid fa-robot"></i>
+    </div>
+    <div class="chat-window" id="chat-window" role="dialog" aria-modal="false" aria-label="Cửa sổ trợ lý AI">
+        <div class="chat-header">
+            <div class="chat-header-left">
+                <div class="chat-avatar">🌸</div>
+                <div class="chat-header-info">
+                    <h4>Trợ Lý Di Sản AI</h4>
+                    <div class="status"><span class="status-dot"></span> Online</div>
+                </div>
+            </div>
+            <div class="chat-header-actions">
+                <button class="chat-header-btn" id="chat-minimize" title="Thu nhỏ" aria-label="Thu nhỏ cửa sổ chat"><i class="fa-solid fa-minus"></i></button>
+                <button class="chat-header-btn" id="chat-close" title="Đóng" aria-label="Đóng cửa sổ chat"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+        <div class="chat-body" id="chat-body"></div>
+        <div class="chat-footer">
+            <input type="text" class="chat-input" id="chat-input" placeholder="Nhập câu hỏi..." aria-label="Nhập câu hỏi" autocomplete="off">
+            <button class="chat-send-btn" id="chat-send" aria-label="Gửi tin nhắn"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
     <script>
         (function() {
@@ -2548,6 +2882,163 @@
                 }
             });
             console.log('🌸 Thái Nguyên - Âm Vang Di Sản sẵn sàng! Nhóm 2 A1K64 THPT Phú Bình');
+        })();
+    </script>
+
+    <!-- CHATBOT AI SCRIPT -->
+    <script>
+        (function() {
+            const chatFab = document.getElementById('chat-fab');
+            const chatWindow = document.getElementById('chat-window');
+            const chatBody = document.getElementById('chat-body');
+            const chatInput = document.getElementById('chat-input');
+            const chatSend = document.getElementById('chat-send');
+            const chatMinimize = document.getElementById('chat-minimize');
+            const chatClose = document.getElementById('chat-close');
+
+            const API_URL = 'https://disanthainguyen-backend.onrender.com/api/chat'; // <-- Thay bằng URL backend thực tế
+
+            let isOpen = false;
+            let isMinimized = false;
+            let firstOpen = true;
+            let isLoading = false;
+
+            function toggleChat() {
+                if (isOpen) {
+                    closeChat();
+                } else {
+                    openChat();
+                }
+            }
+
+            function openChat() {
+                isOpen = true;
+                isMinimized = false;
+                chatWindow.classList.remove('minimized');
+                chatWindow.classList.add('open');
+                chatFab.style.display = 'none'; // Ẩn FAB khi mở cửa sổ
+                if (firstOpen) {
+                    firstOpen = false;
+                    showGreeting();
+                }
+                chatInput.focus();
+            }
+
+            function closeChat() {
+                isOpen = false;
+                chatWindow.classList.remove('open');
+                chatWindow.classList.add('minimized');
+                chatFab.style.display = 'flex';
+            }
+
+            function minimizeChat() {
+                isOpen = false;
+                isMinimized = true;
+                chatWindow.classList.remove('open');
+                chatWindow.classList.add('minimized');
+                chatFab.style.display = 'flex';
+            }
+
+            chatFab.addEventListener('click', toggleChat);
+            chatMinimize.addEventListener('click', minimizeChat);
+            chatClose.addEventListener('click', closeChat);
+
+            function showGreeting() {
+                addMessage('ai', 'Xin chào! Tôi là Trợ lý AI Di sản Thái Nguyên. Bạn cần tìm hiểu thông tin gì về di sản, lễ hội hay tri thức dân gian?');
+            }
+
+            function addMessage(type, content) {
+                const msgDiv = document.createElement('div');
+                msgDiv.className = `chat-message ${type}`;
+                msgDiv.textContent = content;
+                chatBody.appendChild(msgDiv);
+                scrollToBottom();
+                return msgDiv;
+            }
+
+            function showTyping() {
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'chat-typing';
+                typingDiv.innerHTML = '<span></span><span></span><span></span>';
+                typingDiv.id = 'chat-typing';
+                chatBody.appendChild(typingDiv);
+                scrollToBottom();
+                return typingDiv;
+            }
+
+            function removeTyping() {
+                const typing = document.getElementById('chat-typing');
+                if (typing) typing.remove();
+            }
+
+            function scrollToBottom() {
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }
+
+            async function sendMessage() {
+                const text = chatInput.value.trim();
+                if (!text || isLoading) return;
+
+                // Hiển thị tin nhắn user
+                addMessage('user', text);
+                chatInput.value = '';
+                isLoading = true;
+                chatSend.disabled = true;
+
+                // Hiển thị typing indicator
+                showTyping();
+
+                try {
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ message: text })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    removeTyping();
+                    if (data && data.reply) {
+                        addMessage('ai', data.reply);
+                    } else {
+                        addMessage('ai', 'Xin lỗi, tôi chưa nhận được phản hồi phù hợp.');
+                    }
+                } catch (error) {
+                    removeTyping();
+                    console.error('Chatbot API error:', error);
+                    addMessage('ai', 'Xin lỗi, hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc kiểm tra kết nối internet.');
+                } finally {
+                    isLoading = false;
+                    chatSend.disabled = false;
+                    chatInput.focus();
+                    scrollToBottom();
+                }
+            }
+
+            chatSend.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+
+            // Ngăn chặn đóng khi click bên trong chat window
+            chatWindow.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
+            // Đóng chat khi click ra ngoài (trên desktop)
+            document.addEventListener('click', (e) => {
+                if (isOpen && !chatWindow.contains(e.target) && e.target !== chatFab) {
+                    closeChat();
+                }
+            });
+
+            console.log('🤖 Chatbot AI đã sẵn sàng!');
         })();
     </script>
 </body>
