@@ -1098,7 +1098,7 @@
             -webkit-backdrop-filter: blur(18px);
             border-radius: 22px 22px 0 0;
             box-shadow: var(--sh2);
-            max-height: 50vh;
+            max-height: 70vh;
             transform: translateY(100%);
             transition: transform var(--trans);
             border-top: 1px solid rgba(139, 94, 60, 0.2);
@@ -1140,6 +1140,7 @@
             gap: 6px;
             -webkit-overflow-scrolling: touch;
             touch-action: pan-y;
+            overscroll-behavior: contain;
         }
         .ds-card {
             background: var(--glassB);
@@ -1191,47 +1192,6 @@
             color: var(--tx2);
             text-transform: uppercase;
             letter-spacing: 0.04em;
-        }
-        #bnav {
-            display: none;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 11;
-            background: var(--glass);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-top: 1px solid rgba(139, 94, 60, 0.2);
-            padding: 5px 16px;
-            gap: 16px;
-            justify-content: center;
-            border-radius: 20px 20px 0 0;
-        }
-        #bnav button {
-            flex: 1;
-            padding: 8px;
-            border: none;
-            background: transparent;
-            font-size: 0.78rem;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: var(--fn);
-            color: var(--tx2);
-            border-radius: 16px;
-            transition: all var(--trans);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-        }
-        #bnav button.active {
-            background: rgba(184, 134, 11, 0.15);
-            color: var(--gold);
-        }
-        .dark #bnav button.active {
-            background: rgba(0, 255, 204, 0.12);
-            color: var(--acc);
         }
         #am {
             position: fixed;
@@ -1563,9 +1523,6 @@
             #bs {
                 display: flex;
             }
-            #bnav {
-                display: flex;
-            }
             #map-cont {
                 padding-bottom: 50px;
             }
@@ -1638,9 +1595,6 @@
         }
         @media (min-width:769px) {
             #bs {
-                display: none !important;
-            }
-            #bnav {
                 display: none !important;
             }
             #dr {
@@ -1729,6 +1683,9 @@
             transform: translateY(20px) scale(0.95);
             pointer-events: none;
         }
+        .chat-window.dragging {
+            transition: none !important;
+        }
         @media (max-width: 480px) {
             .chat-window {
                 bottom: 0;
@@ -1758,6 +1715,11 @@
             justify-content: space-between;
             gap: 10px;
             flex-shrink: 0;
+            cursor: grab;
+            user-select: none;
+        }
+        .chat-header:active {
+            cursor: grabbing;
         }
         .chat-header-left {
             display: flex;
@@ -2074,10 +2036,6 @@
                     <div id="bs-head"><h4 id="bs-title"></h4><p class="sub" id="bs-sub"></p></div>
                     <div id="bs-list"></div>
                 </aside>
-                <nav id="bnav" aria-label="Điều hướng bản đồ">
-                    <button class="active" data-view="map"><i class="fa-solid fa-map"></i> Bản đồ</button>
-                    <button data-view="list"><i class="fa-solid fa-list"></i> Danh sách</button>
-                </nav>
             </div>
         </section>
         <div id="am" role="dialog" aria-modal="true" aria-labelledby="am-title" aria-hidden="true">
@@ -2151,7 +2109,6 @@
                 mpEl = el('mp'),
                 dr = el('dr'),
                 bs = el('bs'),
-                bnav = el('bnav'),
                 srInp = el('sr-inp'),
                 srDd = el('sr-dd'),
                 regBtn = el('region-btn'),
@@ -2716,7 +2673,8 @@
             function closeHeritageDetail() {
                 heritageModal.classList.remove('open');
                 heritageModal.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = '';
+                // Khôi phục trạng thái cuộn của body dựa trên màn hình hiện tại
+                document.body.style.overflow = ms.classList.contains('active') ? 'hidden' : 'auto';
             }
 
             heritageModal.querySelector('.modal-close').addEventListener('click', closeHeritageDetail);
@@ -2798,16 +2756,6 @@
                         closeDrawers();
                     }
                 }
-            });
-
-            $$('#bnav button').forEach(b => {
-                b.addEventListener('click', () => {
-                    $$('#bnav button').forEach(x => x.classList.remove('active'));
-                    b.classList.add('active');
-                    if (b.dataset.view === 'list' && cHuyen) {
-                        updDrawer(cHuyen);
-                    }
-                });
             });
 
             function showMap() {
@@ -2895,6 +2843,7 @@
             const chatSend = document.getElementById('chat-send');
             const chatMinimize = document.getElementById('chat-minimize');
             const chatClose = document.getElementById('chat-close');
+            const chatHeader = chatWindow.querySelector('.chat-header');
 
             const API_URL = 'https://disanthainguyen-backend.onrender.com/api/chat'; // <-- Thay bằng URL backend thực tế
 
@@ -2902,6 +2851,10 @@
             let isMinimized = false;
             let firstOpen = true;
             let isLoading = false;
+
+            // Drag state
+            let isDragging = false;
+            let dragStartX, dragStartY, startLeft, startTop;
 
             function toggleChat() {
                 if (isOpen) {
@@ -2916,7 +2869,7 @@
                 isMinimized = false;
                 chatWindow.classList.remove('minimized');
                 chatWindow.classList.add('open');
-                chatFab.style.display = 'none'; // Ẩn FAB khi mở cửa sổ
+                chatFab.style.display = 'none';
                 if (firstOpen) {
                     firstOpen = false;
                     showGreeting();
@@ -2940,8 +2893,14 @@
             }
 
             chatFab.addEventListener('click', toggleChat);
-            chatMinimize.addEventListener('click', minimizeChat);
-            chatClose.addEventListener('click', closeChat);
+            chatMinimize.addEventListener('click', (e) => {
+                e.stopPropagation();
+                minimizeChat();
+            });
+            chatClose.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeChat();
+            });
 
             function showGreeting() {
                 addMessage('ai', 'Xin chào! Tôi là Trợ lý AI Di sản Thái Nguyên. Bạn cần tìm hiểu thông tin gì về di sản, lễ hội hay tri thức dân gian?');
@@ -2979,13 +2938,11 @@
                 const text = chatInput.value.trim();
                 if (!text || isLoading) return;
 
-                // Hiển thị tin nhắn user
                 addMessage('user', text);
                 chatInput.value = '';
                 isLoading = true;
                 chatSend.disabled = true;
 
-                // Hiển thị typing indicator
                 showTyping();
 
                 try {
@@ -3026,6 +2983,89 @@
                 }
             });
 
+            // ===== DRAG CHAT WINDOW (desktop only) =====
+            function isDesktop() {
+                return window.innerWidth > 768;
+            }
+
+            function startDrag(e) {
+                if (!isDesktop()) return;
+                // Không kéo khi nhấn vào nút thu nhỏ / đóng
+                if (e.target.closest('.chat-header-btn')) return;
+                // Chỉ kéo khi nhấn chuột trái (button 0)
+                if (e.button !== 0 && e.type === 'mousedown') return;
+
+                e.preventDefault();
+                isDragging = true;
+                chatWindow.classList.add('dragging');
+
+                const rect = chatWindow.getBoundingClientRect();
+                // Chuyển đổi sang left/top nếu chưa có
+                if (chatWindow.style.right && !chatWindow.style.left) {
+                    chatWindow.style.left = rect.left + 'px';
+                    chatWindow.style.top = rect.top + 'px';
+                    chatWindow.style.right = 'auto';
+                    chatWindow.style.bottom = 'auto';
+                }
+
+                dragStartX = e.clientX;
+                dragStartY = e.clientY;
+                startLeft = parseFloat(chatWindow.style.left) || rect.left;
+                startTop = parseFloat(chatWindow.style.top) || rect.top;
+            }
+
+            function drag(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                const dx = e.clientX - dragStartX;
+                const dy = e.clientY - dragStartY;
+                let newLeft = startLeft + dx;
+                let newTop = startTop + dy;
+                const margin = 16;
+                const maxLeft = window.innerWidth - chatWindow.offsetWidth - margin;
+                const maxTop = window.innerHeight - chatWindow.offsetHeight - margin;
+                newLeft = Math.max(margin, Math.min(newLeft, maxLeft));
+                newTop = Math.max(margin, Math.min(newTop, maxTop));
+                chatWindow.style.left = newLeft + 'px';
+                chatWindow.style.top = newTop + 'px';
+            }
+
+            function endDrag() {
+                if (!isDragging) return;
+                isDragging = false;
+                chatWindow.classList.remove('dragging');
+            }
+
+            // Mouse events
+            chatHeader.addEventListener('mousedown', startDrag);
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('mouseup', endDrag);
+
+            // Touch events (for tablets / touch laptops)
+            chatHeader.addEventListener('touchstart', (e) => {
+                if (!isDesktop()) return;
+                if (e.target.closest('.chat-header-btn')) return;
+                const touch = e.touches[0];
+                startDrag({
+                    clientX: touch.clientX,
+                    clientY: touch.clientY,
+                    target: e.target,
+                    button: 0,
+                    type: 'touchstart',
+                    preventDefault: () => e.preventDefault()
+                });
+            }, { passive: false });
+            document.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                const touch = e.touches[0];
+                drag({
+                    clientX: touch.clientX,
+                    clientY: touch.clientY,
+                    preventDefault: () => e.preventDefault()
+                });
+            }, { passive: false });
+            document.addEventListener('touchend', endDrag);
+
             // Ngăn chặn đóng khi click bên trong chat window
             chatWindow.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -3035,6 +3075,19 @@
             document.addEventListener('click', (e) => {
                 if (isOpen && !chatWindow.contains(e.target) && e.target !== chatFab) {
                     closeChat();
+                }
+            });
+
+            // Giới hạn vị trí khi resize
+            window.addEventListener('resize', () => {
+                if (chatWindow.style.left && chatWindow.style.top) {
+                    const margin = 16;
+                    const left = parseFloat(chatWindow.style.left);
+                    const top = parseFloat(chatWindow.style.top);
+                    const maxLeft = window.innerWidth - chatWindow.offsetWidth - margin;
+                    const maxTop = window.innerHeight - chatWindow.offsetHeight - margin;
+                    chatWindow.style.left = Math.max(margin, Math.min(left, maxLeft)) + 'px';
+                    chatWindow.style.top = Math.max(margin, Math.min(top, maxTop)) + 'px';
                 }
             });
 
