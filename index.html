@@ -48,9 +48,9 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Di Sản Thái Nguyên · Âm Vang Di Sản",
-      "alternateName": "Bản đồ Di sản Văn hóa Phi vật thể Thái Nguyên",
+      "alternateName": "Bản đồ Di sản Văn hóa Phi vật thể Thái Nguyên & Bắc Kạn",
       "url": "https://disanthainguyen.pages.dev/",
-      "description": "Nền tảng bản đồ tương tác số hóa và quảng bá di sản văn hóa phi vật thể của các huyện thuộc tỉnh Thái Nguyên, hiển thị chi tiết theo từng xã/phường.",
+      "description": "Nền tảng bản đồ tương tác số hóa và quảng bá di sản văn hóa phi vật thể của các huyện thuộc hai tỉnh Thái Nguyên và Bắc Kạn, hiển thị chi tiết theo từng xã/phường.",
       "inLanguage": "vi",
       "publisher": {
         "@type": "Organization",
@@ -384,7 +384,6 @@
       user-select: none;
     }
 
-    /* ============ ĐÃ CHỈNH: Logo dùng ảnh lg.png ============ */
     #logo {
       width: 38px;
       height: 38px;
@@ -707,7 +706,6 @@
       z-index: 2;
     }
 
-    /* ============ MỚI: sub-header phân nhóm theo huyện ============ */
     #region-menu .grp-sub {
       font-size: 0.6rem;
       font-weight: 600;
@@ -1404,7 +1402,6 @@
       color: var(--tx);
     }
 
-    /* ============ MỚI: style cho modal About nâng cấp ============ */
     #am-box .am-lead {
       font-size: 0.95rem;
       color: var(--tx2);
@@ -1797,6 +1794,294 @@
     .no-img i {
       font-size: 2rem;
       opacity: 0.5;
+    }
+
+    /* ============================================================
+       ============ AUDIO PLAYER — HÀNG MỚI BỔ SUNG ============
+       Nút phát nhạc cho di sản Nghệ thuật trình diễn / Âm nhạc
+       ============================================================ */
+    .heritage-head-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .heritage-head-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    #heritage-modal .heritage-head-info h2 {
+      margin-bottom: 10px;
+    }
+
+    #heritage-modal .heritage-head-info .heritage-type {
+      margin-bottom: 14px;
+    }
+
+    /* Nút phát nhạc */
+    .audio-btn {
+      position: relative;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #1A0F00;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+      box-shadow: 0 6px 18px rgba(184, 134, 11, 0.35);
+      transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+                  box-shadow 0.3s ease,
+                  background 0.3s ease;
+      overflow: visible;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    .audio-btn:hover {
+      transform: scale(1.06);
+      box-shadow: 0 10px 28px rgba(184, 134, 11, 0.55);
+    }
+
+    .audio-btn:active {
+      transform: scale(0.95);
+    }
+
+    .audio-btn:focus-visible {
+      outline: 3px solid rgba(184, 134, 11, 0.5);
+      outline-offset: 3px;
+    }
+
+    .dark .audio-btn {
+      background: linear-gradient(135deg, var(--acc), #00ddaa);
+      color: #121816;
+      box-shadow: 0 0 18px rgba(0, 255, 204, 0.35);
+    }
+
+    .dark .audio-btn:hover {
+      box-shadow: 0 0 28px rgba(0, 255, 204, 0.6);
+    }
+
+    /* Icon */
+    .audio-btn__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: 2;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .audio-btn__icon i {
+      transition: transform 0.25s ease;
+      display: inline-block;
+    }
+
+    /* State: loading (quay tròn) */
+    .audio-btn.loading .audio-btn__icon i {
+      animation: audioSpin 0.9s linear infinite;
+    }
+
+    @keyframes audioSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* State: playing (ripple pulse + glow) */
+    .audio-btn__ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .audio-btn.playing .audio-btn__ring::before,
+    .audio-btn.playing .audio-btn__ring::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      animation: audioPulse 1.7s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+      will-change: transform, opacity;
+    }
+
+    .audio-btn.playing .audio-btn__ring::after {
+      animation-delay: 0.85s;
+    }
+
+    .dark .audio-btn.playing .audio-btn__ring::before,
+    .dark .audio-btn.playing .audio-btn__ring::after {
+      border-color: var(--acc);
+    }
+
+    @keyframes audioPulse {
+      0% {
+        transform: scale(0.92);
+        opacity: 0.9;
+      }
+      70% {
+        transform: scale(1.6);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1.6);
+        opacity: 0;
+      }
+    }
+
+    /* Glow nhấp nháy quanh nút khi playing */
+    .audio-btn.playing {
+      animation: audioGlow 1.5s ease-in-out infinite;
+    }
+
+    @keyframes audioGlow {
+      0%, 100% {
+        box-shadow: 0 6px 18px rgba(184, 134, 11, 0.4),
+                    0 0 0 0 rgba(184, 134, 11, 0.55);
+      }
+      50% {
+        box-shadow: 0 6px 22px rgba(184, 134, 11, 0.7),
+                    0 0 0 12px rgba(184, 134, 11, 0);
+      }
+    }
+
+    .dark .audio-btn.playing {
+      animation: audioGlowDark 1.5s ease-in-out infinite;
+    }
+
+    @keyframes audioGlowDark {
+      0%, 100% {
+        box-shadow: 0 0 18px rgba(0, 255, 204, 0.4),
+                    0 0 0 0 rgba(0, 255, 204, 0.55);
+      }
+      50% {
+        box-shadow: 0 0 28px rgba(0, 255, 204, 0.75),
+                    0 0 0 12px rgba(0, 255, 204, 0);
+      }
+    }
+
+    /* Tooltip: hiển thị bên trái nút để không bị cắt bởi overflow modal */
+    .audio-btn__tooltip {
+      position: absolute;
+      top: 50%;
+      right: calc(100% + 14px);
+      transform: translateY(-50%) translateX(8px);
+      background: var(--glass);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--gold);
+      color: var(--tx);
+      font-family: var(--fn);
+      font-size: 0.72rem;
+      font-weight: 600;
+      white-space: nowrap;
+      padding: 7px 13px;
+      border-radius: 10px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 30;
+      letter-spacing: 0.03em;
+      box-shadow: var(--sh);
+    }
+
+    .audio-btn__tooltip::after {
+      content: '';
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 6px solid transparent;
+      border-left-color: var(--gold);
+    }
+
+    .audio-btn:hover .audio-btn__tooltip,
+    .audio-btn:focus-visible .audio-btn__tooltip {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+
+    .dark .audio-btn__tooltip {
+      border-color: var(--acc);
+      box-shadow: var(--neon);
+    }
+
+    .dark .audio-btn__tooltip::after {
+      border-left-color: var(--acc);
+    }
+
+    /* Toast thông báo nhẹ nhàng */
+    .audio-toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(24px);
+      background: var(--glass);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--block-border);
+      color: var(--tx);
+      padding: 12px 22px;
+      border-radius: 30px;
+      font-family: var(--fn);
+      font-size: 0.86rem;
+      font-weight: 500;
+      box-shadow: var(--sh2);
+      z-index: 7500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+                  transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 90vw;
+      letter-spacing: 0.02em;
+    }
+
+    .audio-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+
+    .audio-toast i {
+      color: var(--gold);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .dark .audio-toast i {
+      color: var(--acc);
+    }
+
+    /* Responsive cho nút audio */
+    @media (max-width: 768px) {
+      .audio-btn {
+        width: 46px;
+        height: 46px;
+        font-size: 1rem;
+      }
+      .audio-btn__tooltip {
+        font-size: 0.66rem;
+        padding: 6px 10px;
+        right: calc(100% + 10px);
+      }
+      .heritage-head-row {
+        gap: 10px;
+      }
     }
 
     /* Lightbox */
@@ -2320,7 +2605,6 @@
         display: none;
       }
 
-      /* ============ ĐÃ CHỈNH: Logo mobile dùng ảnh ============ */
       #logo {
         width: 28px;
         height: 28px;
@@ -2565,7 +2849,6 @@
 <body>
   <a href="#app" class="skip-link">Bỏ qua điều hướng</a>
 
-  <!-- ============ ĐÃ CHỈNH: SEO content mở rộng theo dự án nâng cấp ============ -->
   <section id="seo-content" aria-hidden="true">
     <h2>Di sản văn hóa phi vật thể Thái Nguyên và Bắc Kạn theo từng xã phường</h2>
     <p>Di Sản Thái Nguyên · Âm Vang Di Sản là nền tảng số hóa bản đồ di sản văn hóa phi vật thể tương tác cấp
@@ -2580,6 +2863,7 @@
       <li>Trợ lý AI Di sản — chatbot giải đáp thắc mắc về văn hóa, lịch sử, di sản.</li>
       <li>Bộ lọc đa năng — lọc theo xã/phường, chuyển đổi ngôn ngữ Việt/Anh, chế độ Sáng/Tối.</li>
       <li>Thư viện ảnh đa phương tiện — slider trong modal và lightbox phóng to toàn màn hình.</li>
+      <li>Trình phát âm thanh di sản — nghe giai điệu Then, Soóng Cọ, Múa Khèn, Tắc Xình…</li>
     </ul>
 
     <h3>Di sản tiêu biểu theo xã</h3>
@@ -2609,7 +2893,6 @@
     <nav id="nav" aria-label="Điều hướng chính">
       <div class="nav-block brand-block" id="brand" title="Về trang chủ" role="button" tabindex="0"
         aria-label="Trang chủ Di Sản Thái Nguyên">
-        <!-- ============ ĐÃ CHỈNH: Logo dùng ảnh lg.png thay vì emoji 🌸 ============ -->
         <div id="logo" aria-hidden="true">
           <img src="lg.png" alt="Logo Di Sản Thái Nguyên">
         </div>
@@ -2720,7 +3003,6 @@
       </div>
     </section>
 
-    <!-- ============ ĐÃ CHỈNH: Nội dung Modal "Về Dự Án" được viết lại đầy đủ ============ -->
     <div id="am" role="dialog" aria-modal="true" aria-labelledby="am-title" aria-hidden="true">
       <div id="am-box">
         <button id="am-close" aria-label="Đóng thông tin dự án"><i class="fa-solid fa-xmark"></i></button>
@@ -2742,6 +3024,8 @@
             huyện, hoặc tên di sản; hỗ trợ phím tắt Ctrl+K.</li>
           <li data-icon="🤖"><strong>Trợ lý AI Di sản</strong> — chatbot AI hỗ trợ giải đáp thắc mắc về văn hóa, lịch
             sử, di sản của từng địa phương 24/7.</li>
+          <li data-icon="🎵"><strong>Trình phát âm thanh di sản</strong> — nghe trực tiếp giai điệu Then, Soóng Cọ,
+            Múa Khèn, Tắc Xình… với hiệu ứng sóng âm và tự động dừng khi chuyển di sản khác.</li>
           <li data-icon="⚙️"><strong>Bộ lọc đa năng</strong> — lọc theo xã/phường mới sau sáp nhập, chuyển đổi ngôn
             ngữ Việt/Anh, chế độ giao diện Sáng/Tối (Dark mode) linh hoạt.</li>
           <li data-icon="📸"><strong>Thư viện ảnh đa phương tiện</strong> — slider ảnh trong modal chi tiết và
@@ -2772,6 +3056,9 @@
       </div>
     </div>
 
+    <!-- ============================================================
+         HERITAGE MODAL — ĐÃ TÁI CẤU TRÚC modal-body ĐỂ THÊM NÚT AUDIO
+         ============================================================ -->
     <div id="heritage-modal" role="dialog" aria-modal="true" aria-labelledby="modal-name" aria-hidden="true">
       <div class="modal-content">
         <button class="modal-close" aria-label="Đóng chi tiết di sản"><i class="fa-solid fa-xmark"></i></button>
@@ -2779,8 +3066,19 @@
           <div class="no-img"><i class="fa-solid fa-spinner fa-spin"></i> Đang tải hình ảnh...</div>
         </div>
         <div class="modal-body">
-          <h2 id="modal-name"></h2>
-          <span class="heritage-type" id="modal-type"></span>
+          <div class="heritage-head-row">
+            <div class="heritage-head-info">
+              <h2 id="modal-name"></h2>
+              <span class="heritage-type" id="modal-type"></span>
+            </div>
+            <!-- ============ NÚT AUDIO PLAYER (mới) ============ -->
+            <button id="modal-audio-btn" class="audio-btn" type="button" style="display:none;"
+              aria-label="Nghe giai điệu di sản" title="Nghe giai điệu di sản">
+              <span class="audio-btn__ring" aria-hidden="true"></span>
+              <span class="audio-btn__icon"><i class="fa-solid fa-play" aria-hidden="true"></i></span>
+              <span class="audio-btn__tooltip" role="tooltip">Nghe giai điệu di sản</span>
+            </button>
+          </div>
           <div class="loc-line"><i class="fa-solid fa-location-dot"></i> <span id="modal-loc"></span></div>
           <div class="desc" id="modal-desc"></div>
         </div>
@@ -2794,6 +3092,9 @@
       <button class="lb-next" aria-label="Ảnh tiếp theo">›</button>
       <div class="lb-count" id="lb-count"></div>
     </div>
+
+    <!-- ============ TOAST THÔNG BÁO AUDIO (mới) ============ -->
+    <div class="audio-toast" id="audio-toast" role="status" aria-live="polite"></div>
   </div>
 
   <div class="chat-fab" id="chat-fab" role="button" aria-label="Mở trợ lý AI" title="Trợ Lý Di Sản AI">
@@ -2830,6 +3131,7 @@
        DỮ LIỆU DI SẢN CẤP XÃ / PHƯỜNG
        Cấu trúc: DI_SAN[Huyện][Xã] = [ { n, t, d }, ... ]
        Ảnh của mỗi xã được load từ thư mục: ./<slug-xa>/1.png ... 10.png
+       Audio của mỗi di sản được load từ: ./audio/<slug-disan>.mp3
        ============================================================ */
     const DI_SAN = {
       "Phú Bình": {
@@ -2890,7 +3192,6 @@
           { n: "Hát Lượn Cọi & Múa Sa Sắc", t: "art", d: "Không gian: Thực hành trong các nghi lễ cúng tổ tiên và hội xuân của cộng đồng người Tày, Dao.\n\nĐặc điểm: Sự kết hợp giữa làn điệu Lượn Cọi trữ tình và điệu Múa Sa Sắc rộn rã với chuông đồng." },
           { n: "Nghề trồng và chế biến chè tuyết vùng cao", t: "knw", d: "Tri thức: Đồng bào khai thác và chế biến chè tuyết (chè cổ thụ) theo phương pháp thủ công: hái búp non, diệt men bằng chảo gang và sao khô trên lửa củi.\n\nSản phẩm: Chè có hương thơm dịu, vị ngọt hậu sâu và màu nước vàng xanh." }
         ],
-        // ============ ĐÃ FIX: "Lam Vầy" → "Lam Vỹ" ============
         "Lam Vỹ": [
           { n: "Lễ Cấp sắc của người Dao", t: "knw", d: "Thời gian: Được tổ chức vào mùa đông hoặc đầu xuân, chọn ngày lành theo lịch cổ truyền.\n\nNghi lễ: Các thầy cúng (Sài Páo) thực hiện nghi thức dâng lễ, đọc sắc phong, trao đèn và tranh thờ cho người thụ lễ.\n\nGiá trị: Bảo tồn chữ Nôm Dao, tranh thờ cổ và hệ thống nghi lễ độc đáo." },
           { n: "Hát Páo Dung trong đám cưới người Dao", t: "art", d: "Hình thức: Hát đối đáp giữa nhà trai và nhà gái trong nghi lễ cưới hỏi.\n\nNội dung: Lời dặn dò con cái hiếu thuận, giữ gìn nếp nhà và lời chúc phúc cho đôi vợ chồng trẻ." }
@@ -3287,12 +3588,8 @@
       return false;
     }
 
-    /* ============================================================
-       ĐÃ THÊM: Bảng alias tên xã để khớp GeoJSON ↔ DI_SAN
-       (Giải quyết các trường hợp sai lệch dấu, viết tắt, tên cũ)
-       ============================================================ */
     const XA_ALIASES = {
-      'lam vy': 'Lam Vỹ',      // Lam Vỹ (GeoJSON) ↔ Lam Vầy / Lam Vỹ (cũ)
+      'lam vy': 'Lam Vỹ',
       'lam vay': 'Lam Vỹ',
       'lam vi': 'Lam Vỹ',
       'tan cuong': 'Tân Cương',
@@ -3302,7 +3599,6 @@
       'con minh': 'Côn Minh'
     };
 
-    /* Bảng tra cứu */
     const HUYEN_LIST = Object.keys(DI_SAN);
     const hReg = {};
     const xaIndex = {};
@@ -3321,7 +3617,6 @@
       const key = norm(rawName);
       const huyenKey = norm(rawHuyen);
 
-      // 1) Tra theo alias trước
       if (XA_ALIASES[key]) {
         const canonical = XA_ALIASES[key];
         const ck = norm(canonical);
@@ -3336,7 +3631,6 @@
         }
       }
 
-      // 2) Tra trong huyện đã cho
       let huyen = normHuyenMap[huyenKey] || '';
       if (huyen && DI_SAN[huyen]) {
         const list = hReg[huyen];
@@ -3348,7 +3642,6 @@
         }
       }
 
-      // 3) Tra toàn bộ
       if (xaIndex[key]) return { huyen: xaIndex[key].huyen, xa: xaIndex[key].xa };
       for (let i = 0; i < HUYEN_LIST.length; i++) {
         const h = HUYEN_LIST[i];
@@ -3397,7 +3690,8 @@
         qrCloseBtn = el('qr-close-btn'),
         lightbox = el('lightbox'),
         lbImg = el('lb-img'),
-        lbCount = el('lb-count');
+        lbCount = el('lb-count'),
+        modalAudioBtn = el('modal-audio-btn');
 
       let mp = null,
         gL = null,
@@ -3981,12 +4275,7 @@
         }
       });
 
-      /* ============================================================
-         ĐÃ CHỈNH: MENU KHU VỰC — HIỂN THỊ XÃ/PHƯỜNG (thay vì chỉ Huyện)
-         - Nhóm theo Tỉnh (Thái Nguyên / Bắc Kạn)
-         - Trong mỗi Tỉnh, chia sub-header theo Huyện
-         - Mỗi item là một Xã/Phường — click sẽ zoom & mở đúng di sản
-         ============================================================ */
+      /* ============ MENU KHU VỰC ============ */
       function bldRegMenu() {
         const TN_LIST = ['Phú Bình', 'Định Hóa', 'Võ Nhai', 'Phú Lương', 'Đồng Hỷ', 'Đại Từ', 'TP. Thái Nguyên', 'TP. Sông Công', 'TP. Phổ Yên'];
         const BK_LIST = ['Pác Nặm', 'Ba Bể', 'Ngân Sơn', 'Chợ Đồn', 'Bạch Thông', 'Na Rì', 'Chợ Mới', 'TP. Bắc Kạn'];
@@ -4249,21 +4538,321 @@
         });
       }
 
+      /* ============================================================
+         ============ AUDIO PLAYER — MODULE MỚI BỔ SUNG ============
+         Quản lý Singleton: chỉ 1 file audio phát đồng thời.
+         Đường dẫn: ./audio/<slug>.mp3
+         ============================================================ */
+
+      /**
+       * Bảng ánh xạ tên di sản → slug file audio.
+       * Bổ sung thủ công cho các di sản cần tên file ngắn gọn (theo ví dụ của bạn).
+       * Nếu không có trong bảng, hàm audioSlug() sẽ tự sinh slug.
+       */
+      const AUDIO_MAP = {
+        // ---- Hát Then (UNESCO) ----
+        'Hát Then - Đàn Tính của người Tày (UNESCO)': 'hatthen',
+        'Hát Then - Đàn Tính': 'hatthen',
+        'Hát Then - Đàn Tính tại ATK': 'hatthen',
+        'Hát Then - Đàn Tính (UNESCO)': 'hatthen',
+        'Hát Then - Đàn Tính của người Tày': 'hatthen',
+        'Hát Then trong nghi lễ cầu mùa': 'hatthen',
+        'Hát Then, Lượn Cọi & Hát Mời Trầu': 'hatthen',
+        'Tập quán xã hội Hát Then - Đàn Tính': 'hatthen',
+
+        // ---- Hát Soóng Cọ ----
+        'Hát Soóng Cọ của người Sán Dìu': 'soongco',
+        'Hát Soóng Cọ ban đêm (Chống Soóng)': 'soongco',
+        'Hát Soóng Cọ người Sán Dìu ở Điềm Thụy': 'soongco',
+        'Hát Soóng Cọ và trò chơi tung còn': 'soongco',
+        'Hát Soóng Cọ người Sán Chí (Di sản Quốc gia)': 'soongco',
+        'Hát Soóng Cọ của người Sán Chí': 'soongco',
+        'Hát Soóng Cọ & Tung còn': 'soongco',
+
+        // ---- Múa Khèn H'Mông ----
+        "Nghệ thuật Múa Khèn người H'Mông (Di sản Quốc gia)": 'khen',
+        "Nghệ thuật Múa Khèn người H'Mông": 'khen',
+        "Múa Khèn người H'Mông (Di sản Quốc gia)": 'khen',
+        "Múa Khèn người H'Mông": 'khen',
+
+        // ---- Múa Tắc Xình Sán Chay ----
+        'Nghệ thuật Múa Tắc Xình người Sán Chay (Di sản Quốc gia)': 'tacxinh',
+        'Nghệ thuật Múa Tắc Xình người Sán Chay': 'tacxinh',
+
+        // ---- Hát Lượn Cọi / Sa Sắc ----
+        'Hát Lượn Cọi của người Tày': 'luoncoi',
+        'Hát Lượn Cọi & Múa Sa Sắc': 'luoncoi',
+        'Hát Lượn Cọi': 'luoncoi',
+        'Nghệ thuật Hát Lượn Cối & Múa Sa Sắc': 'luoncoi',
+
+        // ---- Hát Páo Dung ----
+        'Hát Páo Dung của người Dao': 'paodung',
+        'Hát Páo Dung trong đám cưới người Dao': 'paodung',
+
+        // ---- Hát Sấu Nhị / Sloong Hao ----
+        'Hát Sấu Nhị': 'saunhi',
+        'Hát Sấu Nhị trong ngày hội': 'saunhi',
+        'Hát Sấu Nhị trong lễ cưới': 'saunhi',
+        'Hát Sấu Nhị & Múa Tắc Xình': 'saunhi',
+        'Hát Sloong Hao của người Nùng': 'sloonghao',
+        'Hát Sloong Hao': 'sloonghao',
+        'Hát Sloong Hao & Múa Sư Tử': 'sloonghao',
+
+        // ---- Hát Lượn Slượt / Phong Slư / Mời Trầu ----
+        'Hát Lượn Slượt': 'luonsluot',
+        'Hát Lượn Phong Slư': 'phongslu',
+        'Hát Mời Trầu của người Tày': 'moitrau',
+
+        // ---- Nghệ thuật khác ----
+        'Múa rối cạn người Tày': 'roican',
+        'Múa Mãng của người Dao Tiền': 'muamang',
+        'Hát múa Nàng Hai xã Côn Minh (Di sản Quốc gia)': 'nanghai',
+        'Nghệ thuật Múa Bát của người Tày (Di sản Quốc gia)': 'muabat',
+        'Múa Kỳ Lân - Sư Tử của người Tày, Nùng (Di sản Quốc gia)': 'kylan',
+        'Múa Kỳ Lân - Sư Tử': 'kylan',
+        'Hát Văn hầu đồng': 'hatvan'
+      };
+
+      /**
+       * Sinh slug tên file audio từ tên di sản.
+       * Quy trình: bỏ ngoặc đơn → cắt tại " - " / " của người " / " người " / " tại " …
+       *           → bỏ tiền tố "Nghệ thuật" → chuẩn hóa không dấu → giữ a-z0-9.
+       * @param {string} name - Tên di sản
+       * @returns {string} slug dùng làm tên file (không bao gồm .mp3)
+       */
+      function audioSlug(name) {
+        if (!name) return '';
+        if (AUDIO_MAP[name]) return AUDIO_MAP[name];
+
+        let s = String(name);
+        // 1) Bỏ nội dung trong ngoặc đơn
+        s = s.replace(/\([^)]*\)/g, ' ').replace(/\[[^\]]*\]/g, ' ');
+
+        // 2) Cắt tại dấu phân cách hoặc cụm từ chỉ phụ thuộc
+        const cuts = [
+          /\s*[-–—]\s*/,
+          /\s+của\s+người\s+/i,
+          /\s+của\s+/i,
+          /\s+người\s+/i,
+          /\s+tại\s+/i,
+          /\s+trong\s+/i,
+          /\s+&\s+/,
+          /\s+và\s+/i,
+          /\s+xã\s+/i,
+          /\s+phường\s+/i
+        ];
+        for (let i = 0; i < cuts.length; i++) {
+          const parts = s.split(cuts[i]);
+          if (parts[0] && parts[0].trim().length >= 2) {
+            s = parts[0];
+            break;
+          }
+        }
+
+        // 3) Bỏ tiền tố mô tả chung
+        s = s.replace(/^(Nghệ thuật|Nghệ Thuật|Lễ hội|Lễ Hội|Tập quán xã hội)\s+/i, '');
+
+        // 4) Chuẩn hóa không dấu, lowercase, chỉ giữ a-z0-9
+        s = s.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+             .replace(/đ/g, 'd').replace(/Đ/g, 'D')
+             .toLowerCase()
+             .replace(/[^a-z0-9]/g, '');
+
+        return s;
+      }
+
+      /**
+       * Singleton Audio Player — đảm bảo chỉ 1 file âm thanh phát tại một thời điểm.
+       */
+      const AudioPlayer = (function () {
+        let currentAudio = null;   // Audio instance đang phát
+        let currentBtn = null;     // Button đang điều khiển audio đó
+        let toastTimer = null;     // Timer ẩn toast
+        const toastEl = el('audio-toast');
+
+        /** Hiển thị toast glass morphism nhẹ nhàng */
+        function showToast(msg, icon) {
+          if (!toastEl) return;
+          const ic = icon || 'fa-circle-info';
+          toastEl.innerHTML = '<i class="fa-solid ' + ic + '"></i><span>' + esc(msg) + '</span>';
+          toastEl.classList.add('show');
+          if (toastTimer) clearTimeout(toastTimer);
+          toastTimer = setTimeout(function () {
+            toastEl.classList.remove('show');
+          }, 3000);
+        }
+
+        /**
+         * Đặt trạng thái hiển thị cho nút: idle | loading | playing
+         * Cập nhật icon FA, tooltip, aria-label.
+         */
+        function setBtnState(btn, state) {
+          if (!btn) return;
+          btn.classList.remove('idle', 'loading', 'playing');
+          btn.classList.add(state);
+
+          const iconWrap = btn.querySelector('.audio-btn__icon i');
+          const tooltip = btn.querySelector('.audio-btn__tooltip');
+
+          if (state === 'loading') {
+            if (iconWrap) iconWrap.className = 'fa-solid fa-circle-notch';
+            if (tooltip) tooltip.textContent = 'Đang tải...';
+            btn.setAttribute('aria-label', 'Đang tải âm thanh');
+          } else if (state === 'playing') {
+            if (iconWrap) iconWrap.className = 'fa-solid fa-pause';
+            if (tooltip) tooltip.textContent = 'Đang phát...';
+            btn.setAttribute('aria-label', 'Tạm dừng');
+          } else {
+            if (iconWrap) iconWrap.className = 'fa-solid fa-play';
+            if (tooltip) tooltip.textContent = 'Nghe giai điệu di sản';
+            btn.setAttribute('aria-label', 'Nghe giai điệu di sản');
+          }
+        }
+
+        /** Dừng audio hiện tại (nếu có) và reset nút điều khiển */
+        function stop() {
+          if (currentAudio) {
+            try {
+              currentAudio.pause();
+              currentAudio.currentTime = 0;
+              currentAudio.onplaying = null;
+              currentAudio.onended = null;
+              currentAudio.onerror = null;
+              currentAudio.removeAttribute('src');
+              currentAudio.load();
+            } catch (e) { /* noop */ }
+            currentAudio = null;
+          }
+          if (currentBtn) {
+            setBtnState(currentBtn, 'idle');
+            currentBtn = null;
+          }
+        }
+
+        /**
+         * Toggle phát / tạm dừng.
+         * @param {string} url - Đường dẫn file .mp3
+         * @param {HTMLElement} btn - Nút bấm tương ứng
+         */
+        function toggle(url, btn) {
+          if (!url || !btn) return;
+
+          // Bỏ qua click khi đang loading
+          if (btn.classList.contains('loading')) return;
+
+          // 1) Click lại chính nút đang phát → toggle pause/resume
+          if (currentBtn === btn && currentAudio) {
+            if (currentAudio.paused) {
+              setBtnState(btn, 'playing');
+              const p = currentAudio.play();
+              if (p && p.catch) {
+                p.catch(function () { setBtnState(btn, 'idle'); });
+              }
+            } else {
+              currentAudio.pause();
+              setBtnState(btn, 'idle');
+            }
+            return;
+          }
+
+          // 2) Đang phát ở nút khác → dừng trước
+          stop();
+
+          // 3) Tạo Audio mới
+          currentBtn = btn;
+          setBtnState(btn, 'loading');
+
+          const audio = new Audio();
+          audio.preload = 'auto';
+          audio.src = url;
+          currentAudio = audio;
+
+          audio.onplaying = function () {
+            if (currentAudio !== audio) return;
+            setBtnState(btn, 'playing');
+          };
+
+          audio.onended = function () {
+            if (currentAudio !== audio) return;
+            setBtnState(btn, 'idle');
+            try { audio.currentTime = 0; } catch (e) { }
+          };
+
+          audio.onerror = function () {
+            if (currentAudio !== audio) return;
+            stop();
+            showToast('Chưa có bản ghi âm cho di sản này', 'fa-music');
+          };
+
+          // Kích hoạt phát
+          const playPromise = audio.play();
+          if (playPromise && playPromise.catch) {
+            playPromise.catch(function (err) {
+              if (currentAudio !== audio) return;
+              // NotSupportedError / NotAllowedError / AbortError đều có thể do 404, autoplay block, hoặc bị stop
+              // Chỉ hiển thị toast khi thực sự không load được file
+              if (err && (err.name === 'NotSupportedError' || err.name === 'NotAllowedError')) {
+                // NotAllowedError thường do policy nhưng user đã click → thử lại silent; an toàn nhất là báo nhẹ
+                if (err.name === 'NotSupportedError') {
+                  stop();
+                  showToast('Chưa có bản ghi âm cho di sản này', 'fa-music');
+                }
+              }
+            });
+          }
+        }
+
+        return { toggle, stop, setBtnState };
+      })();
+
+      // Bind click cho nút audio trong modal
+      modalAudioBtn.addEventListener('click', function () {
+        if (modalAudioBtn._url) {
+          AudioPlayer.toggle(modalAudioBtn._url, modalAudioBtn);
+        }
+      });
+
       /* ============ MODAL CHI TIẾT DI SẢN ============ */
       function openHeritage(d, huyen, xa) {
         if (!d) return;
+
+        // Dừng audio của di sản trước đó (nếu có)
+        AudioPlayer.stop();
+
         const imgSlider = heritageModal.querySelector('.img-slider');
         el('modal-name').textContent = d.n;
         el('modal-type').textContent = tagLabel(d.t);
         el('modal-loc').textContent = xa + ' · ' + huyen;
         el('modal-desc').textContent = d.d || '';
         buildSlider(imgSlider, slug(xa), d.n, d.n);
+
+        // === Cấu hình nút audio theo loại di sản ===
+        // Chỉ hiện với di sản Nghệ thuật trình diễn / Âm nhạc dân gian ('art')
+        if (d.t === 'art') {
+          const aSlug = audioSlug(d.n);
+          if (aSlug) {
+            modalAudioBtn.style.display = 'inline-flex';
+            modalAudioBtn._url = './audio/' + aSlug + '.mp3';
+            AudioPlayer.setBtnState(modalAudioBtn, 'idle');
+          } else {
+            modalAudioBtn.style.display = 'none';
+            modalAudioBtn._url = null;
+          }
+        } else {
+          modalAudioBtn.style.display = 'none';
+          modalAudioBtn._url = null;
+        }
+
         heritageModal.classList.add('open');
         heritageModal.setAttribute('aria-hidden', 'false');
         heritageModal.querySelector('.modal-content').scrollTop = 0;
       }
 
       function closeHeritage() {
+        // Dừng và reset audio khi đóng modal
+        AudioPlayer.stop();
+        modalAudioBtn._url = null;
+
         heritageModal.classList.remove('open');
         heritageModal.setAttribute('aria-hidden', 'true');
         const imgSlider = heritageModal.querySelector('.img-slider');
@@ -4340,6 +4929,7 @@
       })();
 
       console.log('%c🌸 Di Sản Thái Nguyên · Âm Vang Di Sản — https://disanthainguyen.pages.dev/ ', 'background:#2D6A4F;color:#FFD700;padding:4px 10px;border-radius:6px;font-weight:bold;');
+      console.log('%c🎵 Audio Player đã sẵn sàng. Đặt file .mp3 vào thư mục ./audio/ (ví dụ: hatthen.mp3, soongco.mp3, khen.mp3, tacxinh.mp3).', 'color:#B8860B;font-weight:bold;');
     })();
   </script>
 
