@@ -102,20 +102,95 @@
 
   <style>
     :root {
-      --bg: #F9F8F6;
-      --bg2: #F0EDE8;
-      --tx: #2B1F14;
-      --tx2: #5C4A36;
-      --acc: #2D6A4F;
-      --acc2: #8B5E3C;
-      --gold: #B8860B;
-      --gold2: #D4A853;
-      --red: #9B2D30;
-      --cream: #FFF8EC;
-      --glass: rgba(255, 248, 236, 0.72);
-      --glassB: rgba(255, 248, 236, 0.45);
-      --sh: 0 4px 24px rgba(0, 0, 0, 0.08);
-      --sh2: 0 8px 40px rgba(0, 0, 0, 0.14);
+      /* ================== MÀU NỀN CƠ BẢN (NÂU NHẸ) ================== */
+      --bg: #262019;
+      /* Nâu ấm nhẹ, sáng hơn espresso */
+      --bg2: #322A22;
+      /* Nâu đất nhạt */
+      --bg-overlay: rgba(28, 22, 18, 0.55);
+      /* Overlay nhẹ hơn để ảnh nền hiện rõ hơn */
+      --bg-img: url('light.png');
+
+      /* ================== MÀU CHỮ ================== */
+      --tx: #FFFFFF;
+      --tx2: #D4C9B8;
+      /* Chữ phụ sáng hơn, dịu mắt hơn */
+
+      /* ================== MÀU ĐIỂM NHẤN (ACCENT) ================== */
+      --acc: #D4A853;
+      --acc2: #B8860B;
+
+      /* ================== MÀU THƯƠNG HIỆU / THỂ LOẠI ================== */
+      --gold: #D4A853;
+      --gold2: #E8C87A;
+      --red: #A03A3D;
+      /* Đỏ dịu hơn, bớt gắt */
+      --cream: #2A231C;
+
+      /* ================== LIQUID GLASS — NỀN KÍNH LỎNG (NÂU NHẸ) ==================
+        Giảm opacity nâu xuống, tăng độ trong suốt để kính trông nhẹ và thanh thoát hơn. */
+      --glass: linear-gradient(135deg,
+          rgba(255, 255, 255, 0.12) 0%,
+          rgba(255, 255, 255, 0.04) 45%,
+          rgba(0, 0, 0, 0.08) 100%);
+      --glassB: linear-gradient(135deg,
+          rgba(255, 255, 255, 0.08) 0%,
+          rgba(255, 255, 255, 0.02) 55%,
+          rgba(0, 0, 0, 0.10) 100%);
+      --block-bg: linear-gradient(135deg,
+          rgba(60, 50, 42, 0.55) 0%,
+          rgba(40, 33, 27, 0.65) 100%);
+      --nav-bg: linear-gradient(135deg,
+          rgba(60, 50, 42, 0.58) 0%,
+          rgba(40, 33, 27, 0.68) 100%);
+      --footer-bg: linear-gradient(180deg,
+          rgba(45, 37, 30, 0.55) 0%,
+          rgba(30, 24, 19, 0.75) 100%);
+
+      /* ================== BORDERS & ICON BUTTONS ================== */
+      --nav-border: rgba(255, 255, 255, 0.12);
+      --block-border: rgba(255, 255, 255, 0.10);
+      --search-bg: linear-gradient(135deg,
+          rgba(255, 255, 255, 0.08) 0%,
+          rgba(255, 255, 255, 0.025) 100%);
+      --search-border: rgba(255, 255, 255, 0.14);
+      --icon-btn-bg: linear-gradient(135deg,
+          rgba(255, 255, 255, 0.08) 0%,
+          rgba(255, 255, 255, 0.025) 100%);
+      --icon-btn-hover: linear-gradient(135deg,
+          rgba(212, 168, 83, 0.22) 0%,
+          rgba(212, 168, 83, 0.09) 100%);
+
+      /* ================== SHADOWS — BÓNG ĐỔ MỀM HƠN ==================
+        Giảm độ đậm của bóng đổ để phù hợp với tông nâu nhẹ. */
+      --sh:
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.14),
+        inset 0 -1px 0 0 rgba(0, 0, 0, 0.18),
+        0 4px 22px rgba(0, 0, 0, 0.32);
+      --sh2:
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.18),
+        inset 0 -1px 0 0 rgba(0, 0, 0, 0.24),
+        0 8px 38px rgba(0, 0, 0, 0.45);
+
+      /* ================== HOVER EFFECTS ================== */
+      --card-hover-glow:
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.22),
+        inset 0 -1px 0 0 rgba(0, 0, 0, 0.16),
+        0 12px 38px rgba(212, 168, 83, 0.26);
+      --card-hover-border: rgba(212, 168, 83, 0.55);
+
+      /* ================== BẢN ĐỒ (GEO) ================== */
+      --geo-stroke: #D4A853;
+      --geo-fill: rgba(212, 168, 83, 0.15);
+      --geo-hl-fill: rgba(212, 168, 83, 0.4);
+      --geo-hl-stroke: #E8C87A;
+
+      /* ================== HIỆU ỨNG NỀN (BLOBS) ================== */
+      --pattern-op: 0.03;
+      --blob1: rgba(212, 168, 83, 0.08);
+      --blob2: rgba(45, 106, 79, 0.05);
+
+      /* ================== CÁC BIẾN KHÁC GIỮ NGUYÊN ================== */
       --rad: 18px;
       --rad2: 28px;
       --fn: 'Be Vietnam Pro', sans-serif;
@@ -124,64 +199,108 @@
       --drawer-w: 430px;
       --trans: 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
       --neon: none;
-      --geo-stroke: #2D6A4F;
-      --geo-fill: rgba(45, 106, 79, 0.14);
-      --geo-hl-fill: rgba(184, 134, 11, 0.38);
-      --geo-hl-stroke: #B8860B;
-      --pattern-op: 0.06;
-      --bg-img: url('light.png');
-      --bg-overlay: rgba(249, 248, 246, 0.75);
-      --blob1: rgba(184, 134, 11, 0.07);
-      --blob2: rgba(45, 106, 79, 0.05);
-      --nav-bg: rgba(255, 252, 247, 0.8);
-      --nav-border: rgba(139, 94, 60, 0.12);
-      --search-bg: rgba(139, 94, 60, 0.06);
-      --search-border: rgba(139, 94, 60, 0.18);
-      --icon-btn-bg: rgba(139, 94, 60, 0.05);
-      --icon-btn-hover: rgba(184, 134, 11, 0.15);
-      --footer-bg: rgba(255, 248, 236, 0.85);
-      --block-bg: rgba(255, 250, 242, 0.55);
-      --block-border: rgba(139, 94, 60, 0.1);
-      --card-hover-glow: 0 8px 26px rgba(184, 134, 11, 0.22);
-      --card-hover-border: rgba(184, 134, 11, 0.55);
     }
 
     .dark {
-      --bg: #121816;
-      --bg2: #1A211D;
+      /* ================== MÀU NỀN CƠ BẢN ================== */
+      --bg: #0F1512;
+      --bg2: #17201C;
+      --bg-overlay: rgba(15, 21, 18, 0.70);
+      --bg-img: url('dark.png');
+
+      /* ================== MÀU CHỮ ================== */
       --tx: #E8E1D5;
       --tx2: #B0A899;
+
+      /* ================== MÀU ĐIỂM NHẤN (ACCENT) ================== */
       --acc: #00FFCC;
       --acc2: #FFB347;
+
+      /* ================== MÀU THƯƠNG HIỆU / THỂ LOẠI ================== */
       --gold: #FFD700;
       --gold2: #FFC125;
       --red: #FF6B6B;
       --cream: #1A211D;
-      --glass: rgba(18, 24, 22, 0.78);
-      --glassB: rgba(18, 24, 22, 0.5);
-      --sh: 0 4px 24px rgba(0, 0, 0, 0.4);
-      --sh2: 0 8px 40px rgba(0, 255, 204, 0.1);
-      --neon: 0 0 12px rgba(0, 255, 204, 0.5), 0 0 36px rgba(0, 255, 204, 0.2);
+
+      /* ================== LIQUID GLASS — NỀN KÍNH LỎNG (NEON CYAN) ==================
+        Gradient 3 lớp: highlight trắng ngọc góc trên → trong suốt → tối góc dưới
+        Kết hợp tinh tế với tông xanh ngọc để giữ cảm giác "cyber glass". */
+      --glass: linear-gradient(135deg,
+          rgba(0, 255, 204, 0.10) 0%,
+          rgba(255, 255, 255, 0.05) 30%,
+          rgba(0, 255, 204, 0.02) 60%,
+          rgba(0, 0, 0, 0.15) 100%);
+      --glassB: linear-gradient(135deg,
+          rgba(0, 255, 204, 0.06) 0%,
+          rgba(255, 255, 255, 0.02) 40%,
+          rgba(0, 0, 0, 0.12) 100%);
+      --block-bg: linear-gradient(135deg,
+          rgba(22, 30, 26, 0.72) 0%,
+          rgba(15, 21, 18, 0.82) 100%);
+      --nav-bg: linear-gradient(135deg,
+          rgba(22, 30, 26, 0.75) 0%,
+          rgba(15, 21, 18, 0.85) 100%);
+      --footer-bg: linear-gradient(180deg,
+          rgba(22, 28, 25, 0.75) 0%,
+          rgba(15, 21, 18, 0.92) 100%);
+
+      /* ================== BORDERS & ICON BUTTONS ==================
+        Viền sáng kết hợp tinh tế giữa trắng (specular) và cyan mờ (brand). */
+      --nav-border: rgba(0, 255, 204, 0.15);
+      --block-border: rgba(255, 255, 255, 0.08);
+      --search-bg: linear-gradient(135deg,
+          rgba(0, 255, 204, 0.06) 0%,
+          rgba(255, 255, 255, 0.02) 100%);
+      --search-border: rgba(0, 255, 204, 0.22);
+      --icon-btn-bg: linear-gradient(135deg,
+          rgba(0, 255, 204, 0.07) 0%,
+          rgba(255, 255, 255, 0.02) 100%);
+      --icon-btn-hover: linear-gradient(135deg,
+          rgba(0, 255, 204, 0.22) 0%,
+          rgba(0, 255, 204, 0.08) 100%);
+
+      /* ================== SHADOWS — BÓNG ĐỔ KÍNH LỎNG ==================
+        3 lớp inset/drop tạo khối 3D:
+        - Inset top: highlight trắng ngọc (specular)
+        - Inset bottom: viền tối tạo khối
+        - Drop: bóng cyan phát sáng (neon halo) */
+      --sh:
+        inset 0 1px 0 0 rgba(0, 255, 204, 0.18),
+        inset 0 -1px 0 0 rgba(0, 0, 0, 0.30),
+        inset 0 0 20px 0 rgba(0, 255, 204, 0.04),
+        0 4px 24px rgba(0, 0, 0, 0.45),
+        0 0 20px rgba(0, 255, 204, 0.06);
+      --sh2:
+        inset 0 1px 0 0 rgba(0, 255, 204, 0.24),
+        inset 0 -1px 0 0 rgba(0, 0, 0, 0.35),
+        inset 0 0 30px 0 rgba(0, 255, 204, 0.05),
+        0 8px 40px rgba(0, 0, 0, 0.55),
+        0 0 40px rgba(0, 255, 204, 0.12);
+
+      /* ================== NEON EFFECT (TĂNG CƯỜNG LIQUID) ================== */
+      --neon:
+        inset 0 1px 0 0 rgba(0, 255, 204, 0.25),
+        0 0 14px rgba(0, 255, 204, 0.55),
+        0 0 42px rgba(0, 255, 204, 0.22);
+
+      /* ================== HOVER EFFECTS ================== */
+      --card-hover-glow:
+        inset 0 1px 0 0 rgba(0, 255, 204, 0.28),
+        inset 0 -1px 0 0 rgba(0, 0, 0, 0.20),
+        0 0 28px rgba(0, 255, 204, 0.28),
+        0 12px 40px rgba(0, 0, 0, 0.45);
+      --card-hover-border: rgba(0, 255, 204, 0.65);
+
+      /* ================== BẢN ĐỒ (GEO) ================== */
       --geo-stroke: #00FFCC;
       --geo-fill: rgba(0, 255, 204, 0.08);
       --geo-hl-fill: rgba(255, 215, 0, 0.3);
       --geo-hl-stroke: #FFD700;
+
+      /* ================== HIỆU ỨNG NỀN (BLOBS) ================== */
       --pattern-op: 0.03;
-      --bg-img: url('dark.png');
-      --bg-overlay: rgba(18, 24, 22, 0.72);
-      --blob1: rgba(0, 255, 204, 0.08);
-      --blob2: rgba(255, 215, 0, 0.05);
-      --nav-bg: rgba(22, 28, 25, 0.85);
-      --nav-border: rgba(0, 255, 204, 0.12);
-      --search-bg: rgba(0, 255, 204, 0.05);
-      --search-border: rgba(0, 255, 204, 0.2);
-      --icon-btn-bg: rgba(0, 255, 204, 0.06);
-      --icon-btn-hover: rgba(0, 255, 204, 0.18);
-      --footer-bg: rgba(22, 28, 25, 0.9);
-      --block-bg: rgba(22, 30, 26, 0.5);
-      --block-border: rgba(0, 255, 204, 0.08);
-      --card-hover-glow: 0 0 24px rgba(0, 255, 204, 0.22);
-      --card-hover-border: rgba(0, 255, 204, 0.6);
+      --blob1: rgba(0, 255, 204, 0.10);
+      --blob2: rgba(255, 215, 0, 0.06);
     }
 
     * {
@@ -1839,8 +1958,8 @@
       margin-top: 2px;
       box-shadow: 0 6px 18px rgba(184, 134, 11, 0.35);
       transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
-                  box-shadow 0.3s ease,
-                  background 0.3s ease;
+        box-shadow 0.3s ease,
+        background 0.3s ease;
       overflow: visible;
       -webkit-tap-highlight-color: transparent;
       user-select: none;
@@ -1894,7 +2013,9 @@
     }
 
     @keyframes audioSpin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     /* State: playing (ripple pulse + glow) */
@@ -1931,10 +2052,12 @@
         transform: scale(0.92);
         opacity: 0.9;
       }
+
       70% {
         transform: scale(1.6);
         opacity: 0;
       }
+
       100% {
         transform: scale(1.6);
         opacity: 0;
@@ -1947,13 +2070,16 @@
     }
 
     @keyframes audioGlow {
-      0%, 100% {
+
+      0%,
+      100% {
         box-shadow: 0 6px 18px rgba(184, 134, 11, 0.4),
-                    0 0 0 0 rgba(184, 134, 11, 0.55);
+          0 0 0 0 rgba(184, 134, 11, 0.55);
       }
+
       50% {
         box-shadow: 0 6px 22px rgba(184, 134, 11, 0.7),
-                    0 0 0 12px rgba(184, 134, 11, 0);
+          0 0 0 12px rgba(184, 134, 11, 0);
       }
     }
 
@@ -1962,13 +2088,16 @@
     }
 
     @keyframes audioGlowDark {
-      0%, 100% {
+
+      0%,
+      100% {
         box-shadow: 0 0 18px rgba(0, 255, 204, 0.4),
-                    0 0 0 0 rgba(0, 255, 204, 0.55);
+          0 0 0 0 rgba(0, 255, 204, 0.55);
       }
+
       50% {
         box-shadow: 0 0 28px rgba(0, 255, 204, 0.75),
-                    0 0 0 12px rgba(0, 255, 204, 0);
+          0 0 0 12px rgba(0, 255, 204, 0);
       }
     }
 
@@ -2043,7 +2172,7 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
-                  transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+        transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -2074,11 +2203,13 @@
         height: 46px;
         font-size: 1rem;
       }
+
       .audio-btn__tooltip {
         font-size: 0.66rem;
         padding: 6px 10px;
         right: calc(100% + 10px);
       }
+
       .heritage-head-row {
         gap: 10px;
       }
@@ -4654,9 +4785,9 @@
 
         // 4) Chuẩn hóa không dấu, lowercase, chỉ giữ a-z0-9
         s = s.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-             .replace(/đ/g, 'd').replace(/Đ/g, 'D')
-             .toLowerCase()
-             .replace(/[^a-z0-9]/g, '');
+          .replace(/đ/g, 'd').replace(/Đ/g, 'D')
+          .toLowerCase()
+          .replace(/[^a-z0-9]/g, '');
 
         return s;
       }
