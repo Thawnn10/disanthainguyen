@@ -104,17 +104,13 @@
     :root {
       /* ================== MÀU NỀN CƠ BẢN (NÂU NHẸ) ================== */
       --bg: #262019;
-      /* Nâu ấm nhẹ, sáng hơn espresso */
       --bg2: #322A22;
-      /* Nâu đất nhạt */
       --bg-overlay: rgba(28, 22, 18, 0.55);
-      /* Overlay nhẹ hơn để ảnh nền hiện rõ hơn */
       --bg-img: url('light.png');
 
       /* ================== MÀU CHỮ ================== */
       --tx: #FFFFFF;
       --tx2: #D4C9B8;
-      /* Chữ phụ sáng hơn, dịu mắt hơn */
 
       /* ================== MÀU ĐIỂM NHẤN (ACCENT) ================== */
       --acc: #D4A853;
@@ -124,11 +120,9 @@
       --gold: #D4A853;
       --gold2: #E8C87A;
       --red: #A03A3D;
-      /* Đỏ dịu hơn, bớt gắt */
       --cream: #2A231C;
 
-      /* ================== LIQUID GLASS — NỀN KÍNH LỎNG (NÂU NHẸ) ==================
-        Giảm opacity nâu xuống, tăng độ trong suốt để kính trông nhẹ và thanh thoát hơn. */
+      /* ================== LIQUID GLASS ================== */
       --glass: linear-gradient(135deg,
           rgba(255, 255, 255, 0.12) 0%,
           rgba(255, 255, 255, 0.04) 45%,
@@ -147,8 +141,6 @@
           rgba(45, 37, 30, 0.55) 0%,
           rgba(30, 24, 19, 0.75) 100%);
 
-      /* ================== MỚI: MÀU DRAWER + CARD (SÁNG) ==================
-         Nền nâu đậm đủ opacity để chữ trắng rõ ràng, không bị "trắng đục" khi map lộ qua. */
       --drawer-bg: linear-gradient(160deg,
           rgba(44, 36, 28, 0.94) 0%,
           rgba(30, 24, 19, 0.965) 100%);
@@ -184,7 +176,7 @@
           rgba(212, 168, 83, 0.22) 0%,
           rgba(212, 168, 83, 0.09) 100%);
 
-      /* ================== SHADOWS — BÓNG ĐỔ MỀM HƠN ================== */
+      /* ================== SHADOWS ================== */
       --sh:
         inset 0 1px 0 0 rgba(255, 255, 255, 0.14),
         inset 0 -1px 0 0 rgba(0, 0, 0, 0.18),
@@ -212,7 +204,7 @@
       --blob1: rgba(212, 168, 83, 0.08);
       --blob2: rgba(45, 106, 79, 0.05);
 
-      /* ================== CÁC BIẾN KHÁC GIỮ NGUYÊN ================== */
+      /* ================== CÁC BIẾN KHÁC ================== */
       --rad: 18px;
       --rad2: 28px;
       --fn: 'Be Vietnam Pro', sans-serif;
@@ -224,27 +216,22 @@
     }
 
     .dark {
-      /* ================== MÀU NỀN CƠ BẢN ================== */
       --bg: #0F1512;
       --bg2: #17201C;
       --bg-overlay: rgba(15, 21, 18, 0.70);
       --bg-img: url('dark.png');
 
-      /* ================== MÀU CHỮ ================== */
       --tx: #E8E1D5;
       --tx2: #B0A899;
 
-      /* ================== MÀU ĐIỂM NHẤN (ACCENT) ================== */
       --acc: #00FFCC;
       --acc2: #FFB347;
 
-      /* ================== MÀU THƯƠNG HIỆU / THỂ LOẠI ================== */
       --gold: #FFD700;
       --gold2: #FFC125;
       --red: #FF6B6B;
       --cream: #1A211D;
 
-      /* ================== LIQUID GLASS — NỀN KÍNH LỎNG (NEON CYAN) ================== */
       --glass: linear-gradient(135deg,
           rgba(0, 255, 204, 0.10) 0%,
           rgba(255, 255, 255, 0.05) 30%,
@@ -264,7 +251,6 @@
           rgba(22, 28, 25, 0.75) 0%,
           rgba(15, 21, 18, 0.92) 100%);
 
-      /* ================== MỚI: MÀU DRAWER + CARD (TỐI) ================== */
       --drawer-bg: linear-gradient(160deg,
           rgba(20, 28, 24, 0.95) 0%,
           rgba(10, 15, 13, 0.97) 100%);
@@ -284,7 +270,6 @@
       --card-text2: #9FB0A6;
       --list-empty-color: #9FB0A6;
 
-      /* ================== BORDERS & ICON BUTTONS ================== */
       --nav-border: rgba(0, 255, 204, 0.15);
       --block-border: rgba(255, 255, 255, 0.08);
       --search-bg: linear-gradient(135deg,
@@ -298,7 +283,6 @@
           rgba(0, 255, 204, 0.22) 0%,
           rgba(0, 255, 204, 0.08) 100%);
 
-      /* ================== SHADOWS ================== */
       --sh:
         inset 0 1px 0 0 rgba(0, 255, 204, 0.18),
         inset 0 -1px 0 0 rgba(0, 0, 0, 0.30),
@@ -312,13 +296,11 @@
         0 8px 40px rgba(0, 0, 0, 0.55),
         0 0 40px rgba(0, 255, 204, 0.12);
 
-      /* ================== NEON EFFECT ================== */
       --neon:
         inset 0 1px 0 0 rgba(0, 255, 204, 0.25),
         0 0 14px rgba(0, 255, 204, 0.55),
         0 0 42px rgba(0, 255, 204, 0.22);
 
-      /* ================== HOVER EFFECTS ================== */
       --card-hover-glow:
         inset 0 1px 0 0 rgba(0, 255, 204, 0.28),
         inset 0 -1px 0 0 rgba(0, 0, 0, 0.20),
@@ -326,13 +308,11 @@
         0 12px 40px rgba(0, 0, 0, 0.45);
       --card-hover-border: rgba(0, 255, 204, 0.65);
 
-      /* ================== BẢN ĐỒ (GEO) ================== */
       --geo-stroke: #00FFCC;
       --geo-fill: rgba(0, 255, 204, 0.08);
       --geo-hl-fill: rgba(255, 215, 0, 0.3);
       --geo-hl-stroke: #FFD700;
 
-      /* ================== HIỆU ỨNG NỀN (BLOBS) ================== */
       --pattern-op: 0.03;
       --blob1: rgba(0, 255, 204, 0.10);
       --blob2: rgba(255, 215, 0, 0.06);
@@ -1160,9 +1140,7 @@
     }
 
     /* ============================================================
-       ============ MỚI: DRAWER (DESKTOP) — CHỈ SỬA PHẦN NÀY ============
-       - Nền nâu đậm (sáng) / xanh đen (tối), không còn trắng đục
-       - Animation easeOutQuint mượt hơn, có fade nhẹ
+       ============ DRAWER (DESKTOP) ============
        ============================================================ */
     #dr {
       position: absolute;
@@ -1299,7 +1277,7 @@
     }
 
     /* ============================================================
-       ============ MỚI: BOTTOM SHEET (MOBILE) — CHỈ SỬA PHẦN NÀY ============
+       ============ BOTTOM SHEET (MOBILE) ============
        ============================================================ */
     #bs {
       display: none;
@@ -1403,7 +1381,7 @@
     }
 
     /* ============================================================
-       ============ MỚI: CARDS TRONG DRAWER/SHEET ============
+       ============ CARDS ============
        ============================================================ */
     .ds-card {
       background: var(--card-bg);
@@ -1603,7 +1581,6 @@
       line-height: 1.6;
     }
 
-    /* Bottom nav (mobile) */
     #bottom-nav {
       display: none;
     }
@@ -2822,200 +2799,430 @@
       border-radius: 4px;
     }
 
-    /* ================= RESPONSIVE ================= */
-    @media (max-width:768px) {
+    /* ============================================================
+       ============================================================
+       ============ MOBILE APP-LIKE REDESIGN ====================
+       ============ Chỉ hiển thị trên thiết bị <= 768px =========
+       ============================================================
+       ============================================================ */
+
+    /* Toggle visibility helpers */
+    .mobile-only {
+      display: none !important;
+    }
+
+    @media (max-width: 768px) {
+
+      /* Hide desktop-only elements */
+      .desktop-only,
+      .search-block {
+        display: none !important;
+      }
+
+      .mobile-only {
+        display: flex !important;
+      }
+
+      #sr-dd {
+        display: none !important;
+      }
+
+      /* ==========================================================
+         TOP APP BAR (App-like)
+         ========================================================== */
       #nav {
-        top: 8px;
-        gap: 6px;
-        width: calc(100% - 12px);
+        top: 0;
+        left: 0;
+        right: 0;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        height: 58px;
+        padding: 0 10px;
+        gap: 0;
+        background: var(--nav-bg);
+        backdrop-filter: blur(24px) saturate(180%);
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        border-bottom: 1px solid var(--block-border);
+        border-radius: 0;
+        box-shadow: 0 1px 0 var(--block-border), 0 4px 16px rgba(0, 0, 0, 0.10);
+        z-index: 1001;
       }
 
       .nav-block {
-        height: 46px;
-        padding: 4px 8px;
-        border-radius: 28px;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        height: auto;
+        padding: 0;
+        border-radius: 0;
+        gap: 6px;
       }
 
       .nav-block.brand-block {
-        padding: 4px 10px 4px 6px;
-        gap: 5px;
-      }
-
-      .nav-block.search-block {
-        padding: 4px 6px;
-        min-width: 60px;
+        flex: 1;
+        min-width: 0;
+        padding: 0;
+        align-items: center;
       }
 
       .nav-block.actions-block {
-        padding: 4px 6px;
-        gap: 2px;
+        padding: 0;
+        gap: 4px;
+        flex-shrink: 0;
+      }
+
+      #nav-acts {
+        gap: 4px;
+      }
+
+      #logo {
+        width: 34px;
+        height: 34px;
       }
 
       #brand-txt {
-        font-size: 0.7rem;
+        font-size: 0.92rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
       }
 
       #badge {
         display: none;
       }
 
-      #logo {
-        width: 28px;
-        height: 28px;
-      }
-
-      #sr-wrap {
-        max-width: 110px;
-        min-width: 60px;
-      }
-
-      #sr-inp {
-        font-size: 0.7rem;
-        height: 30px;
-        padding: 0 28px 0 8px;
+      /* Language pill - compact */
+      .pill-grp {
+        height: 32px;
         border-radius: 16px;
-      }
-
-      #sr-ic {
-        right: 8px;
-        font-size: 0.7rem;
-      }
-
-      .ico-btn {
-        width: 28px;
-        height: 28px;
-        font-size: 0.8rem;
+        background: var(--icon-btn-bg);
+        border-color: var(--nav-border);
       }
 
       .pill-btn {
-        padding: 4px 7px;
+        padding: 5px 9px;
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+      }
+
+      /* Icon buttons - app-like circular */
+      .ico-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+        background: var(--icon-btn-bg);
+      }
+
+      .ico-btn:active {
+        transform: scale(0.92);
+      }
+
+      /* ==========================================================
+         HOME SCREEN
+         ========================================================== */
+      #home {
+        padding-top: 58px;
+      }
+
+      #hero {
+        padding: 24px 20px 20px;
+        max-width: 100%;
+        margin: 0;
+      }
+
+      #hero h1 {
+        font-size: clamp(2rem, 9vw, 2.6rem);
+        line-height: 1.15;
+      }
+
+      #hero .sub {
+        font-size: 0.85rem;
+        letter-spacing: 0.16em;
+        margin-bottom: 14px;
+      }
+
+      #hero .slogan {
+        font-size: 1rem;
+        margin-bottom: 26px;
+      }
+
+      #cta-btn {
+        padding: 15px 32px;
+        font-size: 0.95rem;
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+
+      #cta-btn:active {
+        transform: scale(0.97);
+      }
+
+      /* Footer compact */
+      #ft {
+        padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
+        gap: 4px;
+      }
+
+      #ft .ft-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      #ft .ft-divider {
+        display: none;
+      }
+
+      #ft .ft-section,
+      #ft .ft-section a {
+        font-size: 0.64rem;
+      }
+
+      #ft .ft-social a,
+      #qr-donate-btn {
+        width: 26px;
+        height: 26px;
+        font-size: 0.75rem;
+      }
+
+      #ft .ft-copyright {
         font-size: 0.6rem;
       }
 
-      .pill-grp {
-        height: 28px;
-        border-radius: 16px;
+      /* ==========================================================
+         MAP SCREEN
+         ========================================================== */
+      #map-scr {
+        padding-top: 58px;
       }
 
-      #region-btn {
-        padding: 5px 9px;
-        font-size: 0.65rem;
-        height: 28px;
-        border-radius: 16px;
+      #map-cont {
+        border-radius: 0;
       }
 
-      #region-menu {
-        position: fixed;
-        top: 62px;
-        right: 8px;
-        left: 8px;
-        min-width: auto;
-        max-height: 60vh;
-      }
-
-      #dr {
-        display: none !important;
-      }
-
-      /* ===== MỚI: Mobile bottom sheet ===== */
-      #bs {
-        display: flex;
-        bottom: calc(56px + env(safe-area-inset-bottom, 0px));
-        max-height: 75vh;
-      }
-
+      /* Back button - repositioned above bottom nav */
       #back-btn {
-        bottom: calc(66px + env(safe-area-inset-bottom, 0px));
-        left: 10px;
-        font-size: 0.7rem;
-        padding: 8px 14px;
+        bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+        left: 12px;
+        padding: 9px 14px;
+        font-size: 0.72rem;
+        min-height: 38px;
         border-radius: 20px;
-        min-height: 40px;
+        background: var(--glass);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
       }
 
+      #back-btn:active {
+        transform: scale(0.96);
+      }
+
+      /* ==========================================================
+         BOTTOM NAVIGATION - Modern app style
+         ========================================================== */
       #bottom-nav {
         display: flex;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 56px;
-        z-index: 11;
-        background: var(--glass);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        height: 60px;
+        padding: 0 4px;
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        background: var(--nav-bg);
+        backdrop-filter: blur(24px) saturate(180%);
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
         border-top: 1px solid var(--block-border);
-        align-items: center;
-        justify-content: space-around;
-        padding: 0 6px;
-        padding-bottom: env(safe-area-inset-bottom);
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.10);
+        z-index: 1000;
       }
 
       .bn-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 3px;
-        font-size: 0.6rem;
-        color: var(--tx2);
-        background: none;
-        border: none;
-        font-family: var(--fn);
-        cursor: pointer;
-        padding: 8px 10px;
+        padding: 6px 4px;
         border-radius: 12px;
-        transition: all var(--trans);
+        font-size: 0.6rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        gap: 3px;
         flex: 1;
-        min-height: 44px;
-        justify-content: center;
-        -webkit-tap-highlight-color: transparent;
+        position: relative;
+        transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
       }
 
       .bn-item i {
-        font-size: 1.05rem;
+        font-size: 1.15rem;
+        transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
       }
 
       .bn-item:active {
         transform: scale(0.94);
       }
 
-      .bn-item.active {
-        color: var(--gold);
+      .bn-item:active i {
+        transform: scale(0.9);
       }
 
-      .dark .bn-item.active {
+      .bn-item.active {
         color: var(--acc);
       }
 
-      #heritage-modal .img-slider {
-        height: 270px;
-        border-radius: 22px 22px 0 0;
+      .bn-item.active::before {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 18px;
+        height: 3px;
+        border-radius: 2px;
+        background: var(--acc);
+      }
+
+      /* ==========================================================
+         BOTTOM SHEET - Modern
+         ========================================================== */
+      #bs {
+        display: flex;
+        bottom: calc(60px + env(safe-area-inset-bottom, 0px));
+        max-height: 78vh;
+        border-radius: 24px 24px 0 0;
+        transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      #bs-handle {
+        width: 40px;
+        height: 4px;
+        background: rgba(212, 168, 83, 0.45);
+        margin: 10px auto 4px;
+      }
+
+      #bs-head {
+        padding: 6px 16px 12px;
+      }
+
+      #bs-head h4 {
+        font-size: 1.08rem;
+        padding: 0 60px;
+      }
+
+      #bs-head .sub {
+        font-size: 0.7rem;
+      }
+
+      #bs-list {
+        padding: 10px 12px calc(20px + env(safe-area-inset-bottom, 0px));
+        gap: 8px;
+      }
+
+      /* Cards - modern, tappable feel */
+      .ds-card,
+      .xa-card {
+        padding: 12px 14px;
+        border-radius: 14px;
+        gap: 12px;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+      }
+
+      .ds-card:active,
+      .xa-card:active {
+        transform: scale(0.98);
+        background: var(--card-bg-hover);
+      }
+
+      .ds-tag,
+      .xa-card .xa-ic {
+        width: 38px;
+        height: 38px;
+        font-size: 1.05rem;
+      }
+
+      .ds-info .ds-name {
+        font-size: 0.9rem;
+      }
+
+      .ds-info .ds-meta {
+        font-size: 0.68rem;
+      }
+
+      .xa-card .xa-name {
+        font-size: 0.92rem;
+      }
+
+      .xa-card .xa-meta {
+        font-size: 0.7rem;
+      }
+
+      /* ==========================================================
+         HERITAGE MODAL - Full screen page (app-like)
+         ========================================================== */
+      #heritage-modal {
+        align-items: flex-end;
+        padding: 0;
       }
 
       #heritage-modal .modal-content {
-        border-radius: 22px;
-        max-width: 96%;
-        width: 96%;
-        max-height: 92vh;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 0;
+        border: none;
+        transform: translateY(100%);
+        transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+
+      #heritage-modal.open .modal-content {
+        transform: translateY(0);
+      }
+
+      #heritage-modal .modal-close {
+        top: calc(14px + env(safe-area-inset-top, 0px));
+        right: 14px;
+        width: 38px;
+        height: 38px;
+        font-size: 1.15rem;
+        background: rgba(0, 0, 0, 0.55);
+      }
+
+      #heritage-modal .img-slider {
+        height: 46vh;
+        min-height: 240px;
+        max-height: 420px;
+        border-radius: 0;
       }
 
       #heritage-modal .modal-body {
-        padding: 22px 20px 30px;
+        padding: 22px 20px calc(40px + env(safe-area-inset-bottom, 0px));
       }
 
       #heritage-modal .modal-body h2 {
-        font-size: 1.45rem;
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+        line-height: 1.25;
+      }
+
+      #heritage-modal .modal-body .heritage-type {
+        font-size: 0.78rem;
+        padding: 5px 14px;
+        margin-bottom: 14px;
+      }
+
+      #heritage-modal .modal-body .loc-line {
+        font-size: 0.75rem;
+        margin-bottom: 14px;
       }
 
       #heritage-modal .modal-body .desc {
-        font-size: 0.94rem;
-        line-height: 1.7;
+        font-size: 0.98rem;
+        line-height: 1.75;
       }
 
       #heritage-modal .slider-arrow {
-        width: 36px;
-        height: 36px;
-        font-size: 1.5rem;
+        width: 38px;
+        height: 38px;
+        font-size: 1.6rem;
       }
 
       #heritage-modal .slider-arrow.prev {
@@ -3026,82 +3233,579 @@
         right: 8px;
       }
 
-      #lightbox .lb-prev,
-      #lightbox .lb-next {
-        width: 42px;
-        height: 42px;
-        font-size: 1.7rem;
+      #heritage-modal .slider-nav {
+        bottom: 12px;
+        padding: 6px 10px;
       }
 
-      #lightbox .lb-prev {
-        left: 8px;
-      }
-
-      #lightbox .lb-next {
-        right: 8px;
-      }
-
-      #ft .ft-content {
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      #ft .ft-divider {
-        display: none;
-      }
-
-      #ft {
-        padding: 8px 12px;
-        font-size: 0.65rem;
-        gap: 4px;
-      }
-
-      #ft .ft-section,
-      #ft .ft-section a {
-        font-size: 0.65rem;
-      }
-
-      #ft .ft-social a,
-      #qr-donate-btn {
-        width: 24px;
-        height: 24px;
+      #heritage-modal .img-counter {
+        top: 12px;
+        left: 12px;
         font-size: 0.7rem;
+        padding: 4px 10px;
       }
 
-      #ft .ft-copyright {
-        font-size: 0.6rem;
+      /* Audio button - compact */
+      .heritage-head-row {
+        gap: 12px;
       }
 
-      /* ===== MỚI: Card mobile compact hơn ===== */
-      #bs-list {
-        padding: 10px 12px calc(20px + env(safe-area-inset-bottom));
-        gap: 8px;
+      .audio-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.05rem;
       }
 
-      .ds-card,
-      .xa-card {
-        padding: 11px 12px;
-        border-radius: 12px;
-        gap: 10px;
+      .audio-btn__tooltip {
+        display: none !important;
       }
 
-      .ds-info {
+      /* ==========================================================
+         MODALS (About, QR)
+         ========================================================== */
+      #am-box,
+      #qr-modal .qr-box {
+        width: 94%;
+        max-height: 88vh;
+        border-radius: 22px;
+        padding: 24px 20px;
+      }
+
+      #am-box h2 {
+        font-size: 1.2rem;
+      }
+
+      #am-box .am-lead {
+        font-size: 0.88rem;
+      }
+
+      #am-box .am-sec-title {
+        font-size: 0.98rem;
+      }
+
+      #am-box ul.am-features li {
         font-size: 0.82rem;
+        padding-left: 30px;
       }
 
-      .ds-tag,
-      .xa-card .xa-ic {
-        width: 32px;
-        height: 32px;
-        font-size: 0.95rem;
+      #am-box .am-highlight {
+        font-size: 0.82rem;
+        padding: 10px 14px;
       }
 
-      .ds-card::after {
-        border-radius: 12px;
+      /* ==========================================================
+         CHAT FAB - Draggable via long-press
+         ========================================================== */
+      .chat-fab {
+        width: 58px;
+        height: 58px;
+        font-size: 1.55rem;
+        bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+        right: 16px;
+        touch-action: none;
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        transition: transform 0.2s ease, box-shadow 0.3s ease;
+      }
+
+      .chat-fab.dragging {
+        transform: scale(1.12);
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45), 0 0 24px rgba(212, 168, 83, 0.5);
+        transition: none;
+        cursor: grabbing;
+      }
+
+      /* ==========================================================
+         CHAT WINDOW - Full screen on mobile
+         ========================================================== */
+      .chat-window {
+        bottom: 0;
+        right: 0;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 0;
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+
+      .chat-header {
+        padding: calc(14px) 18px;
+      }
+
+      .chat-footer {
+        padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
       }
     }
 
-    @media (min-width:769px) {
+    @media (max-width: 480px) {
+      #bs {
+        max-height: 82vh;
+      }
+
+      #heritage-modal .img-slider {
+        height: 40vh;
+      }
+    }
+
+    /* ============================================================
+       MOBILE SEARCH OVERLAY (Full-screen)
+       ============================================================ */
+    #mobile-search-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 5000;
+      flex-direction: column;
+      background: var(--bg);
+      display: none;
+    }
+
+    #mobile-search-overlay.open {
+      display: flex;
+      animation: mFadeIn 0.25s ease;
+    }
+
+    @keyframes mFadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes mSlideIn {
+      from {
+        transform: translateX(100%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    .m-search-bar {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: calc(10px + env(safe-area-inset-top, 0px)) 12px 12px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--block-border);
+      flex-shrink: 0;
+    }
+
+    .m-search-back {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: var(--icon-btn-bg);
+      color: var(--tx);
+      font-size: 1rem;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .m-search-back:active {
+      transform: scale(0.92);
+    }
+
+    #m-search-inp {
+      flex: 1;
+      height: 42px;
+      padding: 0 42px 0 16px;
+      border-radius: 24px;
+      border: 1.5px solid var(--search-border);
+      background: var(--search-bg);
+      color: var(--tx);
+      font-family: var(--fn);
+      font-size: 0.92rem;
+      outline: none;
+      min-width: 0;
+    }
+
+    #m-search-inp::placeholder {
+      color: var(--tx2);
+      opacity: 0.7;
+    }
+
+    #m-search-inp:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+    }
+
+    .dark #m-search-inp:focus {
+      border-color: var(--acc);
+      box-shadow: var(--neon);
+    }
+
+    .m-search-clear {
+      position: absolute;
+      right: 54px;
+      top: 50%;
+      transform: translateY(-50%) translateY(6px);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      color: var(--tx2);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .m-search-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px 0 calc(20px + env(safe-area-inset-bottom, 0px));
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .m-result {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .m-result:active {
+      background: rgba(212, 168, 83, 0.12);
+    }
+
+    .m-result-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      background: linear-gradient(135deg, rgba(45, 106, 79, 0.25), rgba(184, 134, 11, 0.25));
+      flex-shrink: 0;
+    }
+
+    .m-result-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .m-result-name {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--tx);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .m-result-meta {
+      font-size: 0.7rem;
+      color: var(--tx2);
+      margin-top: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .m-result-go {
+      color: var(--tx2);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .m-empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--tx2);
+      font-size: 0.88rem;
+    }
+
+    .m-empty i {
+      font-size: 2.2rem;
+      opacity: 0.5;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    /* ============================================================
+       MOBILE MENU DRAWER (Right-side)
+       ============================================================ */
+    #mobile-menu-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 5000;
+      display: none;
+    }
+
+    #mobile-menu-drawer.open {
+      display: block;
+    }
+
+    .m-drawer-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      animation: mFadeIn 0.25s ease;
+    }
+
+    .m-drawer-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(85vw, 360px);
+      background: var(--drawer-bg);
+      backdrop-filter: blur(24px) saturate(140%);
+      -webkit-backdrop-filter: blur(24px) saturate(140%);
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      animation: mSlideIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    .m-drawer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--drawer-divider);
+      flex-shrink: 0;
+    }
+
+    .m-drawer-head h3 {
+      font-family: var(--fs);
+      font-size: 1.15rem;
+      color: var(--card-text);
+      margin: 0;
+    }
+
+    .m-drawer-close {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(212, 168, 83, 0.14);
+      color: var(--card-text);
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .m-drawer-close:active {
+      transform: scale(0.92);
+      background: rgba(212, 168, 83, 0.28);
+    }
+
+    .m-drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px 0;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .m-menu-section {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--drawer-divider);
+    }
+
+    .m-menu-section:last-child {
+      border-bottom: none;
+    }
+
+    .m-menu-label {
+      padding: 8px 18px 6px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--acc);
+      opacity: 0.95;
+    }
+
+    .m-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 18px;
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--card-text);
+      font-family: var(--fn);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .m-menu-item:active {
+      background: rgba(212, 168, 83, 0.14);
+    }
+
+    .m-menu-item i {
+      width: 20px;
+      font-size: 0.95rem;
+      color: var(--acc);
+      text-align: center;
+    }
+
+    .m-menu-item .m-menu-arrow {
+      margin-left: auto;
+      color: var(--card-text2);
+      font-size: 0.75rem;
+    }
+
+    /* Language switcher in menu */
+    .m-lang-switch {
+      display: flex;
+      gap: 8px;
+      padding: 4px 18px 12px;
+    }
+
+    .m-lang-btn {
+      flex: 1;
+      padding: 9px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--drawer-border);
+      background: rgba(212, 168, 83, 0.08);
+      color: var(--card-text);
+      font-family: var(--fn);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .m-lang-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #1A0F00;
+      box-shadow: 0 4px 12px rgba(184, 134, 11, 0.35);
+    }
+
+    .dark .m-lang-btn.active {
+      background: var(--acc);
+      border-color: var(--acc);
+      color: #121816;
+      box-shadow: var(--neon);
+    }
+
+    /* Region accordion inside mobile menu */
+    .m-region-group {
+      margin: 4px 0;
+    }
+
+    .m-region-province {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--card-text);
+      cursor: pointer;
+      background: rgba(212, 168, 83, 0.08);
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: var(--fn);
+      transition: background 0.2s ease;
+    }
+
+    .m-region-province:active {
+      background: rgba(212, 168, 83, 0.18);
+    }
+
+    .m-region-province i {
+      transition: transform 0.3s ease;
+      font-size: 0.75rem;
+      color: var(--acc);
+    }
+
+    .m-region-group.open .m-region-province i {
+      transform: rotate(180deg);
+    }
+
+    .m-region-districts {
+      display: none;
+      padding: 4px 0 8px;
+    }
+
+    .m-region-group.open .m-region-districts {
+      display: block;
+    }
+
+    .m-region-district {
+      padding: 8px 18px 4px 30px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--acc);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      opacity: 0.9;
+    }
+
+    .m-region-commune {
+      padding: 9px 18px 9px 42px;
+      font-size: 0.86rem;
+      color: var(--card-text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .m-region-commune:active {
+      background: rgba(212, 168, 83, 0.16);
+    }
+
+    .m-region-commune i {
+      font-size: 0.55rem;
+      color: var(--acc);
+      opacity: 0.8;
+    }
+
+    /* ============================================================
+       Non-mobile - hide overlays
+       ============================================================ */
+    @media (min-width: 769px) {
+
+      #mobile-search-overlay,
+      #mobile-menu-drawer {
+        display: none !important;
+      }
+    }
+
+    /* ================= RESPONSIVE (Legacy overrides for very old blocks) ================= */
+    @media (min-width: 769px) {
       #bs {
         display: none !important;
       }
@@ -3111,29 +3815,24 @@
       }
     }
 
-    @media (max-width:480px) {
+    @media (max-width: 480px) {
       .chat-window {
         bottom: 0;
         right: 0;
         left: 0;
         width: 100%;
-        height: 92vh;
-        max-height: 92vh;
-        border-radius: 20px 20px 0 0;
+        height: 100%;
+        max-height: 100%;
+        border-radius: 0;
         max-width: 100%;
       }
 
       .chat-fab {
-        bottom: 16px;
+        bottom: calc(76px + env(safe-area-inset-bottom, 0px));
         right: 16px;
-        width: 54px;
-        height: 54px;
+        width: 56px;
+        height: 56px;
         font-size: 1.5rem;
-      }
-
-      /* ===== MỚI: sheet cao hơn trên màn nhỏ ===== */
-      #bs {
-        max-height: 78vh;
       }
     }
   </style>
@@ -3208,16 +3907,22 @@
             <button class="pill-btn active" data-lang="vi" aria-label="Tiếng Việt" aria-pressed="true">VN</button>
             <button class="pill-btn" data-lang="en" aria-label="English" aria-pressed="false">EN</button>
           </div>
-          <button class="ico-btn" id="theme-btn" title="Đổi chế độ sáng/tối" aria-label="Đổi chế độ sáng tối"><i
-              class="fa-solid fa-sun"></i></button>
-          <div id="region-dd">
+          <!-- Desktop-only actions -->
+          <button class="ico-btn desktop-only" id="theme-btn" title="Đổi chế độ sáng/tối"
+            aria-label="Đổi chế độ sáng tối"><i class="fa-solid fa-sun"></i></button>
+          <div id="region-dd" class="desktop-only">
             <button id="region-btn" aria-haspopup="true" aria-expanded="false" aria-label="Chọn khu vực"><i
                 class="fa-solid fa-location-dot"></i> <span class="region-label">Khu vực</span> <i
                 class="fa-solid fa-chevron-down chev"></i></button>
             <div id="region-menu" role="menu" aria-label="Danh sách khu vực"></div>
           </div>
-          <button class="ico-btn" id="about-btn" title="Thông tin dự án" aria-label="Thông tin dự án"><i
+          <button class="ico-btn desktop-only" id="about-btn" title="Thông tin dự án" aria-label="Thông tin dự án"><i
               class="fa-solid fa-circle-info"></i></button>
+          <!-- Mobile-only actions -->
+          <button class="ico-btn mobile-only" id="mobile-search-btn" title="Tìm kiếm" aria-label="Mở tìm kiếm"><i
+              class="fa-solid fa-magnifying-glass"></i></button>
+          <button class="ico-btn mobile-only" id="mobile-menu-btn" title="Menu" aria-label="Mở menu"><i
+              class="fa-solid fa-bars"></i></button>
         </div>
       </div>
     </nav>
@@ -3383,9 +4088,41 @@
     </div>
 
     <div class="audio-toast" id="audio-toast" role="status" aria-live="polite"></div>
+
+    <!-- ============================================================
+         MOBILE SEARCH OVERLAY (full-screen)
+         ============================================================ -->
+    <div id="mobile-search-overlay" aria-hidden="true" role="dialog" aria-label="Tìm kiếm">
+      <div class="m-search-bar">
+        <button class="m-search-back" id="m-search-back" aria-label="Đóng tìm kiếm"><i
+            class="fa-solid fa-arrow-left"></i></button>
+        <input type="text" id="m-search-inp" placeholder="Tìm xã, huyện, di sản..." autocomplete="off"
+          aria-label="Tìm kiếm">
+        <button class="m-search-clear" id="m-search-clear" aria-label="Xóa"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="m-search-body" id="m-search-body"></div>
+    </div>
+
+    <!-- ============================================================
+         MOBILE MENU DRAWER (right side)
+         ============================================================ -->
+    <div id="mobile-menu-drawer" aria-hidden="true" role="dialog" aria-label="Menu">
+      <div class="m-drawer-backdrop" id="m-drawer-backdrop"></div>
+      <div class="m-drawer-panel">
+        <div class="m-drawer-head">
+          <h3>Menu</h3>
+          <button class="m-drawer-close" id="m-drawer-close" aria-label="Đóng menu"><i
+              class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="m-drawer-body" id="m-drawer-body">
+          <!-- Built dynamically -->
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="chat-fab" id="chat-fab" role="button" aria-label="Mở trợ lý AI" title="Trợ Lý Di Sản AI">
+  <div class="chat-fab" id="chat-fab" role="button" aria-label="Mở trợ lý AI"
+    title="Trợ Lý Di Sản AI (nhấn giữ để di chuyển)">
     <i class="fa-solid fa-robot"></i>
   </div>
   <div class="chat-window" id="chat-window" role="dialog" aria-modal="false" aria-label="Cửa sổ trợ lý AI">
@@ -3417,9 +4154,6 @@
   <script>
     /* ============================================================
        DỮ LIỆU DI SẢN CẤP XÃ / PHƯỜNG
-       Cấu trúc: DI_SAN[Huyện][Xã] = [ { n, t, d }, ... ]
-       Ảnh của mỗi xã được load từ thư mục: ./<slug-xa>/1.png ... 10.png
-       Audio của mỗi di sản được load từ: ./audio/<slug-disan>.mp3
        ============================================================ */
     const DI_SAN = {
       "Phú Bình": {
@@ -4119,6 +4853,9 @@
           });
         }
         try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) { }
+        // Update mobile menu theme item label
+        const mmt = document.getElementById('m-theme-icon');
+        if (mmt) mmt.className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
       }
       themeBtn.addEventListener('click', function () { applyTheme(!isDark); });
       try {
@@ -4139,6 +4876,10 @@
           const on = b.dataset.lang === lg;
           b.classList.toggle('active', on);
           b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        // Update mobile menu language buttons
+        $$('.m-lang-btn').forEach(function (b) {
+          b.classList.toggle('active', b.dataset.lang === lg);
         });
         if (cHuyen && cXa) openCommuneView(cHuyen, cXa, false);
         else if (cHuyen) openDistrictView(cHuyen, false);
@@ -4563,7 +5304,7 @@
         }
       });
 
-      /* ============ MENU KHU VỰC ============ */
+      /* ============ MENU KHU VỰC (DESKTOP) ============ */
       function bldRegMenu() {
         const TN_LIST = ['Phú Bình', 'Định Hóa', 'Võ Nhai', 'Phú Lương', 'Đồng Hỷ', 'Đại Từ', 'TP. Thái Nguyên', 'TP. Sông Công', 'TP. Phổ Yên'];
         const BK_LIST = ['Pác Nặm', 'Ba Bể', 'Ngân Sơn', 'Chợ Đồn', 'Bạch Thông', 'Na Rì', 'Chợ Mới', 'TP. Bắc Kạn'];
@@ -4613,7 +5354,10 @@
         if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
           e.preventDefault();
           if (!ms.classList.contains('active')) showMap();
-          setTimeout(function () { srInp.focus(); }, 120);
+          setTimeout(function () {
+            if (isMobile()) openMobileSearch();
+            else srInp.focus();
+          }, 120);
         }
       });
 
@@ -4650,8 +5394,8 @@
 
       /* ============ BOTTOM NAV (MOBILE) ============ */
       el('bn-home').addEventListener('click', showHome);
-      el('bn-region').addEventListener('click', function () { toggleRegionMenu(true); });
-      el('bn-search').addEventListener('click', function () { srInp.focus(); });
+      el('bn-region').addEventListener('click', function () { openMobileMenu('region'); });
+      el('bn-search').addEventListener('click', function () { openMobileSearch(); });
       el('bn-theme').addEventListener('click', function () { applyTheme(!isDark); });
 
       /* ============ MODAL GIỚI THIỆU & QR ============ */
@@ -4827,11 +5571,8 @@
       }
 
       /* ============================================================
-         ============ AUDIO PLAYER — MODULE MỚI BỔ SUNG ============
-         Quản lý Singleton: chỉ 1 file audio phát đồng thời.
-         Đường dẫn: ./audio/<slug>.mp3
+         ============ AUDIO PLAYER ============
          ============================================================ */
-
       const AUDIO_MAP = {
         'Hát Then - Đàn Tính của người Tày (UNESCO)': 'hatthen',
         'Hát Then - Đàn Tính': 'hatthen',
@@ -5091,6 +5832,237 @@
         if (e.target === heritageModal) closeHeritage();
       });
 
+      /* ============================================================
+         ============ MOBILE SEARCH OVERLAY ============
+         ============================================================ */
+      const mSearchOverlay = el('mobile-search-overlay');
+      const mSearchInp = el('m-search-inp');
+      const mSearchBody = el('m-search-body');
+      const mSearchBack = el('m-search-back');
+      const mSearchClear = el('m-search-clear');
+      const mobileSearchBtn = el('mobile-search-btn');
+
+      function openMobileSearch() {
+        if (!mSearchOverlay) return;
+        mSearchOverlay.classList.add('open');
+        mSearchOverlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        setTimeout(function () { try { mSearchInp.focus(); } catch (e) { } }, 100);
+        renderMobileSearch('');
+      }
+
+      function closeMobileSearch() {
+        if (!mSearchOverlay) return;
+        mSearchOverlay.classList.remove('open');
+        mSearchOverlay.setAttribute('aria-hidden', 'true');
+        mSearchInp.value = '';
+        try { mSearchInp.blur(); } catch (e) { }
+        document.body.style.overflow = '';
+      }
+
+      function renderMobileSearch(q) {
+        if (!mSearchBody) return;
+        const ql = norm(q);
+        let results;
+        if (!ql) {
+          // Default: show all districts and TP
+          results = srIdx.filter(function (it) { return it.type === 'huyen'; }).slice(0, 40);
+        } else {
+          results = srIdx.filter(function (it) { return norm(it.n).indexOf(ql) !== -1; }).slice(0, 40);
+        }
+
+        if (!results.length) {
+          mSearchBody.innerHTML = '<div class="m-empty"><i class="fa-solid fa-magnifying-glass"></i><p>' + esc(TXT[lg].noResult) + '</p></div>';
+          return;
+        }
+
+        const html = results.map(function (r, i) {
+          const meta = typeLabel(r.type) + (r.huyen && r.type !== 'huyen' ? ' · ' + r.huyen : '');
+          return '<div class="m-result" data-idx="' + i + '" role="button" tabindex="0" aria-label="' + esc(r.n) + '">' +
+            '<div class="m-result-icon">' + r.ic + '</div>' +
+            '<div class="m-result-info">' +
+            '<div class="m-result-name">' + esc(r.n) + '</div>' +
+            '<div class="m-result-meta">' + esc(meta) + '</div>' +
+            '</div>' +
+            '<i class="fa-solid fa-chevron-right m-result-go"></i>' +
+            '</div>';
+        }).join('');
+
+        mSearchBody.innerHTML = html;
+        $$('.m-result', mSearchBody).forEach(function (node) {
+          function fire() {
+            const r = results[parseInt(node.dataset.idx, 10)];
+            if (!r) return;
+            closeMobileSearch();
+            handleSearchPick(r);
+          }
+          node.addEventListener('click', fire);
+          node.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fire(); }
+          });
+        });
+      }
+
+      if (mobileSearchBtn) mobileSearchBtn.addEventListener('click', openMobileSearch);
+      if (mSearchBack) mSearchBack.addEventListener('click', closeMobileSearch);
+      if (mSearchClear) mSearchClear.addEventListener('click', function () {
+        mSearchInp.value = '';
+        renderMobileSearch('');
+        try { mSearchInp.focus(); } catch (e) { }
+      });
+      if (mSearchInp) mSearchInp.addEventListener('input', function () { renderMobileSearch(mSearchInp.value); });
+
+      /* ============================================================
+         ============ MOBILE MENU DRAWER ============
+         ============================================================ */
+      const mobileMenuDrawer = el('mobile-menu-drawer');
+      const mobileMenuBtn = el('mobile-menu-btn');
+      const mobileMenuClose = el('m-drawer-close');
+      const mobileMenuBackdrop = el('m-drawer-backdrop');
+      const mobileMenuBody = el('m-drawer-body');
+
+      function openMobileMenu(scrollTo) {
+        if (!mobileMenuDrawer) return;
+        mobileMenuDrawer.classList.add('open');
+        mobileMenuDrawer.setAttribute('aria-hidden', 'false');
+        if (scrollTo === 'region') {
+          setTimeout(function () {
+            const regSection = mobileMenuBody.querySelector('.m-menu-section[data-region]');
+            if (regSection) regSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 300);
+        }
+      }
+
+      function closeMobileMenu() {
+        if (!mobileMenuDrawer) return;
+        mobileMenuDrawer.classList.remove('open');
+        mobileMenuDrawer.setAttribute('aria-hidden', 'true');
+      }
+
+      if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', function () { openMobileMenu(); });
+      if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+      if (mobileMenuBackdrop) mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+
+      function buildMobileMenuBody() {
+        if (!mobileMenuBody) return;
+
+        const TN_LIST = ['Phú Bình', 'Định Hóa', 'Võ Nhai', 'Phú Lương', 'Đồng Hỷ', 'Đại Từ', 'TP. Thái Nguyên', 'TP. Sông Công', 'TP. Phổ Yên'];
+        const BK_LIST = ['Pác Nặm', 'Ba Bể', 'Ngân Sơn', 'Chợ Đồn', 'Bạch Thông', 'Na Rì', 'Chợ Mới', 'TP. Bắc Kạn'];
+
+        function buildProvinceGroup(label, huyenList, key) {
+          let html = '<div class="m-region-group" data-prov="' + key + '">';
+          html += '<button class="m-region-province" type="button"><span>' + esc(label) + '</span><i class="fa-solid fa-chevron-down"></i></button>';
+          html += '<div class="m-region-districts">';
+          huyenList.forEach(function (h) {
+            if (!DI_SAN[h]) return;
+            html += '<div class="m-region-district">' + esc(h) + '</div>';
+            hReg[h].forEach(function (xa) {
+              const n = (DI_SAN[h][xa] || []).length;
+              html += '<div class="m-region-commune" data-h="' + esc(h) + '" data-x="' + esc(xa) + '" role="button" tabindex="0" aria-label="' + esc(xa) + '">' +
+                '<i class="fa-solid fa-circle"></i>' +
+                '<span>' + esc(xa) + '</span>' +
+                '<span style="margin-left:auto;font-size:0.7rem;opacity:.65">' + n + ' di sản</span>' +
+                '</div>';
+            });
+          });
+          html += '</div></div>';
+          return html;
+        }
+
+        let html = '';
+
+        // Appearance
+        html += '<div class="m-menu-section">';
+        html += '<div class="m-menu-label">Hiển thị</div>';
+        html += '<button class="m-menu-item" id="m-theme-item" type="button">';
+        html += '<i class="fa-solid ' + (isDark ? 'fa-moon' : 'fa-sun') + '" id="m-theme-icon"></i>';
+        html += '<span>Chế độ ' + (isDark ? 'Tối' : 'Sáng') + '</span>';
+        html += '<i class="fa-solid fa-chevron-right m-menu-arrow"></i>';
+        html += '</button>';
+        html += '</div>';
+
+        // Language
+        html += '<div class="m-menu-section">';
+        html += '<div class="m-menu-label">Ngôn ngữ</div>';
+        html += '<div class="m-lang-switch">';
+        html += '<button class="m-lang-btn' + (lg === 'vi' ? ' active' : '') + '" data-lang="vi" type="button">VN · Tiếng Việt</button>';
+        html += '<button class="m-lang-btn' + (lg === 'en' ? ' active' : '') + '" data-lang="en" type="button">EN · English</button>';
+        html += '</div>';
+        html += '</div>';
+
+        // Region
+        html += '<div class="m-menu-section" data-region>';
+        html += '<div class="m-menu-label">Khu vực · Chạm để xem</div>';
+        html += buildProvinceGroup('Tỉnh Thái Nguyên', TN_LIST, 'tn');
+        html += buildProvinceGroup('Tỉnh Bắc Kạn', BK_LIST, 'bk');
+        html += '</div>';
+
+        // About
+        html += '<div class="m-menu-section">';
+        html += '<button class="m-menu-item" id="m-about-item" type="button">';
+        html += '<i class="fa-solid fa-circle-info"></i>';
+        html += '<span>Về dự án</span>';
+        html += '<i class="fa-solid fa-chevron-right m-menu-arrow"></i>';
+        html += '</button>';
+        html += '</div>';
+
+        mobileMenuBody.innerHTML = html;
+
+        // Bind events
+        // Accordion
+        $$('.m-region-province', mobileMenuBody).forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            const grp = btn.parentElement;
+            grp.classList.toggle('open');
+          });
+        });
+
+        // Communes
+        $$('.m-region-commune', mobileMenuBody).forEach(function (node) {
+          node.addEventListener('click', function () {
+            const h = node.dataset.h, x = node.dataset.x;
+            closeMobileMenu();
+            showMap();
+            setTimeout(function () { openCommuneView(h, x, true); }, 200);
+          });
+        });
+
+        // Theme item
+        const themeItem = mobileMenuBody.querySelector('#m-theme-item');
+        if (themeItem) {
+          themeItem.addEventListener('click', function () {
+            applyTheme(!isDark);
+            // refresh label
+            const span = themeItem.querySelector('span');
+            const icon = themeItem.querySelector('#m-theme-icon');
+            if (span) span.textContent = 'Chế độ ' + (isDark ? 'Tối' : 'Sáng');
+            if (icon) icon.className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+          });
+        }
+
+        // Lang buttons
+        $$('.m-lang-btn', mobileMenuBody).forEach(function (b) {
+          b.addEventListener('click', function () {
+            swLang(b.dataset.lang);
+          });
+        });
+
+        // About item
+        const aboutItem = mobileMenuBody.querySelector('#m-about-item');
+        if (aboutItem) {
+          aboutItem.addEventListener('click', function () {
+            closeMobileMenu();
+            setTimeout(function () {
+              am.classList.add('open');
+              am.setAttribute('aria-hidden', 'false');
+            }, 200);
+          });
+        }
+      }
+
+      // Build on load and on language/theme changes
+      buildMobileMenuBody();
+
       /* ============ PHÍM TẮT ============ */
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
@@ -5106,6 +6078,8 @@
             am.setAttribute('aria-hidden', 'true');
             return;
           }
+          if (mobileMenuDrawer && mobileMenuDrawer.classList.contains('open')) { closeMobileMenu(); return; }
+          if (mSearchOverlay && mSearchOverlay.classList.contains('open')) { closeMobileSearch(); return; }
           if (regMenu.classList.contains('open')) { toggleRegionMenu(false); return; }
           if (srDd.classList.contains('open')) { srDd.classList.remove('open'); return; }
           closeDrawers();
@@ -5163,6 +6137,7 @@
   <script>
     /* ============================================================
        CHATBOT AI FLOATING WIDGET
+       + Long-press drag FAB (mobile) + snap-to-edge + lưu vị trí
        ============================================================ */
     (function () {
       const chatFab = document.getElementById('chat-fab');
@@ -5175,14 +6150,238 @@
       const chatHeader = chatWindow.querySelector('.chat-header');
 
       const API_URL = 'https://disanthainguyen-backend.onrender.com/api/chat';
+      const FAB_POS_KEY = 'chatFabPos_v1';
 
       let isOpen = false;
       let firstOpen = true;
       let isLoading = false;
 
-      let isDragging = false;
-      let dragStartX, dragStartY, startLeft, startTop;
+      /* ============================================================
+         FAB DRAG (Long-press on touch, drag with mouse on desktop)
+         ============================================================ */
+      let fabLongPressTimer = null;
+      let fabDragging = false;
+      let fabLongPressActive = false;
+      let fabStartTouchX = 0, fabStartTouchY = 0;
+      let fabStartLeft = 0, fabStartTop = 0;
+      let fabWidth = 0, fabHeight = 0;
+      let fabJustDragged = false;
+      let fabActivePointerId = null;
 
+      function isMobileView() {
+        return window.innerWidth <= 768;
+      }
+
+      function restoreFabPosition() {
+        if (!isMobileView()) {
+          // On desktop, clear inline positioning
+          chatFab.style.left = '';
+          chatFab.style.top = '';
+          chatFab.style.right = '';
+          chatFab.style.bottom = '';
+          return;
+        }
+        try {
+          const saved = JSON.parse(localStorage.getItem(FAB_POS_KEY) || 'null');
+          if (saved && typeof saved.x === 'number' && typeof saved.y === 'number') {
+            const w = chatFab.offsetWidth || 58;
+            const h = chatFab.offsetHeight || 58;
+            const x = Math.max(8, Math.min(window.innerWidth - w - 8, saved.x));
+            const y = Math.max(8, Math.min(window.innerHeight - h - 8, saved.y));
+            chatFab.style.left = x + 'px';
+            chatFab.style.top = y + 'px';
+            chatFab.style.right = 'auto';
+            chatFab.style.bottom = 'auto';
+          }
+        } catch (e) { }
+      }
+
+      function saveFabPosition() {
+        if (!isMobileView()) return;
+        try {
+          const rect = chatFab.getBoundingClientRect();
+          localStorage.setItem(FAB_POS_KEY, JSON.stringify({
+            x: Math.round(rect.left),
+            y: Math.round(rect.top)
+          }));
+        } catch (e) { }
+      }
+
+      function snapFabToEdge() {
+        if (!isMobileView()) return;
+        const rect = chatFab.getBoundingClientRect();
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const margin = 12;
+        const bottomSafe = 76; // above bottom nav
+
+        // Snap horizontally to nearest edge
+        const distLeft = rect.left;
+        const distRight = vw - rect.right;
+        let newLeft;
+        if (distLeft < distRight) {
+          newLeft = margin;
+        } else {
+          newLeft = vw - rect.width - margin;
+        }
+
+        // Clamp vertically (leave room for top bar and bottom nav)
+        let newTop = Math.max(70, Math.min(vh - rect.height - bottomSafe, rect.top));
+
+        chatFab.style.transition = 'left 0.32s cubic-bezier(0.22, 1, 0.36, 1), top 0.32s cubic-bezier(0.22, 1, 0.36, 1)';
+        chatFab.style.left = newLeft + 'px';
+        chatFab.style.top = newTop + 'px';
+        chatFab.style.right = 'auto';
+        chatFab.style.bottom = 'auto';
+
+        setTimeout(function () {
+          chatFab.style.transition = '';
+          saveFabPosition();
+        }, 340);
+      }
+
+      function getPoint(e) {
+        if (e.touches && e.touches[0]) return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        if (e.changedTouches && e.changedTouches[0]) return { x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY };
+        return { x: e.clientX, y: e.clientY };
+      }
+
+      function startFabPress(e) {
+        if (!isMobileView()) return;
+        if (e.type === 'mousedown' && e.button !== 0) return;
+
+        const p = getPoint(e);
+        const rect = chatFab.getBoundingClientRect();
+
+        fabStartTouchX = p.x;
+        fabStartTouchY = p.y;
+        fabStartLeft = rect.left;
+        fabStartTop = rect.top;
+        fabWidth = rect.width;
+        fabHeight = rect.height;
+        fabLongPressActive = false;
+
+        // Start long-press timer (only for touch; mouse drag is instant)
+        if (e.type === 'touchstart') {
+          fabLongPressTimer = setTimeout(function () {
+            fabLongPressTimer = null;
+            fabLongPressActive = true;
+            fabDragging = true;
+            chatFab.classList.add('dragging');
+            if (navigator.vibrate) {
+              try { navigator.vibrate(30); } catch (err) { }
+            }
+          }, 350);
+        } else if (e.type === 'mousedown') {
+          // Mouse: instant drag on desktop
+          fabLongPressActive = true;
+          fabDragging = true;
+          chatFab.classList.add('dragging');
+        }
+
+        document.addEventListener('mousemove', moveFabPress, { passive: false });
+        document.addEventListener('mouseup', endFabPress);
+        document.addEventListener('touchmove', moveFabPress, { passive: false });
+        document.addEventListener('touchend', endFabPress);
+        document.addEventListener('touchcancel', endFabPress);
+      }
+
+      function moveFabPress(e) {
+        if (!isMobileView()) return;
+
+        const p = getPoint(e);
+        const dx = p.x - fabStartTouchX;
+        const dy = p.y - fabStartTouchY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        // If touch moves too much before long-press triggers, cancel timer
+        if (fabLongPressTimer && !fabDragging && dist > 8) {
+          clearTimeout(fabLongPressTimer);
+          fabLongPressTimer = null;
+          return;
+        }
+
+        if (!fabDragging) return;
+
+        if (e.cancelable) {
+          try { e.preventDefault(); } catch (err) { }
+        }
+
+        let newLeft = fabStartLeft + dx;
+        let newTop = fabStartTop + dy;
+
+        const margin = 4;
+        newLeft = Math.max(margin, Math.min(window.innerWidth - fabWidth - margin, newLeft));
+        newTop = Math.max(margin, Math.min(window.innerHeight - fabHeight - margin, newTop));
+
+        chatFab.style.left = newLeft + 'px';
+        chatFab.style.top = newTop + 'px';
+        chatFab.style.right = 'auto';
+        chatFab.style.bottom = 'auto';
+      }
+
+      function endFabPress(e) {
+        if (fabLongPressTimer) {
+          clearTimeout(fabLongPressTimer);
+          fabLongPressTimer = null;
+        }
+
+        document.removeEventListener('mousemove', moveFabPress);
+        document.removeEventListener('mouseup', endFabPress);
+        document.removeEventListener('touchmove', moveFabPress);
+        document.removeEventListener('touchend', endFabPress);
+        document.removeEventListener('touchcancel', endFabPress);
+
+        if (fabDragging) {
+          fabDragging = false;
+          chatFab.classList.remove('dragging');
+          snapFabToEdge();
+
+          // Prevent the click that would follow the touch/drag
+          fabJustDragged = true;
+          setTimeout(function () { fabJustDragged = false; }, 400);
+        }
+
+        if (fabLongPressActive) {
+          fabLongPressActive = false;
+        }
+      }
+
+      // Attach FAB drag listeners
+      chatFab.addEventListener('mousedown', startFabPress);
+      chatFab.addEventListener('touchstart', startFabPress, { passive: true });
+
+      // Block click after drag
+      chatFab.addEventListener('click', function (e) {
+        if (fabJustDragged) {
+          e.preventDefault();
+          e.stopPropagation();
+          return;
+        }
+      }, true);
+
+      // Restore position on load & resize
+      restoreFabPosition();
+      window.addEventListener('resize', function () {
+        // If resizing desktop→mobile, restore; mobile→desktop, clear
+        restoreFabPosition();
+        if (isMobileView()) {
+          // Clamp saved position
+          const rect = chatFab.getBoundingClientRect();
+          const vw = window.innerWidth;
+          const vh = window.innerHeight;
+          if (chatFab.style.left && chatFab.style.top) {
+            const x = Math.max(8, Math.min(vw - rect.width - 8, rect.left));
+            const y = Math.max(8, Math.min(vh - rect.height - 8, rect.top));
+            chatFab.style.left = x + 'px';
+            chatFab.style.top = y + 'px';
+          }
+        }
+      });
+
+      /* ============================================================
+         CHAT WINDOW
+         ============================================================ */
       function toggleChat() {
         if (isOpen) closeChat();
         else openChat();
@@ -5197,7 +6396,7 @@
           firstOpen = false;
           showGreeting();
         }
-        chatInput.focus();
+        setTimeout(function () { try { chatInput.focus(); } catch (e) { } }, 200);
       }
 
       function closeChat() {
@@ -5214,7 +6413,12 @@
         chatFab.style.display = 'flex';
       }
 
-      chatFab.addEventListener('click', toggleChat);
+      // Click handler without drag-conflict
+      chatFab.addEventListener('click', function (e) {
+        if (fabJustDragged) return;
+        toggleChat();
+      });
+
       chatMinimize.addEventListener('click', function (e) {
         e.stopPropagation();
         minimizeChat();
@@ -5284,7 +6488,7 @@
         } finally {
           isLoading = false;
           chatSend.disabled = false;
-          chatInput.focus();
+          try { chatInput.focus(); } catch (e) { }
           scrollToBottom();
         }
       }
@@ -5297,9 +6501,15 @@
         }
       });
 
+      /* ============================================================
+         Chat window drag (header drag - desktop only)
+         ============================================================ */
       function isDesktop() {
         return window.innerWidth > 768;
       }
+
+      let isDragging = false;
+      let dragStartX, dragStartY, startLeft, startTop;
 
       function startDrag(e) {
         if (!isDesktop()) return;
@@ -5380,6 +6590,7 @@
       });
 
       window.addEventListener('resize', function () {
+        if (!isDesktop()) return;
         if (chatWindow.style.left && chatWindow.style.top) {
           const margin = 16;
           const left = parseFloat(chatWindow.style.left);
@@ -5391,7 +6602,7 @@
         }
       });
 
-      console.log('🤖 Chatbot AI đã sẵn sàng!');
+      console.log('🤖 Chatbot AI đã sẵn sàng! Nhấn giữ icon để di chuyển (mobile).');
     })();
   </script>
 </body>
