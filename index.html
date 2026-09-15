@@ -670,16 +670,33 @@
       top: 46px;
       left: 0;
       right: 0;
-      background: var(--glass);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      /* ⭐ Nền đặc hơn để chữ nổi rõ */
+      background: linear-gradient(160deg,
+          rgba(48, 40, 33, 0.94) 0%,
+          rgba(32, 26, 21, 0.97) 100%);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
       border-radius: 16px;
-      box-shadow: var(--sh2);
+      box-shadow:
+        0 16px 44px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
       max-height: 320px;
       overflow-y: auto;
       display: none;
       z-index: 20;
-      border: 1px solid rgba(139, 94, 60, 0.2);
+      border: 1.5px solid rgba(212, 168, 83, 0.32);
+      padding: 4px 0;
+    }
+
+    .dark #sr-dd {
+      background: linear-gradient(160deg,
+          rgba(20, 30, 25, 0.94) 0%,
+          rgba(12, 18, 15, 0.97) 100%);
+      border-color: rgba(0, 255, 204, 0.32);
+      box-shadow:
+        0 16px 44px rgba(0, 0, 0, 0.55),
+        0 0 28px rgba(0, 255, 204, 0.10),
+        inset 0 1px 0 rgba(0, 255, 204, 0.14);
     }
 
     #sr-dd.open {
@@ -687,14 +704,24 @@
     }
 
     #sr-dd .item {
-      padding: 10px 16px;
+      padding: 11px 16px;
       cursor: pointer;
-      font-size: 0.85rem;
-      border-bottom: 1px solid rgba(139, 94, 60, 0.06);
-      transition: background var(--trans);
+      font-size: 0.88rem;
+      border-bottom: 1px solid rgba(212, 168, 83, 0.10);
+      transition: background var(--trans), color var(--trans);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      color: #E8C87A;
+      /* ⭐ Vàng gold — nổi bật trên nền tối */
+      font-weight: 600;
+      letter-spacing: 0.005em;
+    }
+
+    .dark #sr-dd .item {
+      color: var(--acc);
+      /* ⭐ Cyan neon cho chế độ Tối */
+      border-bottom-color: rgba(0, 255, 204, 0.10);
     }
 
     #sr-dd .item:last-child {
@@ -703,14 +730,29 @@
 
     #sr-dd .item:hover,
     #sr-dd .item.hl {
-      background: rgba(184, 134, 11, 0.12);
+      /* ⭐ Hover sáng rõ với nền vàng gold nhạt */
+      background: linear-gradient(135deg,
+          rgba(212, 168, 83, 0.28) 0%,
+          rgba(212, 168, 83, 0.14) 100%);
+      color: #FFFFFF;
+      box-shadow: inset 3px 0 0 0 #E8C87A;
+    }
+
+    .dark #sr-dd .item:hover,
+    .dark #sr-dd .item.hl {
+      background: linear-gradient(135deg,
+          rgba(0, 255, 204, 0.22) 0%,
+          rgba(0, 255, 204, 0.10) 100%);
+      color: #FFFFFF;
+      box-shadow: inset 3px 0 0 0 var(--acc);
     }
 
     #sr-dd .item .ic {
-      font-size: 0.9rem;
-      width: 22px;
+      font-size: 0.95rem;
+      width: 24px;
       text-align: center;
       flex-shrink: 0;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
     }
 
     #sr-dd .item .nm {
@@ -722,11 +764,23 @@
     }
 
     #sr-dd .item small {
-      color: var(--tx2);
-      font-size: 0.65rem;
+      /* ⭐ Nhãn loại (Xã/Phường/Di sản) — màu kem sáng thay vì mờ tối */
+      color: #D4C9B8;
+      font-size: 0.66rem;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       flex-shrink: 0;
+      font-weight: 600;
+      background: rgba(212, 168, 83, 0.14);
+      padding: 3px 8px;
+      border-radius: 10px;
+      border: 1px solid rgba(212, 168, 83, 0.22);
+    }
+
+    .dark #sr-dd .item small {
+      color: #EAF7F1;
+      background: rgba(0, 255, 204, 0.12);
+      border-color: rgba(0, 255, 204, 0.28);
     }
 
     .ico-btn {
@@ -2454,6 +2508,7 @@
     }
 
     /* ================= CHATBOT ================= */
+    /* ================= CHATBOT ================= */
     .chat-fab {
       position: fixed;
       bottom: 24px;
@@ -2498,6 +2553,10 @@
       box-shadow: var(--neon);
     }
 
+    /* ============================================================
+       CHAT WINDOW — LIQUID GLASS ENHANCED (Sáng + Tối)
+       Phiên bản trong suốt hơn — blur tăng để chữ vẫn rõ
+       ============================================================ */
     .chat-window {
       position: fixed;
       bottom: 100px;
@@ -2507,20 +2566,48 @@
       max-width: calc(100vw - 24px);
       height: 520px;
       max-height: calc(100vh - 120px);
-      background: var(--glass);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-radius: 20px;
-      box-shadow: var(--sh2);
-      border: 1px solid rgba(139, 94, 60, 0.2);
+
+      /* Nền kính tối trong suốt hơn — vẫn giữ tương phản cao cho chữ trắng */
+      background: linear-gradient(160deg,
+          rgba(62, 52, 42, 0.68) 0%,
+          rgba(42, 34, 27, 0.76) 55%,
+          rgba(30, 24, 19, 0.82) 100%);
+      backdrop-filter: blur(32px) saturate(200%);
+      -webkit-backdrop-filter: blur(32px) saturate(200%);
+
+      border: 1.5px solid rgba(212, 168, 83, 0.42);
+      border-radius: 22px;
+
+      box-shadow:
+        0 24px 64px rgba(0, 0, 0, 0.48),
+        0 8px 24px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.20),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.22),
+        0 0 0 1px rgba(212, 168, 83, 0.08);
+
       display: flex;
       flex-direction: column;
       overflow: hidden;
       opacity: 0;
       visibility: hidden;
       transform: translateY(20px) scale(0.95);
-      transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+      transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
       pointer-events: none;
+    }
+
+    .dark .chat-window {
+      background: linear-gradient(160deg,
+          rgba(24, 34, 29, 0.70) 0%,
+          rgba(15, 24, 20, 0.80) 55%,
+          rgba(10, 16, 13, 0.86) 100%);
+      border-color: rgba(0, 255, 204, 0.42);
+      box-shadow:
+        0 24px 64px rgba(0, 0, 0, 0.62),
+        0 8px 24px rgba(0, 0, 0, 0.42),
+        0 0 40px rgba(0, 255, 204, 0.10),
+        inset 0 1px 0 rgba(0, 255, 204, 0.22),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.30),
+        0 0 0 1px rgba(0, 255, 204, 0.08);
     }
 
     .chat-window.open {
@@ -2541,10 +2628,13 @@
       transition: none !important;
     }
 
+    /* ---------- HEADER ---------- */
     .chat-header {
       padding: 14px 18px;
-      background: var(--block-bg);
-      border-bottom: 1px solid var(--block-border);
+      background: linear-gradient(180deg,
+          rgba(255, 255, 255, 0.10) 0%,
+          rgba(255, 255, 255, 0.03) 100%);
+      border-bottom: 1px solid rgba(212, 168, 83, 0.28);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -2552,6 +2642,15 @@
       flex-shrink: 0;
       cursor: grab;
       user-select: none;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .dark .chat-header {
+      background: linear-gradient(180deg,
+          rgba(0, 255, 204, 0.08) 0%,
+          rgba(0, 255, 204, 0.02) 100%);
+      border-bottom-color: rgba(0, 255, 204, 0.28);
     }
 
     .chat-header:active {
@@ -2577,15 +2676,33 @@
       font-size: 1.3rem;
       color: #fff;
       flex-shrink: 0;
+      box-shadow:
+        0 4px 12px rgba(184, 134, 11, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .dark .chat-avatar {
+      background: linear-gradient(135deg, var(--acc), var(--gold));
+      color: #121816;
+      box-shadow:
+        0 0 16px rgba(0, 255, 204, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
 
     .chat-header-info h4 {
       font-family: var(--fs);
       font-size: 1rem;
       font-weight: 600;
-      color: var(--tx);
+      color: #FFFFFF;
       margin: 0;
       line-height: 1.3;
+      letter-spacing: 0.01em;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+    }
+
+    .dark .chat-header-info h4 {
+      color: #EAF7F1;
+      text-shadow: 0 0 12px rgba(0, 255, 204, 0.35);
     }
 
     .chat-header-info .status {
@@ -2593,7 +2710,12 @@
       align-items: center;
       gap: 5px;
       font-size: 0.7rem;
-      color: var(--tx2);
+      color: rgba(255, 255, 255, 0.78);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+    }
+
+    .dark .chat-header-info .status {
+      color: rgba(0, 255, 204, 0.88);
     }
 
     .status-dot {
@@ -2601,6 +2723,7 @@
       height: 8px;
       border-radius: 50%;
       background: #4CAF50;
+      box-shadow: 0 0 8px rgba(76, 175, 80, 0.75);
       animation: pulse-green 1.5s infinite;
     }
 
@@ -2628,21 +2751,41 @@
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      border: none;
-      background: var(--icon-btn-bg);
-      color: var(--tx);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
       cursor: pointer;
       font-size: 0.9rem;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all var(--trans);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
     }
 
     .chat-header-btn:hover {
-      background: var(--icon-btn-hover);
+      background: rgba(212, 168, 83, 0.32);
+      color: #FFD700;
+      border-color: rgba(212, 168, 83, 0.55);
+      transform: scale(1.06);
+      box-shadow: 0 0 14px rgba(212, 168, 83, 0.35);
     }
 
+    .dark .chat-header-btn {
+      background: rgba(0, 255, 204, 0.08);
+      border-color: rgba(0, 255, 204, 0.20);
+      color: #EAF7F1;
+    }
+
+    .dark .chat-header-btn:hover {
+      background: rgba(0, 255, 204, 0.22);
+      color: var(--acc);
+      border-color: rgba(0, 255, 204, 0.55);
+      box-shadow: 0 0 14px rgba(0, 255, 204, 0.35);
+    }
+
+    /* ---------- BODY ---------- */
     .chat-body {
       flex: 1;
       overflow-y: auto;
@@ -2651,17 +2794,23 @@
       flex-direction: column;
       gap: 12px;
       -webkit-overflow-scrolling: touch;
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .dark .chat-body {
+      background: rgba(0, 0, 0, 0.12);
     }
 
     .chat-message {
       max-width: 80%;
-      padding: 10px 14px;
+      padding: 11px 15px;
       border-radius: 16px;
       font-size: 0.9rem;
-      line-height: 1.5;
+      line-height: 1.55;
       white-space: pre-wrap;
       word-break: break-word;
       animation: msg-in 0.25s ease;
+      font-weight: 400;
     }
 
     @keyframes msg-in {
@@ -2676,23 +2825,50 @@
       }
     }
 
+    /* Tin nhắn người dùng: chữ nâu-đen trên nền vàng gold → tương phản cao */
     .chat-message.user {
       align-self: flex-end;
-      background: var(--acc);
-      color: #fff;
+      background: linear-gradient(135deg, #E0B45C 0%, #C9992F 100%);
+      color: #1A0F00;
+      font-weight: 500;
       border-bottom-right-radius: 4px;
+      box-shadow:
+        0 4px 14px rgba(184, 134, 11, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
     }
 
     .dark .chat-message.user {
-      color: #121816;
+      background: linear-gradient(135deg, #2BE8C4 0%, #00D3A7 100%);
+      color: #0F1512;
+      box-shadow:
+        0 4px 14px rgba(0, 255, 204, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45);
     }
 
+    /* Tin nhắn AI: kính mờ trong suốt + viền accent + text-shadow */
     .chat-message.ai {
       align-self: flex-start;
-      background: var(--glassB);
-      border: 1px solid var(--block-border);
-      color: var(--tx);
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(212, 168, 83, 0.32);
+      color: #FFFFFF;
       border-bottom-left-radius: 4px;
+      backdrop-filter: blur(12px) saturate(150%);
+      -webkit-backdrop-filter: blur(12px) saturate(150%);
+      box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    .dark .chat-message.ai {
+      background: rgba(0, 255, 204, 0.08);
+      border-color: rgba(0, 255, 204, 0.32);
+      color: #EAF7F1;
+      box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.30),
+        0 0 16px rgba(0, 255, 204, 0.06),
+        inset 0 1px 0 rgba(0, 255, 204, 0.18);
+      text-shadow: 0 0 8px rgba(0, 255, 204, 0.20);
     }
 
     .chat-typing {
@@ -2701,18 +2877,29 @@
       align-items: center;
       gap: 4px;
       padding: 12px 16px;
-      background: var(--glassB);
-      border: 1px solid var(--block-border);
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(212, 168, 83, 0.32);
       border-radius: 16px;
       border-bottom-left-radius: 4px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .dark .chat-typing {
+      background: rgba(0, 255, 204, 0.08);
+      border-color: rgba(0, 255, 204, 0.32);
     }
 
     .chat-typing span {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: var(--tx2);
+      background: #D4A853;
       animation: typing-bounce 1.2s infinite;
+    }
+
+    .dark .chat-typing span {
+      background: var(--acc);
     }
 
     .chat-typing span:nth-child(2) {
@@ -2738,44 +2925,72 @@
       }
     }
 
+    /* ---------- FOOTER ---------- */
     .chat-footer {
       padding: 12px 16px;
-      border-top: 1px solid var(--block-border);
+      border-top: 1px solid rgba(212, 168, 83, 0.28);
       display: flex;
       align-items: center;
       gap: 10px;
       flex-shrink: 0;
-      background: var(--block-bg);
+      background: linear-gradient(180deg,
+          rgba(255, 255, 255, 0.03) 0%,
+          rgba(255, 255, 255, 0.08) 100%);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .dark .chat-footer {
+      border-top-color: rgba(0, 255, 204, 0.28);
+      background: linear-gradient(180deg,
+          rgba(0, 255, 204, 0.02) 0%,
+          rgba(0, 255, 204, 0.06) 100%);
     }
 
     .chat-input {
       flex: 1;
       height: 42px;
       border-radius: 24px;
-      border: 1.5px solid var(--search-border);
-      background: var(--search-bg);
+      border: 1.5px solid rgba(212, 168, 83, 0.38);
+      background: rgba(0, 0, 0, 0.22);
       padding: 0 16px;
       font-size: 0.9rem;
       font-family: var(--fn);
-      color: var(--tx);
+      color: #FFFFFF;
       outline: none;
       transition: all var(--trans);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
 
     .chat-input::placeholder {
-      color: var(--tx2);
-      opacity: 0.7;
+      color: rgba(255, 255, 255, 0.58);
     }
 
     .chat-input:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.08);
-      background: var(--glass);
+      border-color: #E8C87A;
+      background: rgba(0, 0, 0, 0.34);
+      box-shadow:
+        0 0 0 3px rgba(212, 168, 83, 0.18),
+        0 0 16px rgba(212, 168, 83, 0.15);
+    }
+
+    .dark .chat-input {
+      background: rgba(0, 0, 0, 0.32);
+      border-color: rgba(0, 255, 204, 0.38);
+      color: #EAF7F1;
+    }
+
+    .dark .chat-input::placeholder {
+      color: rgba(0, 255, 204, 0.58);
     }
 
     .dark .chat-input:focus {
-      box-shadow: var(--neon);
       border-color: var(--acc);
+      background: rgba(0, 0, 0, 0.44);
+      box-shadow:
+        0 0 0 3px rgba(0, 255, 204, 0.15),
+        0 0 20px rgba(0, 255, 204, 0.20);
     }
 
     .chat-send-btn {
@@ -2783,7 +2998,7 @@
       height: 42px;
       border-radius: 50%;
       border: none;
-      background: var(--gold);
+      background: linear-gradient(135deg, #E0B45C 0%, #B8860B 100%);
       color: #1A0F00;
       cursor: pointer;
       font-size: 1rem;
@@ -2792,22 +3007,34 @@
       justify-content: center;
       transition: all var(--trans);
       flex-shrink: 0;
+      box-shadow:
+        0 4px 14px rgba(184, 134, 11, 0.40),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
     }
 
     .chat-send-btn:hover {
-      background: var(--gold2);
-      transform: scale(1.05);
-      box-shadow: 0 4px 14px rgba(184, 134, 11, 0.3);
+      transform: scale(1.06);
+      box-shadow:
+        0 6px 20px rgba(184, 134, 11, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45);
     }
 
     .dark .chat-send-btn {
-      background: var(--acc);
-      color: #121816;
-      box-shadow: var(--neon);
+      background: linear-gradient(135deg, #2BE8C4 0%, #00D3A7 100%);
+      color: #0F1512;
+      box-shadow:
+        0 4px 14px rgba(0, 255, 204, 0.40),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    }
+
+    .dark .chat-send-btn:hover {
+      box-shadow:
+        0 6px 22px rgba(0, 255, 204, 0.60),
+        inset 0 1px 0 rgba(255, 255, 255, 0.55);
     }
 
     .chat-send-btn:disabled {
-      opacity: 0.6;
+      opacity: 0.55;
       cursor: not-allowed;
       transform: none;
       box-shadow: none;
@@ -3515,7 +3742,11 @@
     }
 
     .m-result:active {
-      background: rgba(212, 168, 83, 0.12);
+      background: rgba(212, 168, 83, 0.22);
+    }
+
+    .dark .m-result:active {
+      background: rgba(0, 255, 204, 0.16);
     }
 
     .m-result-icon {
@@ -3526,8 +3757,14 @@
       align-items: center;
       justify-content: center;
       font-size: 1.05rem;
-      background: linear-gradient(135deg, rgba(45, 106, 79, 0.25), rgba(184, 134, 11, 0.25));
+      background: linear-gradient(135deg, rgba(45, 106, 79, 0.35), rgba(184, 134, 11, 0.35));
       flex-shrink: 0;
+      border: 1px solid rgba(212, 168, 83, 0.25);
+    }
+
+    .dark .m-result-icon {
+      background: linear-gradient(135deg, rgba(0, 255, 204, 0.20), rgba(255, 215, 0, 0.16));
+      border-color: rgba(0, 255, 204, 0.28);
     }
 
     .m-result-info {
@@ -3537,25 +3774,43 @@
 
     .m-result-name {
       font-weight: 600;
-      font-size: 0.92rem;
-      color: var(--tx);
+      font-size: 0.94rem;
+      /* ⭐ Tên xã/di sản — vàng gold ở chế độ Sáng */
+      color: #E8C87A;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      letter-spacing: 0.005em;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    }
+
+    .dark .m-result-name {
+      /* ⭐ Cyan neon ở chế độ Tối */
+      color: var(--acc);
+      text-shadow: 0 0 10px rgba(0, 255, 204, 0.30);
     }
 
     .m-result-meta {
-      font-size: 0.7rem;
-      color: var(--tx2);
+      font-size: 0.68rem;
+      color: #D4C9B8;
       margin-top: 3px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+    }
+
+    .dark .m-result-meta {
+      color: rgba(234, 247, 241, 0.75);
     }
 
     .m-result-go {
-      color: var(--tx2);
+      color: rgba(212, 168, 83, 0.7);
       font-size: 0.8rem;
       flex-shrink: 0;
+    }
+
+    .dark .m-result-go {
+      color: rgba(0, 255, 204, 0.7);
     }
 
     .m-empty {
