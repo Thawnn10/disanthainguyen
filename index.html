@@ -104,27 +104,22 @@
 
   <style>
     :root {
-      /* ================== MÀU NỀN CƠ BẢN (NÂU NHẸ) ================== */
       --bg: #262019;
       --bg2: #322A22;
       --bg-overlay: rgba(28, 22, 18, 0.55);
       --bg-img: url('light.png');
 
-      /* ================== MÀU CHỮ ================== */
       --tx: #FFFFFF;
       --tx2: #D4C9B8;
 
-      /* ================== MÀU ĐIỂM NHẤN (ACCENT) ================== */
       --acc: #D4A853;
       --acc2: #B8860B;
 
-      /* ================== MÀU THƯƠNG HIỆU / THỂ LOẠI ================== */
       --gold: #D4A853;
       --gold2: #E8C87A;
       --red: #A03A3D;
       --cream: #2A231C;
 
-      /* ================== LIQUID GLASS ================== */
       --glass: linear-gradient(135deg,
           rgba(255, 255, 255, 0.12) 0%,
           rgba(255, 255, 255, 0.04) 45%,
@@ -164,7 +159,6 @@
       --ease-drawer: cubic-bezier(0.22, 1, 0.36, 1);
       --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
 
-      /* ================== BORDERS & ICON BUTTONS ================== */
       --nav-border: rgba(255, 255, 255, 0.12);
       --block-border: rgba(255, 255, 255, 0.10);
       --search-bg: linear-gradient(135deg,
@@ -178,7 +172,6 @@
           rgba(212, 168, 83, 0.22) 0%,
           rgba(212, 168, 83, 0.09) 100%);
 
-      /* ================== SHADOWS ================== */
       --sh:
         inset 0 1px 0 0 rgba(255, 255, 255, 0.14),
         inset 0 -1px 0 0 rgba(0, 0, 0, 0.18),
@@ -188,25 +181,21 @@
         inset 0 -1px 0 0 rgba(0, 0, 0, 0.24),
         0 8px 38px rgba(0, 0, 0, 0.45);
 
-      /* ================== HOVER EFFECTS ================== */
       --card-hover-glow:
         inset 0 1px 0 0 rgba(255, 255, 255, 0.22),
         inset 0 -1px 0 0 rgba(0, 0, 0, 0.16),
         0 12px 38px rgba(212, 168, 83, 0.26);
       --card-hover-border: rgba(212, 168, 83, 0.55);
 
-      /* ================== BẢN ĐỒ (GEO) ================== */
       --geo-stroke: #D4A853;
       --geo-fill: rgba(212, 168, 83, 0.15);
       --geo-hl-fill: rgba(212, 168, 83, 0.4);
       --geo-hl-stroke: #E8C87A;
 
-      /* ================== HIỆU ỨNG NỀN (BLOBS) ================== */
       --pattern-op: 0.03;
       --blob1: rgba(212, 168, 83, 0.08);
       --blob2: rgba(45, 106, 79, 0.05);
 
-      /* ================== CÁC BIẾN KHÁC ================== */
       --rad: 18px;
       --rad2: 28px;
       --fn: 'Be Vietnam Pro', sans-serif;
@@ -216,9 +205,6 @@
       --trans: 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
       --neon: none;
 
-      /* ============================================================
-         LIQUID GLASS STRONG (dùng cho popup menu / modal chi tiết)
-         ============================================================ */
       --glass-strong-bg: rgba(255, 255, 255, 0.18);
       --glass-strong-border: rgba(255, 255, 255, 0.35);
       --glass-strong-shadow:
@@ -330,7 +316,6 @@
       --blob1: rgba(0, 255, 204, 0.10);
       --blob2: rgba(255, 215, 0, 0.06);
 
-      /* Liquid Glass Strong — Dark Mode (kính tối tương thích) */
       --glass-strong-bg: rgba(18, 26, 22, 0.42);
       --glass-strong-border: rgba(0, 255, 204, 0.35);
       --glass-strong-shadow:
@@ -670,7 +655,6 @@
       top: 46px;
       left: 0;
       right: 0;
-      /* ⭐ Nền đặc hơn để chữ nổi rõ */
       background: linear-gradient(160deg,
           rgba(48, 40, 33, 0.94) 0%,
           rgba(32, 26, 21, 0.97) 100%);
@@ -713,14 +697,12 @@
       align-items: center;
       gap: 10px;
       color: #E8C87A;
-      /* ⭐ Vàng gold — nổi bật trên nền tối */
       font-weight: 600;
       letter-spacing: 0.005em;
     }
 
     .dark #sr-dd .item {
       color: var(--acc);
-      /* ⭐ Cyan neon cho chế độ Tối */
       border-bottom-color: rgba(0, 255, 204, 0.10);
     }
 
@@ -730,7 +712,6 @@
 
     #sr-dd .item:hover,
     #sr-dd .item.hl {
-      /* ⭐ Hover sáng rõ với nền vàng gold nhạt */
       background: linear-gradient(135deg,
           rgba(212, 168, 83, 0.28) 0%,
           rgba(212, 168, 83, 0.14) 100%);
@@ -764,7 +745,6 @@
     }
 
     #sr-dd .item small {
-      /* ⭐ Nhãn loại (Xã/Phường/Di sản) — màu kem sáng thay vì mờ tối */
       color: #D4C9B8;
       font-size: 0.66rem;
       text-transform: uppercase;
@@ -1342,7 +1322,6 @@
     }
 
     #dr-list {
-      /* ⭐ flex: 1 1 auto + min-height: 0 để scroll hoạt động đúng trong flex column */
       flex: 1 1 auto;
       min-height: 0;
       overflow-y: auto;
@@ -1351,7 +1330,6 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      /* ⭐ Cuộn mượt, không kéo theo body */
       overscroll-behavior: contain;
       -webkit-overflow-scrolling: touch;
       scrollbar-gutter: stable;
@@ -1372,7 +1350,6 @@
       -webkit-backdrop-filter: blur(22px) saturate(140%);
       border-radius: 22px 22px 0 0;
       box-shadow: var(--sh2);
-      /* ⭐ Nâng lên 85vh để hiển thị đủ di sản */
       max-height: 85vh;
       transform: translateY(100%);
       transition: transform 0.44s var(--ease-drawer);
@@ -1487,9 +1464,7 @@
       will-change: transform;
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
-      /* ⭐ KHÔNG cho phép co ép trong flex column */
       flex-shrink: 0;
-      /* ⭐ Chiều cao tối thiểu để không bị díu lại */
       min-height: 62px;
     }
 
@@ -1597,7 +1572,6 @@
       will-change: transform;
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
-      /* ⭐ KHÔNG cho phép co ép */
       flex-shrink: 0;
       min-height: 60px;
     }
@@ -2524,7 +2498,6 @@
     }
 
     /* ================= CHATBOT ================= */
-    /* ================= CHATBOT ================= */
     .chat-fab {
       position: fixed;
       bottom: 24px;
@@ -2547,7 +2520,6 @@
       user-select: none;
     }
 
-    /* ⭐ FIX: cho icon bên trong FAB không chặn sự kiện click */
     .chat-fab i,
     .chat-fab svg,
     .chat-fab span {
@@ -2592,6 +2564,13 @@
       pointer-events: none;
     }
 
+    /* ⭐ ẨN FAB Sách đọc + Thái Nguyên Travel khi đang xem BẢN ĐỒ */
+    body.map-view .extra-fabs {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
     .extra-fab {
       position: relative;
       width: 60px;
@@ -2617,7 +2596,6 @@
       pointer-events: none;
     }
 
-    /* Sách đọc — Tông xanh ngọc lục bảo */
     .extra-fab.book-fab {
       background: linear-gradient(135deg, #2D6A4F 0%, #40916C 100%);
       color: #F7F1E5;
@@ -2649,7 +2627,6 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.5);
     }
 
-    /* Thái Nguyên Travel — Tông đỏ đô ấm */
     .extra-fab.travel-fab {
       background: linear-gradient(135deg, #A03A3D 0%, #C75B5E 100%);
       color: #F7F1E5;
@@ -2685,9 +2662,6 @@
       transform: scale(0.95);
     }
 
-    /* ============================================================
-       ⭐ TOOLTIP — Thẻ chữ nhật bo tròn, trượt từ phải sang trái
-       ============================================================ */
     .extra-fab__tooltip,
     .chat-fab__tooltip {
       position: absolute;
@@ -2759,8 +2733,7 @@
     }
 
     /* ============================================================
-       CHAT WINDOW — LIQUID GLASS ENHANCED (Sáng + Tối)
-       Phiên bản trong suốt hơn — blur tăng để chữ vẫn rõ
+       CHAT WINDOW — WHITE LIQUID GLASS
        ============================================================ */
     .chat-window {
       position: fixed;
@@ -2772,23 +2745,18 @@
       height: 520px;
       max-height: calc(100vh - 120px);
 
-      /* Nền kính tối trong suốt hơn — vẫn giữ tương phản cao cho chữ trắng */
-      background: linear-gradient(160deg,
-          rgba(62, 52, 42, 0.68) 0%,
-          rgba(42, 34, 27, 0.76) 55%,
-          rgba(30, 24, 19, 0.82) 100%);
-      backdrop-filter: blur(32px) saturate(200%);
-      -webkit-backdrop-filter: blur(32px) saturate(200%);
+      background: rgba(255, 255, 255, 0.10);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
 
-      border: 1.5px solid rgba(212, 168, 83, 0.42);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
       border-radius: 22px;
 
       box-shadow:
-        0 24px 64px rgba(0, 0, 0, 0.48),
-        0 8px 24px rgba(0, 0, 0, 0.28),
-        inset 0 1px 0 rgba(255, 255, 255, 0.20),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.22),
-        0 0 0 1px rgba(212, 168, 83, 0.08);
+        0 24px 64px rgba(0, 0, 0, 0.25),
+        0 8px 24px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.04);
 
       display: flex;
       flex-direction: column;
@@ -2801,18 +2769,13 @@
     }
 
     .dark .chat-window {
-      background: linear-gradient(160deg,
-          rgba(24, 34, 29, 0.70) 0%,
-          rgba(15, 24, 20, 0.80) 55%,
-          rgba(10, 16, 13, 0.86) 100%);
-      border-color: rgba(0, 255, 204, 0.42);
+      background: rgba(18, 26, 22, 0.20);
+      border-color: rgba(0, 255, 204, 0.30);
       box-shadow:
-        0 24px 64px rgba(0, 0, 0, 0.62),
-        0 8px 24px rgba(0, 0, 0, 0.42),
-        0 0 40px rgba(0, 255, 204, 0.10),
-        inset 0 1px 0 rgba(0, 255, 204, 0.22),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.30),
-        0 0 0 1px rgba(0, 255, 204, 0.08);
+        0 24px 64px rgba(0, 0, 0, 0.50),
+        0 8px 24px rgba(0, 0, 0, 0.35),
+        0 0 30px rgba(0, 255, 204, 0.08),
+        inset 0 1px 0 rgba(0, 255, 204, 0.15);
     }
 
     .chat-window.open {
@@ -2836,10 +2799,8 @@
     /* ---------- HEADER ---------- */
     .chat-header {
       padding: 14px 18px;
-      background: linear-gradient(180deg,
-          rgba(255, 255, 255, 0.10) 0%,
-          rgba(255, 255, 255, 0.03) 100%);
-      border-bottom: 1px solid rgba(212, 168, 83, 0.28);
+      background: rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(212, 168, 83, 0.32);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -2852,9 +2813,7 @@
     }
 
     .dark .chat-header {
-      background: linear-gradient(180deg,
-          rgba(0, 255, 204, 0.08) 0%,
-          rgba(0, 255, 204, 0.02) 100%);
+      background: rgba(0, 255, 204, 0.03);
       border-bottom-color: rgba(0, 255, 204, 0.28);
     }
 
@@ -2898,11 +2857,11 @@
       font-family: var(--fs);
       font-size: 1rem;
       font-weight: 600;
-      color: #FFFFFF;
+      color: #2A1A0A;
       margin: 0;
       line-height: 1.3;
       letter-spacing: 0.01em;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.55);
     }
 
     .dark .chat-header-info h4 {
@@ -2915,12 +2874,13 @@
       align-items: center;
       gap: 5px;
       font-size: 0.7rem;
-      color: rgba(255, 255, 255, 0.78);
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+      color: rgba(42, 26, 10, 0.75);
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.45);
     }
 
     .dark .chat-header-info .status {
       color: rgba(0, 255, 204, 0.88);
+      text-shadow: none;
     }
 
     .status-dot {
@@ -2956,9 +2916,9 @@
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: rgba(255, 255, 255, 0.08);
-      color: #FFFFFF;
+      border: 1px solid rgba(42, 26, 10, 0.16);
+      background: rgba(255, 255, 255, 0.55);
+      color: #2A1A0A;
       cursor: pointer;
       font-size: 0.9rem;
       display: flex;
@@ -2971,10 +2931,10 @@
 
     .chat-header-btn:hover {
       background: rgba(212, 168, 83, 0.32);
-      color: #FFD700;
-      border-color: rgba(212, 168, 83, 0.55);
+      color: #6B4A00;
+      border-color: rgba(212, 168, 83, 0.60);
       transform: scale(1.06);
-      box-shadow: 0 0 14px rgba(212, 168, 83, 0.35);
+      box-shadow: 0 0 14px rgba(212, 168, 83, 0.40);
     }
 
     .dark .chat-header-btn {
@@ -2999,11 +2959,7 @@
       flex-direction: column;
       gap: 12px;
       -webkit-overflow-scrolling: touch;
-      background: rgba(0, 0, 0, 0.04);
-    }
-
-    .dark .chat-body {
-      background: rgba(0, 0, 0, 0.12);
+      background: transparent;
     }
 
     .chat-message {
@@ -3038,8 +2994,8 @@
       font-weight: 500;
       border-bottom-right-radius: 4px;
       box-shadow:
-        0 4px 14px rgba(184, 134, 11, 0.38),
-        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+        0 4px 14px rgba(184, 134, 11, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
     }
 
     .dark .chat-message.user {
@@ -3050,30 +3006,31 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.45);
     }
 
-    /* Tin nhắn AI: kính mờ trong suốt + viền accent + text-shadow */
+    /* ⭐ Tin nhắn AI — Nâu nhạt (Light) / Xanh lá đậm (Dark) — ĐỔI MỚI */
     .chat-message.ai {
       align-self: flex-start;
-      background: rgba(255, 255, 255, 0.09);
-      border: 1px solid rgba(212, 168, 83, 0.32);
-      color: #FFFFFF;
+      background: linear-gradient(135deg, #B8926B 0%, #8F6D48 100%);
+      border: 1px solid rgba(212, 168, 83, 0.55);
+      color: #FFF8E7;
       border-bottom-left-radius: 4px;
-      backdrop-filter: blur(12px) saturate(150%);
-      -webkit-backdrop-filter: blur(12px) saturate(150%);
+      backdrop-filter: blur(8px) saturate(140%);
+      -webkit-backdrop-filter: blur(8px) saturate(140%);
       box-shadow:
-        0 4px 14px rgba(0, 0, 0, 0.18),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+        0 4px 16px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+      font-weight: 400;
     }
 
     .dark .chat-message.ai {
-      background: rgba(0, 255, 204, 0.08);
-      border-color: rgba(0, 255, 204, 0.32);
+      background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%);
+      border-color: rgba(0, 255, 204, 0.45);
       color: #EAF7F1;
       box-shadow:
-        0 4px 14px rgba(0, 0, 0, 0.30),
-        0 0 16px rgba(0, 255, 204, 0.06),
-        inset 0 1px 0 rgba(0, 255, 204, 0.18);
-      text-shadow: 0 0 8px rgba(0, 255, 204, 0.20);
+        0 4px 16px rgba(0, 0, 0, 0.40),
+        0 0 16px rgba(0, 255, 204, 0.12),
+        inset 0 1px 0 rgba(0, 255, 204, 0.22);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
     }
 
     .chat-typing {
@@ -3082,24 +3039,26 @@
       align-items: center;
       gap: 4px;
       padding: 12px 16px;
-      background: rgba(255, 255, 255, 0.09);
-      border: 1px solid rgba(212, 168, 83, 0.32);
+      background: linear-gradient(135deg, rgba(184, 146, 107, 0.75) 0%, rgba(143, 109, 72, 0.85) 100%);
+      border: 1px solid rgba(212, 168, 83, 0.45);
       border-radius: 16px;
       border-bottom-left-radius: 4px;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.18);
     }
 
     .dark .chat-typing {
-      background: rgba(0, 255, 204, 0.08);
-      border-color: rgba(0, 255, 204, 0.32);
+      background: linear-gradient(135deg, rgba(45, 106, 79, 0.75) 0%, rgba(27, 67, 50, 0.85) 100%);
+      border-color: rgba(0, 255, 204, 0.40);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 16px rgba(0, 255, 204, 0.10), inset 0 1px 0 rgba(0, 255, 204, 0.20);
     }
 
     .chat-typing span {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #D4A853;
+      background: #FFF8E7;
       animation: typing-bounce 1.2s infinite;
     }
 
@@ -3133,31 +3092,27 @@
     /* ---------- FOOTER ---------- */
     .chat-footer {
       padding: 12px 16px;
-      border-top: 1px solid rgba(212, 168, 83, 0.28);
+      border-top: 1px solid rgba(212, 168, 83, 0.32);
       display: flex;
       align-items: center;
       gap: 10px;
       flex-shrink: 0;
-      background: linear-gradient(180deg,
-          rgba(255, 255, 255, 0.03) 0%,
-          rgba(255, 255, 255, 0.08) 100%);
+      background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
     }
 
     .dark .chat-footer {
       border-top-color: rgba(0, 255, 204, 0.28);
-      background: linear-gradient(180deg,
-          rgba(0, 255, 204, 0.02) 0%,
-          rgba(0, 255, 204, 0.06) 100%);
+      background: rgba(0, 255, 204, 0.03);
     }
 
     .chat-input {
       flex: 1;
       height: 42px;
       border-radius: 24px;
-      border: 1.5px solid rgba(212, 168, 83, 0.38);
-      background: rgba(0, 0, 0, 0.22);
+      border: 1.5px solid rgba(212, 168, 83, 0.45);
+      background: rgba(0, 0, 0, 0.24);
       padding: 0 16px;
       font-size: 0.9rem;
       font-family: var(--fn);
@@ -3174,7 +3129,7 @@
 
     .chat-input:focus {
       border-color: #E8C87A;
-      background: rgba(0, 0, 0, 0.34);
+      background: rgba(0, 0, 0, 0.36);
       box-shadow:
         0 0 0 3px rgba(212, 168, 83, 0.18),
         0 0 16px rgba(212, 168, 83, 0.15);
@@ -3261,20 +3216,15 @@
     }
 
     /* ============================================================
-       ============================================================
        ============ MOBILE APP-LIKE REDESIGN ====================
-       ============ Chỉ hiển thị trên thiết bị <= 768px =========
-       ============================================================
        ============================================================ */
 
-    /* Toggle visibility helpers */
     .mobile-only {
       display: none !important;
     }
 
     @media (max-width: 768px) {
 
-      /* Hide desktop-only elements */
       .desktop-only,
       .search-block {
         display: none !important;
@@ -3288,9 +3238,10 @@
         display: none !important;
       }
 
-      /* ==========================================================
-         TOP APP BAR (App-like)
-         ========================================================== */
+      .extra-fabs {
+        display: none !important;
+      }
+
       #nav {
         top: 0;
         left: 0;
@@ -3354,7 +3305,6 @@
         display: none;
       }
 
-      /* Language pill - compact */
       .pill-grp {
         height: 32px;
         border-radius: 16px;
@@ -3369,7 +3319,6 @@
         letter-spacing: 0.05em;
       }
 
-      /* Icon buttons - app-like circular */
       .ico-btn {
         width: 36px;
         height: 36px;
@@ -3381,9 +3330,6 @@
         transform: scale(0.92);
       }
 
-      /* ==========================================================
-         HOME SCREEN
-         ========================================================== */
       #home {
         padding-top: 58px;
       }
@@ -3422,7 +3368,6 @@
         transform: scale(0.97);
       }
 
-      /* Footer compact */
       #ft {
         padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
         gap: 4px;
@@ -3454,9 +3399,6 @@
         font-size: 0.6rem;
       }
 
-      /* ==========================================================
-         MAP SCREEN
-         ========================================================== */
       #map-scr {
         padding-top: 58px;
       }
@@ -3465,7 +3407,6 @@
         border-radius: 0;
       }
 
-      /* Back button - repositioned above bottom nav */
       #back-btn {
         bottom: calc(72px + env(safe-area-inset-bottom, 0px));
         left: 12px;
@@ -3482,9 +3423,6 @@
         transform: scale(0.96);
       }
 
-      /* ==========================================================
-         BOTTOM NAVIGATION - Modern app style
-         ========================================================== */
       #bottom-nav {
         display: flex;
         height: 60px;
@@ -3539,17 +3477,12 @@
         background: var(--acc);
       }
 
-      /* ==========================================================
-         BOTTOM SHEET - Modern (Mobile)
-         ⭐ Width 92vw + max 440px, căn giữa, max-height 85vh
-         ========================================================== */
       #bs {
         display: flex;
         left: 50%;
         right: auto;
         width: 92vw;
         max-width: 440px;
-        /* ⭐ Giữ translateX(-50%) để căn giữa, đồng thời có translateY cho hiệu ứng trượt */
         transform: translateX(-50%) translateY(100%);
         bottom: calc(60px + env(safe-area-inset-bottom, 0px));
         max-height: 85vh;
@@ -3586,7 +3519,6 @@
         gap: 8px;
       }
 
-      /* Cards - modern, tappable feel */
       .ds-card,
       .xa-card {
         padding: 12px 14px;
@@ -3594,7 +3526,6 @@
         gap: 12px;
         background: var(--card-bg);
         border: 1px solid var(--card-border);
-        /* ⭐ Chống co ép trên mobile */
         flex-shrink: 0;
         min-height: 62px;
       }
@@ -3628,9 +3559,6 @@
         font-size: 0.7rem;
       }
 
-      /* ==========================================================
-         HERITAGE MODAL - Full screen page (app-like)
-         ========================================================== */
       #heritage-modal {
         align-items: flex-end;
         padding: 0;
@@ -3720,7 +3648,6 @@
         padding: 4px 10px;
       }
 
-      /* Audio button - compact */
       .heritage-head-row {
         gap: 12px;
       }
@@ -3735,9 +3662,6 @@
         display: none !important;
       }
 
-      /* ==========================================================
-         MODALS (About, QR)
-         ========================================================== */
       #am-box,
       #qr-modal .qr-box {
         width: 94%;
@@ -3768,9 +3692,6 @@
         padding: 10px 14px;
       }
 
-      /* ==========================================================
-         CHAT FAB - Draggable via long-press
-         ========================================================== */
       .chat-fab {
         width: 58px;
         height: 58px;
@@ -3791,28 +3712,11 @@
         cursor: grabbing;
       }
 
-      /* ⭐ EXTRA FABS (MOBILE) — Xếp dọc trên nút chat, kích thước gọn */
-      .extra-fabs {
-        right: 16px;
-        bottom: calc(146px + env(safe-area-inset-bottom, 0px));
-        gap: 10px;
-      }
-
-      .extra-fab {
-        width: 52px;
-        height: 52px;
-        font-size: 1.35rem;
-      }
-
-      /* Ẩn tooltip trên mobile để gọn gàng, tránh vướng víu */
       .extra-fab__tooltip,
       .chat-fab__tooltip {
         display: none !important;
       }
 
-      /* ==========================================================
-         CHAT WINDOW - Full screen on mobile
-         ========================================================== */
       .chat-window {
         bottom: 0;
         right: 0;
@@ -3844,15 +3748,8 @@
         height: 40vh;
       }
 
-      .extra-fab {
-        width: 48px;
-        height: 48px;
-        font-size: 1.25rem;
-      }
-
       .extra-fabs {
-        bottom: calc(142px + env(safe-area-inset-bottom, 0px));
-        gap: 9px;
+        display: none !important;
       }
     }
 
@@ -4024,7 +3921,6 @@
     .m-result-name {
       font-weight: 600;
       font-size: 0.94rem;
-      /* ⭐ Tên xã/di sản — vàng gold ở chế độ Sáng */
       color: #E8C87A;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -4034,7 +3930,6 @@
     }
 
     .dark .m-result-name {
-      /* ⭐ Cyan neon ở chế độ Tối */
       color: var(--acc);
       text-shadow: 0 0 10px rgba(0, 255, 204, 0.30);
     }
@@ -4213,7 +4108,6 @@
       font-size: 0.75rem;
     }
 
-    /* Language switcher in menu */
     .m-lang-switch {
       display: flex;
       gap: 8px;
@@ -4249,7 +4143,6 @@
       box-shadow: var(--neon);
     }
 
-    /* Region accordion inside mobile menu */
     .m-region-group {
       margin: 4px 0;
     }
@@ -4326,9 +4219,6 @@
       opacity: 0.8;
     }
 
-    /* ============================================================
-       Non-mobile - hide overlays
-       ============================================================ */
     @media (min-width: 769px) {
 
       #mobile-search-overlay,
@@ -4337,7 +4227,6 @@
       }
     }
 
-    /* ================= RESPONSIVE (Legacy overrides for very old blocks) ================= */
     @media (min-width: 769px) {
       #bs {
         display: none !important;
@@ -4370,10 +4259,7 @@
     }
 
     /* ============================================================
-       ============================================================
-       LIQUID GLASS ENHANCEMENT (Popup Menu / Modal Chi tiết)
-       Áp dụng cho: #dr, #bs, #heritage-modal .modal-content
-       ============================================================
+       LIQUID GLASS ENHANCEMENT
        ============================================================ */
     #dr,
     #bs,
@@ -4413,7 +4299,6 @@
       border-bottom-color: rgba(0, 255, 204, 0.22) !important;
     }
 
-    /* Bổ sung độ sâu cho card bên trong glass panel */
     #dr .ds-card,
     #bs .ds-card,
     #dr .xa-card,
@@ -4422,13 +4307,11 @@
       -webkit-backdrop-filter: blur(6px);
     }
 
-    /* Đảm bảo nút close vẫn nổi bật trên nền glass */
     #heritage-modal .modal-close {
       backdrop-filter: blur(10px) saturate(160%);
       -webkit-backdrop-filter: blur(10px) saturate(160%);
     }
 
-    /* Text-shadow nhẹ giúp chữ dễ đọc trên nền glass sáng */
     #dr-head h3,
     #bs-head h4,
     #heritage-modal .modal-body h2 {
@@ -4512,7 +4395,6 @@
             <button class="pill-btn active" data-lang="vi" aria-label="Tiếng Việt" aria-pressed="true">VN</button>
             <button class="pill-btn" data-lang="en" aria-label="English" aria-pressed="false">EN</button>
           </div>
-          <!-- Desktop-only actions -->
           <button class="ico-btn desktop-only" id="theme-btn" title="Đổi chế độ sáng/tối"
             aria-label="Đổi chế độ sáng tối"><i class="fa-solid fa-sun"></i></button>
           <div id="region-dd" class="desktop-only">
@@ -4523,7 +4405,6 @@
           </div>
           <button class="ico-btn desktop-only" id="about-btn" title="Thông tin dự án" aria-label="Thông tin dự án"><i
               class="fa-solid fa-circle-info"></i></button>
-          <!-- Mobile-only actions -->
           <button class="ico-btn mobile-only" id="mobile-search-btn" title="Tìm kiếm" aria-label="Mở tìm kiếm"><i
               class="fa-solid fa-magnifying-glass"></i></button>
           <button class="ico-btn mobile-only" id="mobile-menu-btn" title="Menu" aria-label="Mở menu"><i
@@ -4696,9 +4577,6 @@
 
     <div class="audio-toast" id="audio-toast" role="status" aria-live="polite"></div>
 
-    <!-- ============================================================
-         MOBILE SEARCH OVERLAY (full-screen)
-         ============================================================ -->
     <div id="mobile-search-overlay" aria-hidden="true" role="dialog" aria-label="Tìm kiếm">
       <div class="m-search-bar">
         <button class="m-search-back" id="m-search-back" aria-label="Đóng tìm kiếm"><i
@@ -4710,9 +4588,6 @@
       <div class="m-search-body" id="m-search-body"></div>
     </div>
 
-    <!-- ============================================================
-         MOBILE MENU DRAWER (right side)
-         ============================================================ -->
     <div id="mobile-menu-drawer" aria-hidden="true" role="dialog" aria-label="Menu">
       <div class="m-drawer-backdrop" id="m-drawer-backdrop"></div>
       <div class="m-drawer-panel">
@@ -4721,17 +4596,11 @@
           <button class="m-drawer-close" id="m-drawer-close" aria-label="Đóng menu"><i
               class="fa-solid fa-xmark"></i></button>
         </div>
-        <div class="m-drawer-body" id="m-drawer-body">
-          <!-- Built dynamically -->
-        </div>
+        <div class="m-drawer-body" id="m-drawer-body"></div>
       </div>
     </div>
   </div>
 
-  <!-- ============================================================
-       ⭐ EXTRA FABS — Sách đọc + Thái Nguyên Travel
-       Hiển thị phía trên nút Chat AI, tooltip trượt từ phải sang trái
-       ============================================================ -->
   <div class="extra-fabs" aria-label="Liên kết nhanh">
     <a href="https://sachdoc.pages.dev/" target="_blank" rel="noopener noreferrer" class="extra-fab book-fab"
       aria-label="Mở trang Sách đọc di sản" title="Cuốn sách di sản">
@@ -4780,11 +4649,7 @@
     /* ============================================================
        DỮ LIỆU DI SẢN CẤP XÃ / PHƯỜNG (SAU SÁP NHẬP)
        ============================================================ */
-    // Ánh xạ từ xã cũ sang xã mới sau sáp nhập
-    // NOTE: Văn Lăng (Đồng Hỷ) và Văn Lang (Phú Lương) được chuẩn hóa riêng
-    //       để tránh xung đột dấu tiếng Việt khi chuẩn hóa tên.
     const OLD_TO_NEW = {
-      // Phú Bình
       "Phú Bình": "Phú Bình",
       "Tân Thành": "Tân Thành",
       "Điềm Thụy": "Điềm Thụy",
@@ -4792,7 +4657,6 @@
       "Tân Khánh": "Tân Khánh",
       "Úc Kỳ": "Phú Bình",
       "Xuân Phương": "Phú Bình",
-      // Định Hóa
       "Định Hóa": "Định Hóa",
       "Bình Yên": "Bình Yên",
       "Trung Hội": "Trung Hội",
@@ -4802,7 +4666,6 @@
       "Kim Phượng": "Kim Phượng",
       "Lam Vỹ": "Lam Vỹ",
       "Đồng Thịnh": "Định Hóa",
-      // Võ Nhai
       "Võ Nhai": "Võ Nhai",
       "Dân Tiến": "Dân Tiến",
       "Nghinh Tường": "Nghinh Tường",
@@ -4810,22 +4673,17 @@
       "La Hiên": "La Hiên",
       "Tràng Xá": "Tràng Xá",
       "Sảng Mộc": "Sảng Mộc",
-      // Phú Lương
       "Phú Lương": "Phú Lương",
       "Vô Tranh": "Vô Tranh",
       "Yên Trạch": "Yên Trạch",
       "Hợp Thành": "Hợp Thành",
-      // Văn Lang — chuẩn hóa về Phú Lương
       "Văn Lang": "Văn Lang",
-      // Đồng Hỷ
       "Đồng Hỷ": "Đồng Hỷ",
       "Quang Sơn": "Quang Sơn",
       "Trại Cau": "Trại Cau",
       "Nam Hòa": "Nam Hòa",
       "Văn Hán": "Văn Hán",
-      // Văn Lăng — thuộc Đồng Hỷ
       "Văn Lăng": "Văn Lăng",
-      // Đại Từ
       "Đại Từ": "Đại Từ",
       "Đức Lương": "Đức Lương",
       "Phú Thịnh": "Phú Thịnh",
@@ -4835,7 +4693,6 @@
       "Quân Chu": "Quân Chu",
       "Vạn Phú": "Vạn Phú",
       "Phú Xuyên": "Phú Xuyên",
-      // TP. Thái Nguyên
       "Tân Cương": "Tân Cương",
       "Phan Đình Phùng": "Phan Đình Phùng",
       "Linh Sơn": "Linh Sơn",
@@ -4843,65 +4700,54 @@
       "Gia Sàng": "Gia Sàng",
       "Quyết Thắng": "Quyết Thắng",
       "Quán Triều": "Quan Triều",
-      // TP. Sông Công
       "Đại Phúc": "Đại Phúc",
       "Phường Sông Công": "Phường Sông Công",
       "Bá Xuyên": "Bá Xuyên",
       "Bách Quang": "Bách Quang",
-      // TP. Phổ Yên
       "Thành Công": "Thành Công",
       "Phổ Yên": "Phổ Yên",
       "Vạn Xuân": "Vạn Xuân",
       "Trung Thành": "Trung Thành",
       "Phúc Thuận": "Phúc Thuận",
-      // Pác Nặm
       "Bằng Thành": "Bằng Thành",
       "Nghiên Loan": "Nghiên Loan",
       "Cao Minh": "Cao Minh",
-      // Ba Bể
       "Ba Bể": "Ba Bể",
       "Chợ Rã": "Chợ Rã",
       "Phúc Lộc": "Phúc Lộc",
       "Thượng Minh": "Thượng Minh",
       "Đồng Phúc": "Đồng Phúc",
       "Nam Mẫu": "Ba Bể",
-      // Ngân Sơn
       "Bằng Vân": "Bằng Vân",
       "Ngân Sơn": "Ngân Sơn",
       "Nà Phặc": "Nà Phặc",
       "Hiệp Lực": "Hiệp Lực",
       "Thượng Quan": "Thượng Quan",
-      // Chợ Đồn
       "Nam Cường": "Nam Cường",
       "Quảng Bạch": "Quảng Bạch",
       "Yên Thịnh": "Yên Thịnh",
       "Chợ Đồn": "Chợ Đồn",
       "Yên Phong": "Yên Phong",
       "Nghĩa Tá": "Nghĩa Tá",
-      // Bạch Thông
       "Phủ Thông": "Phủ Thông",
       "Cẩm Giàng": "Cẩm Giàng",
       "Vĩnh Thông": "Vĩnh Thông",
       "Bạch Thông": "Bạch Thông",
-      // Na Rì
       "Phong Quang": "Phong Quang",
       "Cường Lợi": "Cường Lợi",
       "Na Rì": "Na Rì",
       "Trần Phú": "Trần Phú",
       "Côn Minh": "Côn Minh",
       "Xuân Dương": "Xuân Dương",
-      // Chợ Mới
       "Tân Kỳ": "Tân Kỳ",
       "Thanh Mai": "Thanh Mai",
       "Thanh Thịnh": "Thanh Thịnh",
       "Chợ Mới": "Chợ Mới",
       "Yên Bình": "Yên Bình",
-      // TP. Bắc Kạn
       "Đức Xuân": "Đức Xuân",
       "Bắc Kạn": "Bắc Kạn"
     };
 
-    // Dữ liệu di sản gốc (giữ nguyên cấu trúc cũ để tra cứu)
     const DI_SAN_CU = {
       "Huyện Phú Bình": {
         "Xã Phú Bình": [
@@ -5318,9 +5164,6 @@
       }
     };
 
-    /* ============================================================
-       TIỆN ÍCH CHUẨN HÓA TÊN
-       ============================================================ */
     function norm(s) {
       if (!s) return '';
       return String(s)
@@ -5353,22 +5196,13 @@
       return false;
     }
 
-    /* ============================================================
-       XỬ LÝ ĐỊA DANH NHẬP NHẰNG: VĂN LĂNG (ĐỒNG HỶ) vs VĂN LANG (PHÚ LƯƠNG)
-       Do norm() loại bỏ dấu nên "Văn Lăng" và "Văn Lang" bị trùng key.
-       Giải pháp: check raw lowercase trước khi chuẩn hóa.
-       ============================================================ */
     const AMBIGUOUS_NAMES = {
       'văn lăng': 'Văn Lăng',
       'văn lang': 'Văn Lang'
     };
 
-    /* ============================================================
-       XÂY DỰNG DỮ LIỆU MỚI (CHỈ XÃ MỚI, KHÔNG CÒN HUYỆN)
-       ============================================================ */
-    const DI_SAN = {}; // { "Tên xã mới": [danh sách di sản] }
+    const DI_SAN = {};
 
-    // Duyệt qua dữ liệu cũ, gộp di sản theo xã mới
     Object.keys(DI_SAN_CU).forEach(function (huyenCu) {
       const xaMap = DI_SAN_CU[huyenCu];
       Object.keys(xaMap).forEach(function (xaCu) {
@@ -5376,7 +5210,6 @@
         if (!DI_SAN[xaMoi]) DI_SAN[xaMoi] = [];
         const ds = xaMap[xaCu] || [];
         ds.forEach(function (diSan) {
-          // Tránh trùng lặp nếu cùng tên di sản
           const exists = DI_SAN[xaMoi].some(function (d) { return d.n === diSan.n; });
           if (!exists) {
             DI_SAN[xaMoi].push(diSan);
@@ -5385,20 +5218,16 @@
       });
     });
 
-    // Danh sách các xã mới có di sản
     const XA_LIST = Object.keys(DI_SAN).sort();
 
-    // Index tra cứu nhanh theo tên xã đã chuẩn hóa
     const xaIndex = {};
     XA_LIST.forEach(function (xa) {
       const key = norm(xa);
-      // Không ghi đè nếu key đã tồn tại (tránh collision Văn Lăng / Văn Lang)
       if (!xaIndex[key]) {
         xaIndex[key] = xa;
       }
     });
 
-    // Alias cho các tên viết tắt
     const XA_ALIASES = {
       'lam vy': 'Lam Vỹ',
       'lam vay': 'Lam Vỹ',
@@ -5413,7 +5242,6 @@
     function findCommuneByName(rawName) {
       const rawLower = String(rawName || '').trim().toLowerCase();
 
-      // ⭐ Xử lý đặc biệt cho địa danh nhập nhằng Văn Lăng / Văn Lang
       if (AMBIGUOUS_NAMES[rawLower]) {
         return AMBIGUOUS_NAMES[rawLower];
       }
@@ -5428,7 +5256,6 @@
 
       if (xaIndex[key]) return xaIndex[key];
 
-      // Tìm tương đối (bỏ qua trường hợp nhập nhằng đã xử lý ở trên)
       for (let i = 0; i < XA_LIST.length; i++) {
         const xaCanonical = XA_LIST[i];
         if (AMBIGUOUS_NAMES[String(xaCanonical).toLowerCase()]) continue;
@@ -5437,9 +5264,6 @@
       return null;
     }
 
-    /* ============================================================
-       KHỞI TẠO ỨNG DỤNG
-       ============================================================ */
     (function () {
       const el = function (id) { return document.getElementById(id); };
       const $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
@@ -5487,7 +5311,6 @@
         geoData = null,
         lastFocusEl = null;
 
-      /* ============ TILE LAYER ============ */
       const CARTO_API_KEY = 'cb1_3fh4_1_cb344e64a2a7f016560e4bbb';
       const CARTO_BASE = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=' + CARTO_API_KEY;
       const CARTO_DARK_BASE = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png?key=' + CARTO_API_KEY;
@@ -5587,7 +5410,6 @@
         return t === 'art' ? TXT[lg].tagArt : t === 'fes' ? TXT[lg].tagFes : TXT[lg].tagKnw;
       }
 
-      /* ============ THEME ============ */
       function applyTheme(dark) {
         isDark = dark;
         document.body.classList.toggle('dark', isDark);
@@ -5620,7 +5442,6 @@
         if (localStorage.getItem('theme') === 'dark') applyTheme(true);
       } catch (e) { }
 
-      /* ============ NGÔN NGỮ ============ */
       function swLang(l) {
         lg = l;
         srInp.placeholder = TXT[lg].srch;
@@ -5645,7 +5466,6 @@
       });
       swLang('vi');
 
-      /* ============ STYLE BẢN ĐỒ ============ */
       function stlGeo() {
         return {
           fillColor: isDark ? '#00FFCC' : '#2D6A4F',
@@ -5665,7 +5485,6 @@
         };
       }
 
-      /* ============ XÂY DỰNG BẢN ĐỒ ============ */
       function bldMap() {
         mp = L.map('mp', {
           center: [21.95, 105.85],
@@ -5759,7 +5578,6 @@
         });
       }
 
-      /* ============ HIGHLIGHT & ZOOM ============ */
       function clearHighlight() {
         aL.forEach(function (l) {
           l._hl = false;
@@ -5770,7 +5588,6 @@
       function matchLayer(l, xa) {
         if (!xa) return true;
 
-        // ⭐ Xử lý nhập nhằng Văn Lăng / Văn Lang bằng raw lowercase
         const xaLower = String(xa).trim().toLowerCase();
         const layerXaRaw = String(l._xa || '').trim().toLowerCase();
         const layerRawName = String(l._rawName || '').trim().toLowerCase();
@@ -5815,7 +5632,6 @@
         }
       }
 
-      /* ============ DRAWER ============ */
       function isMobile() {
         return window.innerWidth <= 768;
       }
@@ -5893,7 +5709,6 @@
         cXa = null;
       });
 
-      /* ============ SWIPE DOWN ĐỂ ĐÓNG BOTTOM SHEET ============ */
       (function () {
         let startY = null;
         bsHandle.addEventListener('touchstart', function (e) {
@@ -5904,7 +5719,6 @@
           if (startY === null) return;
           const dy = e.touches[0].clientY - startY;
           if (dy > 0) {
-            /* ⭐ Giữ translateX(-50%) để bottom sheet vẫn căn giữa */
             bs.style.transform = 'translateX(-50%) translateY(' + dy + 'px)';
           }
         }, { passive: true });
@@ -5918,7 +5732,6 @@
         });
       })();
 
-      /* ============ TÌM KIẾM ============ */
       const srIdx = (function () {
         const idx = [];
         XA_LIST.forEach(function (xa) {
@@ -5993,7 +5806,6 @@
         }
       });
 
-      /* ============ MENU KHU VỰC (DESKTOP) - CHỈ HIỂN THỊ XÃ ============ */
       function bldRegMenu() {
         let html = '<div class="grp-label"><i class="fa-solid fa-star"></i> Tỉnh Thái Nguyên (mới)</div>';
         XA_LIST.forEach(function (xa) {
@@ -6037,11 +5849,12 @@
         }
       });
 
-      /* ============ ĐIỀU HƯỚNG MÀN HÌNH ============ */
       function showMap() {
         hm.classList.add('hidden');
         ft.classList.add('hidden');
         ms.classList.add('active');
+        /* ⭐ THÊM: ẩn FAB Sách đọc + Travel khi vào bản đồ */
+        document.body.classList.add('map-view');
         if (!mp) {
           bldMap();
         } else {
@@ -6055,6 +5868,8 @@
         hm.classList.remove('hidden');
         ft.classList.remove('hidden');
         ms.classList.remove('active');
+        /* ⭐ THÊM: hiện lại FAB khi về trang chủ */
+        document.body.classList.remove('map-view');
         closeDrawers();
         clearHighlight();
         cXa = null;
@@ -6067,13 +5882,11 @@
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showHome(); }
       });
 
-      /* ============ BOTTOM NAV (MOBILE) ============ */
       el('bn-home').addEventListener('click', showHome);
       el('bn-region').addEventListener('click', function () { openMobileMenu('region'); });
       el('bn-search').addEventListener('click', function () { openMobileSearch(); });
       el('bn-theme').addEventListener('click', function () { applyTheme(!isDark); });
 
-      /* ============ MODAL GIỚI THIỆU & QR ============ */
       el('about-btn').addEventListener('click', function () {
         lastFocusEl = document.activeElement;
         am.classList.add('open');
@@ -6105,7 +5918,6 @@
         }
       });
 
-      /* ============ SLIDER ẢNH + LIGHTBOX ============ */
       let lbImages = [];
       let lbIndex = 0;
 
@@ -6247,14 +6059,9 @@
 
       /* ============================================================
          ============ AUDIO PLAYER ============
-         Chỉ dùng file âm thanh thuần túy (Dân ca / Xướng âm,
-         Âm nhạc nghi lễ, Độc tấu nhạc cụ).
-         Đã loại bỏ các loại hình múa / rối / sân khấu hình thể.
          ============================================================ */
 
-      // Danh mục file âm thanh chuẩn (tất cả nằm trong thư mục /audio/)
       const AUDIO_CATALOG = {
-        // Dân ca / Xướng âm
         'hatthen': 'audio/hatthen.mp3',
         'soongco': 'audio/soongco.mp3',
         'luoncoi': 'audio/luoncoi.mp3',
@@ -6267,21 +6074,16 @@
         'hathap': 'audio/hathap.mp3',
         'hatcomay': 'audio/hatcomay.mp3',
         'hatru': 'audio/hatru.mp3',
-        // Âm nhạc nghi lễ
         'hatvan': 'audio/hatvan.mp3',
         'nanghai': 'audio/nanghai.mp3',
         'pile': 'audio/pile.mp3',
-        // Độc tấu nhạc cụ
         'dantinh': 'audio/dantinh.mp3',
         'khenmong': 'audio/khenmong.mp3',
         'saomong': 'audio/saomong.mp3',
         'trongdong': 'audio/trongdong.mp3'
       };
 
-      // Ánh xạ tên di sản → slug file âm thanh
-      // Chỉ bao gồm các di sản thuộc loại Dân ca / Xướng âm / Âm nhạc nghi lễ / Độc tấu
       const AUDIO_MAP = {
-        // ===== Hát Then (Dân ca / Xướng âm) =====
         'Hát Then - Đàn Tính của người Tày (UNESCO)': 'hatthen',
         'Hát Then - Đàn Tính': 'hatthen',
         'Hát Then - Đàn Tính tại ATK': 'hatthen',
@@ -6291,7 +6093,6 @@
         'Hát Then, Lượn Cọi & Hát Mời Trầu': 'hatthen',
         'Tập quán xã hội Hát Then - Đàn Tính': 'hatthen',
 
-        // ===== Hát Soóng Cọ =====
         'Hát Soóng Cọ của người Sán Dìu': 'soongco',
         'Hát Soóng Cọ ban đêm (Chống Soóng)': 'soongco',
         'Hát Soóng Cọ người Sán Dìu ở Điềm Thụy': 'soongco',
@@ -6300,46 +6101,32 @@
         'Hát Soóng Cọ của người Sán Chí': 'soongco',
         'Hát Soóng Cọ & Tung còn': 'soongco',
 
-        // ===== Hát Lượn Cọi =====
         'Hát Lượn Cọi của người Tày': 'luoncoi',
         'Hát Lượn Cọi & Múa Sa Sắc': 'luoncoi',
         'Hát Lượn Cọi': 'luoncoi',
         'Nghệ thuật Hát Lượn Cối & Múa Sa Sắc': 'luoncoi',
         'Hát Lượn Cọi trong hội xuân': 'luoncoi',
 
-        // ===== Hát Páo Dung =====
         'Hát Páo Dung của người Dao': 'paodung',
         'Hát Páo Dung trong đám cưới người Dao': 'paodung',
 
-        // ===== Hát Sấu Nhị =====
         'Hát Sấu Nhị': 'saunhi',
         'Hát Sấu Nhị trong ngày hội': 'saunhi',
         'Hát Sấu Nhị trong lễ cưới': 'saunhi',
         'Hát Sấu Nhị & Múa Tắc Xình': 'saunhi',
         'Hát Sấu Nhị người Sán Chay': 'saunhi',
 
-        // ===== Hát Sloong Hao =====
         'Hát Sloong Hao của người Nùng': 'sloonghao',
         'Hát Sloong Hao': 'sloonghao',
         'Hát Sloong Hao & Múa Sư Tử': 'sloonghao',
         'Hát Sloong Hao & Dân ca Nùng': 'sloonghao',
 
-        // ===== Hát Lượn Slượt =====
         'Hát Lượn Slượt': 'luonsluot',
-
-        // ===== Hát Lượn Phong Slư =====
         'Hát Lượn Phong Slư': 'phongslu',
-
-        // ===== Hát Mời Trầu =====
         'Hát Mời Trầu của người Tày': 'moitrau',
-
-        // ===== Hát Văn (Âm nhạc nghi lễ) =====
         'Hát Văn hầu đồng': 'hatvan',
-
-        // ===== Hát múa Nàng Hai (Âm nhạc nghi lễ) =====
         'Hát múa Nàng Hai xã Côn Minh (Di sản Quốc gia)': 'nanghai',
 
-        // ===== Khèn Mông (Độc tấu nhạc cụ) =====
         'Độc tấu Khèn Mông (Di sản Quốc gia)': 'khenmong',
         'Khèn Mông (Di sản Quốc gia)': 'khenmong',
         'Khèn Mông': 'khenmong',
@@ -6351,11 +6138,12 @@
         if (!name) return '';
         if (AUDIO_MAP[name]) return AUDIO_MAP[name];
 
-        // Fallback theo pattern (đề phòng tên di sản mới)
         const n = norm(name);
+
+        // Specific patterns first (đảm bảo đúng loại)
         if (/\bthen\b/.test(n)) return 'hatthen';
         if (/soong co/.test(n)) return 'soongco';
-        if (/luon coi|luon coi/.test(n)) return 'luoncoi';
+        if (/luon coi/.test(n)) return 'luoncoi';
         if (/pao dung/.test(n)) return 'paodung';
         if (/sau nhi/.test(n)) return 'saunhi';
         if (/sloong hao/.test(n)) return 'sloonghao';
@@ -6364,10 +6152,17 @@
         if (/moi trau/.test(n)) return 'moitrau';
         if (/hat van/.test(n)) return 'hatvan';
         if (/nang hai/.test(n)) return 'nanghai';
-        if (/khen mong/.test(n)) return 'khenmong';
         if (/dan tinh/.test(n)) return 'dantinh';
+
+        // Độc tấu nhạc cụ
+        if (/khen mong|khen/.test(n)) return 'khenmong';
         if (/sao mong/.test(n)) return 'saomong';
         if (/trong dong/.test(n)) return 'trongdong';
+
+        // Fallback: nếu là hát dân ca chung (không rõ thể loại) -> dùng then
+        if (/\bhat\b/.test(n) && !/hat mua|hat ru|hat hat/.test(n)) {
+          return 'hatthen';
+        }
 
         return '';
       }
@@ -6499,7 +6294,6 @@
         }
       });
 
-      /* ============ MODAL CHI TIẾT DI SẢN ============ */
       function openHeritage(d) {
         if (!d) return;
 
@@ -6512,7 +6306,11 @@
         el('modal-desc').textContent = d.d || '';
         buildSlider(imgSlider, slug(cXa), d.n, d.n);
 
-        if (d.t === 'art') {
+        /* ⭐ SỬA: hiển thị audio cho cả di sản loại 'art' VÀ những di sản có tên chứa "hát"/"kèn"/"khèn" */
+        const nameNorm = norm(d.n);
+        const isAudioRelevant = d.t === 'art' || /\bhat\b|\bkhen\b/.test(nameNorm);
+
+        if (isAudioRelevant) {
           const aSlug = audioSlug(d.n);
           if (aSlug && AUDIO_CATALOG[aSlug]) {
             modalAudioBtn.style.display = 'inline-flex';
@@ -6547,9 +6345,6 @@
         if (e.target === heritageModal) closeHeritage();
       });
 
-      /* ============================================================
-         ============ MOBILE SEARCH OVERLAY ============
-         ============================================================ */
       const mSearchOverlay = el('mobile-search-overlay');
       const mSearchInp = el('m-search-inp');
       const mSearchBody = el('m-search-body');
@@ -6626,9 +6421,6 @@
       });
       if (mSearchInp) mSearchInp.addEventListener('input', function () { renderMobileSearch(mSearchInp.value); });
 
-      /* ============================================================
-         ============ MOBILE MENU DRAWER ============
-         ============================================================ */
       const mobileMenuDrawer = el('mobile-menu-drawer');
       const mobileMenuBtn = el('mobile-menu-btn');
       const mobileMenuClose = el('m-drawer-close');
@@ -6662,7 +6454,6 @@
 
         let html = '';
 
-        // Quick links (Sách đọc + Thái Nguyên Travel)
         html += '<div class="m-menu-section">';
         html += '<div class="m-menu-label">Liên kết nhanh</div>';
         html += '<a class="m-menu-item" href="https://sachdoc.pages.dev/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">';
@@ -6677,7 +6468,6 @@
         html += '</a>';
         html += '</div>';
 
-        // Appearance
         html += '<div class="m-menu-section">';
         html += '<div class="m-menu-label">Hiển thị</div>';
         html += '<button class="m-menu-item" id="m-theme-item" type="button">';
@@ -6687,7 +6477,6 @@
         html += '</button>';
         html += '</div>';
 
-        // Language
         html += '<div class="m-menu-section">';
         html += '<div class="m-menu-label">Ngôn ngữ</div>';
         html += '<div class="m-lang-switch">';
@@ -6696,7 +6485,6 @@
         html += '</div>';
         html += '</div>';
 
-        // Region - chỉ hiển thị xã
         html += '<div class="m-menu-section" data-region>';
         html += '<div class="m-menu-label">Khu vực · Chạm để xem</div>';
         html += '<div class="m-region-group open">';
@@ -6713,7 +6501,6 @@
         html += '</div></div>';
         html += '</div>';
 
-        // About
         html += '<div class="m-menu-section">';
         html += '<button class="m-menu-item" id="m-about-item" type="button">';
         html += '<i class="fa-solid fa-circle-info"></i>';
@@ -6724,7 +6511,6 @@
 
         mobileMenuBody.innerHTML = html;
 
-        // Bind events
         $$('.m-region-province', mobileMenuBody).forEach(function (btn) {
           btn.addEventListener('click', function () {
             const grp = btn.parentElement;
@@ -6772,7 +6558,6 @@
 
       buildMobileMenuBody();
 
-      /* ============ PHÍM TẮT ============ */
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
           if (lightbox.classList.contains('open')) { closeLightbox(); return; }
@@ -6800,7 +6585,6 @@
         }
       });
 
-      /* ============ CLICK RA NGOÀI BOTTOM SHEET ============ */
       document.addEventListener('click', function (e) {
         if (!isMobile()) return;
         if (!bs.classList.contains('open')) return;
@@ -6812,7 +6596,6 @@
         closeDrawers();
       });
 
-      /* ============ RESIZE ============ */
       let rzT = null;
       window.addEventListener('resize', function () {
         if (mp) mp.invalidateSize();
@@ -6828,7 +6611,6 @@
         }, 220);
       });
 
-      /* ============ PRELOAD ẢNH NỀN ============ */
       (function () {
         const a = new Image();
         a.src = 'light.png';
@@ -6844,8 +6626,6 @@
   <script>
     /* ============================================================
        CHATBOT AI FLOATING WIDGET
-       + Long-press drag FAB (mobile) + snap-to-edge + lưu vị trí
-       + FIX LỖI MOBILE: synthetic click sau touch
        ============================================================ */
     (function () {
       const chatFab = document.getElementById('chat-fab');
@@ -6863,11 +6643,8 @@
       let isOpen = false;
       let firstOpen = true;
       let isLoading = false;
-      let lastChatToggleAt = 0;   // ⭐ THÊM: timestamp chống synthetic click
+      let lastChatToggleAt = 0;
 
-      /* ============================================================
-         FAB DRAG (Long-press = di chuyển, tap = mở chat)
-         ============================================================ */
       let fabLongPressTimer = null;
       let fabDragging = false;
       let fabStartTouchX = 0, fabStartTouchY = 0;
@@ -6977,8 +6754,8 @@
         document.addEventListener('mousemove', moveFabPress, { passive: false });
         document.addEventListener('mouseup', endFabPress);
         document.addEventListener('touchmove', moveFabPress, { passive: false });
-        document.addEventListener('touchend', endFabPress, { passive: false });   // ⭐ sửa: non-passive
-        document.addEventListener('touchcancel', endFabPress, { passive: false }); // ⭐ sửa: non-passive
+        document.addEventListener('touchend', endFabPress, { passive: false });
+        document.addEventListener('touchcancel', endFabPress, { passive: false });
       }
 
       function moveFabPress(e) {
@@ -7042,7 +6819,6 @@
 
         if (isCancel) return;
 
-        // ⭐ FIX: ngăn browser sinh "synthetic click" sau touch
         if (e && e.cancelable) {
           try { e.preventDefault(); } catch (err) { }
         }
@@ -7055,7 +6831,6 @@
       chatFab.addEventListener('mousedown', startFabPress);
       chatFab.addEventListener('touchstart', startFabPress, { passive: true });
 
-      // Chặn click tổng hợp sinh ra sau touch (tránh toggle 2 lần trên mobile)
       chatFab.addEventListener('click', function (e) {
         if (fabJustDragged) {
           e.preventDefault();
@@ -7064,7 +6839,6 @@
         }
       }, true);
 
-      // Desktop: click mở/đóng chat
       chatFab.addEventListener('click', function (e) {
         if (fabJustDragged) return;
         if (isMobileView()) return;
@@ -7087,9 +6861,6 @@
         }
       });
 
-      /* ============================================================
-         CHAT WINDOW
-         ============================================================ */
       function toggleChat() {
         if (isOpen) closeChat();
         else openChat();
@@ -7097,7 +6868,7 @@
 
       function openChat() {
         isOpen = true;
-        lastChatToggleAt = Date.now();   // ⭐ THÊM
+        lastChatToggleAt = Date.now();
         chatWindow.classList.remove('minimized');
         chatWindow.classList.add('open');
         chatFab.style.display = 'none';
@@ -7110,7 +6881,7 @@
 
       function closeChat() {
         isOpen = false;
-        lastChatToggleAt = Date.now();   // ⭐ THÊM
+        lastChatToggleAt = Date.now();
         chatWindow.classList.remove('open');
         chatWindow.classList.add('minimized');
         chatFab.style.display = 'flex';
@@ -7118,7 +6889,7 @@
 
       function minimizeChat() {
         isOpen = false;
-        lastChatToggleAt = Date.now();   // ⭐ THÊM
+        lastChatToggleAt = Date.now();
         chatWindow.classList.remove('open');
         chatWindow.classList.add('minimized');
         chatFab.style.display = 'flex';
@@ -7206,9 +6977,6 @@
         }
       });
 
-      /* ============================================================
-         Chat window drag (header drag - desktop only)
-         ============================================================ */
       function isDesktop() {
         return window.innerWidth > 768;
       }
@@ -7290,7 +7058,6 @@
 
       document.addEventListener('click', function (e) {
         if (!isOpen) return;
-        // ⭐ Bỏ qua "synthetic click" sinh ra ngay sau touch mở chat (mobile)
         if (Date.now() - lastChatToggleAt < 400) return;
         if (chatWindow.contains(e.target)) return;
         if (chatFab.contains(e.target)) return;
