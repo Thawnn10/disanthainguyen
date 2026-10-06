@@ -7190,8 +7190,28 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message: text })
           });
-          if (!response.ok) throw new Error('HTTP ' + response.status);
-          const data = await response.json();
+
+          let data = null;
+          try { data = await response.json(); } catch (e) { /* ignore */ }
+
+          if (!response.ok) {
+            removeTyping();
+            const errMsg = (data && (data.error || data.detail)) || ('HTTP ' + response.status);
+            addMessage('ai',
+              '⚠️ **Không thể kết nối tới Trợ lý AI.**\n\n' +
+              '- **Chi tiết lỗi:** `' + errMsg + '`\n' +
+              '- **HTTP status:** `' + response.status + '`\n' +
+              (data && data.model ? '- **Model:** `' + data.model + '`\n' : '') +
+              (data && typeof data.hasApiKey !== 'undefined'
+                ? '- **API key có cấu hình:** ' + (data.hasApiKey ? '✅ Có' : '❌ Chưa có') + '\n'
+                : '') +
+              '\n**Gợi ý khắc phục:**\n' +
+              '- Kiểm tra biến môi trường `GEMINI_API_KEY` trên Render\n' +
+              '- Mở `https://disanthainguyen-backend.onrender.com/health/deep` để chẩn đoán'
+            );
+            return;
+          }
+
           removeTyping();
           if (data && data.reply) {
             addMessage('ai', data.reply);
@@ -7204,8 +7224,13 @@
           removeTyping();
           console.error('Chatbot API error:', error);
           addMessage('ai',
-            'Xin lỗi, hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc kiểm tra kết nối internet.\n\n' +
-            '- Nếu bạn đang chạy dự án local, hãy chắc chắn backend `disanthainguyen-backend` đang hoạt động.'
+            '⚠️ **Lỗi mạng hoặc CORS.**\n\n' +
+            '- **Chi tiết:** `' + (error && error.message ? error.message : String(error)) + '`\n' +
+            '- **URL:** `' + API_URL + '`\n\n' +
+            '**Gợi ý khắc phục:**\n' +
+            '- Kiểm tra backend còn hoạt động không (Render Free tier có thể đang ngủ)\n' +
+            '- Mở `' + API_URL.replace('/api/chat', '/health') + '` để kiểm tra\n' +
+            '- Nếu Render đang sleep, thử lại sau 30–60 giây'
           );
         } finally {
           isLoading = false;
@@ -7214,7 +7239,6 @@
           scrollToBottom();
         }
       }
-
       chatSend.addEventListener('click', sendMessage);
       chatInput.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' && !e.shiftKey) {
