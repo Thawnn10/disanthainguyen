@@ -109,6 +109,8 @@
       --glass-strong-border: rgba(255, 255, 255, 0.35);
       --glass-strong-shadow: 0 20px 50px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.5);
       --glass-strong-blur: blur(20px) saturate(190%);
+      /* Mobile bottom-sheet gap variable (above bottom-nav) */
+      --bs-gap: 60px;
     }
 
     .dark {
@@ -509,7 +511,6 @@
       align-items: flex-start; gap: 8px; flex-shrink: 0;
     }
     #dr-head h3 { font-family: var(--fs); font-size: 1.15rem; font-weight: 700; color: var(--card-text); margin: 0; line-height: 1.3; letter-spacing: 0.01em; }
-    /* Tổng quát — chữ nâu nhạt dễ nhìn trong chế độ sáng */
     body:not(.dark) #dr.overview-mode #dr-title,
     body:not(.dark) #bs.overview-mode #bs-title {
       color: #C9A87C;
@@ -518,7 +519,6 @@
     body:not(.dark) #bs.overview-mode #bs-sub {
       color: #A8896A;
     }
-    /* Nút "Về cấp ghi danh" / "Về loại hình" trong Tổng quát — chữ nâu nhạt */
     body:not(.dark) #dr.overview-mode #dr-back,
     body:not(.dark) #bs.overview-mode #bs-back {
       color: #C9A87C;
@@ -570,18 +570,22 @@
     }
 
     /* ============================================================
-       BOTTOM SHEET (MOBILE)
+       BOTTOM SHEET (MOBILE) — redesigned
        ============================================================ */
     #bs {
-      display: none; position: absolute; bottom: 0; left: 0; right: 0; z-index: 9;
+      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1004;
       background: var(--drawer-bg);
-      backdrop-filter: blur(22px) saturate(140%); -webkit-backdrop-filter: blur(22px) saturate(140%);
-      border-radius: 22px 22px 0 0; box-shadow: var(--sh2);
-      max-height: 85vh; transform: translateY(100%);
-      transition: transform 0.44s var(--ease-drawer);
+      backdrop-filter: blur(24px) saturate(160%); -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border-radius: 24px 24px 0 0; box-shadow: 0 -10px 44px rgba(0,0,0,0.42);
+      max-height: calc(100vh - 70px);
+      max-height: calc(100dvh - 70px);
+      transform: translateY(100%);
+      transition: transform 0.44s cubic-bezier(0.22, 1, 0.36, 1);
       border-top: 1px solid var(--drawer-border);
       flex-direction: column;
       will-change: transform; backface-visibility: hidden;
+      overflow: hidden;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
     }
     #bs.open { transform: translateY(0); }
 
@@ -589,35 +593,88 @@
       width: 44px; height: 4px; background: rgba(212,168,83,0.4);
       border-radius: 3px; margin: 10px auto 6px; flex-shrink: 0;
       cursor: grab; transition: background 0.2s ease;
+      touch-action: none;
     }
     .dark #bs-handle { background: rgba(0,255,204,0.4); }
+    #bs-handle:active { background: rgba(212,168,83,0.7); }
 
     #bs-head {
-      padding: 4px 16px 10px; text-align: center;
+      display: flex; align-items: center; gap: 10px;
+      padding: 4px 16px 12px;
       border-bottom: 1px solid var(--drawer-divider);
-      position: relative; background: var(--drawer-head-bg); flex-shrink: 0;
+      background: var(--drawer-head-bg); flex-shrink: 0;
+      position: relative;
     }
-    #bs-head h4 { font-family: var(--fs); font-size: 1.02rem; font-weight: 700; color: var(--card-text); line-height: 1.3; padding: 0 60px; }
+    #bs-title-wrap {
+      flex: 1; min-width: 0; text-align: center;
+      padding: 0 4px;
+    }
+    #bs-head h4 {
+      font-family: var(--fs); font-size: 1.02rem; font-weight: 700;
+      color: var(--card-text); line-height: 1.3;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
     #bs-head .sub { font-size: 0.7rem; color: var(--card-text2); margin-top: 3px; letter-spacing: 0.02em; }
 
     #bs-back {
-      position: absolute; left: 12px; top: 4px;
       background: rgba(212,168,83,0.14);
       border: 1px solid var(--drawer-divider);
-      border-radius: 14px; padding: 5px 11px;
-      font-size: 0.68rem; color: var(--card-text);
+      border-radius: 14px; padding: 6px 12px;
+      font-size: 0.7rem; color: var(--card-text);
       cursor: pointer; font-family: var(--fn);
       display: none; font-weight: 500;
+      align-items: center; gap: 5px;
+      flex-shrink: 0; min-height: 32px;
+      transition: all 0.22s var(--ease-soft);
+      -webkit-tap-highlight-color: transparent;
     }
-    #bs-back.show { display: block; }
+    #bs-back.show { display: inline-flex; }
+    #bs-back:active { transform: scale(0.95); background: rgba(212,168,83,0.28); }
     .dark #bs-back { background: rgba(0,255,204,0.12); }
+    .dark #bs-back:active { background: rgba(0,255,204,0.28); }
+
+    #bs-close {
+      width: 32px; height: 32px; border-radius: 50%; border: none;
+      background: rgba(212,168,83,0.14); color: var(--card-text);
+      font-size: 0.9rem; cursor: pointer; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.22s var(--ease-soft);
+      -webkit-tap-highlight-color: transparent;
+    }
+    #bs-close:active { transform: scale(0.92); background: rgba(212,168,83,0.3); }
+    .dark #bs-close { background: rgba(0,255,204,0.14); }
 
     #bs-list {
-      flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden;
-      padding: 12px 14px calc(20px + env(safe-area-inset-bottom));
+      flex: 1 1 auto; min-height: 0;
+      overflow-y: auto; overflow-x: hidden;
+      padding: 12px 14px 18px;
       display: flex; flex-direction: column; gap: 10px;
       -webkit-overflow-scrolling: touch; touch-action: pan-y;
-      overscroll-behavior: contain; scrollbar-gutter: stable;
+      overscroll-behavior: contain;
+      scroll-behavior: smooth;
+    }
+
+    /* Content transition when swapping */
+    #bs-list.bs-swap > * {
+      animation: bsItemIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    #bs-list.bs-swap > *:nth-child(1) { animation-delay: 0.02s; }
+    #bs-list.bs-swap > *:nth-child(2) { animation-delay: 0.05s; }
+    #bs-list.bs-swap > *:nth-child(3) { animation-delay: 0.08s; }
+    #bs-list.bs-swap > *:nth-child(4) { animation-delay: 0.11s; }
+    #bs-list.bs-swap > *:nth-child(5) { animation-delay: 0.14s; }
+    #bs-list.bs-swap > *:nth-child(6) { animation-delay: 0.17s; }
+    #bs-list.bs-swap > *:nth-child(7) { animation-delay: 0.20s; }
+    #bs-list.bs-swap > *:nth-child(8) { animation-delay: 0.23s; }
+    #bs-list.bs-swap > *:nth-child(n+9) { animation-delay: 0.26s; }
+    @keyframes bsItemIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Subtle shadow at bottom of list */
+    #bs-list::after {
+      content: ''; display: block; height: 4px; flex-shrink: 0;
     }
 
     /* ============================================================
@@ -704,6 +761,8 @@
       transition: transform 0.3s var(--ease-drawer), box-shadow 0.3s var(--ease-soft), background 0.3s var(--ease-soft), border-color 0.3s var(--ease-soft);
       cursor: pointer; display: flex; align-items: center; gap: 14px;
       flex-shrink: 0; min-height: 70px; position: relative; overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
     }
     .cat-card::before {
       content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
@@ -712,7 +771,7 @@
     }
     .cat-card:hover { transform: translateY(-3px); background: var(--card-bg-hover); box-shadow: var(--card-hover-glow); border-color: var(--card-hover-border); }
     .cat-card:hover::before { opacity: 1; }
-    .cat-card:active { transform: scale(0.985); }
+    .cat-card:active { transform: scale(0.985); background: var(--card-bg-hover); }
     .cat-card .cat-ic {
       width: 46px; height: 46px; border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
@@ -1370,28 +1429,86 @@
       .bn-item.active { color: var(--acc); }
       .bn-item.active::before { content: ''; position: absolute; top: 3px; left: 50%; transform: translateX(-50%); width: 18px; height: 3px; border-radius: 2px; background: var(--acc); }
 
+      /* ==== BOTTOM SHEET (mobile) — redesigned & robust ==== */
       #bs {
-        display: flex; left: 50%; right: auto;
-        width: 92vw; max-width: 440px;
-        transform: translateX(-50%) translateY(100%);
-        bottom: calc(60px + env(safe-area-inset-bottom, 0px));
-        max-height: 85vh; border-radius: 22px 22px 0 0;
+        display: flex;
+        position: fixed;
+        left: 0; right: 0;
+        bottom: var(--bs-gap);
+        width: 100%; max-width: 100%;
+        transform: translateY(calc(100% + var(--bs-gap)));
+        max-height: calc(100vh - var(--bs-gap) - 70px);
+        max-height: calc(100dvh - var(--bs-gap) - 70px);
+        border-radius: 24px 24px 0 0;
+        border-top: 1px solid var(--drawer-border);
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        box-shadow: 0 -10px 44px rgba(0,0,0,0.42), 0 -1px 0 rgba(255,255,255,0.06) inset;
+        background: var(--drawer-bg);
+        backdrop-filter: blur(24px) saturate(160%);
+        -webkit-backdrop-filter: blur(24px) saturate(160%);
+        transition: transform 0.44s cubic-bezier(0.22, 1, 0.36, 1);
+        z-index: 1004;
+        overflow: hidden;
+        flex-direction: column;
+        will-change: transform;
       }
-      #bs.open { transform: translateX(-50%) translateY(0); }
-      #bs-handle { width: 40px; height: 4px; background: rgba(212,168,83,0.45); margin: 10px auto 4px; }
-      #bs-head { padding: 6px 16px 12px; }
-      #bs-head h4 { font-size: 1.02rem; padding: 0 60px; }
-      #bs-list { padding: 10px 12px calc(20px + env(safe-area-inset-bottom, 0px)); gap: 8px; }
-      .ds-card, .xa-card, .cat-card { padding: 12px 14px; border-radius: 14px; gap: 12px; flex-shrink: 0; min-height: 62px; }
-      .ds-card:active, .xa-card:active, .cat-card:active { transform: scale(0.98); }
+      #bs.open { transform: translateY(0); }
+      #bs:not(.open) { pointer-events: none; }
+
+      /* Handle: bigger hit area */
+      #bs-handle {
+        width: 44px; height: 4px;
+        margin: 10px auto 4px;
+        background: rgba(212,168,83,0.5);
+        touch-action: none;
+        position: relative;
+      }
+      #bs-handle::before {
+        content: '';
+        position: absolute;
+        top: -14px; left: -30px; right: -30px; bottom: -14px;
+      }
+
+      #bs-head {
+        padding: 4px 14px 12px;
+        gap: 8px;
+      }
+      #bs-head h4 { font-size: 1rem; }
+      #bs-head .sub { font-size: 0.68rem; margin-top: 2px; }
+      #bs-back { padding: 6px 10px; font-size: 0.68rem; min-height: 30px; border-radius: 12px; }
+      #bs-back i { font-size: 0.7rem; }
+      #bs-close { width: 30px; height: 30px; font-size: 0.85rem; }
+
+      /* Lists */
+      #bs-list {
+        padding: 10px 12px 16px;
+        gap: 9px;
+        scrollbar-width: none;
+      }
+      #bs-list::-webkit-scrollbar { display: none; }
+
+      /* Cards on mobile: comfortable touch targets */
+      .ds-card, .xa-card, .cat-card {
+        border-radius: 14px;
+        gap: 12px;
+        min-height: 64px;
+      }
+      .ds-card { padding: 12px 14px; }
+      .xa-card { padding: 12px 14px; }
+      .cat-card { padding: 14px 16px; min-height: 72px; }
       .ds-tag, .xa-card .xa-ic { width: 38px; height: 38px; font-size: 1.05rem; }
-      .cat-card .cat-ic { width: 50px; height: 50px; font-size: 1.5rem; }
+      .cat-card .cat-ic { width: 48px; height: 48px; font-size: 1.45rem; border-radius: 14px; }
       .ds-info .ds-name { font-size: 0.88rem; }
-      .ds-info .ds-meta { font-size: 0.64rem; }
+      .ds-info .ds-meta { font-size: 0.64rem; gap: 5px; }
       .xa-card .xa-name { font-size: 0.9rem; }
       .xa-card .xa-meta { font-size: 0.68rem; }
-      .cat-card .cat-name { font-size: 1rem; }
+      .cat-card .cat-name { font-size: 1rem; line-height: 1.3; }
+      .cat-card .cat-desc { font-size: 0.7rem; margin-top: 3px; }
+      .cat-card .cat-count { font-size: 0.68rem; padding: 3px 9px; }
 
+      /* Modal on mobile full-screen */
       #heritage-modal { align-items: flex-end; padding: 0; }
       #heritage-modal .modal-content {
         width: 100%; height: 100%; max-width: 100%; max-height: 100%;
@@ -1420,7 +1537,6 @@
     }
 
     @media (max-width: 480px) {
-      #bs { max-height: 82vh; }
       #heritage-modal .img-slider { height: 34vh; }
       .extra-fabs { display: none !important; }
     }
@@ -1520,7 +1636,7 @@
     }
 
     /* LIQUID GLASS ENHANCEMENT */
-    #dr, #bs, #heritage-modal .modal-content {
+    #dr, #heritage-modal .modal-content {
       background: var(--glass-strong-bg) !important;
       backdrop-filter: var(--glass-strong-blur) !important;
       -webkit-backdrop-filter: var(--glass-strong-blur) !important;
@@ -1537,8 +1653,8 @@
         padding: 6px 10px !important;
       }
     }
-    #dr-head, #bs-head { background: rgba(255,255,255,0.08) !important; border-bottom-color: rgba(255,255,255,0.18) !important; }
-    .dark #dr-head, .dark #bs-head { background: rgba(0,255,204,0.06) !important; border-bottom-color: rgba(0,255,204,0.22) !important; }
+    #dr-head { background: rgba(255,255,255,0.08) !important; border-bottom-color: rgba(255,255,255,0.18) !important; }
+    .dark #dr-head { background: rgba(0,255,204,0.06) !important; border-bottom-color: rgba(0,255,204,0.22) !important; }
   </style>
 </head>
 
@@ -1644,11 +1760,14 @@
         </aside>
 
         <aside id="bs" aria-label="Danh sách di sản (Mobile)">
-          <div id="bs-handle"></div>
+          <div id="bs-handle" role="button" aria-label="Kéo để đóng" tabindex="0"></div>
           <div id="bs-head">
-            <button id="bs-back"><i class="fa-solid fa-arrow-left"></i> Xã</button>
-            <h4 id="bs-title"></h4>
-            <p class="sub" id="bs-sub"></p>
+            <button id="bs-back" type="button"><i class="fa-solid fa-arrow-left"></i> <span>Quay lại</span></button>
+            <div id="bs-title-wrap">
+              <h4 id="bs-title"></h4>
+              <p class="sub" id="bs-sub"></p>
+            </div>
+            <button id="bs-close" type="button" aria-label="Đóng danh sách"><i class="fa-solid fa-xmark"></i></button>
           </div>
           <div id="bs-list"></div>
         </aside>
@@ -1959,8 +2078,6 @@
 
     /* ============================================================
        DANH SÁCH XÃ/PHƯỜNG (độc lập với di sản)
-       Giữ nguyên danh mục địa bàn từ phiên bản trước để xã không có dữ
-       liệu vẫn xuất hiện trong Khu vực.
        ============================================================ */
     const COMMUNE_LIST = [
       'An Khánh', 'Ba Bể', 'Bá Xuyên', 'Bạch Thông', 'Bách Quang', 'Bắc Kạn', 'Bằng Thành', 'Bằng Vân',
@@ -2011,7 +2128,6 @@
         .replace(/'/g, '&#39;');
     }
 
-    /* Xây chỉ mục xã: key chuẩn hóa → tên chuẩn */
     const COMMUNE_INDEX = {};
     COMMUNE_LIST.forEach(function (xa) {
       const k = norm(xa);
@@ -2022,18 +2138,15 @@
       if (!raw) return null;
       const k = norm(raw);
       if (COMMUNE_INDEX[k]) return COMMUNE_INDEX[k];
-      // thử so khớp với danh sách
       for (let i = 0; i < COMMUNE_LIST.length; i++) {
         if (norm(COMMUNE_LIST[i]) === k) return COMMUNE_LIST[i];
       }
       return null;
     }
 
-    /* Bản đồ di sản theo xã: tên xã chuẩn → [record,...] */
     const DI_SAN = {};
     COMMUNE_LIST.forEach(function (xa) { DI_SAN[xa] = []; });
 
-    /* Kiểm tra trùng lặp khi phân bổ */
     const UNASSIGNED_LOCATIONS = [];
     HERITAGE_DATA.forEach(function (rec) {
       const seen = {};
@@ -2050,7 +2163,6 @@
       });
     });
 
-    /* Chỉ mục theo loại hình và cấp ghi danh */
     const LEVEL_UNESCO = 'UNESCO';
     const LEVEL_NATIONAL = 'Quốc gia';
     const UNESCO_RECORDS = HERITAGE_DATA.filter(function (r) { return r.level === LEVEL_UNESCO; });
@@ -2061,16 +2173,13 @@
       CATEGORY_MAP[cat] = NATIONAL_RECORDS.filter(function (r) { return r.category === cat; });
     });
 
-    /* Kiểm tra tính toàn vẹn dữ liệu */
     console.log('[Di Sản Thái Nguyên] Tổng số bản ghi:', HERITAGE_DATA.length,
       '| UNESCO:', UNESCO_RECORDS.length,
       '| Quốc gia:', NATIONAL_RECORDS.length);
     console.log('[Di Sản Thái Nguyên] Xã/phường:', COMMUNE_LIST.length,
       '| Xã có di sản:', Object.keys(DI_SAN).filter(function (k) { return DI_SAN[k].length > 0; }).length);
 
-    /* ============================================================
-       ÂM THANH — CHỈ VỚI DI SẢN "HÁT ĐƠN THUẦN" VÀ CÓ TÀI NGUYÊN
-       ============================================================ */
+    /* ============================================================ */
     const AUDIO_CATALOG = {
       'hatthen': 'audio/hatthen.mp3',
       'soongco': 'audio/soongco.mp3',
@@ -2092,12 +2201,10 @@
     function getAudioUrlFor(rec) {
       if (!rec) return null;
       const name = rec.n || '';
-      // Loại trừ các hình thức múa, nhảy, hát múa
       if (/hát\s+múa|múa|nhảy|nhảy\s+múa/i.test(name)) return null;
 
       const n = norm(name);
 
-      // Khớp trực tiếp theo từ khóa
       if (/\bthen\b/.test(n)) return AUDIO_CATALOG['hatthen'];
       if (/soong co/.test(n)) return AUDIO_CATALOG['soongco'];
       if (/luon coi/.test(n)) return AUDIO_CATALOG['luoncoi'];
@@ -2109,15 +2216,11 @@
       if (/hat ru/.test(n)) return AUDIO_CATALOG['hatru'];
       if (/hat van/.test(n)) return AUDIO_CATALOG['hatvan'];
       if (/nang hai/.test(n)) return AUDIO_CATALOG['nanghai'];
-      // Hát Sli / Hát Ví của người Nùng / Tày: không có tài nguyên riêng,
-      // dùng luonsluot như làn điệu gần (nhưng chỉ khi thuộc nhóm hát đơn thuần)
       if (/hat sli|hat vi/.test(n)) return AUDIO_CATALOG['luonsluot'];
       return null;
     }
 
-    /* ============================================================
-       ỨNG DỤNG CHÍNH
-       ============================================================ */
+    /* ============================================================ */
     (function () {
       const el = function (id) { return document.getElementById(id); };
       const $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
@@ -2131,6 +2234,7 @@
       const drTitle = el('dr-title'), drSub = el('dr-sub');
       const bsTitle = el('bs-title'), bsSub = el('bs-sub');
       const drBack = el('dr-back'), bsBack = el('bs-back'), bsHandle = el('bs-handle');
+      const bsClose = el('bs-close');
       const am = el('am'), themeBtn = el('theme-btn');
       const ctaBtn = el('cta-btn'), backBtn = el('back-btn'), ft = el('ft');
       const brand = el('brand');
@@ -2140,8 +2244,8 @@
       const modalAudioBtn = el('modal-audio-btn');
 
       let mp = null, gL = null, aL = [], tileLayer = null;
-      let cXa = null;              // xã đang mở trong Khu vực
-      let currentView = 'region';  // 'region' | 'overview'
+      let cXa = null;
+      let currentView = 'region';
       let overviewState = { level: null, category: null };
       let isDark = false, lg = 'vi', geoData = null;
       let lastFocusEl = null;
@@ -2185,7 +2289,7 @@
         vi: {
           srch: 'Tìm xã, phường, di sản... (Ctrl+K)',
           cta: 'KHÁM PHÁ NGAY', back: 'Trang chủ', region: 'Khu vực',
-          xaLb: 'Xã/Phường', dsLb: 'Di sản', allXa: 'Về danh sách xã', xaShort: 'Xã',
+          xaLb: 'Xã/Phường', dsLb: 'Di sản', allXa: 'Về danh sách xã', xaShort: 'Quay lại',
           noResult: 'Không tìm thấy kết quả',
           noHeritage: 'Xã này chưa có dữ liệu di sản được ghi nhận.',
           tagArt: 'Nghệ thuật trình diễn', tagFes: 'Lễ hội truyền thống',
@@ -2211,7 +2315,7 @@
         en: {
           srch: 'Search commune, heritage... (Ctrl+K)',
           cta: 'EXPLORE HERITAGE', back: 'Home', region: 'Regions',
-          xaLb: 'Commune', dsLb: 'Heritage', allXa: 'Back to commune list', xaShort: 'Commune',
+          xaLb: 'Commune', dsLb: 'Heritage', allXa: 'Back to commune list', xaShort: 'Back',
           noResult: 'No results found',
           noHeritage: 'No heritage data recorded for this commune yet.',
           tagArt: 'Performing arts', tagFes: 'Traditional festival',
@@ -2238,7 +2342,6 @@
       function tagIcon(t) { return t === 'art' ? '🎵' : t === 'fes' ? '🥁' : t === 'knw' ? '🍃' : t === 'lang' ? '✍️' : '📜'; }
       function tagLabel(t) { return t === 'art' ? TXT[lg].tagArt : t === 'fes' ? TXT[lg].tagFes : t === 'knw' ? TXT[lg].tagKnw : t === 'lang' ? TXT[lg].tagLang : TXT[lg].dsLb; }
 
-      /* ---- CATEGORY ICON / STYLE ---- */
       function catIcon(cat) {
         switch (cat) {
           case 'Tiếng nói, chữ viết': return '✍️';
@@ -2287,7 +2390,7 @@
         const rl = regBtn.querySelector('.region-label');
         if (rl) rl.textContent = TXT[lg].region;
         drBack.innerHTML = '<i class="fa-solid fa-arrow-left"></i> ' + TXT[lg].allXa;
-        bsBack.innerHTML = '<i class="fa-solid fa-arrow-left"></i> ' + TXT[lg].xaShort;
+        updateBsBackLabel();
         $$('#lang-sw .pill-btn').forEach(function (b) {
           const on = b.dataset.lang === lg;
           b.classList.toggle('active', on);
@@ -2299,6 +2402,17 @@
       }
       $$('#lang-sw .pill-btn').forEach(function (b) { b.addEventListener('click', function () { swLang(b.dataset.lang); }); });
       swLang('vi');
+
+      function updateBsBackLabel() {
+        // Label cập nhật dựa trên ngữ cảnh
+        if (currentView === 'overview') {
+          if (overviewState.category) bsBack.innerHTML = '<i class="fa-solid fa-arrow-left"></i> <span>' + esc(TXT[lg].allCategory) + '</span>';
+          else if (overviewState.level) bsBack.innerHTML = '<i class="fa-solid fa-arrow-left"></i> <span>' + esc(TXT[lg].allLevel) + '</span>';
+          else bsBack.innerHTML = '<i class="fa-solid fa-arrow-left"></i> <span>' + esc(TXT[lg].xaShort) + '</span>';
+        } else {
+          bsBack.innerHTML = '<i class="fa-solid fa-arrow-left"></i> <span>' + esc(TXT[lg].xaShort) + '</span>';
+        }
+      }
 
       function stlGeo() {
         return { fillColor: isDark ? '#00FFCC' : '#2D6A4F', color: isDark ? '#00FFCC' : '#2D6A4F', weight: 1.3, opacity: 0.75, fillOpacity: isDark ? 0.08 : 0.14 };
@@ -2390,14 +2504,23 @@
       function isMobile() { return window.innerWidth <= 768; }
 
       /* ---- DRAWER / SHEET ---- */
-      function openDrawer(title, sub, html, showBack, backLabel) {
+      function openDrawer(title, sub, html, showBack, backLabel, animateSwap) {
         if (isMobile()) {
+          const shouldAnimate = animateSwap !== false;
+          if (shouldAnimate) {
+            bsList.classList.remove('bs-swap');
+            // force reflow
+            void bsList.offsetWidth;
+          }
           bsTitle.textContent = title;
           bsSub.textContent = sub || '';
           bsList.innerHTML = html;
+          if (shouldAnimate) {
+            bsList.classList.add('bs-swap');
+          }
           if (showBack) {
             bsBack.classList.add('show');
-            if (backLabel) bsBack.innerHTML = '<i class="fa-solid fa-arrow-left"></i> ' + esc(backLabel);
+            if (backLabel) bsBack.innerHTML = '<i class="fa-solid fa-arrow-left"></i> <span>' + esc(backLabel) + '</span>';
           } else {
             bsBack.classList.remove('show');
           }
@@ -2424,8 +2547,8 @@
         dr.classList.remove('open');
         bs.classList.remove('open');
         bs.style.transform = '';
-        dr.classList.remove('overview-mode');   /* ⬅ THÊM */
-        bs.classList.remove('overview-mode'); 
+        dr.classList.remove('overview-mode');
+        bs.classList.remove('overview-mode');
         currentView = 'region';
         overviewState = { level: null, category: null };
         updateOverviewBtn();
@@ -2436,11 +2559,11 @@
         const active = currentView === 'overview';
         overviewBtn.classList.toggle('active', active);
         overviewBtn.setAttribute('aria-expanded', active ? 'true' : 'false');
+        const bn = el('bn-overview');
+        if (bn) bn.classList.toggle('active', active);
       }
 
-      /* ============================================================
-         RENDER CARDS
-         ============================================================ */
+      /* ============================================================ */
       function renderHeritageCards(list, options) {
         options = options || {};
         if (!list || !list.length) {
@@ -2489,34 +2612,31 @@
         });
       }
 
-      /* ============================================================
-         KHU VỰC — xem di sản theo xã
-         ============================================================ */
+      /* ============================================================ */
       function openCommuneView(xa, doZoom, fromOverview) {
         if (!fromOverview) {
           currentView = 'region';
-          dr.classList.remove('overview-mode');   /* ⬅ THÊM */
-          bs.classList.remove('overview-mode');   /* ⬅ THÊM */
+          dr.classList.remove('overview-mode');
+          bs.classList.remove('overview-mode');
         }
         cXa = xa;
         const list = DI_SAN[xa] || [];
         const sub = list.length + ' ' + TXT[lg].dsCount;
         const html = renderHeritageCards(list, { emptyMode: 'commune' });
-        openDrawer(xa, sub, html, false);
+        openDrawer(xa, sub, html, false, null, false);
         const container = isMobile() ? bsList : drList;
         bindHeritageCards(container, list);
         if (doZoom !== false) highlightCommune(xa);
         updateOverviewBtn();
+        updateBsBackLabel();
       }
 
-      /* ============================================================
-         TỔNG QUÁT — điều hướng nhiều cấp
-         ============================================================ */
+      /* ============================================================ */
       function openOverview() {
         currentView = 'overview';
         overviewState = { level: null, category: null };
-        dr.classList.add('overview-mode');   /* ⬅ THÊM */
-        bs.classList.add('overview-mode');   /* ⬅ THÊM */
+        dr.classList.add('overview-mode');
+        bs.classList.add('overview-mode');
         showMap();
         renderOverviewCurrent();
         updateOverviewBtn();
@@ -2525,7 +2645,6 @@
       function renderOverviewCurrent() {
         const state = overviewState;
         if (!state.level) {
-          // Cấp 1: chọn cấp ghi danh
           const unescoCount = UNESCO_RECORDS.length;
           const nationalCount = NATIONAL_RECORDS.length;
           const html =
@@ -2547,21 +2666,20 @@
             '<span class="cat-count">' + nationalCount + '</span>' +
             '<i class="fa-solid fa-chevron-right cat-go"></i>' +
             '</div>';
-          openDrawer(TXT[lg].overviewTitle, TXT[lg].levelPick, html, false);
+          openDrawer(TXT[lg].overviewTitle, TXT[lg].levelPick, html, false, null, true);
         } else if (state.level === 'UNESCO') {
           const list = UNESCO_RECORDS.slice().sort(function (a, b) { return a.sourceOrder - b.sourceOrder; });
           const sub = list.length + ' ' + TXT[lg].dsCount;
           const html = renderHeritageCards(list);
-          openDrawer(TXT[lg].levelUnescoShort, sub, html, true, TXT[lg].allLevel);
+          openDrawer(TXT[lg].levelUnescoShort, sub, html, true, TXT[lg].allLevel, true);
           const container = isMobile() ? bsList : drList;
           bindHeritageCards(container, list);
         } else if (state.level === 'Quốc gia') {
           if (!state.category) {
-            // Cấp 2B: chọn loại hình
             const html = CATEGORY_ORDER.map(function (cat) {
               const n = (CATEGORY_MAP[cat] || []).length;
               const cls = catClass(cat);
-              return '<div class="cat-card" data-cat="' + esc(cat) + '" role="button" tabindex="0" aria-label="' + esc(cat) + '">' +
+              return '<div class="cat-card ' + cls + '" data-cat="' + esc(cat) + '" role="button" tabindex="0" aria-label="' + esc(cat) + '">' +
                 '<div class="cat-ic">' + catIcon(cat) + '</div>' +
                 '<div class="cat-info">' +
                 '<div class="cat-name">' + esc(cat) + '</div>' +
@@ -2571,11 +2689,9 @@
                 '<i class="fa-solid fa-chevron-right cat-go"></i>' +
                 '</div>';
             }).join('');
-            openDrawer(TXT[lg].levelNationalShort, TXT[lg].pickCategory, html, true, TXT[lg].allLevel);
+            openDrawer(TXT[lg].levelNationalShort, TXT[lg].pickCategory, html, true, TXT[lg].allLevel, true);
           } else {
-            // Cấp 3: danh sách di sản trong loại hình
             const list = (CATEGORY_MAP[state.category] || []).slice().sort(function (a, b) {
-              // Sắp xếp theo ngày trong quyết định tăng dần; fallback theo sourceOrder
               const da = parseDecisionDate(a.decision);
               const db = parseDecisionDate(b.decision);
               if (da && db && da.getTime() !== db.getTime()) return da - db;
@@ -2584,16 +2700,16 @@
             const sub = list.length + ' ' + TXT[lg].dsCount;
             const html = list.length ? renderHeritageCards(list)
               : '<div class="list-empty">' + esc(TXT[lg].emptyCat) + '</div>';
-            openDrawer(state.category, sub, html, true, TXT[lg].allCategory);
+            openDrawer(state.category, sub, html, true, TXT[lg].allCategory, true);
             const container = isMobile() ? bsList : drList;
             bindHeritageCards(container, list);
           }
         }
+        updateBsBackLabel();
       }
 
       function parseDecisionDate(str) {
         if (!str) return null;
-        // Định dạng: 5079/QĐ-BVHTTDL ngày 27/12/2012 hoặc 4069/QĐ-BVHTTDL Ngày 30/10/2018
         const m = String(str).match(/(\d{1,2})\s*\/\s*(\d{1,2})\s*\/\s*(\d{4})/);
         if (m) {
           const d = new Date(parseInt(m[3], 10), parseInt(m[2], 10) - 1, parseInt(m[1], 10));
@@ -2602,7 +2718,7 @@
         return null;
       }
 
-      /* Bind event cho các card động sau khi drawer mở */
+      /* Bind event cho các card động */
       document.addEventListener('click', function (e) {
         const catCard = e.target.closest('.cat-card');
         if (catCard && catCard.dataset.level) {
@@ -2627,21 +2743,21 @@
         }
       });
 
-      /* Back button trong drawer */
-      drBack.addEventListener('click', function () {
-        if (currentView !== 'overview') return;
+      function handleOverviewBack() {
+        if (currentView !== 'overview') { closeDrawers(); return; }
         if (overviewState.category) { overviewState.category = null; renderOverviewCurrent(); }
         else if (overviewState.level) { overviewState.level = null; overviewState.category = null; renderOverviewCurrent(); }
         else { closeDrawers(); }
-      });
-      bsBack.addEventListener('click', function () {
-        if (currentView !== 'overview') return;
-        if (overviewState.category) { overviewState.category = null; renderOverviewCurrent(); }
-        else if (overviewState.level) { overviewState.level = null; overviewState.category = null; renderOverviewCurrent(); }
-        else { closeDrawers(); }
+      }
+
+      drBack.addEventListener('click', handleOverviewBack);
+      bsBack.addEventListener('click', handleOverviewBack);
+      if (bsClose) bsClose.addEventListener('click', function () {
+        closeDrawers();
+        clearHighlight();
+        cXa = null;
       });
 
-      /* Nút empty state → mở Tổng quát */
       window.__openOverviewFromEmpty = function () {
         closeDrawers();
         setTimeout(function () { openOverview(); }, 200);
@@ -2653,29 +2769,43 @@
         cXa = null;
       });
 
-      /* Swipe handle */
+      /* Swipe handle — improved with better hit area */
       (function () {
-        let startY = null;
-        bsHandle.addEventListener('touchstart', function (e) {
-          startY = e.touches[0].clientY; bs.style.transition = 'none';
-        }, { passive: true });
-        bsHandle.addEventListener('touchmove', function (e) {
+        let startY = null, moved = false;
+        function onStart(e) {
+          if (!isMobile()) return;
+          const t = e.touches ? e.touches[0] : e;
+          startY = t.clientY; moved = false;
+          bs.style.transition = 'none';
+        }
+        function onMove(e) {
           if (startY === null) return;
-          const dy = e.touches[0].clientY - startY;
-          if (dy > 0) bs.style.transform = 'translateX(-50%) translateY(' + dy + 'px)';
-        }, { passive: true });
-        bsHandle.addEventListener('touchend', function (e) {
+          const t = e.touches ? e.touches[0] : e;
+          const dy = t.clientY - startY;
+          if (dy > 0) {
+            moved = true;
+            bs.style.transform = 'translateY(' + dy + 'px)';
+            if (e.cancelable) try { e.preventDefault(); } catch (err) { }
+          }
+        }
+        function onEnd(e) {
           if (startY === null) return;
-          const dy = e.changedTouches[0].clientY - startY;
-          bs.style.transition = ''; bs.style.transform = '';
+          const t = e.changedTouches ? e.changedTouches[0] : e;
+          const dy = t.clientY - startY;
+          bs.style.transition = '';
+          bs.style.transform = '';
           if (dy > 80) closeDrawers();
           startY = null;
-        });
+        }
+        if (bsHandle) {
+          bsHandle.addEventListener('touchstart', onStart, { passive: true });
+          bsHandle.addEventListener('touchmove', onMove, { passive: false });
+          bsHandle.addEventListener('touchend', onEnd, { passive: true });
+          bsHandle.addEventListener('touchcancel', onEnd, { passive: true });
+        }
       })();
 
-      /* ============================================================
-         SEARCH — tìm xã và di sản
-         ============================================================ */
+      /* ============================================================ */
       const srIdx = (function () {
         const idx = [];
         COMMUNE_LIST.forEach(function (xa) {
@@ -2724,7 +2854,6 @@
         if (r.type === 'xa') {
           openCommuneView(r.xa, true);
         } else {
-          // mở di sản trực tiếp
           setTimeout(function () { openHeritage(r.rec); }, 220);
         }
       }
@@ -2744,9 +2873,7 @@
         }
       });
 
-      /* ============================================================
-         KHU VỰC MENU
-         ============================================================ */
+      /* ============================================================ */
       function bldRegMenu() {
         let html = '<div class="grp-label"><i class="fa-solid fa-star"></i> Tỉnh Thái Nguyên (mới)</div>';
         COMMUNE_LIST.forEach(function (xa) {
@@ -2831,9 +2958,7 @@
       qrCloseBtn.addEventListener('click', function () { qrModal.classList.remove('open'); qrModal.setAttribute('aria-hidden', 'true'); });
       qrModal.addEventListener('click', function (e) { if (e.target === qrModal) { qrModal.classList.remove('open'); qrModal.setAttribute('aria-hidden', 'true'); } });
 
-      /* ============================================================
-         LIGHTBOX
-         ============================================================ */
+      /* ============================================================ */
       let lbImages = [], lbIndex = 0;
       function openLightbox(images, index) { lbImages = images.slice(); lbIndex = index || 0; renderLightbox(); lightbox.classList.add('open'); lightbox.setAttribute('aria-hidden', 'false'); }
       function renderLightbox() {
@@ -2852,9 +2977,7 @@
       lightbox.querySelector('.lb-next').addEventListener('click', function (e) { e.stopPropagation(); lbIndex++; renderLightbox(); });
       lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
 
-      /* ============================================================
-         IMAGE SLIDER
-         ============================================================ */
+      /* ============================================================ */
       function loadImages(folder, max, cb) {
         const valid = [];
         let pending = max;
@@ -2917,9 +3040,7 @@
         });
       }
 
-      /* ============================================================
-         AUDIO PLAYER
-         ============================================================ */
+      /* ============================================================ */
       const AudioPlayer = (function () {
         let currentAudio = null, currentBtn = null, toastTimer = null;
         const toastEl = el('audio-toast');
@@ -3002,9 +3123,7 @@
         if (modalAudioBtn._url) AudioPlayer.toggle(modalAudioBtn._url, modalAudioBtn);
       });
 
-      /* ============================================================
-         HERITAGE MODAL
-         ============================================================ */
+      /* ============================================================ */
       function openHeritage(rec) {
         if (!rec) return;
         AudioPlayer.stop();
@@ -3024,7 +3143,6 @@
         el('modal-category').textContent = rec.category || '—';
         el('modal-year').textContent = rec.year ? String(rec.year) : '—';
 
-        // Locations
         const locEl = el('modal-loc');
         if (rec.locations && rec.locations.length) {
           locEl.innerHTML = '<div class="loc-list">' + rec.locations.map(function (loc) {
@@ -3034,7 +3152,6 @@
           locEl.innerHTML = '<div class="loc-list"><span class="loc-chip unknown">Chưa xác định xã/phường cụ thể trong tệp dữ liệu</span></div>';
         }
 
-        // Decision
         const decEl = el('modal-decision');
         if (rec.decision) {
           decEl.classList.remove('muted');
@@ -3044,7 +3161,6 @@
           decEl.textContent = 'Chưa có thông tin trong tệp dữ liệu.';
         }
 
-        // Description — Excel không cung cấp mô tả chi tiết
         const descEl = el('modal-desc');
         if (rec.description && rec.description.trim()) {
           descEl.textContent = rec.description;
@@ -3055,7 +3171,6 @@
           descEl.classList.add('muted');
         }
 
-        // Image caption — nếu có, chèn bên dưới slider
         const imgSliderEl = heritageModal.querySelector('.img-slider');
         let capEl = imgSliderEl.querySelector('.heritage-caption');
         if (capEl) capEl.remove();
@@ -3067,12 +3182,10 @@
           imgSliderEl.appendChild(capEl);
         }
 
-        // Slider ảnh: dùng slug của địa bàn đầu tiên (nếu có) làm folder
         const imgSlider = heritageModal.querySelector('.img-slider');
         const folderName = (rec.locations && rec.locations[0]) ? slug(rec.locations[0]) : (cXa ? slug(cXa) : '');
         buildSlider(imgSlider, folderName, rec.n);
 
-        // Audio
         const audioUrl = getAudioUrlFor(rec);
         if (audioUrl) {
           modalAudioBtn.style.display = 'inline-flex';
@@ -3102,9 +3215,7 @@
       heritageModal.querySelector('.modal-close').addEventListener('click', closeHeritage);
       heritageModal.addEventListener('click', function (e) { if (e.target === heritageModal) closeHeritage(); });
 
-      /* ============================================================
-         MOBILE SEARCH
-         ============================================================ */
+      /* ============================================================ */
       const mSearchOverlay = el('mobile-search-overlay');
       const mSearchInp = el('m-search-inp');
       const mSearchBody = el('m-search-body');
@@ -3165,9 +3276,7 @@
       if (mSearchClear) mSearchClear.addEventListener('click', function () { mSearchInp.value = ''; renderMobileSearch(''); try { mSearchInp.focus(); } catch (e) { } });
       if (mSearchInp) mSearchInp.addEventListener('input', function () { renderMobileSearch(mSearchInp.value); });
 
-      /* ============================================================
-         MOBILE MENU DRAWER
-         ============================================================ */
+      /* ============================================================ */
       const mobileMenuDrawer = el('mobile-menu-drawer');
       const mobileMenuBtn = el('mobile-menu-btn');
       const mobileMenuClose = el('m-drawer-close');
@@ -3288,9 +3397,7 @@
       }
       buildMobileMenuBody();
 
-      /* ============================================================
-         KEYBOARD & BACKDROP
-         ============================================================ */
+      /* ============================================================ */
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
           if (lightbox.classList.contains('open')) { closeLightbox(); return; }
@@ -3310,6 +3417,7 @@
         }
       });
 
+      /* Only close when tapping OUTSIDE on mobile. Important: don't close on inner taps */
       document.addEventListener('click', function (e) {
         if (!isMobile()) return;
         if (!bs.classList.contains('open')) return;
@@ -3318,7 +3426,11 @@
         if (e.target.closest('#bottom-nav')) return;
         if (e.target.closest('#back-btn')) return;
         if (e.target.closest('#nav')) return;
-        closeDrawers();
+        if (e.target.closest('.leaflet-control')) return;
+        // Only close if tap was on the map behind
+        if (e.target.closest('#mp')) {
+          closeDrawers();
+        }
       });
 
       let rzT = null;
@@ -3331,7 +3443,7 @@
         }, 220);
       });
 
-      /* Preload theme bg */
+      /* Preload */
       (function () { const a = new Image(); a.src = 'light.png'; const b = new Image(); b.src = 'dark.png'; })();
 
       console.log('%c🌸 Di Sản Thái Nguyên · Âm Vang Di Sản — Dự án Khoa học Kỹ thuật THPT Phú Bình', 'background:#2D6A4F;color:#FFD700;padding:4px 10px;border-radius:6px;font-weight:bold;');
