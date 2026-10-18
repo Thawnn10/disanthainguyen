@@ -9,13 +9,13 @@
   <title>Di Sản Thái Nguyên · Âm Vang Di Sản | Dự án Khoa học Kỹ thuật — Bản đồ Di sản Văn hóa Phi vật thể Tỉnh Thái
     Nguyên (Mới)</title>
   <meta name="description"
-    content="Bản đồ tương tác di sản văn hóa phi vật thể tỉnh Thái Nguyên (mới) sau sáp nhập — Sản phẩm dự thi Cuộc thi Khoa học Kỹ thuật cấp tỉnh. Tra cứu theo xã/phường và theo danh mục Tổng quát: cấp ghi danh, loại hình, năm công nhận và quyết định công nhận.">
+    content="Bản đồ tương tác di sản văn hóa phi vật thể tỉnh Thái Nguyên (mới) sau sáp nhập — Sản phẩm dự thi Cuộc thi Khoa học Kỹ thuật cấp tỉnh. Tra cứu theo xã/phường và theo danh mục Tổng quát: cấp ghi danh, loại hình, năm ghi danh và quyết định công nhận.">
   <meta name="keywords"
     content="dự án khoa học kỹ thuật, di sản Thái Nguyên, bản đồ di sản, văn hóa phi vật thể, di sản văn hóa, Thái Nguyên, Bắc Kạn, lễ hội, nghệ thuật dân gian, tri thức dân gian, hát Then, hát Soóng Cọ, múa khèn, lễ hội Lồng Tồng, chè Tân Cương, ATK Định Hóa, Kha Sơn, Úc Kỳ, Tân Cương, Ba Bể, Côn Minh, Lam Vỹ, số hóa di sản, WebGIS, AI">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="theme-color" content="#2D6A4F">
-  <meta name="author" content=" THPT Phú Bình — Dự án Khoa học Kỹ thuật">
+  <meta name="author" content="THPT Phú Bình — Dự án Khoa học Kỹ thuật">
   <link rel="canonical" href="https://disanthainguyen.pages.dev/">
 
   <meta name="geo.region" content="VN-69">
@@ -109,7 +109,6 @@
       --glass-strong-border: rgba(255, 255, 255, 0.35);
       --glass-strong-shadow: 0 20px 50px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.5);
       --glass-strong-blur: blur(20px) saturate(190%);
-      /* Mobile bottom-sheet gap variable (above bottom-nav) */
       --bs-gap: 60px;
     }
 
@@ -654,7 +653,6 @@
       scroll-behavior: smooth;
     }
 
-    /* Content transition when swapping */
     #bs-list.bs-swap > * {
       animation: bsItemIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
@@ -672,7 +670,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Subtle shadow at bottom of list */
     #bs-list::after {
       content: ''; display: block; height: 4px; flex-shrink: 0;
     }
@@ -754,7 +751,6 @@
     .xa-card:hover .xa-go { transform: translateX(3px); }
     .dark .xa-card .xa-go { color: var(--acc); }
 
-    /* Loại hình / cấp ghi danh card */
     .cat-card {
       background: var(--card-bg); border-radius: 16px;
       padding: 14px 16px; border: 1px solid var(--card-border);
@@ -790,7 +786,6 @@
     .cat-card:hover .cat-go { transform: translateX(4px); }
     .dark .cat-card .cat-go { color: var(--acc); }
 
-    /* Empty state đẹp */
     .empty-state {
       text-align: center; padding: 44px 22px;
       display: flex; flex-direction: column; align-items: center;
@@ -1429,7 +1424,6 @@
       .bn-item.active { color: var(--acc); }
       .bn-item.active::before { content: ''; position: absolute; top: 3px; left: 50%; transform: translateX(-50%); width: 18px; height: 3px; border-radius: 2px; background: var(--acc); }
 
-      /* ==== BOTTOM SHEET (mobile) — redesigned & robust ==== */
       #bs {
         display: flex;
         position: fixed;
@@ -1457,7 +1451,6 @@
       #bs.open { transform: translateY(0); }
       #bs:not(.open) { pointer-events: none; }
 
-      /* Handle: bigger hit area */
       #bs-handle {
         width: 44px; height: 4px;
         margin: 10px auto 4px;
@@ -1481,7 +1474,6 @@
       #bs-back i { font-size: 0.7rem; }
       #bs-close { width: 30px; height: 30px; font-size: 0.85rem; }
 
-      /* Lists */
       #bs-list {
         padding: 10px 12px 16px;
         gap: 9px;
@@ -1489,7 +1481,6 @@
       }
       #bs-list::-webkit-scrollbar { display: none; }
 
-      /* Cards on mobile: comfortable touch targets */
       .ds-card, .xa-card, .cat-card {
         border-radius: 14px;
         gap: 12px;
@@ -1508,7 +1499,6 @@
       .cat-card .cat-desc { font-size: 0.7rem; margin-top: 3px; }
       .cat-card .cat-count { font-size: 0.68rem; padding: 3px 9px; }
 
-      /* Modal on mobile full-screen */
       #heritage-modal { align-items: flex-end; padding: 0; }
       #heritage-modal .modal-content {
         width: 100%; height: 100%; max-width: 100%; max-height: 100%;
@@ -1635,7 +1625,6 @@
       .blob { animation: none !important; }
     }
 
-    /* LIQUID GLASS ENHANCEMENT */
     #dr, #heritage-modal .modal-content {
       background: var(--glass-strong-bg) !important;
       backdrop-filter: var(--glass-strong-blur) !important;
@@ -1664,7 +1653,7 @@
   <section id="seo-content" aria-hidden="true">
     <h2>Di sản văn hóa phi vật thể tỉnh Thái Nguyên (mới) — Dự án Khoa học Kỹ thuật</h2>
     <p>Nền tảng số hóa bản đồ di sản văn hóa phi vật thể tỉnh Thái Nguyên (mới) sau sáp nhập. Tra cứu theo xã/phường
-      và danh mục Tổng quát theo cấp ghi danh — loại hình — năm công nhận — quyết định công nhận.</p>
+      và danh mục Tổng quát theo cấp ghi danh — loại hình — năm ghi danh — quyết định công nhận.</p>
   </section>
 
   <div class="liquid-bg">
@@ -1726,7 +1715,7 @@
       </header>
       <footer id="ft" role="contentinfo">
         <div class="ft-content">
-          <div class="ft-section"><span><i class="fa-solid fa-users"></i> <strong> THPT Phú Bình</strong></span></div>
+          <div class="ft-section"><span><i class="fa-solid fa-users"></i> <strong>THPT Phú Bình</strong></span></div>
           <span class="ft-divider"></span>
           <div class="ft-section"><a href="tel:+840975018596" aria-label="Gọi điện thoại 0975 018 596"><i class="fa-solid fa-phone"></i> 0975 018 596</a></div>
           <span class="ft-divider"></span>
@@ -1795,7 +1784,7 @@
 
         <h3 class="am-sec-title"><i class="fa-solid fa-flask"></i> Dự án Khoa học Kỹ thuật</h3>
         <div class="am-khkt-box">
-          <p style="margin-bottom:8px;">Đây là <strong>sản phẩm dự thi Cuộc thi Khoa học Kỹ thuật cấp tỉnh</strong> dành cho học sinh trung học — do nhóm học sinh lớp <strong> Trường THPT Phú Bình</strong> nghiên cứu, thiết kế và phát triển.</p>
+          <p style="margin-bottom:8px;">Đây là <strong>sản phẩm dự thi Cuộc thi Khoa học Kỹ thuật cấp tỉnh</strong> dành cho học sinh trung học — do nhóm học sinh lớp <strong>Trường THPT Phú Bình</strong> nghiên cứu, thiết kế và phát triển.</p>
           <div class="am-khkt-grid">
             <div class="am-khkt-item"><i class="fa-solid fa-graduation-cap"></i><div><strong>Lĩnh vực dự thi:</strong> Phần mềm hệ thống</div></div>
             <div class="am-khkt-item"><i class="fa-solid fa-users"></i><div><strong>Nhóm tác giả:</strong> Học sinh THPT Phú Bình</div></div>
@@ -1809,7 +1798,7 @@
         <h3 class="am-sec-title"><i class="fa-solid fa-star"></i> Chức năng cốt lõi</h3>
         <ul class="am-features">
           <li data-icon="🗺️"><strong>Bản đồ tương tác di sản theo từng xã/phường</strong> — hiển thị chi tiết di sản của địa bàn.</li>
-          <li data-icon="📚"><strong>Tổng quát — Danh mục di sản</strong> — tra cứu theo cấp ghi danh (UNESCO / Quốc gia), theo 6 loại hình và xem năm công nhận, quyết định công nhận của từng bản ghi.</li>
+          <li data-icon="📚"><strong>Tổng quát — Danh mục di sản</strong> — tra cứu theo cấp ghi danh (UNESCO / Quốc gia), theo 6 loại hình và xem năm ghi danh, quyết định công nhận của từng bản ghi.</li>
           <li data-icon="🔍"><strong>Tra cứu &amp; Tìm kiếm thông minh</strong> — autocomplete theo từ khóa, tên xã, phường, hoặc tên di sản.</li>
           <li data-icon="🤖"><strong>Trợ lý AI Di sản</strong> — chatbot AI hỗ trợ giải đáp thắc mắc về văn hóa, lịch sử, di sản.</li>
           <li data-icon="🎵"><strong>Trình phát âm thanh di sản</strong> — nghe trực tiếp giai điệu hát dân gian có sẵn tài nguyên.</li>
@@ -1864,7 +1853,7 @@
               <div class="ic-value" id="modal-category"></div>
             </div>
             <div class="info-cell">
-              <div class="ic-label"><i class="fa-solid fa-calendar-check"></i> Năm công nhận</div>
+              <div class="ic-label"><i class="fa-solid fa-calendar-check"></i> Năm ghi danh</div>
               <div class="ic-value" id="modal-year"></div>
             </div>
             <div class="info-cell">
@@ -1965,115 +1954,116 @@
        Sheet "Danh mục sắp xếp" — 46 bản ghi (1 UNESCO + 45 Quốc gia)
        ============================================================ */
     const HERITAGE_DATA = [
-    {
-        id: 'ds01',
-        n: 'Di sản thực hành Then của người Tày Bắc Kạn trong di sản "Thực hành Then của người Tày, Nùng, Thái ở Việt Nam"',
-        locations: [], year: 2019, level: 'UNESCO', category: 'Nghệ thuật trình diễn dân gian',
-        decision: 'UNESCO ghi danh năm 2019', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 1,
-        description: 'Then là một thực hành nghi lễ không thể thiếu trong đời sống tâm linh của người Tày, Nùng, Thái ở Việt Nam, phản ánh các quan niệm về con người, thế giới tự nhiên và vũ trụ. Các lễ Then diễn tả hành trình thầy Then (ông Then, bà Then) điều khiển đoàn âm binh đi từ Mường Đất lên Mường Trời để dâng lễ vật và thỉnh cầu trong lễ: cầu an, chữa bệnh, cầu mùa, chúc mừng năm mới... Khi các Thầy Then cất tiếng hát, gảy tính tấu là khởi đầu cuộc hành trình.\n\nThen luôn luôn được trao truyền bằng truyền khẩu khi thực hành nghi lễ Then, thể hiện sự kế tục giữa các thế hệ, và các thầy Then đóng vai trò chính yếu trong việc chuyển giao các kỹ năng và bí quyết liên quan, một số thầy Then thực hiện khoảng 200 nghi lễ Then một năm.\n\nDi sản Thực hành Then của người Tày, Nùng, Thái tập trung chủ yếu ở các tỉnh vùng Đông Bắc gồm 09 tỉnh: Tuyên Quang, Lào Cai, Thái Nguyên, Bắc Ninh, Cao Bằng, Điện Biên, Lai Châu, Lạng Sơn, Quảng Ninh.\n\nTheo Cục Di sản văn hóa, việc UNESCO ghi danh Thực hành Then của người Tày, Nùng, Thái ở Việt Nam tại Danh sách Di sản văn hóa phi vật thể đại diện của nhân loại khẳng định bản sắc văn hóa phong phú của dân tộc Việt Nam. Nó cũng khẳng định sự gắn kết cộng đồng, đề cao tôn trọng đa dạng văn hóa, khuyến khích đối thoại giữa các cá nhân, các cộng đồng và các dân tộc khác nhau vì sự khoan dung, tình yêu và lòng bác ái đúng theo tôn chỉ và mục tiêu của Công ước 2003 về bảo vệ di sản văn hóa phi vật thể của UNESCO.\n\nVào hồi 15 giờ 23 phút giờ địa phương (3 giờ 23 phút giờ Việt Nam) ngày 12/12/2019, tại Phiên họp Uỷ ban Liên Chính phủ Công ước 2003 về bảo vệ di sản văn hóa phi vật thể lần thứ 14 của UNESCO diễn ra tại Colombia, di sản Thực hành Then của người Tày, Nùng, Thái ở Việt Nam chính thức được UNESCO ghi danh tại Danh sách Di sản văn hóa phi vật thể đại diện của nhân loại.',
-        imageCaption: 'Thày Then thực hiện nghi lễ cúng Then. (Ảnh: Báo Ảnh Việt Nam/TTXVN)',
-        hasVideo: false,
-        sourceDoc: 'Tư liệu về 46 DSVH phi VT của Thái Nguyên.docx — tr.1'
-    },
-
-    {
-        id: 'ds02',
-        n: 'Chữ Nôm của người Dao',
-        locations: ['Xã Chợ Đồn'], year: 2012, level: 'Quốc gia', category: 'Tiếng nói, chữ viết',
-        decision: '5079/QĐ-BVHTTDL ngày 27/12/2012', originalCategory: 'Tiếng nói, chữ viết', sourceOrder: 2,
-        description: 'Người Dao ở xã Ngọc Phái – Chợ Đồn (nay là xã Chợ Đồn – tỉnh Thái Nguyên) có lịch sử lâu đời. Trong văn hóa của người Dao có sự tiếp thu, giao thoa văn hóa với các cộng đồng tộc người lân cận địa bàn cư trú, mà một trong những biểu hiện nổi bật là chữ viết của người Dao – một số nhà nghiên cứu gọi là chữ "Nôm Dao".\n\nVề tổng quan, chữ "Nôm Dao" là một hệ thống ký tự chữ Hán được phiên âm ra tiếng Dao. Cộng đồng người Dao cho đến nay vẫn còn lưu giữ một quyển sách dùng để dạy những người bắt đầu học chữ người Dao, bằng tiếng Dao – cuốn "Tam tự kinh" – sách học vỡ lòng của hệ thống giáo dục Nho giáo thời xưa ở Việt Nam. Đây là những chữ Hán dạng phồn thể, được giữ nguyên tự dạng.\n\nTầng lớp trí thức người Dao, qua các thế hệ, đã Dao hóa cách phát âm các chữ Hán, cho gần gũi với tiếng Dao và vẫn giữ nguyên gốc nghĩa của các từ trong sách này. Phiên âm này được đọc theo một cách hoàn toàn khác tiếng Dao sử dụng trong cuộc sống thường ngày, nên các nhà nghiên cứu gọi đó là tiếng Dao trong văn chương. Trong quá trình giao lưu văn hóa, người Dao cũng tiếp nhận một số từ của Nôm Tày, Nôm Việt, nhưng được Dao hóa bởi lẽ có nhiều từ và khái niệm mà tiếng Dao không thể hiện hết được. Điều đó đã góp phần làm phong phú thêm vốn từ vựng cho ngôn ngữ Dao.\n\nChữ Nôm Dao là một di sản văn hóa quý báu, gắn liền với các sinh hoạt văn hóa tín ngưỡng của người Dao. Với những giá trị đặc sắc đó, chữ Nôm của người Dao ở xã Chợ Đồn – Thái Nguyên được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 5079/QĐ-BVHTTDL ngày 27/12/2012 của Bộ trưởng Bộ Văn hóa Thể thao và Du lịch.',
-        imageCaption: 'Theo Hồ sơ di sản, tư liệu Cục Di sản văn hóa.',
-        hasVideo: false,
-        sourceDoc: 'Tư liệu về 46 DSVH phi VT của Thái Nguyên.docx — tr.3'
-    },
-    {
-        id: 'ds03',
-        n: 'Chữ Nôm của người Tày',
-        locations: ['Xã Bằng Thành'], year: 2014, level: 'Quốc gia', category: 'Tiếng nói, chữ viết',
-        decision: '2684/QĐ-BVHTTDL ngày 25/8/2014', originalCategory: 'Tiếng nói, chữ viết', sourceOrder: 3,
-        description: 'Văn hóa của người Tày được thể hiện rõ qua các ký tự, ngôn ngữ, trang phục, chữ Nôm Tày. Chữ Nôm Tày được xây dựng trên cơ sở chữ Hán (chủ yếu dạng phồn thể) gồm toàn bộ các nét, các bộ thủ và các chữ Hán nguyên bản, sử dụng âm Hán – Việt, thuộc thể loại chữ tượng hình. Trong cách viết, Nôm Tày tuân thủ trình tự viết chữ Hán là từ trái sang phải, từ trên xuống dưới theo hàng dọc, vào trước đóng sau.\n\nNhờ có chữ viết nên đến nay người Tày vẫn còn lưu giữ được nhiều thông tin về nguồn gốc tổ tiên, gia đình, dòng họ, tín ngưỡng, tôn giáo, tập quán... Mỗi cuốn sách đều hàm chứa nét văn hóa độc đáo của người Tày. Các sách văn học dân gian (như truyện thơ Lương Nguyên, Phạm Công – Cúc Hoa, Tần Chu), Sléc truyện thơ Tần Chu (sách truyện thơ Tần Chu) và sách cúng, sách tín ngưỡng của người Tày (như Sléc Tuốn – cúng đầy tháng, Sléc Chải, mo – cầu yêu giải hạn, Sléc Quét lườn – cúng vào nhà mới).\n\nVới những giá trị đặc sắc đó, Chữ Nôm của người Tày ở xã Bộc Bố – Pác Nặm – Bắc Kạn (nay là Xã Bằng Thành – tỉnh Thái Nguyên) được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 2684/QĐ-BVHTTDL ngày 25/8/2014 của Bộ trưởng Bộ Văn hóa Thể thao và Du lịch.',
-        imageCaption: 'Chữ Nôm Tày ở xã Bằng Thành – tỉnh Thái Nguyên (Nguồn: Báo Phú Thọ).',
-        hasVideo: false,
-        sourceDoc: 'Tư liệu về 46 DSVH phi VT của Thái Nguyên.docx — tr.6'
-    },
-    {
-        id: 'ds05',
-        n: 'Múa Tắc Xình của người Sán Chay',
-        locations: ['Xã Phú Lương', 'Xã Yên Trạch', 'Xã Hợp Thành'], year: 2014, level: 'Quốc gia',
-        category: 'Nghệ thuật trình diễn dân gian',
-        decision: '2684/QĐ-BVHTTDL ngày 25/8/2014', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 5,
-        description: 'Múa Tắc Xình luôn song hành cùng với tiến trình hình thành và phát triển cộng đồng người Sán Chay ở Việt Nam, tập trung tại các xã: Phú Lương, Yên Trạch, Hợp Thành – tỉnh Thái Nguyên. Đây là nghệ thuật trình diễn dân gian mang tính tâm linh quan trọng trong lễ hội Cầu mùa của người Sán Chay để tạ ơn trời đất, thần linh đã cho mưa gió thuận hòa, mùa màng tốt tươi, bản làng no ấm, lúa ngô được mùa và cầu khấn sự che chở của thần linh cho mùa vụ tiếp theo.\n\nMúa Tắc Xình có 09 động tác mô phỏng đời sống của người Sán Chay gồm: thăm và dọn đường, bắt quyết, mài dao, đánh dao, phát nương, tra mổ, chăm sóc lúa, thu hoạch mùa màng, mừng mùa và trả lễ cho thần linh. Động tác múa và âm nhạc cho múa đơn giản, dễ thực hành, tuy nhiên những người tham gia Tắc Xình phải là nam giới với chủ lễ là thầy cúng hoặc người múa có kinh nghiệm và kỹ thuật cao.\n\nMúa Tắc Xình là điệu múa nghi lễ, vừa tái hiện các hoạt động lao động sản xuất của người Sán Chay vừa thể hiện đời sống tâm linh của người dân làm nông nghiệp, phụ thuộc hoàn toàn vào các yếu tố tự nhiên. Múa Tắc Xình cũng phản ánh cấu trúc xã hội, gia đình phụ hệ của người Sán Chay, với việc chỉ có nam giới được thực hành nghi lễ.\n\nVới những giá trị đặc sắc đó, Múa Tắc Xình của người Sán Chay được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 2684/QĐ-BVHTTDL ngày 25/8/2014 của Bộ trưởng Bộ Văn hóa Thể thao và Du lịch.\n\n(Tài liệu ghi chú: Có video minh họa.)',
-        imageCaption: '',
-        hasVideo: true,
-        sourceDoc: 'Tư liệu về 46 DSVH phi VT của Thái Nguyên.docx — tr.5'
-    },
-    { id: 'ds06', n: 'Lượn Slương của người Tày', locations: ['Xã Yên Bình'], year: 2014, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '2684/QĐ-BVHTTDL ngày 25/8/2014', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 6 },
-    { id: 'ds07', n: 'Rối cạn của người Tày ở Thẩm Rộc và Ru Nghệ', locations: ['Xã Định Hóa', 'Xã Bình Yên'], year: 2015, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '1877/QĐ-BVHTTDL ngày 8/6/2015', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 7 },
-    { id: 'ds08', n: 'Nghệ thuật Múa khèn của người Mông', locations: ['Xã Văn Lang'], year: 2015, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '1877/QĐ-BVHTTDL ngày 06/8/2015', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 8 },
-    { id: 'ds09', n: 'Hát Soọng cô của người Sán Dìu', locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng'], year: 2015, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '3465/QĐ-BVHTTDL ngày 13/10/2015', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 9 },
-    { id: 'ds10', n: 'Hát Sấng Cọ (Hát ví Lưu Tam) của người Sán Chay', locations: ['Xã Phú Lương', 'Xã Yên Trạch', 'Xã Hợp Thành'], year: 2016, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '246/QĐ-BVHTTDL ngày 19/01/2016', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 10 },
-    { id: 'ds11', n: 'Nghệ thuật Khèn của người Mông', locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng', 'Xã Phú Lương', 'Xã Yên Trạch', 'Xã Hợp Thành'], year: 2017, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '1852/QĐ-BVHTTDL ngày 08/05/2017', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 11 },
-    { id: 'ds12', n: 'Lượn Cọi của người Tày', locations: ['Xã Định Hóa', 'Xã Bình Yên', 'Xã Trung Hội', 'Xã Phượng Tiến', 'Xã Phú Đình', 'Xã Bình Thành', 'Xã Kim Phượng', 'Xã Lam Vỹ'], year: 2018, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '266/QĐ-BVHTTDL Ngày 30/01/2018', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 12 },
-    { id: 'ds13', n: 'Pả dung của người Dao', locations: ['Xã Định Hóa', 'Xã Yên Trạch'], year: 2018, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '4069/QĐ-BVHTTDL Ngày 30/10/2018', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 13 },
-    { id: 'ds14', n: 'Lượn Cọi của người Tày', locations: ['Xã Bằng Thành'], year: 2019, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '446/QĐ-BVHTTDL ngày 29/01/2019', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 14 },
-    { id: 'ds15', n: 'Hát Pá Dung của người Dao', locations: ['Xã Chợ Đồn', 'Xã Ngân Sơn', 'Xã Bằng Thành', 'Xã Phủ Thông', 'Phường Bắc Kạn'], year: 2020, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '174/QĐ-BVHTTDL ngày 14/01/2020', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 15 },
-    { id: 'ds16', n: 'Hát Sli của người Nùng', locations: ['Xã Xuân Dương'], year: 2021, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '830/QĐ-BVHTTDL ngày 03/9/2021', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 16 },
-    { id: 'ds17', n: 'Múa bát của người Tày', locations: [], year: 2022, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '774/QĐ-BVHTTDL ngày 04/4/2022', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 17 },
-    { id: 'ds18', n: 'Hát ru của người Tày', locations: ['Xã Bằng Thành'], year: 2023, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '1400/QĐ-BVHTTDL ngày 01/6/2023', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 18 },
-    { id: 'ds19', n: 'Hát Ví của người Tày', locations: ['Xã Định Hóa', 'Xã Bình Yên', 'Xã Trung Hội', 'Xã Phượng Tiến', 'Xã Phú Đình', 'Xã Bình Thành', 'Xã Kim Phượng', 'Xã Lam Vỹ'], year: 2024, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '388/QĐ-BVHTTDL ngày 21/02/2024', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 19 },
-    { id: 'ds20', n: 'Hát Sli của người Nùng Phàn SLình', locations: ['Xã Văn Hán', 'Xã Văn Lăng', 'Xã Đồng Hỷ', 'Xã Quang Sơn'], year: 2025, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '2220/QĐ-BVHTTDL ngày 27/6/2025', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 20 },
-    {
-        id: 'ds21',
-        n: 'Nghi lễ Cấp sắc của người Dao',
-        locations: ['Xã Thanh Thịnh'], year: 2012, level: 'Quốc gia',
-        category: 'Tập quán xã hội và tín ngưỡng',
-        decision: '5079/QĐ-BVHTTDL ngày 27/12/2012', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 21,
-        description: 'Với những cánh rừng đại ngàn luôn véo von tiếng chim, những nếp nhà sàn của đồng bào Dao ở Khe Lắc, xã Nông Thịnh – Chợ Mới (nay là Xã Thanh Thịnh – Thái Nguyên) nhấp nhô càng tô điểm cho bức tranh miền núi thêm nét bình dị mà sâu lặng. Bản làng còn lưu giữ nhiều nét văn hóa dân tộc vùng cao vô cùng độc đáo, trong đó có lễ cấp sắc vẫn được lưu truyền cho đến ngày nay.\n\nLễ cấp sắc của đồng bào Dao có 3 bậc: bậc đầu tiên là cấp 3 đèn và 36 binh mã; bậc thứ 2 được cấp 7 đèn và 72 binh mã; bậc cuối cùng là 12 đèn và 120 binh mã. Nếu cấp sắc 3 đèn hay 7 đèn, thời gian diễn ra khoảng 4 ngày 3 đêm, vì vậy lễ cấp sắc không chỉ là công việc riêng của một gia đình, mà còn là ngày hội cả dòng họ và bản làng. Trong lễ cấp sắc có rất nhiều nghi thức được tiến hành tuần tự từng bước, có thể cùng một lúc diễn ra vài nghi thức, mỗi nghi thức có những nội dung, ý nghĩa khác nhau và có một thầy cúng đảm nhiệm. Thầy chính trong cấp sắc 3 đèn gọi là "Khòi giáo". Còn đối với thầy chính trong cấp sắc 7 đèn gọi là "Khòi tàn say, Sài chẩy say, Chì chiếu say, Dần tậu say". Ngoài ra, trước khi làm lễ khoảng 2 đến 3 ngày, rất nhiều đồ dùng sẽ được chuẩn bị trước như: giấy bản, khắc dấu, giấy dán, cây làm đèn…\n\nCấp sắc – "quá tăng", khâu quan trọng nhất trong chuỗi các nghi lễ, là giai đoạn chính thức bước vào cấp sắc, thường được tiến hành vào đêm thứ hai và từ khoảng 12 giờ đêm trở đi. Lễ lên đèn cấp sắc thể hiện sự trưởng thành của người con trai qua hình tượng cây đèn 3 ngọn, tương ứng với quan niệm: Tinh – Khí – Thần, nghĩa là con người đã thoát khỏi bản thể và thoát thai để thành một người lớn. Vì vậy, một người đàn ông Dao muốn được công nhận là người lớn phải trải qua lễ cấp sắc. Trong quá trình cấp sắc đệ tử sẽ được cấp binh mã và phép thuật, lúc này người đàn ông Dao mới thật sự trưởng thành. Sau khi các đệ tử được cấp binh mã và phép thuật, các thầy cúng sẽ lần lượt đưa các đệ tử ra trước cửa nhà để mời Ngọc Hoàng xuống làm chứng việc cấp sắc đã hoàn thành.\n\nVới những giá trị đặc sắc đó, Nghi lễ Cấp sắc của người Dao ở xã Thanh Thịnh – Thái Nguyên được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 5079/QĐ-BVHTTDL ngày 27/12/2012 của Bộ trưởng Bộ Văn hóa Thể thao và Du lịch.',
-        imageCaption: 'Lễ cúng mời tổ tiên, một phần quan trọng trước khi bước vào cấp sắc (Nguồn: Baotintuc.vn).',
-        hasVideo: false,
-        sourceDoc: 'Tư liệu về 46 DSVH phi VT của Thái Nguyên.docx — tr.2'
-    },
-    {
-        id: 'ds22',
-        n: 'Nghi lễ cấp sắc của người Dao',
-        locations: [], year: 2014, level: 'Quốc gia',
-        category: 'Tập quán xã hội và tín ngưỡng',
-        decision: '2684/QĐ-BVHTTDL ngày 25/8/2014', originalCategory: 'Tập quán xã hội', sourceOrder: 22,
-        description: 'Người Dao có nhiều nhóm, gồm: Dao Đỏ, Dao Lô Gang và Dao Quần Chẹt, Dao Tuyến và Dao Họ... Nhưng dù ở nhóm nào thì người đàn ông cũng đều phải trải qua Lễ cấp sắc mới được cộng đồng làng bản công nhận đã trưởng thành, được tham gia các việc trong làng bản.\n\nTrình tự của nghi lễ cấp sắc được thực hiện gồm các bước cơ bản là: Lễ trình diện của người thụ lễ; Lễ cấp đèn và hạ đèn; Lễ đặt pháp danh; Lễ giao âm binh và gạo nuôi quân; Lễ qua cầu; Lễ cấp dụng cụ cúng bái; Lễ truyền pháp lực; Lễ cúng thần mặt trời. Cúng Bàn Vương là lễ chung cho Lễ cấp sắc ở các cấp bậc 3 đèn, 7 đèn và 12 đèn. Trong trường hợp làm Lễ cấp sắc từ 7 đèn trở lên, thì tiếp tục làm các nghi lễ tiếp theo: Lễ tơ hồng; Lễ cúng hồn lúa; Lễ thăm thiên đình và Lễ thảng đàn.\n\nNhóm Dao Quần Chẹt ở Đại Từ chỉ cấp sắc cho người đàn ông đã có vợ, có con. Với những người không có vợ, không có con hoặc do điều kiện kinh tế quá nghèo, hoặc do bản thân bị tật nguyền, không thể tham gia nhảy múa khi hành lễ thì không cấp sắc. Với những người khi sống không làm Lễ cấp sắc, sau này con, cháu họ trưởng thành, đủ điều kiện được làm Lễ cấp sắc thì trước tiên phải làm Lễ cấp sắc cho người đã chết.\n\nVới những giá trị đặc sắc đó, nghi lễ Cấp sắc của người Dao tỉnh Thái Nguyên được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 2684/QĐ-BVHTTDL ngày 25/8/2014 của Bộ trưởng Bộ Văn hóa Thể thao và Du lịch.',
-        imageCaption: 'Nghi lễ cấp sắc của người Dao ở Định Hóa (Nguồn: Báo Thái Nguyên).',
-        hasVideo: false,
-        sourceDoc: 'Tư liệu về 46 DSVH phi VT của Thái Nguyên.docx — tr.4'
-    },
-    { id: 'ds23', n: 'Lễ Cấp sắc của người Tày', locations: ['Xã Na Rì'], year: 2015, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '1877/QĐ-BVHTTDL ngày 06/8/2015', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 23 },
-    { id: 'ds24', n: 'Nghi lễ Then của người Tày', locations: ['Xã Định Hóa', 'Xã Bình Yên', 'Xã Trung Hội', 'Xã Phượng Tiến', 'Xã Phú Đình', 'Xã Bình Thành', 'Xã Kim Phượng', 'Xã Lam Vỹ'], year: 2015, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '3465/QĐ-BVHTTDL ngày 13/10/2015', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 24 },
-    { id: 'ds25', n: 'Nghi lễ Hét khoăn của người Nùng', locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng'], year: 2015, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '3465/QĐ-BVHTTDL ngày 13/10/2015', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 25 },
-    { id: 'ds26', n: 'Lễ cầu năm mới, cầu mùa của người Dao (Tịu siằng thun boaù lỉu)', locations: ['Xã Xuân Dương'], year: 2016, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '246/QĐ-BVHTTDL ngày 19/01/2016', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 26 },
-    { id: 'ds27', n: 'Nghi lễ Tết nhảy (Nhảng chầm đao) của người Dao', locations: ['Xã Đại Từ', 'Xã Đức Lương', 'Xã Phú Thịnh', 'Xã La Bằng', 'Xã Phú Lạc', 'Xã An Khánh', 'Xã Quân Chu', 'Xã Vạn Phú', 'Xã Phú Xuyên'], year: 2016, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '4036/QĐ-BVHTTDL ngày 21/11/2016', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 27 },
-    { id: 'ds28', n: 'Nghi lễ mừng sinh nhật (Hoắt khoăn) của người Nùng', locations: ['Xã Xuân Dương'], year: 2016, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '4036/QĐ-BVHTTDL ngày 21/11/2016', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 28 },
-    { id: 'ds29', n: 'Nghi lễ Cấp sắc Tào của người Tày', locations: ['Xã Côn Minh'], year: 2016, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '4036/QĐ-BVHTTDL ngày 21/11/2016', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 29 },
-    { id: 'ds30', n: 'Nghi lễ Cấp sắc của người Nùng', locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng'], year: 2017, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '1852/QĐ-BVHTTDL ngày 08/05/2017', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 30 },
-    { id: 'ds31', n: 'Lễ cấp sắc Pụt (Lẩu Pụt) của người Tày', locations: ['Xã Đồng Phúc'], year: 2018, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '266/QĐ-BVHTTDL ngày 30/01/2018', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 31 },
-    { id: 'ds32', n: 'Lễ Cấp sắc của người Sán Dìu', locations: ['Xã Đồng Phúc'], year: 2018, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '4069/QĐ-BVHTTDL Ngày 30/10/2018', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 32 },
-    { id: 'ds33', n: 'Lễ Kỳ Yên của người Tày', locations: ['Xã Phong Quang'], year: 2020, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '175/QĐ-BVHTTDL ngày 14/01/2020', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 33 },
-    { id: 'ds34', n: 'Lễ Cấp sắc của người Dao Tiền', locations: ['Xã Phong Quang'], year: 2022, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '775/QĐ-BVHTTDL ngày 04/4/2022', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 34 },
-
-    /* === Lễ hội truyền thống (8) === */
-    { id: 'ds35', n: 'Lễ hội Lồng tồng Ba Bể', locations: ['Xã Ba Bể'], year: 2014, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '4205/QĐ-BVHTTDL ngày 19/12/2014', originalCategory: 'Lễ hội truyền thống', sourceOrder: 35 },
-    { id: 'ds36', n: 'Lễ hội Đền Đuổm', locations: ['Xã Phú Lương'], year: 2017, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '217/QĐ-BVHTTDL ngày 23/01/2017', originalCategory: 'Lễ hội truyền thống', sourceOrder: 36 },
-    { id: 'ds37', n: 'Lễ hội Lồng Tồng của người Tày', locations: ['Xã Định Hóa', 'Xã Bình Yên', 'Xã Trung Hội', 'Xã Phượng Tiến', 'Xã Phú Đình', 'Xã Bình Thành', 'Xã Kim Phượng', 'Xã Lam Vỹ'], year: 2017, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '1852/QĐ-BVHTTDL ngày 08/05/2017', originalCategory: 'Lễ hội truyền thống', sourceOrder: 37 },
-    { id: 'ds38', n: 'Lễ hội Cầu mùa của người Sán Chay', locations: ['Xã Vô Tranh', 'Xã Yên Trạch', 'Xã Phú Lương'], year: 2018, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '266/QĐ-BVHTTDL Ngày 30/01/2018', originalCategory: 'Lễ hội truyền thống', sourceOrder: 38 },
-    { id: 'ds39', n: 'Lễ hội đình Phương Độ', locations: ['Xã Phú Bình', 'Xã Tân Thành', 'Xã Điềm Thụy', 'Xã Kha Sơn', 'Xã Tân Khánh'], year: 2018, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '266/QĐ-BVHTTDL Ngày 30/01/2018', originalCategory: 'Lễ hội truyền thống', sourceOrder: 39 },
-    { id: 'ds40', n: 'Lễ hội Núi Văn-Núi Võ', locations: ['Xã Vạn Phú'], year: 2023, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '239/QĐ-BVHDTTDL ngày 14/02/2023', originalCategory: 'Lễ hội truyền thống', sourceOrder: 40 },
-    { id: 'ds41', n: 'Lễ hội đền Lục Giáp', locations: ['Phường Phổ Yên'], year: 2024, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '857/QĐ-BVHTTDL ngày 01/04/2024', originalCategory: 'Lễ hội truyền thống', sourceOrder: 41 },
-    { id: 'ds42', n: 'Lễ hội Cầu mùa của người Dao Lô Gang', locations: ['Xã Dân Tiến', 'Xã Võ Nhai', 'Xã Thần Sa', 'Xã Nghinh Tường'], year: 2025, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '2219/QĐ-BVHTTDL ngày 27/6/2025', originalCategory: 'Lễ hội truyền thống, Tập quán xã hội và tín ngưỡng', sourceOrder: 42 },
-
-    /* === Làng nghề thủ công truyền thống (1) === */
-    { id: 'ds43', n: 'Nghề dệt thủ công truyền thống của người Tày', locations: ['Xã Ba Bể'], year: 2014, level: 'Quốc gia', category: 'Làng nghề thủ công truyền thống', decision: '4205/QĐ-BVHTTDL ngày 19/12/2014', originalCategory: 'Nghề thủ công truyền thống', sourceOrder: 43 },
-
-    /* === Tri thức dân gian (3) === */
-    { id: 'ds44', n: 'Nghệ thuật trang trí hoa văn trên trang phục của người Dao Đỏ', locations: ['Xã Chợ Đồn'], year: 2018, level: 'Quốc gia', category: 'Tri thức dân gian', decision: '266/QĐ-BVHTTDL ngày 30/01/2018', originalCategory: 'Tri thức dân gian', sourceOrder: 44 },
-    { id: 'ds45', n: 'Tri thức trồng và chế biến chè Tân Cương', locations: ['Xã Tân Cương', 'Xã Đại Phúc'], year: 2023, level: 'Quốc gia', category: 'Tri thức dân gian', decision: '240/QĐ-BVHDTTDL ngày 14/02/2023', originalCategory: 'Tri thức gian gian', sourceOrder: 45 },
-    { id: 'ds46', n: 'Nghệ thuật may, thêu trang phục của người Dao', locations: ['Xã Trại Cau', 'Xã Tràng Xá', 'Xã Nghinh Tường'], year: 2024, level: 'Quốc gia', category: 'Tri thức dân gian', decision: '383/QĐ-BVHTTDL ngày 21/02/2024', originalCategory: 'Tri thức gian gian', sourceOrder: 46 }
+        {
+            id: 'ds01',
+            n: 'Di sản thực hành Then của người Tày Bắc Kạn trong di sản "Thực hành Then của người Tày, Nùng, Thái ở Việt Nam"',
+            locations: [], year: 2019, level: 'UNESCO', category: 'Nghệ thuật trình diễn dân gian',
+            decision: 'UNESCO ghi danh năm 2019', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 1,
+            description: 'Then là một thực hành nghi lễ không thể thiếu trong đời sống tâm linh của người Tày, Nùng, Thái ở Việt Nam, phản ánh các quan niệm về con người, thế giới tự nhiên và vũ trụ. Các lễ Then diễn tả hành trình thầy Then (ông Then, bà Then) điều khiển đoàn âm binh đi từ Mường Đất lên Mường Trời để dâng lễ vật và thỉnh cầu trong lễ: cầu an, chữa bệnh, cầu mùa, chúc mừng năm mới... Khi các Thầy Then cất tiếng hát, gảy tính tấu là khởi đầu cuộc hành trình.\n\nThen luôn luôn được trao truyền bằng truyền khẩu khi thực hành nghi lễ Then, thể hiện sự kế tục giữa các thế hệ, và các thầy Then đóng vai trò chính yếu trong việc chuyển giao các kỹ năng và bí quyết liên quan, một số thầy Then thực hiện khoảng 200 nghi lễ Then một năm.\n\nDi sản Thực hành Then của người Tày, Nùng, Thái tập trung chủ yếu ở các tỉnh vùng Đông Bắc gồm 09 tỉnh: Tuyên Quang, Lào Cai, Thái Nguyên, Bắc Ninh, Cao Bằng, Điện Biên, Lai Châu, Lạng Sơn, Quảng Ninh.\n\nTheo Cục Di sản văn hóa, việc UNESCO ghi danh Thực hành Then của người Tày, Nùng, Thái ở Việt Nam tại Danh sách Di sản văn hóa phi vật thể đại diện của nhân loại khẳng định bản sắc văn hóa phong phú của dân tộc Việt Nam. Nó cũng khẳng định sự gắn kết cộng đồng, đề cao tôn trọng đa dạng văn hóa, khuyến khích đối thoại giữa các cá nhân, các cộng đồng và các dân tộc khác nhau vì sự khoan dung, tình yêu và lòng bác ái đúng theo tôn chỉ và mục tiêu của Công ước 2003 về bảo vệ di sản văn hóa phi vật thể của UNESCO.\n\nVào hồi 15 giờ 23 phút giờ địa phương (3 giờ 23 phút giờ Việt Nam) ngày 12/12/2019, tại Phiên họp Uỷ ban Liên Chính phủ Công ước 2003 về bảo vệ di sản văn hóa phi vật thể lần thứ 14 của UNESCO diễn ra tại Colombia, di sản Thực hành Then của người Tày, Nùng, Thái ở Việt Nam chính thức được UNESCO ghi danh tại Danh sách Di sản văn hóa phi vật thể đại diện của nhân loại.',
+            imageCaption: 'Thày Then thực hiện nghi lễ cúng Then. (Ảnh: Báo Ảnh Việt Nam/TTXVN)',
+            hasVideo: false,
+            sourceDoc: 'Tư liệu về 46 DSVH phi VT của Thái Nguyên.docx — tr.1'
+        },
+        {
+            id: 'ds02',
+            n: 'Chữ Nôm của người Dao',
+            locations: ['Xã Chợ Đồn'], year: 2012, level: 'Quốc gia', category: 'Tiếng nói, chữ viết',
+            decision: '5079/QĐ-BVHTTDL ngày 27/12/2012', originalCategory: 'Tiếng nói, chữ viết', sourceOrder: 2,
+            description: 'Người Dao ở xã Ngọc Phái – Chợ Đồn (nay là xã Chợ Đồn – tỉnh Thái Nguyên) có lịch sử lâu đời. Trong văn hóa của người Dao có sự tiếp thu, giao thoa văn hóa với các cộng đồng tộc người lân cận địa bàn cư trú, mà một trong những biểu hiện nổi bật là chữ viết của người Dao – một số nhà nghiên cứu gọi là chữ "Nôm Dao".\n\nVề tổng quan, chữ "Nôm Dao" là một hệ thống ký tự chữ Hán được phiên âm ra tiếng Dao. Cộng đồng người Dao cho đến nay vẫn còn lưu giữ một quyển sách dùng để dạy những người bắt đầu học chữ người Dao, bằng tiếng Dao – cuốn "Tam tự kinh" – sách học vỡ lòng của hệ thống giáo dục Nho giáo thời xưa ở Việt Nam. Đây là những chữ Hán dạng phồn thể, được giữ nguyên tự dạng.\n\nTầng lớp trí thức người Dao, qua các thế hệ, đã Dao hóa cách phát âm các chữ Hán, cho gần gũi với tiếng Dao và vẫn giữ nguyên gốc nghĩa của các từ trong sách này. Phiên âm này được đọc theo một cách hoàn toàn khác tiếng Dao sử dụng trong cuộc sống thường ngày, nên các nhà nghiên cứu gọi đó là tiếng Dao trong văn chương. Trong quá trình giao lưu văn hóa, người Dao cũng tiếp nhận một số từ của Nôm Tày, Nôm Việt, nhưng được Dao hóa bởi lẽ có nhiều từ và khái niệm mà tiếng Dao không thể hiện hết được. Điều đó đã góp phần làm phong phú thêm vốn từ vựng cho ngôn ngữ Dao.\n\nChữ Nôm Dao là một di sản văn hóa quý báu, gắn liền với các sinh hoạt văn hóa tín ngưỡng của người Dao. Với những giá trị đặc sắc đó, chữ Nôm của người Dao ở xã Chợ Đồn – Thái Nguyên được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 5079/QĐ-BVHTTDL ngày 27/12/2012 của Bộ trưởng Bộ Văn hóa Thể thao và Du lịch.',
+            imageCaption: 'Theo Hồ sơ di sản, tư liệu Cục Di sản văn hóa.',
+            hasVideo: false,
+            sourceDoc: 'Tư liệu về 46 DSVH phi VT của Thái Nguyên.docx — tr.3'
+        },
+        {
+            id: 'ds03',
+            n: 'Chữ Nôm của người Tày',
+            locations: ['Xã Bằng Thành'], year: 2014, level: 'Quốc gia', category: 'Tiếng nói, chữ viết',
+            decision: '2684/QĐ-BVHTTDL ngày 25/8/2014', originalCategory: 'Tiếng nói, chữ viết', sourceOrder: 3,
+            description: 'Văn hóa của người Tày được thể hiện rõ qua các ký tự, ngôn ngữ, trang phục, chữ Nôm Tày. Chữ Nôm Tày được xây dựng trên cơ sở chữ Hán (chủ yếu dạng phồn thể) gồm toàn bộ các nét, các bộ thủ và các chữ Hán nguyên bản, sử dụng âm Hán – Việt, thuộc thể loại chữ tượng hình. Trong cách viết, Nôm Tày tuân thủ trình tự viết chữ Hán là từ trái sang phải, từ trên xuống dưới theo hàng dọc, vào trước đóng sau.\n\nNhờ có chữ viết nên đến nay người Tày vẫn còn lưu giữ được nhiều thông tin về nguồn gốc tổ tiên, gia đình, dòng họ, tín ngưỡng, tôn giáo, tập quán... Mỗi cuốn sách đều hàm chứa nét văn hóa độc đáo của người Tày. Các sách văn học dân gian (như truyện thơ Lương Nguyên, Phạm Công – Cúc Hoa, Tần Chu), Sléc truyện thơ Tần Chu (sách truyện thơ Tần Chu) và sách cúng, sách tín ngưỡng của người Tày (như Sléc Tuốn – cúng đầy tháng, Sléc Chải, mo – cầu yêu giải hạn, Sléc Quét lườn – cúng vào nhà mới).\n\nVới những giá trị đặc sắc đó, Chữ Nôm của người Tày ở xã Bộc Bố – Pác Nặm – Bắc Kạn (nay là Xã Bằng Thành – tỉnh Thái Nguyên) được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 2684/QĐ-BVHTTDL ngày 25/8/2014 của Bộ trưởng Bộ Văn hóa Thể thao và Du lịch.',
+            imageCaption: 'Chữ Nôm Tày ở xã Bằng Thành – tỉnh Thái Nguyên (Nguồn: Báo Phú Thọ).',
+            hasVideo: false,
+            sourceDoc: 'Tư liệu về 46 DSVH phi VT của Thái Nguyên.docx — tr.6'
+        },
+        {
+            id: 'ds04',
+            n: 'Chữ Nôm của người Dao',
+            locations: [], year: 2024, level: 'Quốc gia',
+            category: 'Tiếng nói, chữ viết',
+            decision: '382/QĐ-BVHTTDL ngày 21/02/2024',
+            originalCategory: 'Tiếng nói, chữ viết', sourceOrder: 4
+        },
+        {
+            id: 'ds05',
+            n: 'Múa Tắc Xình của người Sán Chay',
+            locations: ['Xã Phú Lương', 'Xã Yên Trạch', 'Xã Hợp Thành'], year: 2014, level: 'Quốc gia',
+            category: 'Nghệ thuật trình diễn dân gian',
+            decision: '2684/QĐ-BVHTTDL ngày 25/8/2014', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 5,
+            description: 'Múa Tắc Xình luôn song hành cùng với tiến trình hình thành và phát triển cộng đồng người Sán Chay ở Việt Nam, tập trung tại các xã: Phú Lương, Yên Trạch, Hợp Thành – tỉnh Thái Nguyên. Đây là nghệ thuật trình diễn dân gian mang tính tâm linh quan trọng trong lễ hội Cầu mùa của người Sán Chay để tạ ơn trời đất, thần linh đã cho mưa gió thuận hòa, mùa màng tốt tươi, bản làng no ấm, lúa ngô được mùa và cầu khấn sự che chở của thần linh cho mùa vụ tiếp theo.\n\nMúa Tắc Xình có 09 động tác mô phỏng đời sống của người Sán Chay gồm: thăm và dọn đường, bắt quyết, mài dao, đánh dao, phát nương, tra mổ, chăm sóc lúa, thu hoạch mùa màng, mừng mùa và trả lễ cho thần linh. Động tác múa và âm nhạc cho múa đơn giản, dễ thực hành, tuy nhiên những người tham gia Tắc Xình phải là nam giới với chủ lễ là thầy cúng hoặc người múa có kinh nghiệm và kỹ thuật cao.\n\nMúa Tắc Xình là điệu múa nghi lễ, vừa tái hiện các hoạt động lao động sản xuất của người Sán Chay vừa thể hiện đời sống tâm linh của người dân làm nông nghiệp, phụ thuộc hoàn toàn vào các yếu tố tự nhiên. Múa Tắc Xình cũng phản ánh cấu trúc xã hội, gia đình phụ hệ của người Sán Chay, với việc chỉ có nam giới được thực hành nghi lễ.\n\nVới những giá trị đặc sắc đó, Múa Tắc Xình của người Sán Chay được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 2684/QĐ-BVHTTDL ngày 25/8/2014 của Bộ trưởng Bộ Văn hóa Thể thao và Du lịch.\n\n(Tài liệu ghi chú: Có video minh họa.)',
+            imageCaption: '',
+            hasVideo: true,
+            sourceDoc: 'Tư liệu về 46 DSVH phi VT của Thái Nguyên.docx — tr.5'
+        },
+        { id: 'ds06', n: 'Lượn Slương của người Tày', locations: ['Xã Yên Bình'], year: 2014, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '2684/QĐ-BVHTTDL ngày 25/8/2014', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 6 },
+        { id: 'ds07', n: 'Rối cạn của người Tày ở Thẩm Rộc và Ru Nghệ', locations: ['Xã Định Hóa', 'Xã Bình Yên'], year: 2015, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '1877/QĐ-BVHTTDL ngày 8/6/2015', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 7 },
+        { id: 'ds08', n: 'Nghệ thuật Múa khèn của người Mông', locations: ['Xã Văn Lang'], year: 2015, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '1877/QĐ-BVHTTDL ngày 06/8/2015', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 8 },
+        { id: 'ds09', n: 'Hát Soọng cô của người Sán Dìu', locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng'], year: 2015, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '3465/QĐ-BVHTTDL ngày 13/10/2015', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 9 },
+        { id: 'ds10', n: 'Hát Sấng Cọ (Hát ví Lưu Tam) của người Sán Chay', locations: ['Xã Phú Lương', 'Xã Yên Trạch', 'Xã Hợp Thành'], year: 2016, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '246/QĐ-BVHTTDL ngày 19/01/2016', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 10 },
+        { id: 'ds11', n: 'Nghệ thuật Khèn của người Mông', locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng', 'Xã Phú Lương', 'Xã Yên Trạch', 'Xã Hợp Thành'], year: 2017, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '1852/QĐ-BVHTTDL ngày 08/05/2017', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 11 },
+        { id: 'ds12', n: 'Lượn Cọi của người Tày', locations: ['Xã Định Hóa', 'Xã Bình Yên', 'Xã Trung Hội', 'Xã Phượng Tiến', 'Xã Phú Đình', 'Xã Bình Thành', 'Xã Kim Phượng', 'Xã Lam Vỹ'], year: 2018, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '266/QĐ-BVHTTDL Ngày 30/01/2018', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 12 },
+        { id: 'ds13', n: 'Pả dung của người Dao', locations: ['Xã Định Hóa', 'Xã Yên Trạch'], year: 2018, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '4069/QĐ-BVHTTDL Ngày 30/10/2018', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 13 },
+        { id: 'ds14', n: 'Lượn Cọi của người Tày', locations: ['Xã Bằng Thành'], year: 2019, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '446/QĐ-BVHTTDL ngày 29/01/2019', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 14 },
+        { id: 'ds15', n: 'Hát Pá Dung của người Dao', locations: ['Xã Chợ Đồn', 'Xã Ngân Sơn', 'Xã Bằng Thành', 'Xã Phủ Thông', 'Phường Bắc Kạn'], year: 2020, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '174/QĐ-BVHTTDL ngày 14/01/2020', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 15 },
+        { id: 'ds16', n: 'Hát Sli của người Nùng', locations: ['Xã Xuân Dương'], year: 2021, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '830/QĐ-BVHTTDL ngày 03/9/2021', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 16 },
+        { id: 'ds17', n: 'Múa bát của người Tày', locations: [], year: 2022, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '774/QĐ-BVHTTDL ngày 04/4/2022', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 17 },
+        { id: 'ds18', n: 'Hát ru của người Tày', locations: ['Xã Bằng Thành'], year: 2023, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '1400/QĐ-BVHTTDL ngày 01/6/2023', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 18 },
+        { id: 'ds19', n: 'Hát Ví của người Tày', locations: ['Xã Định Hóa', 'Xã Bình Yên', 'Xã Trung Hội', 'Xã Phượng Tiến', 'Xã Phú Đình', 'Xã Bình Thành', 'Xã Kim Phượng', 'Xã Lam Vỹ'], year: 2024, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '388/QĐ-BVHTTDL ngày 21/02/2024', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 19 },
+        { id: 'ds20', n: 'Hát Sli của người Nùng Phàn SLình', locations: ['Xã Văn Hán', 'Xã Văn Lăng', 'Xã Đồng Hỷ', 'Xã Quang Sơn'], year: 2025, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '2220/QĐ-BVHTTDL ngày 27/6/2025', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 20 },
+        {
+            id: 'ds21',
+            n: 'Nghi lễ Cấp sắc của người Dao',
+            locations: ['Xã Thanh Thịnh'], year: 2012, level: 'Quốc gia',
+            category: 'Tập quán xã hội và tín ngưỡng',
+            decision: '5079/QĐ-BVHTTDL ngày 27/12/2012', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 21,
+            description: 'Với những cánh rừng đại ngàn luôn véo von tiếng chim, những nếp nhà sàn của đồng bào Dao ở Khe Lắc, xã Nông Thịnh – Chợ Mới (nay là Xã Thanh Thịnh – Thái Nguyên) nhấp nhô càng tô điểm cho bức tranh miền núi thêm nét bình dị mà sâu lặng. Bản làng còn lưu giữ nhiều nét văn hóa dân tộc vùng cao vô cùng độc đáo, trong đó có lễ cấp sắc vẫn được lưu truyền cho đến ngày nay.\n\nLễ cấp sắc của đồng bào Dao có 3 bậc: bậc đầu tiên là cấp 3 đèn và 36 binh mã; bậc thứ 2 được cấp 7 đèn và 72 binh mã; bậc cuối cùng là 12 đèn và 120 binh mã. Nếu cấp sắc 3 đèn hay 7 đèn, thời gian diễn ra khoảng 4 ngày 3 đêm, vì vậy lễ cấp sắc không chỉ là công việc riêng của một gia đình, mà còn là ngày hội cả dòng họ và bản làng. Trong lễ cấp sắc có rất nhiều nghi thức được tiến hành tuần tự từng bước, có thể cùng một lúc diễn ra vài nghi thức, mỗi nghi thức có những nội dung, ý nghĩa khác nhau và có một thầy cúng đảm nhiệm. Thầy chính trong cấp sắc 3 đèn gọi là "Khòi giáo". Còn đối với thầy chính trong cấp sắc 7 đèn gọi là "Khòi tàn say, Sài chẩy say, Chì chiếu say, Dần tậu say". Ngoài ra, trước khi làm lễ khoảng 2 đến 3 ngày, rất nhiều đồ dùng sẽ được chuẩn bị trước như: giấy bản, khắc dấu, giấy dán, cây làm đèn…\n\nCấp sắc – "quá tăng", khâu quan trọng nhất trong chuỗi các nghi lễ, là giai đoạn chính thức bước vào cấp sắc, thường được tiến hành vào đêm thứ hai và từ khoảng 12 giờ đêm trở đi. Lễ lên đèn cấp sắc thể hiện sự trưởng thành của người con trai qua hình tượng cây đèn 3 ngọn, tương ứng với quan niệm: Tinh – Khí – Thần, nghĩa là con người đã thoát khỏi bản thể và thoát thai để thành một người lớn. Vì vậy, một người đàn ông Dao muốn được công nhận là người lớn phải trải qua lễ cấp sắc. Trong quá trình cấp sắc đệ tử sẽ được cấp binh mã và phép thuật, lúc này người đàn ông Dao mới thật sự trưởng thành. Sau khi các đệ tử được cấp binh mã và phép thuật, các thầy cúng sẽ lần lượt đưa các đệ tử ra trước cửa nhà để mời Ngọc Hoàng xuống làm chứng việc cấp sắc đã hoàn thành.\n\nVới những giá trị đặc sắc đó, Nghi lễ Cấp sắc của người Dao ở xã Thanh Thịnh – Thái Nguyên được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 5079/QĐ-BVHTTDL ngày 27/12/2012 của Bộ trưởng Bộ Văn hóa Thể thao và Du lịch.',
+            imageCaption: 'Lễ cúng mời tổ tiên, một phần quan trọng trước khi bước vào cấp sắc (Nguồn: Baotintuc.vn).',
+            hasVideo: false,
+            sourceDoc: 'Tư liệu về 46 DSVH phi VT của Thái Nguyên.docx — tr.2'
+        },
+        {
+            id: 'ds22',
+            n: 'Nghi lễ cấp sắc của người Dao',
+            locations: [], year: 2014, level: 'Quốc gia',
+            category: 'Tập quán xã hội và tín ngưỡng',
+            decision: '2684/QĐ-BVHTTDL ngày 25/8/2014', originalCategory: 'Tập quán xã hội', sourceOrder: 22,
+            description: 'Người Dao có nhiều nhóm, gồm: Dao Đỏ, Dao Lô Gang và Dao Quần Chẹt, Dao Tuyến và Dao Họ... Nhưng dù ở nhóm nào thì người đàn ông cũng đều phải trải qua Lễ cấp sắc mới được cộng đồng làng bản công nhận đã trưởng thành, được tham gia các việc trong làng bản.\n\nTrình tự của nghi lễ cấp sắc được thực hiện gồm các bước cơ bản là: Lễ trình diện của người thụ lễ; Lễ cấp đèn và hạ đèn; Lễ đặt pháp danh; Lễ giao âm binh và gạo nuôi quân; Lễ qua cầu; Lễ cấp dụng cụ cúng bái; Lễ truyền pháp lực; Lễ cúng thần mặt trời. Cúng Bàn Vương là lễ chung cho Lễ cấp sắc ở các cấp bậc 3 đèn, 7 đèn và 12 đèn. Trong trường hợp làm Lễ cấp sắc từ 7 đèn trở lên, thì tiếp tục làm các nghi lễ tiếp theo: Lễ tơ hồng; Lễ cúng hồn lúa; Lễ thăm thiên đình và Lễ thảng đàn.\n\nNhóm Dao Quần Chẹt ở Đại Từ chỉ cấp sắc cho người đàn ông đã có vợ, có con. Với những người không có vợ, không có con hoặc do điều kiện kinh tế quá nghèo, hoặc do bản thân bị tật nguyền, không thể tham gia nhảy múa khi hành lễ thì không cấp sắc. Với những người khi sống không làm Lễ cấp sắc, sau này con, cháu họ trưởng thành, đủ điều kiện được làm Lễ cấp sắc thì trước tiên phải làm Lễ cấp sắc cho người đã chết.\n\nVới những giá trị đặc sắc đó, nghi lễ Cấp sắc của người Dao tỉnh Thái Nguyên được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 2684/QĐ-BVHTTDL ngày 25/8/2014 của Bộ trưởng Bộ Văn hóa Thể thao và Du lịch.',
+            imageCaption: 'Nghi lễ cấp sắc của người Dao ở Định Hóa (Nguồn: Báo Thái Nguyên).',
+            hasVideo: false,
+            sourceDoc: 'Tư liệu về 46 DSVH phi VT của Thái Nguyên.docx — tr.4'
+        },
+        { id: 'ds23', n: 'Lễ Cấp sắc của người Tày', locations: ['Xã Na Rì'], year: 2015, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '1877/QĐ-BVHTTDL ngày 06/8/2015', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 23 },
+        { id: 'ds24', n: 'Nghi lễ Then của người Tày', locations: ['Xã Định Hóa', 'Xã Bình Yên', 'Xã Trung Hội', 'Xã Phượng Tiến', 'Xã Phú Đình', 'Xã Bình Thành', 'Xã Kim Phượng', 'Xã Lam Vỹ'], year: 2015, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '3465/QĐ-BVHTTDL ngày 13/10/2015', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 24 },
+        { id: 'ds25', n: 'Nghi lễ Hét khoăn của người Nùng', locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng'], year: 2015, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '3465/QĐ-BVHTTDL ngày 13/10/2015', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 25 },
+        { id: 'ds26', n: 'Lễ cầu năm mới, cầu mùa của người Dao (Tịu siằng thun boaù lỉu)', locations: ['Xã Xuân Dương'], year: 2016, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '246/QĐ-BVHTTDL ngày 19/01/2016', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 26 },
+        { id: 'ds27', n: 'Nghi lễ Tết nhảy (Nhảng chầm đao) của người Dao', locations: ['Xã Đại Từ', 'Xã Đức Lương', 'Xã Phú Thịnh', 'Xã La Bằng', 'Xã Phú Lạc', 'Xã An Khánh', 'Xã Quân Chu', 'Xã Vạn Phú', 'Xã Phú Xuyên'], year: 2016, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '4036/QĐ-BVHTTDL ngày 21/11/2016', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 27 },
+        { id: 'ds28', n: 'Nghi lễ mừng sinh nhật (Hoắt khoăn) của người Nùng', locations: ['Xã Xuân Dương'], year: 2016, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '4036/QĐ-BVHTTDL ngày 21/11/2016', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 28 },
+        { id: 'ds29', n: 'Nghi lễ Cấp sắc Tào của người Tày', locations: ['Xã Côn Minh'], year: 2016, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '4036/QĐ-BVHTTDL ngày 21/11/2016', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 29 },
+        { id: 'ds30', n: 'Nghi lễ Cấp sắc của người Nùng', locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng'], year: 2017, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '1852/QĐ-BVHTTDL ngày 08/05/2017', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 30 },
+        { id: 'ds31', n: 'Lễ cấp sắc Pụt (Lẩu Pụt) của người Tày', locations: ['Xã Đồng Phúc'], year: 2018, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '266/QĐ-BVHTTDL ngày 30/01/2018', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 31 },
+        { id: 'ds32', n: 'Lễ Cấp sắc của người Sán Dìu', locations: ['Xã Đồng Phúc'], year: 2018, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '4069/QĐ-BVHTTDL Ngày 30/10/2018', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 32 },
+        { id: 'ds33', n: 'Lễ Kỳ Yên của người Tày', locations: ['Xã Phong Quang'], year: 2020, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '175/QĐ-BVHTTDL ngày 14/01/2020', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 33 },
+        { id: 'ds34', n: 'Lễ Cấp sắc của người Dao Tiền', locations: ['Xã Phong Quang'], year: 2022, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '775/QĐ-BVHTTDL ngày 04/4/2022', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 34 },
+        { id: 'ds35', n: 'Lễ hội Lồng tồng Ba Bể', locations: ['Xã Ba Bể'], year: 2014, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '4205/QĐ-BVHTTDL ngày 19/12/2014', originalCategory: 'Lễ hội truyền thống', sourceOrder: 35 },
+        { id: 'ds36', n: 'Lễ hội Đền Đuổm', locations: ['Xã Phú Lương'], year: 2017, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '217/QĐ-BVHTTDL ngày 23/01/2017', originalCategory: 'Lễ hội truyền thống', sourceOrder: 36 },
+        { id: 'ds37', n: 'Lễ hội Lồng Tồng của người Tày', locations: ['Xã Định Hóa', 'Xã Bình Yên', 'Xã Trung Hội', 'Xã Phượng Tiến', 'Xã Phú Đình', 'Xã Bình Thành', 'Xã Kim Phượng', 'Xã Lam Vỹ'], year: 2017, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '1852/QĐ-BVHTTDL ngày 08/05/2017', originalCategory: 'Lễ hội truyền thống', sourceOrder: 37 },
+        { id: 'ds38', n: 'Lễ hội Cầu mùa của người Sán Chay', locations: ['Xã Vô Tranh', 'Xã Yên Trạch', 'Xã Phú Lương'], year: 2018, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '266/QĐ-BVHTTDL Ngày 30/01/2018', originalCategory: 'Lễ hội truyền thống', sourceOrder: 38 },
+        { id: 'ds39', n: 'Lễ hội đình Phương Độ', locations: ['Xã Phú Bình', 'Xã Tân Thành', 'Xã Điềm Thụy', 'Xã Kha Sơn', 'Xã Tân Khánh'], year: 2018, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '266/QĐ-BVHTTDL Ngày 30/01/2018', originalCategory: 'Lễ hội truyền thống', sourceOrder: 39 },
+        { id: 'ds40', n: 'Lễ hội Núi Văn-Núi Võ', locations: ['Xã Vạn Phú'], year: 2023, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '239/QĐ-BVHDTTDL ngày 14/02/2023', originalCategory: 'Lễ hội truyền thống', sourceOrder: 40 },
+        { id: 'ds41', n: 'Lễ hội đền Lục Giáp', locations: ['Phường Phổ Yên'], year: 2024, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '857/QĐ-BVHTTDL ngày 01/04/2024', originalCategory: 'Lễ hội truyền thống', sourceOrder: 41 },
+        { id: 'ds42', n: 'Lễ hội Cầu mùa của người Dao Lô Gang', locations: ['Xã Dân Tiến', 'Xã Võ Nhai', 'Xã Thần Sa', 'Xã Nghinh Tường'], year: 2025, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '2219/QĐ-BVHTTDL ngày 27/6/2025', originalCategory: 'Lễ hội truyền thống, Tập quán xã hội và tín ngưỡng', sourceOrder: 42 },
+        { id: 'ds43', n: 'Nghề dệt thủ công truyền thống của người Tày', locations: ['Xã Ba Bể'], year: 2014, level: 'Quốc gia', category: 'Làng nghề thủ công truyền thống', decision: '4205/QĐ-BVHTTDL ngày 19/12/2014', originalCategory: 'Nghề thủ công truyền thống', sourceOrder: 43 },
+        { id: 'ds44', n: 'Nghệ thuật trang trí hoa văn trên trang phục của người Dao Đỏ', locations: ['Xã Chợ Đồn'], year: 2018, level: 'Quốc gia', category: 'Tri thức dân gian', decision: '266/QĐ-BVHTTDL ngày 30/01/2018', originalCategory: 'Tri thức dân gian', sourceOrder: 44 },
+        { id: 'ds45', n: 'Tri thức trồng và chế biến chè Tân Cương', locations: ['Xã Tân Cương', 'Xã Đại Phúc'], year: 2023, level: 'Quốc gia', category: 'Tri thức dân gian', decision: '240/QĐ-BVHDTTDL ngày 14/02/2023', originalCategory: 'Tri thức gian gian', sourceOrder: 45 },
+        { id: 'ds46', n: 'Nghệ thuật may, thêu trang phục của người Dao', locations: ['Xã Trại Cau', 'Xã Tràng Xá', 'Xã Nghinh Tường'], year: 2024, level: 'Quốc gia', category: 'Tri thức dân gian', decision: '383/QĐ-BVHTTDL ngày 21/02/2024', originalCategory: 'Tri thức gian gian', sourceOrder: 46 }
     ];
 
     /* ============================================================
@@ -2404,7 +2394,6 @@
       swLang('vi');
 
       function updateBsBackLabel() {
-        // Label cập nhật dựa trên ngữ cảnh
         if (currentView === 'overview') {
           if (overviewState.category) bsBack.innerHTML = '<i class="fa-solid fa-arrow-left"></i> <span>' + esc(TXT[lg].allCategory) + '</span>';
           else if (overviewState.level) bsBack.innerHTML = '<i class="fa-solid fa-arrow-left"></i> <span>' + esc(TXT[lg].allLevel) + '</span>';
@@ -2503,13 +2492,11 @@
 
       function isMobile() { return window.innerWidth <= 768; }
 
-      /* ---- DRAWER / SHEET ---- */
       function openDrawer(title, sub, html, showBack, backLabel, animateSwap) {
         if (isMobile()) {
           const shouldAnimate = animateSwap !== false;
           if (shouldAnimate) {
             bsList.classList.remove('bs-swap');
-            // force reflow
             void bsList.offsetWidth;
           }
           bsTitle.textContent = title;
@@ -2563,7 +2550,6 @@
         if (bn) bn.classList.toggle('active', active);
       }
 
-      /* ============================================================ */
       function renderHeritageCards(list, options) {
         options = options || {};
         if (!list || !list.length) {
@@ -2612,7 +2598,6 @@
         });
       }
 
-      /* ============================================================ */
       function openCommuneView(xa, doZoom, fromOverview) {
         if (!fromOverview) {
           currentView = 'region';
@@ -2631,7 +2616,6 @@
         updateBsBackLabel();
       }
 
-      /* ============================================================ */
       function openOverview() {
         currentView = 'overview';
         overviewState = { level: null, category: null };
@@ -2718,7 +2702,6 @@
         return null;
       }
 
-      /* Bind event cho các card động */
       document.addEventListener('click', function (e) {
         const catCard = e.target.closest('.cat-card');
         if (catCard && catCard.dataset.level) {
@@ -2769,7 +2752,6 @@
         cXa = null;
       });
 
-      /* Swipe handle — improved with better hit area */
       (function () {
         let startY = null, moved = false;
         function onStart(e) {
@@ -2805,7 +2787,6 @@
         }
       })();
 
-      /* ============================================================ */
       const srIdx = (function () {
         const idx = [];
         COMMUNE_LIST.forEach(function (xa) {
@@ -2873,7 +2854,6 @@
         }
       });
 
-      /* ============================================================ */
       function bldRegMenu() {
         let html = '<div class="grp-label"><i class="fa-solid fa-star"></i> Tỉnh Thái Nguyên (mới)</div>';
         COMMUNE_LIST.forEach(function (xa) {
@@ -2958,7 +2938,6 @@
       qrCloseBtn.addEventListener('click', function () { qrModal.classList.remove('open'); qrModal.setAttribute('aria-hidden', 'true'); });
       qrModal.addEventListener('click', function (e) { if (e.target === qrModal) { qrModal.classList.remove('open'); qrModal.setAttribute('aria-hidden', 'true'); } });
 
-      /* ============================================================ */
       let lbImages = [], lbIndex = 0;
       function openLightbox(images, index) { lbImages = images.slice(); lbIndex = index || 0; renderLightbox(); lightbox.classList.add('open'); lightbox.setAttribute('aria-hidden', 'false'); }
       function renderLightbox() {
@@ -2977,7 +2956,6 @@
       lightbox.querySelector('.lb-next').addEventListener('click', function (e) { e.stopPropagation(); lbIndex++; renderLightbox(); });
       lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
 
-      /* ============================================================ */
       function loadImages(folder, max, cb) {
         const valid = [];
         let pending = max;
@@ -3040,7 +3018,6 @@
         });
       }
 
-      /* ============================================================ */
       const AudioPlayer = (function () {
         let currentAudio = null, currentBtn = null, toastTimer = null;
         const toastEl = el('audio-toast');
@@ -3123,7 +3100,6 @@
         if (modalAudioBtn._url) AudioPlayer.toggle(modalAudioBtn._url, modalAudioBtn);
       });
 
-      /* ============================================================ */
       function openHeritage(rec) {
         if (!rec) return;
         AudioPlayer.stop();
@@ -3215,7 +3191,6 @@
       heritageModal.querySelector('.modal-close').addEventListener('click', closeHeritage);
       heritageModal.addEventListener('click', function (e) { if (e.target === heritageModal) closeHeritage(); });
 
-      /* ============================================================ */
       const mSearchOverlay = el('mobile-search-overlay');
       const mSearchInp = el('m-search-inp');
       const mSearchBody = el('m-search-body');
@@ -3276,7 +3251,6 @@
       if (mSearchClear) mSearchClear.addEventListener('click', function () { mSearchInp.value = ''; renderMobileSearch(''); try { mSearchInp.focus(); } catch (e) { } });
       if (mSearchInp) mSearchInp.addEventListener('input', function () { renderMobileSearch(mSearchInp.value); });
 
-      /* ============================================================ */
       const mobileMenuDrawer = el('mobile-menu-drawer');
       const mobileMenuBtn = el('mobile-menu-btn');
       const mobileMenuClose = el('m-drawer-close');
@@ -3397,7 +3371,6 @@
       }
       buildMobileMenuBody();
 
-      /* ============================================================ */
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
           if (lightbox.classList.contains('open')) { closeLightbox(); return; }
@@ -3417,7 +3390,6 @@
         }
       });
 
-      /* Only close when tapping OUTSIDE on mobile. Important: don't close on inner taps */
       document.addEventListener('click', function (e) {
         if (!isMobile()) return;
         if (!bs.classList.contains('open')) return;
@@ -3427,7 +3399,6 @@
         if (e.target.closest('#back-btn')) return;
         if (e.target.closest('#nav')) return;
         if (e.target.closest('.leaflet-control')) return;
-        // Only close if tap was on the map behind
         if (e.target.closest('#mp')) {
           closeDrawers();
         }
@@ -3443,7 +3414,6 @@
         }, 220);
       });
 
-      /* Preload */
       (function () { const a = new Image(); a.src = 'light.png'; const b = new Image(); b.src = 'dark.png'; })();
 
       console.log('%c🌸 Di Sản Thái Nguyên · Âm Vang Di Sản — Dự án Khoa học Kỹ thuật THPT Phú Bình', 'background:#2D6A4F;color:#FFD700;padding:4px 10px;border-radius:6px;font-weight:bold;');
