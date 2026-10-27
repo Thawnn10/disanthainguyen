@@ -4461,6 +4461,62 @@
       background: rgba(0, 255, 204, .06) !important;
       border-bottom-color: rgba(0, 255, 204, .22) !important
     }
+
+    /* ═══════════════════════════════════════════════════════════
+       NGUỒN ẢNH NHIỀU MỤC (imageSources array)
+       ═══════════════════════════════════════════════════════════ */
+    #heritage-modal .source-list {
+      list-style: none;
+      padding: 0;
+      margin: 4px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    #heritage-modal .source-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: 10px;
+      background: rgba(212, 168, 83, .08);
+      border-left: 3px solid var(--gold);
+      font-size: .88rem;
+      line-height: 1.55;
+      color: var(--tx);
+    }
+
+    .dark #heritage-modal .source-list li {
+      background: rgba(0, 255, 204, .06);
+      border-left-color: var(--acc);
+    }
+
+    #heritage-modal .source-list .src-idx {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gold);
+      color: #1A0F00;
+      font-size: .72rem;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .dark #heritage-modal .source-list .src-idx {
+      background: var(--acc);
+      color: #121816;
+    }
+
+    #heritage-modal .source-list .src-text {
+      flex: 1;
+      min-width: 0;
+      word-break: break-word;
+    }
   </style>
 </head>
 
@@ -4471,7 +4527,7 @@
     <h2>Di sản văn hóa phi vật thể tỉnh Thái Nguyên — Dự án Khoa học Kỹ thuật</h2>
     <p>Nền tảng số hóa bản đồ di sản văn hóa phi vật thể tỉnh Thái Nguyên sau sáp nhập.
       Tra cứu theo xã/phường và danh mục Tổng quát theo cấp ghi danh — loại hình — năm ghi danh —
-      quyết định công nhận.</p>
+      quyết định ghi danh.</p>
   </section>
 
   <div class="liquid-bg">
@@ -4650,7 +4706,7 @@
           <li data-icon="🗺️"><strong>Bản đồ tương tác di sản theo từng xã/phường</strong> — hiển thị chi tiết di sản
             của địa bàn.</li>
           <li data-icon="📚"><strong>Tổng quát — Danh mục di sản</strong> — tra cứu theo cấp ghi danh (UNESCO / Quốc
-            gia), theo 6 loại hình và xem năm ghi danh, quyết định công nhận của từng bản ghi.</li>
+            gia), theo 6 loại hình và xem năm ghi danh, quyết định ghi danh của từng bản ghi.</li>
           <li data-icon="🔍"><strong>Tra cứu &amp; Tìm kiếm thông minh</strong> — autocomplete theo từ khóa, tên xã,
             phường, hoặc tên di sản.</li>
           <li data-icon="🤖"><strong>Trợ lý AI Di sản</strong> — chatbot AI hỗ trợ giải đáp thắc mắc về văn hóa, lịch
@@ -4721,7 +4777,7 @@
           </div>
 
           <div class="section-block">
-            <div class="sb-title"><i class="fa-solid fa-gavel"></i> Quyết định / Căn cứ công nhận</div>
+            <div class="sb-title"><i class="fa-solid fa-gavel"></i> Quyết định / Căn cứ ghi danh</div>
             <div class="sb-content" id="modal-decision"></div>
           </div>
 
@@ -4732,7 +4788,7 @@
 
           <div class="section-block">
             <div class="sb-title"><i class="fa-solid fa-camera"></i> Nguồn ảnh</div>
-            <div class="sb-content muted" id="modal-image-source">...</div>
+            <div class="sb-content muted" id="modal-image-source">......</div>
           </div>
         </div>
       </div>
@@ -5863,7 +5919,61 @@
           descEl.classList.add('muted');
         }
 
-        el('modal-image-source').textContent = '...';
+        /* ✅ CẬP NHẬT: Nguồn ảnh lấy từ trường imageCaption trong heritage-data.js */
+        /* ✅ HIỂN THỊ NHIỀU NGUỒN ẢNH (2, 3, 4, 5... nguồn)
+           - Ưu tiên mảng `imageSources` (không giới hạn số lượng)
+           - Fallback: imageCaption + imageCaption2 (nếu chưa dùng mảng)
+           - Không có nguồn ảnh → fallback `sourceDoc`
+           - Không có gì → placeholder
+        */
+        const sourceEl = el('modal-image-source');
+        const imgSources = [];
+
+        // 1) Ưu tiên mảng imageSources (hỗ trợ N nguồn)
+        if (Array.isArray(rec.imageSources) && rec.imageSources.length) {
+          rec.imageSources.forEach(function (s) {
+            if (s && String(s).trim()) imgSources.push(String(s).trim());
+          });
+        }
+
+        // 2) Fallback: trường đơn imageCaption + imageCaption2
+        if (!imgSources.length) {
+          if (rec.imageCaption && String(rec.imageCaption).trim()) {
+            imgSources.push(String(rec.imageCaption).trim());
+          }
+          if (rec.imageCaption2 && String(rec.imageCaption2).trim()) {
+            imgSources.push(String(rec.imageCaption2).trim());
+          }
+        }
+
+        // 3) Render theo số lượng nguồn
+        if (imgSources.length === 0) {
+          // Không có nguồn ảnh → fallback sourceDoc
+          if (rec.sourceDoc && String(rec.sourceDoc).trim()) {
+            sourceEl.textContent = 'Nguồn tư liệu: ' + rec.sourceDoc;
+            sourceEl.classList.remove('muted');
+            sourceEl.style.whiteSpace = 'pre-wrap';
+          } else {
+            sourceEl.textContent = 'Thông tin nguồn ảnh chưa có trong tệp dữ liệu.';
+            sourceEl.classList.add('muted');
+            sourceEl.style.whiteSpace = '';
+          }
+        } else if (imgSources.length === 1) {
+          // 1 nguồn → hiển thị text thường
+          sourceEl.textContent = imgSources[0];
+          sourceEl.classList.remove('muted');
+          sourceEl.style.whiteSpace = 'pre-wrap';
+        } else {
+          // ≥ 2 nguồn → danh sách đánh số ①②③...
+          sourceEl.innerHTML = '<ol class="source-list">' +
+            imgSources.map(function (s, i) {
+              return '<li><span class="src-idx">' + (i + 1) + '</span>' +
+                '<span class="src-text">' + esc(s) + '</span></li>';
+            }).join('') +
+            '</ol>';
+          sourceEl.classList.remove('muted');
+          sourceEl.style.whiteSpace = '';
+        }
 
         const imgSliderEl = heritageModal.querySelector('.img-slider');
         let capEl = imgSliderEl.querySelector('.heritage-caption');
