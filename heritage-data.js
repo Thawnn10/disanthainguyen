@@ -13,14 +13,13 @@
             decision: 'UNESCO ghi danh năm 2019', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 1,
             imageFolder: 'hatthen',
             description: 'Then là một thực hành nghi lễ không thể thiếu trong đời sống tâm linh của người Tày, Nùng, Thái ở Việt Nam, phản ánh các quan niệm về con người, thế giới tự nhiên và vũ trụ. Các lễ Then diễn tả hành trình thầy Then (ông Then, bà Then) điều khiển đoàn âm binh đi từ Mường Đất lên Mường Trời để dâng lễ vật và thỉnh cầu trong lễ: cầu an, chữa bệnh, cầu mùa, chúc mừng năm mới... Khi các Thầy Then cất tiếng hát, gảy tính tấu là khởi đầu cuộc hành trình.\n\nThen luôn luôn được trao truyền bằng truyền khẩu khi thực hành nghi lễ Then, thể hiện sự kế tục giữa các thế hệ, và các thầy Then đóng vai trò chính yếu trong việc chuyển giao các kỹ năng và bí quyết liên quan, một số thầy Then thực hiện khoảng 200 nghi lễ Then một năm.\n\nDi sản Thực hành Then của người Tày, Nùng, Thái tập trung chủ yếu ở các tỉnh vùng Đông Bắc gồm 09 tỉnh: Tuyên Quang, Lào Cai, Thái Nguyên, Bắc Ninh, Cao Bằng, Điện Biên, Lai Châu, Lạng Sơn, Quảng Ninh.\n\nTheo Cục Di sản văn hóa, việc UNESCO ghi danh Thực hành Then của người Tày, Nùng, Thái ở Việt Nam tại Danh sách Di sản văn hóa phi vật thể đại diện của nhân loại khẳng định bản sắc văn hóa phong phú của dân tộc Việt Nam. Nó cũng khẳng định sự gắn kết cộng đồng, đề cao tôn trọng đa dạng văn hóa, khuyến khích đối thoại giữa các cá nhân, các cộng đồng và các dân tộc khác nhau vì sự khoan dung, tình yêu và lòng bác ái đúng theo tôn chỉ và mục tiêu của Công ước 2003 về bảo vệ di sản văn hóa phi vật thể của UNESCO.\n\nVào hồi 15 giờ 23 phút giờ địa phương (3 giờ 23 phút giờ Việt Nam) ngày 12/12/2019, tại Phiên họp Uỷ ban Liên Chính phủ Công ước 2003 về bảo vệ di sản văn hóa phi vật thể lần thứ 14 của UNESCO diễn ra tại Colombia, di sản Thực hành Then của người Tày, Nùng, Thái ở Việt Nam chính thức được UNESCO ghi danh tại Danh sách Di sản văn hóa phi vật thể đại diện của nhân loại.',
-            imageCaption: 'Thày Then thực hiện nghi lễ cúng Then. (Ảnh: Báo Ảnh Việt Nam/TTXVN)',
+            imageCaption: 'Thầy Then thực hiện nghi lễ cúng Then. (Ảnh: Báo Ảnh Việt Nam/TTXVN)',
             imageSources: [
-                'Thày Then thực hiện nghi lễ cúng Then. (Ảnh: Báo Ảnh Việt Nam/TTXVN)',
-                'Ảnh tư liệu: Cục Di sản văn hóa Việt Nam — Hồ sơ UNESCO 2019',
-                'Nghi lễ Then trong đời sống người Tày Bắc Kạn. (Ảnh: Báo Thái Nguyên)'
+                'Thầy Then thực hiện nghi lễ cúng Then. (Ảnh: Báo Ảnh Việt Nam/TTXVN)',
+                'Ảnh tư liệu: Cục Di sản văn hóa Việt Nam — Hồ sơ UNESCO 2019'
             ],
             hasVideo: false,
-            sourceDoc: 'Tư liệu về 46 DSVH phi VT của Thái Nguyên.docx — tr.1'
+            sourceDoc: ''
         },
 
         /* ── 02 ─ Tiếng nói, chữ viết ─ Chữ Nôm Dao (Chợ Đồn) ──── */
@@ -54,7 +53,10 @@
             locations: ['Thái Nguyên'], appearIn: ['Đồng Hỷ'],
             year: 2024, level: 'Quốc gia', category: 'Tiếng nói, chữ viết',
             decision: '382/QĐ-BVHTTDL ngày 21/02/2024', originalCategory: 'Tiếng nói, chữ viết', sourceOrder: 4,
-            imageFolder: 'chunomdao'
+            imageFolder: 'chunomdao',
+            description: 'Người Dao ở Thái Nguyên thuộc 3 nhóm địa phương: Dao đỏ (cư trú chủ yếu ở Phú Lương và Đồng Hỷ), Dao Quần Chẹt (cư trú chủ yếu ở khu vực Đại Từ), Dao Lô Giang (tập trung chủ yếu ở Võ Nhai). Trong văn hóa của người Dao có sự tiếp thu, giao thoa văn hóa với các cộng đồng tộc người lân cận địa bàn cư trú, mà một trong những biểu hiện nổi bật là chữ viết của người Dao - gọi là chữ “Nôm Dao”. Chữ “Nôm Dao” thoạt nhìn không khác gì hệ thống chữ Hán, nhưng đó là một hệ thống ký tự chữ Hán được phiên âm ra tiếng Dao. Tức là người Dao mượn chữ Hán để ghi chép tiếng nói của mình.\n\nCộng đồng người Dao, cho đến nay, vẫn còn lưu giữ một quyển sách dùng để dạy những người bắt đầu học chữ người Dao, bằng tiếng Dao - Cuốn “Tam tự kinh” - sách học vỡ lòng của hệ thống giáo dục Nho giáo thời xưa ở Việt Nam. Đây là những chữ Hán dạng phồn thể, được giữ nguyên tự dạng. Tầng lớp trí thức người Dao, qua các thế hệ, đã Dao hóa cách phát âm các chữ Hán, cho gần gũi với tiếng Dao và vẫn giữ nguyên gốc nghĩa của các từ trong sách này.\n\nChữ Nôm Dao để ghi chép lại các văn tự quan trọng như chia tài sản của bố mẹ cho con cháu, văn tự mua, bán ruộng nương, nhận con nuôi, gia phả trong dòng họ, gia phả, bài cúng, bài thuốc, câu đối, dạy con trẻ về lễ nghĩa, học nghề, ghi chép các bài hát dân ca, Trường ca, truyện thơ, tập truyện, hát giao duyên “pả dung”…. Đặc biệt chữ viết của người Dao còn được dùng phổ biến trong các lễ hội như lễ cấp sắc, tết nhảy, cầu mùa, làm nhà và tục treo tranh. Hầu hết, gia đình người Dao có người cao tuổi khoảng 60 - 70 tuổi trở lên đều còn giữ những cuốn sách cổ do ông cha để lại.\n\nChữ Nôm Dao là một di sản văn hóa quý báu, gắn liền với các sinh hoạt văn hóa tín ngưỡng của người Dao. Việc bảo tồn tiếng nói, chữ viết chính là bảo vệ, gìn giữ linh hồn của dân tộc Dao.\n\nVới những nét độc đáo đó, Chữ Nôm người Dao ở Thái Nguyên được Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 382/QĐ-BVHTTDL ngày 21/02/2024.',
+            imageCaption: 'Trang sách chữ Nôm Dao (lưu giữ tại gia đình ông Triệu Văn Thuận, xã Trại Cau). (Nguồn: Sở Văn hóa, Thể thao và Du lịch)',
+            hasVideo: false
         },
 
         /* ── 05 ─ Nghệ thuật trình diễn ─ Múa Tắc Xình ─────────── */
@@ -66,8 +68,7 @@
             imageFolder: 'muatacxinh',
             description: 'Múa Tắc Xình luôn song hành cùng với tiến trình hình thành và phát triển cộng đồng người Sán Chay ở Việt Nam, tập trung tại các xã: Phú Lương, Yên Trạch, Hợp Thành – tỉnh Thái Nguyên. Đây là nghệ thuật trình diễn dân gian mang tính tâm linh quan trọng trong lễ hội Cầu mùa của người Sán Chay để tạ ơn trời đất, thần linh đã cho mưa gió thuận hòa, mùa màng tốt tươi, bản làng no ấm, lúa ngô được mùa và cầu khấn sự che chở của thần linh cho mùa vụ tiếp theo.\n\nMúa Tắc Xình có 09 động tác mô phỏng đời sống của người Sán Chay gồm: thăm và dọn đường, bắt quyết, mài dao, đánh dao, phát nương, tra mổ, chăm sóc lúa, thu hoạch mùa màng, mừng mùa và trả lễ cho thần linh. Động tác múa và âm nhạc cho múa đơn giản, dễ thực hành, tuy nhiên những người tham gia Tắc Xình phải là nam giới với chủ lễ là thầy cúng hoặc người múa có kinh nghiệm và kỹ thuật cao.\n\nMúa Tắc Xình là điệu múa nghi lễ, vừa tái hiện các hoạt động lao động sản xuất của người Sán Chay vừa thể hiện đời sống tâm linh của người dân làm nông nghiệp, phụ thuộc hoàn toàn vào các yếu tố tự nhiên. Múa Tắc Xình cũng phản ánh cấu trúc xã hội, gia đình phụ hệ của người Sán Chay, với việc chỉ có nam giới được thực hành nghi lễ.\n\nVới những giá trị đặc sắc đó, Múa Tắc Xình của người Sán Chay được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 2684/QĐ-BVHTTDL ngày 25/8/2014 của Bộ trưởng Bộ Văn hóa Thể thao và Du lịch.',
             imageSources: [
-                'Múa Tắc Xình của người Sán Chay tại Thái Nguyên. (Nguồn: Báo Thái Nguyên)',
-                'Ảnh tư liệu: Hồ sơ di sản quốc gia 2014 — Cục Di sản văn hóa'
+                'Múa tra mố. Ảnh: Theo Hồ sơ di sản'
             ],
             hasVideo: true,
             sourceDoc: 'Tư liệu về 46 DSVH phi VT của Thái Nguyên.docx — tr.5'
@@ -75,13 +76,13 @@
 
         /* ── 06 ─ Nghệ thuật trình diễn ─ Lượn Sương ──────────── */
         {
-            id: 'ds06', n: 'Lượn Sương của người Tày',
+            id: 'ds06', n: 'Lượn Slương của người Tày',
             locations: ['Xã Yên Bình'], year: 2014, level: 'Quốc gia',
             category: 'Nghệ thuật trình diễn dân gian',
             decision: '2684/QĐ-BVHTTDL ngày 25/8/2014', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 6,
             imageFolder: 'luonsuong',
-            description: 'Lượn Sương là một loại hình dân ca sinh hoạt rất phổ biến trong đời sống văn hóa từ xa xưa của đồng bào dân tộc Tày ở Bắc Kạn, nay thuộc địa bàn xã Yên Bình, tỉnh Thái Nguyên. Đây là loại hình hát lượn gắn bó mật thiết với đời sống tinh thần của bà con người Tày qua nhiều thế hệ.\n\nVề hình thức diễn xướng, Lượn Sương có nhiều cách thể hiện khác nhau, bao gồm hát tự do và hát theo lễ hội. Không gian diễn xướng của Lượn Sương chủ yếu là không gian sinh hoạt thường ngày, gắn liền với những địa điểm thân quen như bên bờ suối, ven chợ, ngoài ruộng đồng, trên nương rẫy, trên nhà sàn hay bên bếp lửa.\n\nLời ca tiếng lượn từ bao đời nay đã trở thành nét đẹp văn hóa trong đời sống tinh thần của bà con người Tày, gắn bó thân thiết với bản làng, quê hương xứ sở và nếp sinh hoạt văn hóa cộng đồng. Những câu hát đã khỏa lấp những nhọc nhằn để người dân vui vẻ, sống lạc quan yêu đời, làm sáng lên tâm hồn đẹp chân thành và giản dị của con người nơi đây.\n\nVới những giá trị đặc sắc đó, Lượn Sương của người Tày ở xã Yên Cư - Chợ Mới - Bắc Kạn (nay thuộc xã Yên Bình - tỉnh Thái Nguyên) đã được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia.',
-            imageCaption: 'Hoạt cảnh tái hiện Di sản văn hóa phi vật thể quốc gia Lượn Sương ở xã Yên Cư, huyện Chợ Mới, tỉnh Bắc Kạn (Nguồn: Báo Nhân Dân điện tử).',
+            description: 'Lượn Slương là một loại hình dân ca sinh hoạt rất phổ biến trong đời sống văn hóa từ xa xưa của đồng bào dân tộc Tày ở Bắc Kạn, nay thuộc địa bàn xã Yên Bình, tỉnh Thái Nguyên. Đây là loại hình hát lượn gắn bó mật thiết với đời sống tinh thần của bà con người Tày qua nhiều thế hệ.\n\nVề hình thức diễn xướng, Lượn Slương có nhiều cách thể hiện khác nhau, bao gồm hát tự do và hát theo lễ hội. Không gian diễn xướng của Lượn Slương chủ yếu là không gian sinh hoạt thường ngày, gắn liền với những địa điểm thân quen như bên bờ suối, ven chợ, ngoài ruộng đồng, trên nương rẫy, trên nhà sàn hay bên bếp lửa.\n\nLời ca tiếng lượn từ bao đời nay đã trở thành nét đẹp văn hóa trong đời sống tinh thần của bà con người Tày, gắn bó thân thiết với bản làng, quê hương xứ sở và nếp sinh hoạt văn hóa cộng đồng. Những câu hát đã khỏa lấp những nhọc nhằn để người dân vui vẻ, sống lạc quan yêu đời, làm sáng lên tâm hồn đẹp chân thành và giản dị của con người nơi đây.\n\nVới những giá trị đặc sắc đó, Lượn Slương của người Tày ở xã Yên Cư - Chợ Mới - Bắc Kạn (nay thuộc xã Yên Bình - tỉnh Thái Nguyên) đã được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia.',
+            imageCaption: 'Hoạt cảnh tái hiện Di sản văn hóa phi vật thể quốc gia Lượn Slương ở xã Yên Cư, huyện Chợ Mới, tỉnh Bắc Kạn (Nguồn: Báo Nhân Dân điện tử).',
             hasVideo: false,
             sourceDoc: 'Tư liệu đề tài -Lần 2.docx — mục 7'
         },
@@ -96,6 +97,10 @@
             description: 'Rối cạn của người Tày ở Thẩm Rộc và Ru Nghệ (xã Định Hóa và xã Bình Yên, tỉnh Thái Nguyên) là loại hình nghệ thuật trình diễn dân gian gắn với đời sống văn hóa tín ngưỡng của đồng bào Tày nơi đây. Theo lời kể lưu truyền, khoảng 200 năm về trước, từ khi già làng Ma Công Bằng - ông tổ chín đời của dòng họ Ma Quang - mang con rối về, dân làng sống rất yên lành, mưa nắng thuận hòa, mùa màng bội thu. Bao đời nay, người dân hai xóm Thẩm Rộc (xã Bình Yên) và Ru Nghệ (xã Đồng Thịnh, nay thuộc xã Định Hóa) xem con rối như có linh hồn.\n\nRối cạn thường được người Tày biểu diễn vào dịp đầu năm, trong ngày lễ Lồng tồng (lễ xuống đồng), nhằm mục đích mua vui cho công chúng, đồng thời thể hiện ước vọng cầu mong mưa thuận gió hòa, mùa màng tốt tươi và ước nguyện về sự đỗ đạt vinh danh bảng vàng của người dân trong làng.\n\nNét độc đáo của nghệ thuật rối cạn xuất phát từ cách thức làm ra con rối. Vật liệu làm rối thường bằng gỗ thừng mực - một loại cây thân gỗ phổ biến ở miền núi, vừa dễ chế tác lại không bị mối mọt. Các con rối chủ yếu mô phỏng hình ảnh vua quan, lão nông, muông thú. Để tạo ra một con rối cỡ trung bình, các nghệ nhân cần thời gian từ 2 đến 3 ngày, trải qua các công đoạn như lựa chọn vật liệu, tạo hình bằng tay (công đoạn cần sự khéo léo, cầu kỳ và mất nhiều thời gian nhất), phơi khô, sơn màu và may quần áo cho nhân vật. Một bộ rối để biểu diễn thường có 13 con, trong đó có 2 con đầu đàn có kích thước lớn hơn cả và được làm bằng gỗ mít. Ngày nay, bằng sự say mê với trò chơi dân gian truyền thống, nhiều nghệ nhân ở Thẩm Rộc và Ru Nghệ đã sáng tạo thêm nhiều con rối mới theo phong cách riêng.\n\nMúa rối cạn của người Tày còn được gọi là rối que vì phần lớn các con rối đều được điều khiển bằng những thanh tre gắn vào thân, đầu, tay và chân của nhân vật, để tiện điều khiển và bảo quản. Dụng cụ biểu diễn rối que rất đơn giản, gồm một tấm phông căng lên làm sân khấu, một bộ rối khoảng 13 con, thêm chiếc đàn tính, cây sáo và một vài bài giáo. Tất cả hòa quyện tạo nên một vở kịch độc đáo, hấp dẫn người xem.\n\nVới những giá trị đặc sắc đó, Rối cạn của người Tày ở Thẩm Rộc và Ru Nghệ ở xã Đồng Thịnh, Bình Yên (nay thuộc xã Định Hóa, xã Bình Yên, tỉnh Thái Nguyên) đã được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia.',
             imageCaption: 'Các nghệ nhân phường rối Tày Thẩm Rộc biểu diễn phục vụ nhân dân, du khách tại lễ hội Lồng tồng ATK Định Hóa (ST).',
             hasVideo: false,
+            imageSources: [
+                'Các nghệ nhân phường rối Tày Thẩm Rộc biểu diễn phục vụ nhân dân, du khách tại lễ hội Lồng tồng ATK Định Hóa (ST)',
+                'ảnh Phan Thái'
+            ],
             sourceDoc: 'Tư liệu đề tài -Lần 2.docx — mục 10'
         },
 
@@ -113,16 +118,56 @@
         },
 
         /* ── 09 ─ Nghệ thuật trình diễn ─ Hát Soọng cô ─────────── */
-        { id: 'ds09', n: 'Hát Soọng cô của người Sán Dìu', locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng'], year: 2015, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '3465/QĐ-BVHTTDL ngày 13/10/2015', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 9, imageFolder: 'soongco' },
+        {
+            id: 'ds09',
+            n: 'Hát Soọng cô của người Sán Dìu',
+            locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng'],
+            year: 2015, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian',
+            decision: '3465/QĐ-BVHTTDL ngày 13/10/2015', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 9,
+            imageFolder: 'soongco',
+            description: '“Truyền thuyết của người Sán Dìu kể rằng, ở làng nọ có cô gái tên Lý Tam Mói rất thông minh, xinh đẹp và có tài hát đối mà chưa có ai thắng được. Có ba chàng trai tài giỏi tìm đến mà cũng không đối đáp được, đành ra đi, để lại trong cô gái mối âu sầu, nuối tiếc vì không mời họ vào làng. Thế nên ngày ngày, cô gái cất tiếng hát da diết, khắc khoải, lâu dần trở thành giai điệu Soọng cô”.\n\nHát Soọng cô là một loại hình xướng ca đặc sắc trong kho tàng văn nghệ dân gian truyền miệng đã được lưu giữ hàng trăm năm nay của người Sán Dìu. Hát Soọng cô là hát đối đáp trữ tình, giàu tình cảm và đậm đà bản sắc dân tộc. Soọng cô, về hình thức diễn xướng cũng tương tự như sli, lượn của người Tày, Nùng, quan họ, hát ghẹo, hát xoan của người Kinh; với thể thơ thất ngôn tứ tuyệt được ghi chép bằng chữ Hán cổ hoặc truyền khẩu, tiếng hát thể hiện tâm tư tình cảm của những đôi trai gái đang trong giai đoạn tìm hiểu nhau, nhờ tiếng hát để trải tấm lòng mình, là phương tiện để bộc lộ những tâm ý mà không dám ngỏ lời trực tiếp một cách tinh tế. Không chỉ có vậy, Soọng cô còn là những lời hát ru đưa con trẻ chìm trong giấc ngủ, là những lời hát để hỏi thăm về gia đình, bạn bè... của những người lâu ngày mới có dịp gặp mặt.\n\nĐặc điểm các bài hát dân ca của dân tộc Sán Dìu thường có 4 câu 7 chữ, gọi là “thất ngôn tứ tuyệt” hoặc 28 chữ hay 24 chữ. Những bài hát chủ yếu sử dụng ngôn ngữ Hán Nôm. Lời bài hát có nhiều ẩn ý, nhiều khi phải suy ra nên lời bài hát rất uyên thâm. Hát Soọng cô còn là biểu hiện tinh thần và trí tuệ của người dân tộc Sán Dìu trong sinh hoạt văn hóa tinh thần. Cách hát tuân thủ theo lẽ lối, khuôn phép nhất định. Lối hát tự nhiên, không sử dụng nhạc cụ hỗ trợ, nhưng mượt mà làm say đắm lòng người.\n\nNhững câu hát Soọng cô không bị giới hạn bởi không gian, thời gian, hoàn cảnh. Người ta có thể hát một đêm, nhiều đêm, hát trong nhà, hát khi đi làm nương hay trong các lễ hội. Chính vì vậy, hát Soọng cô đã trở thành món ăn tinh thần không thể thiếu trong đời sống của đồng bào dân tộc Sán Dìu. Soọng cô còn được sử dụng trong các cuộc vui như mừng nhà mới, mừng năm mới. Đặc biệt là từ nhiều năm gần đây, ngoài ca từ cổ nguyên gốc, đồng bào còn hát Soọng cô lời mới. Đó là các bài hát ca ngợi Đảng, ca ngợi công ơn to lớn của Chủ tịch Hồ Chí Minh và bài hát mừng đất nước phồn vinh, gia đình hạnh phúc.\n\nVới những giá trị đặc sắc đó, Hát Soọng cô của người Sán Dìu ở các xã Đồng Hỷ, Quang Sơn, Trại Cau, Nam Hòa, Văn Hán, Văn Lãng tỉnh Thái Nguyên được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 3465/QĐ-BVHTTDL ngày 13/10/2015 của Bộ trưởng Bộ Văn hóa Thể thao và Du lịch.',
+            imageCaption: 'Hát Soọng cô khi du xuân của người Sán Dìu. (Nguồn: Di sản văn hóa phi vật thể tỉnh Thái Nguyên, tập 1)',
+            hasVideo: false
+        },
 
         /* ── 10 ─ Nghệ thuật trình diễn ─ Hát Sấng Cọ ──────────── */
-        { id: 'ds10', n: 'Hát Sấng Cọ (Hát ví Lưu Tam) của người Sán Chay', locations: ['Xã Phú Lương', 'Xã Yên Trạch', 'Xã Hợp Thành'], year: 2016, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '246/QĐ-BVHTTDL ngày 19/01/2016', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 10, imageFolder: 'sangco' },
+        {
+            id: 'ds10',
+            n: 'Hát Sấng Cọ (Hát ví Lưu Tam) của người Sán Chay',
+            locations: ['Xã Phú Lương', 'Xã Yên Trạch', 'Xã Hợp Thành'],
+            year: 2016, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian',
+            decision: '246/QĐ-BVHTTDL ngày 19/01/2016', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 10,
+            imageFolder: 'sangco',
+            description: 'Người Sán Chay có nền văn hóa phong phú với nhiều phong tục tập quán độc đáo. Các lễ hội truyền thống, những làn điệu dân ca ngọt ngào đều thể hiện đời sống tinh thần phong phú và sức sáng tạo nghệ thuật của họ. Hát Sấng Cọ (hát ví Lưu Tam) của người Sán Chay tại các xã: Phú Lương, Yên Trạch, Hợp Thành - tỉnh Thái Nguyên là một loại hình nghệ thuật trình diễn dân gian đặc sắc mang đậm bản sắc văn hóa truyền thống gắn bó mật thiết với đời sống văn hóa cộng đồng.\n\nHát Sấng Cọ không sử dụng bất kỳ nhạc cụ đệm nào, chỉ đơn thuần là giọng hát đối đáp giữa các cặp nam nữ, tạo nên sự giao hòa tự nhiên với đất trời. Điệu hát đối đáp mộc mạc theo thể thơ thất ngôn này thường được cất lên trong các dịp lễ hội (thể loại hát nghi lễ), trong sinh hoạt cộng đồng để giao duyên (thể loại hát giao duyên) chúc Tết (thể loại hát ví mừng) hay ca ngợi lao động.\n\nHát Sấng Cọ là thể loại diễn xướng đặc sắc được huyện Phú Lương tỉnh Thái Nguyên, được các thế hệ người Sán Chay ở Phú Lương lưu giữ và bảo tồn bằng hình thức truyền miệng và truyền dạy trực tiếp nhưng cho đến nay và được duy trì trong sinh hoạt tinh thần của đồng bào. Lời hát mộc mạc có tính giáo dục cao. Không gian diễn xướng thể hiện sự hòa đồng với tự nhiên, thể hiện đậm nét về phong tục, tập quán rất riêng của người Sán Chay ở Phú Lương, là tư liệu quý cho việc nghiên cứu lịch sử tộc người.\n\nVới những giá trị đặc sắc đó, Hát Sấng Cọ (Hát ví Lưu Tam) của người Sán Chay ở Phú Lương - Thái Nguyên được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 246/QĐ-BVHTTDL ngày 19/01/2016 của Bộ trưởng Bộ Văn hóa Thể thao và Du lịch.',
+            imageCaption: 'Hát Sấng Cọ thể loại hát giao duyên ở Phú Lương. (Nguồn: Internet - AGS-vina.com)',
+            hasVideo: false
+        },
 
         /* ── 11 ─ Nghệ thuật trình diễn ─ Nghệ thuật Khèn ──────── */
-        { id: 'ds11', n: 'Nghệ thuật Khèn của người Mông', locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng', 'Xã Phú Lương', 'Xã Yên Trạch', 'Xã Hợp Thành'], year: 2017, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '1852/QĐ-BVHTTDL ngày 08/05/2017', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 11, imageFolder: 'khenmong' },
+        {
+            id: 'ds11',
+            n: 'Nghệ thuật Khèn của người Mông',
+            locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng', 'Xã Phú Lương', 'Xã Yên Trạch', 'Xã Hợp Thành'],
+            year: 2017, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian',
+            decision: '1852/QĐ-BVHTTDL ngày 08/05/2017', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 11,
+            imageFolder: 'khenmong',
+            description: 'Trong đời sống văn hóa tinh thần, mỗi dân tộc đều có “của riêng”. Ví như người Tày có đàn Tính, người Sán Dìu có hát Soọng cô, người Mông có cây khèn. Nó là hơi thở trong cuộc sống của người Mông.\n\nTrong cộng đồng người Mông có nhiều người biết thổi khèn, nhưng để nhuần nhuyễn các âm điệu, cung bậc trầm, bổng thì không phải ai cũng đạt được. Học thổi khèn, múa khèn còn khó hơn đi học chữ. Nó đòi hỏi ở người học tính kiên trì, năng khiếu chỉ là một phần, quan trọng là chịu khổ luyện, bắt đầu làm quen với các bộ phận trên cây khèn, rồi lấy hơi, nhả hơi và bắt đầu tập các động tác múa. Thổi khèn luôn đi cùng với múa. Hay ở chỗ người và khèn nhập làm một, cuồng say để từng động tác múa hóa thân vào giai điệu khèn. Chính vì thế mà lúc thổi khèn, múa khèn không có động tác thừa. Với đàn ông người Mông, biết thổi khèn, múa khèn là một niềm tự hào. Họ được nổi trội hơn vào những ngày hội, rồi các cuộc vui, cả những cuộc buồn họ đều được mọi người trong cộng đồng tôn trọng, nể mến.\n\nKhèn có 4 loại nhạc là: sơ nhạc, tiểu nhạc, trung nhạc và đại nhạc. Theo nhạc là ca từ, gồm: lời ca gốc; lời ca giao duyên; lời ca đưa, đón đám ma và lời ca tế vật nuôi.\n\nTrong cuộc sống, hầu như mọi việc đồng bào người Mông đều cần đến khèn. 4 mùa của năm đều có tiếng khèn, vui nhất vào mùa Xuân, khèn gọi bạn đi hội; ra riết hơn là tiếng khèn gọi bạn tâm tình; rộn ràng là các chợ phiên, những người đàn ông gặp nhau, cùng quay tít trong vũ điệu khèn.\n\nĐặc biệt, trong tang lễ, chủ nhà thường mời thầy khèn về giúp, với ý nghĩa dẫn đường cho người khuất núi an toàn trên đường về với tổ tiên. Trong tang ma, tiếng khèn còn thể hiện tấm lòng tôn trọng, kính hiếu của con, cháu dành cho cha mẹ, ông bà đã có công dưỡng dục.\n\nỞ Mông tự hào với nghệ thuật khèn, đồng thời nghệ thuật khèn khẳng định được bản sắc văn hóa khác biệt của người Mông. Chính vì lẽ đó, cây khèn, tiếng khèn được đồng bào gìn giữ, trao truyền như một báu vật và phát huy giá trị thông qua các hoạt động văn hóa, du lịch.\n\nVới những nét độc đáo đó, Nghệ thuật Khèn của người Mông ở Phú Lương và Đồng Hỷ (nay thuộc các xã: Đồng Hỷ, Quang Sơn, Trại Cau, Nam Hòa, Văn Hán, Văn Lãng, Phú Lương, Yên Trạch, Hợp Thành - tỉnh Thái Nguyên) được Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 1852/QĐ-BVHTTDL ngày 08/05/2017.',
+            imageCaption: 'Người Mông ở Đồng Hỷ (Thái Nguyên) múa khèn trong ngày hội. (Nguồn: TTXVN)',
+            hasVideo: false
+        },
 
         /* ── 12 ─ Nghệ thuật trình diễn ─ Lượn Cọi ────────────── */
-        { id: 'ds12', n: 'Lượn Cọi của người Tày', locations: ['Xã Định Hóa', 'Xã Bình Yên', 'Xã Trung Hội', 'Xã Phượng Tiến', 'Xã Phú Đình', 'Xã Bình Thành', 'Xã Kim Phượng', 'Xã Lam Vỹ'], year: 2018, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '266/QĐ-BVHTTDL Ngày 30/01/2018', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 12, imageFolder: 'luoncoi_dinhhoa' },
+        {
+            id: 'ds12',
+            n: 'Lượn Cọi của người Tày',
+            locations: ['Xã Định Hóa', 'Xã Bình Yên', 'Xã Trung Hội', 'Xã Phượng Tiến', 'Xã Phú Đình', 'Xã Bình Thành', 'Xã Kim Phượng', 'Xã Lam Vỹ'],
+            year: 2018, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian',
+            decision: '266/QĐ-BVHTTDL Ngày 30/01/2018', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 12,
+            imageFolder: 'luoncoi_dinhhoa',
+            description: 'Lượn Cọi thường sử dụng thể thơ thất ngôn, với cách gieo vần độc đáo: chữ cuối của câu trên hiệp vần với chữ thứ năm của câu dưới. Giai điệu Lượn Cọi uyển chuyển, trầm bổng, giàu luyến láy. Vì vậy, người hát không chỉ cần thuộc lời mà còn phải có giọng hát khỏe, khả năng lấy hơi tốt và biết cách truyền cảm để chuyển tải được những cung bậc tình cảm trong từng câu hát.\n\nLượn Cọi có đặc trưng riêng không thể lẫn với bất cứ làn điệu nào khác. Sự khác biệt ấy rõ nhất ở lời ngân nga (ơ…ò…ơi…ôi) trước khi vào câu hát. Lượn Cọi hay nhất khi hát đối nam nữ, cứ như thể lời ngân nga ơ…ò…ơi…ôi sẽ được lặp lại trước khi vào câu hát của người tiếp theo. Ví như: Ơ…ơi…ơi…ôi…ôi…/Khuốp pi shíp soong bươn pây quyẹnh/Mùa Xuân, Hạ, Thu, Đông pây tèo/Nọọng ơi Nọọng đin nấy điệp slương/Pét dân tộc Định Hóa lầu nắc nơ ơ…ơ…ơi…ơi…ơi…ơi… (Năm tháng đi để lại, tháng năm/Mùa Xuân, Hạ, Thu, Đông, bốn tiết/Vùng quê mình, mảnh đất yêu thương/Tám dân tộc Định Hóa mình son sắt). Tuy nhiên, để có thể hát được lời “ơ…ò…ơi…ơi…ôi” này, người hát phải có hơi rất khỏe, biết nghe nhịp, ngoài sự kiên trì luyện tập thì còn phải có chút năng khiếu nếu không khó lòng cất được lên lời Cọi.\n\nKhông chỉ vang lên trong hội xuân, Lượn Cọi còn theo bước người Tày hiện diện trong nhiều nghi lễ quan trọng của gia đình. Từ lễ cưới, mừng nhà mới, mừng đầy tháng cho đến những cuộc gặp gỡ họ hàng, bạn bè, câu lượn khi thì thiết tha chúc phúc, khi lại sâu lắng nghĩa tình. Lời ca mộc mạc mà đằm thắm, gửi gắm đạo lý làm người và nhắc con cháu nhớ về cội nguồn, gìn giữ nếp nhà.\n\nVới những nét độc đáo đó Lượn Cọi của người Tày ở các xã: Định Hóa, Bình Yên, Trung Hội, Phượng Tiến, Phú Đình, Bình Thành, Kim Phượng, Lam Vỹ Tỉnh Thái Nguyên được Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 266/QĐ-BVHTTDL ngày 30/01/2018.',
+            imageCaption: 'Hát Lượn Cọi mừng trẻ đầy tháng. (Nguồn: VOV)',
+            hasVideo: false
+        },
 
         /* ── 13 ─ Nghệ thuật trình diễn ─ Pà Dung ──────────────── */
         {
@@ -132,16 +177,47 @@
         },
 
         /* ── 14 ─ Nghệ thuật trình diễn ─ Lượn Cọi (Bằng Thành) ── */
-        { id: 'ds14', n: 'Lượn Cọi của người Tày', locations: ['Xã Bằng Thành'], year: 2019, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '446/QĐ-BVHTTDL ngày 29/01/2019', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 14, imageFolder: 'luoncoi_bangthanh' },
+        {
+            id: 'ds14',
+            n: 'Lượn Cọi của người Tày',
+            locations: ['Xã Bằng Thành'],
+            year: 2019, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian',
+            decision: '446/QĐ-BVHTTDL ngày 29/01/2019', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 14,
+            imageFolder: 'luoncoi_bangthanh',
+            description: 'Từ xưa lắm, người Tày ở Bằng Thành có câu ví von “Ké quá tăng đày tinh lượng then, mừa rườn táng piến pền páo ón” Có nghĩa là “Ông già qua đường nghe lượng then, về nhà tự nhiên biến thành trai trẻ”. Câu nói dân gian đó phần nào thể hiện sức sống và sức hấp dẫn và giá trị tinh thần mà những làn điệu dân ca Tày đem lại cho đời sống cộng đồng.\n\nLượn Cọi là một trong những làn điệu dân ca đặc sắc của người Tày, thường được cất lên vào những ngày Tết, hội xuân. Khi men rượu ngô còn nồng trên chén, bên bếp lửa hồng, từng tốp nam nữ quây quần đôi đáp. Lời Lượn khi mộc mạc, chân tình; khi lại ý nhị, sâu sắc, thể hiện sự khéo léo trong cách ứng đối và vốn hiểu biết phong phú của người hát. Những đêm xuân như thể đã trở thành ký ức đẹp trong lòng bao thế hệ người Tày.\n\nHát Lượn Cọi không hề dễ. Người thể hiện phải có chất giọng vang, khỏe nhưng vẫn giữ được sự mềm mại, luyến láy đặc trưng của dân ca Tày. Không chỉ hát đúng lời, đúng làn điệu, người hát còn phải biết “nhả chữ”, giữ hơi dài, ngân nga theo nhịp phách để câu lượn vang lên tròn trịa, sâu lắng. Bên cạnh đó, người hát cần thuộc nhiều bài cổ, hiểu phong tục tập quán và có khả năng ứng tác linh hoạt theo từng hoàn cảnh.\n\nVới những nét độc đáo đó Lượn Cọi của người Tày ở Pác Nặm - Bắc Kạn (Nay Xã Bằng Thành Tỉnh Thái Nguyên) được Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 446/QĐ-BVHTTDL ngày 29/01/2019.',
+            imageCaption: 'Một buổi giao lưu hát Lượn Cọi của đồng bào người Tày ở xã Bằng Thành. (Nguồn: Báo và phát thanh truyền hình Thái Nguyên)',
+            hasVideo: false
+        },
 
         /* ── 15 ─ Nghệ thuật trình diễn ─ Hát Pá Dung ──────────── */
-        { id: 'ds15', n: 'Hát Pá Dung của người Dao', locations: ['Xã Chợ Đồn', 'Xã Ngân Sơn', 'Xã Bằng Thành', 'Xã Phủ Thông', 'Phường Bắc Kạn'], year: 2020, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '174/QĐ-BVHTTDL ngày 14/01/2020', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 15, imageFolder: 'padung' },
+        {
+            id: 'ds15',
+            n: 'Hát Pả Dung của người Dao',
+            locations: ['Xã Chợ Đồn', 'Xã Ngân Sơn', 'Xã Bằng Thành', 'Xã Phủ Thông', 'Phường Bắc Kạn'],
+            year: 2020, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian',
+            decision: '174/QĐ-BVHTTDL ngày 14/01/2020', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 15,
+            imageFolder: 'padung',
+            description: 'Hát Pả Dung còn gọi là Pá Dung hay Páo Dung, không biết lối hát này ra đời từ bao giờ, chỉ biết rằng làn điệu Pà Dung gắn bó với cộng đồng dân tộc Dao từ ngàn xưa. Điệu hát Páo Dung là nét văn hóa đặc trưng của đồng bào Dao, được người dân sử dụng trong nghi lễ, hát giao duyên hay trong lúc làm công việc đồng áng, tuy nhiên người biết hát điệu Páo Dung hầu hết đều đã có tuổi.\n\nCâu hát Páo Dung của người Dao nhẹ nhàng, mượt mà, sâu lắng và mang đậm chất tự sự. Người Dao xưa thường dùng câu hát Páo Dung trong các dịp như hội xuân, thời kỳ nông nhàn sau Rằm tháng Bảy âm lịch hay hát vào các lễ Cấp sắc, đám cưới hỏi và cả trong những điệu ru con, khi lên nương, làm rẫy… Với những hội hát giao duyên, có khi kéo dài cả tháng này qua tháng khác.\n\nNhững bài Páo Dung với nhiều nội dung, từ tâm tư của đôi trai gái yêu nhau, đến lịch sử người Dao hạ sơn tìm cuộc sống mới, hay những bài ca ngợi bản làng đổi mới… Thông qua hát Pà Dung, người Dao gửi gắm tâm tư, tình cảm, ước nguyện của mình về một cuộc sống tốt đẹp hơn.\n\nVới những nét độc đáo đó, Hát Pá Dung của người Dao ở Xã Chợ Đồn, Ngân Sơn, Bằng Thành, Phủ Thông, Phường Bắc Kạn Tỉnh Thái Nguyên được Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 174/QĐ- BVHTTDL ngày 14/01/2020.',
+            imageCaption: 'Hát Páo Dung ru con, điệu hát đã nuôi dưỡng tâm hồn bao thế hệ người Dao. (Nguồn: VOV)',
+            hasVideo: false
+        },
 
         /* ── 16 ─ Nghệ thuật trình diễn ─ Hát Sli Nùng ─────────── */
         { id: 'ds16', n: 'Hát Sli của người Nùng', locations: ['Xã Xuân Dương'], year: 2021, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '830/QĐ-BVHTTDL ngày 03/9/2021', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 16, imageFolder: 'slinung' },
 
         /* ── 17 ─ Nghệ thuật trình diễn ─ Múa bát ──────────────── */
-        { id: 'ds17', n: 'Múa bát của người Tày', locations: ['Thái Nguyên'], appearIn: ['Bắc Kạn', 'Chợ Đồn'], year: 2022, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '774/QĐ-BVHTTDL ngày 04/4/2022', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 17, imageFolder: 'muabat' },
+        {
+            id: 'ds17',
+            n: 'Múa bát của người Tày',
+            locations: ['Thái Nguyên'],
+            appearIn: ['Bắc Kạn', 'Chợ Đồn'],
+            year: 2022, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian',
+            decision: '774/QĐ-BVHTTDL ngày 04/04/2022', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 17,
+            imageFolder: 'muabat',
+            description: 'Người Tày ở Bắc Kạn có một nền văn hóa cổ truyền phong phú bao gồm các thể loại thơ, ca, truyện cổ tích, truyện cười dân gian, lễ hội truyền thống, ca, múa, nhạc... Các làn điệu dân ca phổ biến nhất là hát lượn phong slư, lượn cọi, hát quan làng, hát ru con... Trong số những làn điệu dân ca, dân vũ của người Tày, múa bát là một trong những điệu múa có sự phổ biến rộng rãi nhất và được sử dụng thường xuyên hơn cả.\n\nMúa bát của người Tày Bắc Kạn có những nét khá đặc sắc: Trang phục biểu diễn múa bát gồm áo dài, áo ngắn, váy (hoặc quần), thắt lưng, khăn vuông quấn đầu. Bộ trang phục nữ giới có màu chàm, được làm bằng vải dệt từ sợi bông. Cắt may trang phục đơn giản, không thêu thùa hoa văn. Nhạc cụ chính của múa bát là chiếc bát và đôi đũa. Múa bát ở tư thế ngồi hoặc đứng, hai người đối diện nhau hai tay cầm bát. Bát để giữa lòng bàn tay, cổ tay xoáy một vòng trước bụng đưa lên trên đỉnh đầu vòng ra phía sau, rồi từ từ hạ xuống trả về vị trí ban đầu và ngược lại đổi tay. Múa bát ở tư thế đứng thẳng, hai tay cầm bát kẹp theo chiếc đũa gõ theo nhịp từ trước bụng hắt chéo qua cạnh sườn về đằng sau và hắt trở lại vị trí ban đầu để đổi bên. Hoặc múa một tay đưa lên cao, một tay xuống thấp ngang cạnh sườn.\n\nĐiểm thú vị của múa bát chính là việc sử dụng bát và đũa gõ vào nhau tạo thành âm thanh khi biểu diễn. Người phụ nữ thường cầm đôi bát sứ, với hai chiếc đũa tre để gõ nhịp trong khi di chuyển và biểu diễn. Những động tác múa linh hoạt, đòi hỏi sự điều chỉnh chính xác và đồng bộ giữa những người bạn diễn, tạo nên một bức tranh sinh động, mang màu sắc riêng trong văn hóa truyền thống của người Tày.\n\nĐáng chú ý, múa bát do người phụ nữ đảm nhiệm, biểu diễn theo nhóm từ 4 đến 12 người. Hình ảnh người mẹ, người chị gần với căn bếp, với bữa cơm gia đình được nâng lên thành biểu tượng gìn giữ ngọn lửa ấm trong nhà, trong bảo tồn văn hóa. Phụ nữ không chỉ nuôi dưỡng gia đình mà còn nuôi dưỡng ký ức cộng đồng qua điệu múa truyền thống.\n\nVới những nét độc đáo đó, Múa bát của người Tày ở Bắc Kạn (tỉnh Thái Nguyên) được Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 774/QĐ-BVHTTDL ngày 04/04/2022.',
+            imageCaption: 'Người Tày trình diễn múa bát (Nguồn: Di sản văn hóa phi vật thể Bắc Kạn - Tập 1)',
+            hasVideo: false
+        },
 
         /* ── 18 ─ Nghệ thuật trình diễn ─ Hát ru Tày ───────────── */
         { id: 'ds18', n: 'Hát ru của người Tày', locations: ['Xã Bằng Thành'], year: 2023, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '1400/QĐ-BVHTTDL ngày 01/6/2023', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 18, imageFolder: 'hatru_tay' },
@@ -197,10 +273,30 @@
         },
 
         /* ── 25 ─ Tập quán & tín ngưỡng ─ Hét khoăn Nùng ───────── */
-        { id: 'ds25', n: 'Nghi lễ Hét khoăn của người Nùng', locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng'], year: 2015, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '3465/QĐ-BVHTTDL ngày 13/10/2015', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 25, imageFolder: 'hetkhoan_nung' },
+        {
+            id: 'ds25',
+            n: 'Nghi lễ Hét khoăn của người Nùng',
+            locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng'],
+            year: 2015, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng',
+            decision: '3465/QĐ-BVHTTDL ngày 13/10/2015', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 25,
+            imageFolder: 'hetkhoan_nung',
+            description: 'Theo tập quán của người Nùng ở Đồng Hỷ tỉnh Thái Nguyên, những người từ 50 tuổi trở lên, đã dựng vợ gả chồng hết cho con, có đủ con cháu, sẽ được tổ chức nghi lễ Hét Khoăn (mừng sinh nhật). Họ tin rằng, người chết không thể ăn được nên thay vì nhớ ngày mất để cúng giỗ bố mẹ, ông bà, tổ tiên, con cháu sẽ tổ chức nghi lễ này khi họ còn sống, bởi đây là những người đem lại phúc lớn cho gia đình.\n\nNghi lễ Hét Khoăn thường diễn ra từ chiều hôm trước, qua đêm, đến hết ngày hôm sau, tại gian thờ tổ tiên người được mừng sinh nhật. Để thực hiện nghi lễ, chủ nhà phải mời thầy cúng về cầu an, cầu bản mệnh, sức khỏe cho người được mừng sinh nhật, sau đó cho cả gia đình. Lễ vật cúng gồm có: lợn quay, gà luộc, bánh dày đặt trong các mâm: đón mừng hồn, vía; cầu mong sức khỏe; cúng trên ban thờ tổ tiên, mâm tiền và gạo dùng cho người âm.\n\nKhi thực hiện nghi lễ, thầy cúng không sử dụng sách mà phải học thuộc lòng các bài cúng và thực hiện các nghi thức chính, bao gồm: Nghi thức cúng xin phép tổ tiên: mời tổ tiên chủ nhà về chứng kiến buổi lễ và phù hộ cho con cháu mạnh khỏe, bình an; Nghi thức cầu sức khỏe, cầu bình an: cầu mong cho hồn yên tâm, vui vẻ mà gắn bó lâu dài với thể xác; Nghi thức đổ thêm nước sinh mệnh: với ý nghĩa bổ sung sinh khí, tinh thần cho ông bà sống thọ, có nhiều phúc lộc; Nghi thức trồng cây mệnh: tượng trưng cho số mệnh của ông bà, mong ông bà mạnh khỏe, tươi tốt như cây rừng; Nghi thức bổ sung lương thực vào bịch gạo mệnh: để gia hạn với Nam Tào, kéo dài tuổi thọ người được mừng sinh nhật.\n\nSau đó, thầy cúng thực hiện nghi thức cúng cầu mong sức khỏe, bình an cho chủ nhà, đồng thời báo cáo với tổ tiên đã tìm thấy hồn vía bị lạc về đúng với chủ, đã đổ đầy giếng nước, trồng được cây tươi tốt, khỏe mạnh, đã đổ đầy bịch gạo mệnh và làm lễ cấp tiền mã cho thiên binh, thiên tướng, cảm ơn họ vì đã giúp thầy cùng gia đình hoàn thành các nghi lễ mừng sinh nhật.\n\nKết thúc nghi lễ, thầy cúng chúc mừng mọi vía đã quy tụ đầy đủ và nhờ ông bà, tổ tiên để mắt trông nom cũng như dặn dò vía không được mải mê đi chơi quên đường về. Đến ngày hôm sau, con cháu, họ hàng, người thân làm cỗ mời làng xóm đến ăn mừng sinh nhật ông bà.\n\nNghi lễ Hét Khoăn là tập quán lâu đời của người Nùng, không chỉ mang lại niềm vui cho người cao tuổi, mà còn là bài học đạo đức cho thế hệ trẻ về lòng hiếu thảo đối với ông bà, cha mẹ. Đối với người Nùng, đây chính là món quà quý giá nhất của con cháu dành cho ông bà, cha mẹ mình, thể hiện sự kính trọng, hiếu nghĩa của họ với các bậc sinh thành.\n\nNghi lễ Hét Khoăn của người Nùng ở Đồng Hỷ, Thái Nguyên đã được Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 3465/QĐ-BVHTTDL ngày 13/10/2015.',
+            imageCaption: 'Nghi lễ Hét khoăn - Lễ mừng sinh nhật của người Nùng. (Nguồn: Du lịch Thái Nguyên)',
+            hasVideo: false
+        },
 
         /* ── 26 ─ Tập quán & tín ngưỡng ─ Cầu năm mới Dao ──────── */
-        { id: 'ds26', n: 'Lễ cầu năm mới, cầu mùa của người Dao (Tịu siằng thun boaù lỉu)', locations: ['Xã Xuân Dương'], year: 2016, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '246/QĐ-BVHTTDL ngày 19/01/2016', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 26, imageFolder: 'caunammoi_dao' },
+        {
+            id: 'ds26',
+            n: 'Lễ cầu năm mới, cầu mùa của người Dao (Tịu siếng thun boaù liu)',
+            locations: ['Xã Xuân Dương'],
+            year: 2016, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng',
+            decision: '246/QĐ-BVHTTDL ngày 19/01/2016', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 26,
+            imageFolder: 'caunammoi_dao',
+            description: 'Lễ cầu năm mới, cầu mùa của người Dao (tiếng Dao gọi là Tịu siếng thun boaù liu) tại Đông Xá - Na Rì - Bắc Kạn (nay thuộc Xã Xuân Dương - tỉnh Thái Nguyên) là một nghi lễ tín ngưỡng dân gian đặc sắc. Được tổ chức vào những ngày đầu năm mới nhằm tạ ơn trời đất, tổ tiên và cầu mong cho mưa thuận gió hòa, mùa màng tươi tốt, cây trái trĩu quả, gia súc phát triển, gia đạo bình an và bản làng no ấm.\n\nThời gian tổ chức: Thường diễn ra vào những ngày đầu xuân năm mới (chọn các ngày đẹp theo quan niệm của đồng bào như ngày Thìn hoặc ngày Sửu).\n\nTham gia lễ có Già làng, Trưởng bản, các thầy cúng/thầy lễ uy tín trong cộng đồng cùng đông đảo bà con dân bản và các dòng họ.\n\nNghi lễ chính là các mâm lễ được chuẩn bị chu đáo với hương hoa, lễ vật truyền thống; thầy lễ thực hiện các bài cúng, đọc văn khấn cầu xin các vị thần linh ban phước lành cho một năm mới làm ăn thuận lợi, bội thu.\n\nVới những giá trị đặc sắc đó, Lễ cầu năm mới, cầu mùa của người Dao (tiếng Dao gọi là Tịu siếng thun boaù liu) tại Đông Xá - Na Rì - Bắc Kạn (Xã Xuân Dương - tỉnh Thái Nguyên) được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 246/QĐ-BVHTTDL ngày 19/01/2016 của Bộ trưởng Bộ Văn hóa Thể thao và Du lịch.',
+            imageCaption: 'Lễ cầu năm mới, cầu mùa của người Dao. (Nguồn: Di sản văn hóa phi vật thể Bắc Kạn - tập 1)',
+            hasVideo: false
+        },
 
         /* ── 27 ─ Tập quán & tín ngưỡng ─ Tết nhảy Dao ─────────── */
         {
@@ -315,7 +411,17 @@ Với những nét độc đáo đó, Nghi lễ Cấp sắc của người Nùng
         },
 
         /* ── 31 ─ Tập quán & tín ngưỡng ─ Cấp sắc Pụt Tày ──────── */
-        { id: 'ds31', n: 'Lễ cấp sắc Pụt (Lẩu Pụt) của người Tày', locations: ['Xã Đồng Phúc'], year: 2018, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '266/QĐ-BVHTTDL ngày 30/01/2018', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 31, imageFolder: 'capput_tay' },
+        {
+            id: 'ds31',
+            n: 'Lễ cấp sắc Pụt (Lẩu Pụt) của người Tày',
+            locations: ['Xã Đồng Phúc'],
+            year: 2018, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng',
+            decision: '266/QĐ-BVHTTDL ngày 30/01/2018', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 31,
+            imageFolder: 'capput_tay',
+            description: 'Trong lịch sử hình thành và phát triển của mình, người Tày ở Thái Nguyên không chỉ sáng tạo mà còn luôn luôn có ý thức giữ gìn, trao truyền và phát huy các giá trị văn hóa tộc người, tiêu biểu là Lễ cấp sắc Pụt Tày ở Xã Đồng Phúc Tỉnh Thái Nguyên. Lễ cấp sắc này thuộc dòng Pụt Tày nam, một dòng Pụt khá phổ biến ở khu vực người Tày ở Thái Nguyên. Đây là một thủ tục công nhận sự trưởng thành của người nam giới ở cộng đồng đó có đủ điều kiện để tham gia thực hành các nghi lễ tín ngưỡng theo phong tục.\n\nLễ cấp sắc Pụt cần có sự phối hợp hành lễ của thầy Tào và thầy Pụt, thầy mo. Gia đình người được cấp sắc mời thầy Pụt cả và thầy Tào cả, thầy mo, các thầy Tào khác giúp việc cho thầy Tào cả do thầy Tào cả đi mời, thầy phụ giúp việc cho thầy Pụt cũng do thầy Pụt chính tự đi mời. Người giúp việc cho thầy mo do thầy mo mời. Thầy pụt cả giữ vai trò chủ trì chính trong lễ cấp sắc và cũng là người bảo trợ nghề nghiệp cho đệ tử được cấp sắc hôm đó.\n\nLễ cấp sắc (Lẩu Pụt) là tổng hợp bao gồm nhiều nghi lễ cúng tổ tiên, nghi lễ giải xung giải hạn….và được thực hiện dưới sự tham gia của các lực lượng Tào và Pụt, Mo. Mục đích của việc thực hiện các nghi lễ này là tống tiễn những cái xấu đi, đón cái tốt đẹp đến nhằm làm phong quang thanh thản cửa nhà của người được cấp sắc.\n\nĐể tiến hành lễ cấp sắc Pụt phải trải qua nhiều bước với nội dung là báo cáo với tổ tiên gia chủ, báo các vị thánh, quan chức nhà trời về một việc lớn của gia đình. Thầy Pụt mở đường lên trời để đón tổ sư, tổ tiên gia chủ xuống dự lễ, cúng giải xung, giải hạn cho gia chủ, gồm các lễ nhỏ sau: Báo tổ tiên, báo Ngọc hoàng, dâng lễ, dâng hương.\n\nTrong ngày thứ hai là Lễ cấp sắc chính thức: Do thầy Tào và thầy Pụt, thầy mo cùng phối hợp thực hiện gồm các lễ nhỏ như sau: lễ sinh ra con hương, lễ quá hồng, lễ cấp đồ nghề cho đệ tử, lễ đọc sắc phong, giải hạn, khao quân, tiễn thánh.\n\nVới những nét độc đáo đó, Lễ cấp sắc Pụt (Lẩu Pụt) của người Tày Xã Đồng Phúc, Tỉnh Thái Nguyên được Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 266/QĐ-BVHTTDL ngày 30/01/2018.',
+            imageCaption: 'Lễ Cấp sắc Pụt Tày (Nguồn: Di sản văn hóa phi vật thể Bắc Kạn - Tập 1)',
+            hasVideo: false
+        },
 
         /* ── 32 ─ Tập quán & tín ngưỡng ─ Cấp sắc Sán Dìu ──────── */
         {
@@ -325,7 +431,17 @@ Với những nét độc đáo đó, Nghi lễ Cấp sắc của người Nùng
         },
 
         /* ── 33 ─ Tập quán & tín ngưỡng ─ Lễ Kỳ Yên Tày ───────── */
-        { id: 'ds33', n: 'Lễ Kỳ Yên của người Tày', locations: ['Xã Phong Quang'], year: 2020, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '175/QĐ-BVHTTDL ngày 14/01/2020', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 33, imageFolder: 'kyven_tay' },
+        {
+            id: 'ds33',
+            n: 'Lễ Kỳ Yên của người Tày',
+            locations: ['Xã Phong Quang'],
+            year: 2020, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng',
+            decision: '175/QĐ-BVHTTDL ngày 14/01/2020', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 33,
+            imageFolder: 'kyven_tay',
+            description: 'Lễ Kỳ Yên là sinh hoạt văn hóa tín ngưỡng phổ biến từ lâu trong đời sống của cộng đồng dân tộc Tày, có nghĩa là lễ cầu an, là lễ tế thần Thành hoàng lớn nhất trong năm. Mục đích thực hiện nghi lễ thể hiện sự biết ơn của con người với trời, đất, với tổ tiên; đồng thời cầu trời cho một năm mưa thuận gió hòa, mùa màng tươi tốt, vạn vật sinh sôi, nhà nhà được áo ấm, no cơm, có cuộc sống bình an, không bệnh tật.\n\nQuan niệm trên có trời, dưới có đất. Giữa trời - đất có con người và vạn vật chúng sinh. Chính vì thế đồng bào dân tộc Tày luôn tôn trọng tự nhiên, tuân theo lẽ tự nhiên, nên việc thực hành nghi thức trong Lễ Kỳ Yên rất trang trọng. Thầy Then (hoặc bà Then) là nhân vật chính, đầu đội mũ hòa thượng, thân mang áo cà sa sẽ trực tiếp kiểm tra lại các lễ vật dâng cúng các vị thần tiên lần cuối. Thấy đầy đủ rồi thì tự tay lên hương thực hiện nghi lễ. Đàn tính tấu, chùm xóc và quả nhạc được sử dụng xuyên suốt để dâng lên các khúc then linh thiêng.\n\nNội dung của nghi lễ góp phần đáng kể trong việc bảo lưu truyền thống đoàn kết giữa các thành viên trong gia đình, cộng đồng. Nghi lễ này góp phần giáo dục con cháu đạo lý “Uống nước nhớ nguồn”, thể hiện sự quan tâm của con cháu đối với ông bà, cha mẹ.\n\nVới những nét độc đáo đó Lễ Kỳ Yên của người Tày Xã Phong Quang Tỉnh Thái Nguyên được Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 175/QĐ-BVHTTDL ngày 14/01/2020.',
+            imageCaption: 'Nhà sàn của người Tày – không gian diễn ra Lễ Kỳ Yên (Nguồn: Báo Dulich.net)',
+            hasVideo: false
+        },
 
         /* ── 34 ─ Tập quán & tín ngưỡng ─ Cấp sắc Dao Tiền ─────── */
         { id: 'ds34', n: 'Lễ Cấp sắc của người Dao Tiền', locations: ['Xã Phong Quang'], year: 2022, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '775/QĐ-BVHTTDL ngày 04/4/2022', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 34, imageFolder: 'capsacdaotien' },
@@ -381,7 +497,17 @@ Với những nét độc đáo đó, Lễ hội Lồng Tồng của người T�
         },
 
         /* ── 38 ─ Lễ hội truyền thống ─ Cầu mùa Sán Chay ───────── */
-        { id: 'ds38', n: 'Lễ hội Cầu mùa của người Sán Chay', locations: ['Xã Vô Tranh', 'Xã Yên Trạch', 'Xã Phú Lương'], year: 2018, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '266/QĐ-BVHTTDL Ngày 30/01/2018', originalCategory: 'Lễ hội truyền thống', sourceOrder: 38, imageFolder: 'caumua_sanchay' },
+        {
+            id: 'ds38',
+            n: 'Lễ hội Cầu mùa của người Sán Chay',
+            locations: ['Xã Vô Tranh', 'Xã Yên Trạch', 'Xã Phú Lương'],
+            year: 2018, level: 'Quốc gia', category: 'Lễ hội truyền thống',
+            decision: '266/QĐ-BVHTTDL Ngày 30/01/2018', originalCategory: 'Lễ hội truyền thống', sourceOrder: 38,
+            imageFolder: 'caumua_sanchay',
+            description: 'Người Sán Chay ở các xã Vô Tranh, Yên Trạch, Phú Lương - tỉnh Thái Nguyên có nhiều phong tục, tập quán mang đậm bản sắc dân gian thông qua các lễ hội truyền thống, tiêu biểu là phong tục Cầu mùa, một hoạt động dân gian lưu truyền từ ngàn xưa, được cộng đồng thừa nhận và bảo tồn qua nhiều thế hệ. Đây là lễ hội giàu tính nhân văn, thể hiện khát vọng chinh phục thiên nhiên, mong ước cho mưa thuận gió hòa, mùa màng bội thu, muôn loài được sinh sôi nảy nở, cuộc sống an lành, ấm no, hạnh phúc.\n\nTheo truyền thống, Lễ hội Cầu mùa người Sán Chay được tổ chức vào ngày 2.2 âm lịch hàng năm. Trong ngày này, người Sán Chay lại cùng nhau sắp lễ cúng thần linh, thổ địa tại đình làng để cầu cho một năm mưa thuận, gió hòa, cây cối tốt tươi, thóc ngô đầy bồ, chăn nuôi phát triển, dân làng được bình yên, no đủ…\n\nLễ hội Cầu mùa của đồng bào dân tộc Sán Chay diễn ra gồm có hai phần Lễ và Hội. Trong phần Lễ, các gia đình trong xóm tập trung tại đình làng để chuẩn bị lễ vật như xôi, gà, lợn, trầu cau để thực hiện nghi thức rước lễ lên đình và cúng tế. Ở phần Hội, người dân, du khách được hòa mình trải nghiệm không khí lễ hội với điệu múa Tắc Xình hay các làn điệu dân ca trong Lễ hội Cầu mùa là những giá trị văn hóa độc đáo, đáng trân trọng và có sức sống lâu bền bởi điều đó thắp lên niềm tin, khát vọng chinh phục thiên nhiên của người dân lao động.\n\nĐến với Lễ hội Cầu mùa, người dân, du khách còn được thưởng thức những bài hát giao duyên Sình ca, hát Soọng cô; tung còn, múa sạp và tham gia các trò chơi dân gian diễn ra trên khắp các khu vực của sân làng. Lễ hội Cầu mùa khép lại khi bà con Sán Chay mời khách cùng dự bữa cơm đoàn kết, ấm áp với những lời chúc cho một năm bình an, một mùa vụ mới thật no ấm.\n\nVới những nét độc đáo đó, Lễ hội Cầu mùa của người Sán Chay ở Xã Vô Tranh, Yên Trạch, Phú Lương - Tỉnh Thái Nguyên được Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 266/QĐ-BVHTTDL ngày 30/01/2018.',
+            imageCaption: 'Thầy mo bắt đầu tiến hành các nghi lễ trong Lễ cầu mùa của người Sán Chay. (Nguồn: Báo ảnh Việt Nam)',
+            hasVideo: false
+        },
 
         /* ── 39 ─ Lễ hội truyền thống ─ Đình Phương Độ ─────────── */
         {
@@ -499,7 +625,17 @@ Với giá trị tiêu biểu, Lễ hội Đền Lục Giáp xã Đắc Phong (P
         },
 
         /* ── 44 ─ Tri thức dân gian ─ Hoa văn Dao Đỏ ──────────── */
-        { id: 'ds44', n: 'Nghệ thuật trang trí hoa văn trên trang phục của người Dao Đỏ', locations: ['Xã Chợ Đồn'], year: 2018, level: 'Quốc gia', category: 'Tri thức dân gian', decision: '266/QĐ-BVHTTDL ngày 30/01/2018', originalCategory: 'Tri thức dân gian', sourceOrder: 44, imageFolder: 'hoavan_daodo' },
+        {
+            id: 'ds44',
+            n: 'Nghệ thuật trang trí hoa văn trên trang phục của người Dao Đỏ',
+            locations: ['Xã Chợ Đồn'],
+            year: 2018, level: 'Quốc gia', category: 'Tri thức dân gian',
+            decision: '266/QĐ-BVHTTDL ngày 30/01/2018', originalCategory: 'Tri thức dân gian', sourceOrder: 44,
+            imageFolder: 'hoavan_daodo',
+            description: 'Trang phục của phụ nữ Dao đỏ ở Bắc Kạn gồm hai loại là thường phục và lễ phục. Bộ thường phục mặc hàng ngày có hai màu chủ đạo là xanh, đen gồm khăn đội đầu, áo, yếm, dây lưng và thường không thêu hoa văn. Chiếc áo lễ phục được mặc trong ngày cưới hoặc lễ hội được cắt khâu, thêu thùa công phu, tỉ mỉ hơn, xẻ ngực, nẹp áo thêu, cài bằng khuy bạc, hai ngực áo đính nhiều bông len đỏ đính hình chữ V. Cổ áo phía sau đính nhiều chuỗi hạt màu. Hai ống quần được thêu hoa văn từ đầu gối trở xuống. Dây lưng làm từ hai mảnh vải dài khoảng hai sải thêu hoa văn và trang trí hai đầu rất đẹp. Tông màu chủ đạo của bộ lễ phục của đồng bào Dao đỏ là màu đỏ, vì theo quan niệm màu đỏ mang lại hạnh phúc và may mắn.\n\nNét đặc sắc trong trang phục truyền thống của người Dao đỏ là không thể thiếu những họa tiết hoa văn trang trí trên từng bộ phận. Bởi hoa văn trên y phục không chỉ biểu hiện cho tính cần cù và nhẫn nại mà nó còn thể hiện sự khéo léo, trí tưởng tượng phong phú cùng với con mắt thẩm mỹ, nghệ thuật của người phụ nữ dân tộc Dao đỏ. Các họa tiết, hoa văn thể hiện trên bộ trang phục còn cho thấy sự khéo léo, tinh tế trong việc sử dụng màu sắc, bố cục cân đối hài hòa, tươi sáng của người phụ nữ, tạo nên nét riêng đậm đà bản sắc dân tộc. Để giữ gìn nét đẹp truyền thống trong trang phục dân tộc mình, sau những giờ làm việc đồng áng, các bà, các mẹ truyền kinh nghiệm, hướng dẫn cách chọn vải, cắt, dạy thêu từng đường kim mũi chỉ; cách thêu các hoa văn, họa tiết trên từng bộ phận. Những công việc này đòi hỏi sự khéo léo, tinh tế, sự tỉ mỉ của người thêu mới làm nên bộ trang phục truyền thống hoàn chỉnh.\n\nNghệ thuật trang trí hoa văn trên trang phục của người Dao Đỏ có những điểm riêng biệt không lẫn với các dân tộc khác: Kĩ thuật thêu trên nền vải, thêu luôn sợi, thắt nút, thêu đột. Đắp, ghép vải tạo hoa văn với mũi khâu giấu không lộ đường chỉ. Phối với các màu sắc, trong đó có 5 màu cơ bản: đỏ, xanh, trắng, vàng, chàm. Đính bạc, quả len, tua rua, hạt cườm. Bằng sự khéo léo của đôi bàn tay, người phụ nữ dân tộc Dao đỏ đã dệt nên những bộ trang phục cầu kỳ với từng đường kim, mũi chỉ, hoa văn, họa tiết đẹp mắt. Cái hồn trong trang phục truyền thống cũng như nét đẹp văn hóa của đồng bào dân tộc Dao đỏ Bắc Kạn đã, đang và mãi là sản phẩm tinh thần được bà con gìn giữ, bảo tồn.\n\nVới những nét độc đáo đó, Nghệ thuật trang trí hoa văn trên trang phục của người Dao Đỏ Xã Chợ Đồn Tỉnh Thái Nguyên được Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 266/QĐ-BVHTTDL ngày 30/01/2018.',
+            imageCaption: 'Trang phục truyền thống của người Dao đỏ ở Bắc Kạn. (Ảnh: baobackan.org.vn)',
+            hasVideo: false
+        },
 
         /* ── 45 ─ Tri thức dân gian ─ Chè Tân Cương ────────────── */
         { id: 'ds45', n: 'Tri thức trồng và chế biến chè Tân Cương', locations: ['Xã Tân Cương', 'Xã Đại Phúc'], year: 2023, level: 'Quốc gia', category: 'Tri thức dân gian', decision: '240/QĐ-BVHTTDL ngày 14/02/2023', originalCategory: 'Tri thức dân gian', sourceOrder: 45, imageFolder: 'chetancuong' },
