@@ -532,8 +532,7 @@ Lễ hội đình Phương Độ có từ rất lâu, trải qua nhiều thế h
 Với giá trị tiêu biểu, Lễ hội truyền thống Đình Phương Độ (Phú Bình - Thái Nguyên) được Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 266/QĐ-BVHTTDL ngày 30/01/2018.`,
             imageCaption: 'Cảnh rước lễ vào đình Phương Độ - Lễ hội năm 2026 (Nguồn: Báo Thái Nguyên)',
             imageSources: [
-                'Cảnh rước lễ vào đình Phương Độ - Lễ hội năm 2026 (Nguồn: Báo Thái Nguyên)',
-                'Ảnh tư liệu: Hồ sơ di sản quốc gia 2018 — Cục Di sản văn hóa'
+                'Cảnh rước lễ vào đình Phương Độ - Lễ hội năm 2026 (Nguồn: Báo Thái Nguyên)'
             ],
             hasVideo: false,
             sourceDoc: 'Tư liệu về 46 DSVHPVT - L6.docx — tr.3'
@@ -558,8 +557,7 @@ Lễ hội Núi Văn – Núi Võ mở đầu cho một năm mới, cầu cho m�
 Với giá trị tiêu biểu, Lễ hội Núi Văn - Núi Võ (Vạn Phú - Thái Nguyên) được Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 239/QĐ-BVHTTDL ngày 14/02/2023.`,
             imageCaption: 'Dòng họ Lưu ở xã Văn Yên (Đại Từ) rước Lễ vào đền thờ Lưu Nhân Chú (Nguồn: THPT Lưu Nhân Chú)',
             imageSources: [
-                'Dòng họ Lưu ở xã Văn Yên (Đại Từ) rước Lễ vào đền thờ Lưu Nhân Chú (Nguồn: THPT Lưu Nhân Chú)',
-                'Ảnh tư liệu: Hồ sơ di sản quốc gia 2023 — Cục Di sản văn hóa'
+                'Dòng họ Lưu ở xã Văn Yên (Đại Từ) rước Lễ vào đền thờ Lưu Nhân Chú (Nguồn: THPT Lưu Nhân Chú)'
             ],
             hasVideo: false,
             sourceDoc: 'Tư liệu về 46 DSVHPVT - L6.docx — tr.5'
