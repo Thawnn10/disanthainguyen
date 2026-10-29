@@ -3423,7 +3423,26 @@
       cursor: not-allowed;
       transform: none
     }
-
+    /* ═══════════════════════════════════════════════════════════
+      ANTI-SPAM: COOLDOWN CHO NÚT GỬI CHATBOT
+      ═══════════════════════════════════════════════════════════ */
+    .chat-send-btn.cooldown {
+      opacity: .88;
+      cursor: wait;
+      transform: none;
+      pointer-events: none;
+    }
+    .chat-send-btn.cooldown .cooldown-num {
+      font-size: .92rem;
+      font-weight: 700;
+      font-family: var(--fn);
+      line-height: 1;
+      letter-spacing: 0;
+      color: #1A0F00;
+    }
+    .dark .chat-send-btn.cooldown .cooldown-num {
+      color: #0F1512;
+    }
     ::-webkit-scrollbar {
       width: 5px;
       height: 5px
@@ -6469,12 +6488,30 @@
       function removeTyping() { const t = document.getElementById('chat-typing'); if (t) t.remove(); }
       function scrollToBottom() { chatBody.scrollTop = chatBody.scrollHeight; }
 
+/* ═══════════════════════════════════════════════════════════
+   ANTI-SPAM: COOLDOWN 4 GIÂY SAU MỖI LẦN GỬI
+   ═══════════════════════════════════════════════════════════ */
+      const SEND_COOLDOWN_MS = 4000;   // 4 giây (nằm trong khoảng 3-5s)
+      let lastSendAt = 0;
+      let cooldownTimer = null;
+
       async function sendMessage() {
         const text = chatInput.value.trim();
         if (!text || isLoading) return;
+
+        // ⛔ CHẶN SPAM: đang trong thời gian cooldown thì bỏ qua
+        const now = Date.now();
+        if (now - lastSendAt < SEND_COOLDOWN_MS) return;
+        lastSendAt = now;
+
         addMessage('user', text);
         chatInput.value = '';
-        isLoading = true; chatSend.disabled = true; showTyping();
+        isLoading = true;
+        chatSend.disabled = true;
+        showTyping();
+
+        const sendStartTime = Date.now();
+
         try {
           const res = await fetch(API_URL, {
             method: 'POST',
@@ -6492,10 +6529,56 @@
           console.error('Chatbot API error:', err);
           addMessage('ai', 'Xin lỗi, hệ thống đang gặp sự cố. Vui lòng thử lại sau.');
         } finally {
-          isLoading = false; chatSend.disabled = false;
+          isLoading = false;
           try { chatInput.focus(); } catch (e) { }
           scrollToBottom();
+          // 🔒 Bắt đầu cooldown 4s tính từ lúc bấm Gửi
+          startSendCooldown(sendStartTime);
         }
+      }
+
+      /**
+       * Disable nút Gửi + đếm ngược trong suốt thời gian cooldown
+       * để tránh BGK/khách tham quan bấm liên tiếp làm cạn quota API.
+       */
+      function startSendCooldown(startTime) {
+        if (cooldownTimer) { clearInterval(cooldownTimer); cooldownTimer = null; }
+
+        const elapsed = Date.now() - startTime;
+        let remaining = Math.max(0, SEND_COOLDOWN_MS - elapsed);
+
+        // Nếu API phản hồi chậm hơn cả cooldown → bật lại ngay
+        if (remaining <= 0) {
+          chatSend.disabled = false;
+          chatSend.classList.remove('cooldown');
+          chatSend.innerHTML = '<i class="fa-solid fa-paper-plane"></i>';
+          chatSend.setAttribute('aria-label', 'Gửi tin nhắn');
+          return;
+        }
+
+        chatSend.disabled = true;
+        chatSend.classList.add('cooldown');
+
+        function renderCountdown() {
+          const sec = Math.max(1, Math.ceil(remaining / 1000));
+          chatSend.innerHTML = '<span class="cooldown-num">' + sec + '</span>';
+          chatSend.setAttribute('aria-label', 'Vui lòng đợi ' + sec + ' giây');
+          remaining -= 1000;
+        }
+        renderCountdown();
+
+        cooldownTimer = setInterval(function () {
+          if (remaining <= 0) {
+            clearInterval(cooldownTimer);
+            cooldownTimer = null;
+            chatSend.classList.remove('cooldown');
+            chatSend.innerHTML = '<i class="fa-solid fa-paper-plane"></i>';
+            chatSend.disabled = false;
+            chatSend.setAttribute('aria-label', 'Gửi tin nhắn');
+            return;
+          }
+          renderCountdown();
+        }, 1000);
       }
       chatSend.addEventListener('click', sendMessage);
       chatInput.addEventListener('keydown', function (e) {
