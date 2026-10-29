@@ -596,8 +596,7 @@ Xong phần lễ, tại hai bên cánh gà của sân Đền diễn ra các trò
 Với giá trị tiêu biểu, Lễ hội Đền Lục Giáp xã Đắc Phong (Phường Phổ Yên, tỉnh Thái Nguyên) được Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 857/QĐ-BVHTTDL ngày 01/04/2024.`,
             imageCaption: 'Tục lễ Tế lễ mở đầu khai hội ở Đền Lục Giáp (Nguồn: VietNamNet)',
             imageSources: [
-                'Tục lễ Tế lễ mở đầu khai hội ở Đền Lục Giáp (Nguồn: VietNamNet)',
-                'Ảnh tư liệu: Hồ sơ di sản quốc gia 2024 — Cục Di sản văn hóa'
+                'Tục lễ Tế lễ mở đầu khai hội ở Đền Lục Giáp (Nguồn: VietNamNet)'
             ],
             hasVideo: false,
             sourceDoc: 'Tư liệu về 46 DSVHPVT - L6.docx — tr.1'
