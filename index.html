@@ -3423,6 +3423,7 @@
       cursor: not-allowed;
       transform: none
     }
+
     /* ═══════════════════════════════════════════════════════════
       ANTI-SPAM: COOLDOWN CHO NÚT GỬI CHATBOT
       ═══════════════════════════════════════════════════════════ */
@@ -3432,6 +3433,7 @@
       transform: none;
       pointer-events: none;
     }
+
     .chat-send-btn.cooldown .cooldown-num {
       font-size: .92rem;
       font-weight: 700;
@@ -3440,9 +3442,11 @@
       letter-spacing: 0;
       color: #1A0F00;
     }
+
     .dark .chat-send-btn.cooldown .cooldown-num {
       color: #0F1512;
     }
+
     ::-webkit-scrollbar {
       width: 5px;
       height: 5px
@@ -4536,6 +4540,955 @@
       min-width: 0;
       word-break: break-word;
     }
+
+    /* ═══════════════════════════════════════════════════════════
+       LIQUID GLASS AUDIO PLAYER BAR (iOS 27 Liquid Refraction)
+       ═══════════════════════════════════════════════════════════ */
+    #ap-bar {
+      position: fixed;
+      z-index: 9998;
+      bottom: 24px;
+      right: 96px;
+      /* Cách chat-fab (24px + 60px + 12px) không bị đè khuất */
+      width: 375px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.48);
+      backdrop-filter: blur(32px) saturate(220%) brightness(1.12);
+      -webkit-backdrop-filter: blur(32px) saturate(220%) brightness(1.12);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      box-shadow:
+        0 20px 48px rgba(0, 0, 0, 0.18),
+        0 1px 0 0 rgba(255, 255, 255, 0.95) inset,
+        0 -1px 0 0 rgba(0, 0, 0, 0.08) inset,
+        0 0 0 1px rgba(255, 255, 255, 0.35) inset;
+      color: #1a221f;
+      user-select: none;
+      transition:
+        opacity 0.38s cubic-bezier(.22, 1, .36, 1),
+        transform 0.38s cubic-bezier(.22, 1, .36, 1),
+        width 0.32s cubic-bezier(.22, 1, .36, 1),
+        border-radius 0.32s cubic-bezier(.22, 1, .36, 1),
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+      overflow: hidden;
+      will-change: transform;
+      cursor: grab;
+    }
+
+    /* Specular Liquid Glass Top Refraction */
+    #ap-bar::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 48%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.08) 75%, transparent 100%);
+      border-radius: 28px 28px 120px 120px / 28px 28px 22px 22px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Dynamic cursor-following liquid lens reflection */
+    #ap-bar::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle 140px at var(--glass-x, 50%) var(--glass-y, 50%), rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.06) 50%, transparent 80%);
+      mix-blend-mode: overlay;
+      pointer-events: none;
+      opacity: 0.9;
+      z-index: 1;
+      transition: opacity 0.3s;
+    }
+
+    /* Dark Mode Liquid Glass */
+    .dark #ap-bar {
+      background: rgba(18, 28, 24, 0.68);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #f2f7f5;
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.52),
+        0 1px 0 0 rgba(255, 255, 255, 0.35) inset,
+        0 -1px 0 0 rgba(0, 0, 0, 0.45) inset,
+        0 0 0 1px rgba(0, 255, 204, 0.18) inset;
+    }
+
+    .dark #ap-bar::before {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.02) 75%, transparent 100%);
+    }
+
+    /* Hidden State */
+    #ap-bar.ap-hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(24px) scale(0.92);
+    }
+
+    /* ═══ MOBILE MINI BAR ═══ */
+    #ap-bar.ap-mini {
+      left: 10px !important;
+      right: 10px !important;
+      bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+      top: auto !important;
+      transform: none !important;
+      width: auto !important;
+      max-width: none !important;
+      border-radius: 18px !important;
+      cursor: default !important;
+    }
+
+    #ap-bar.ap-mini .ap-wc-btns,
+    #ap-bar.ap-mini .ap-body,
+    #ap-bar.ap-mini .ap-progress-row,
+    #ap-bar.ap-mini .ap-volume-row {
+      display: none !important;
+    }
+
+    #ap-bar.ap-mini .ap-mini-row {
+      display: flex !important;
+    }
+
+    .ap-mini-row {
+      padding: 8px 12px;
+      gap: 10px;
+    }
+
+    .ap-mini-play {
+      width: 40px;
+      height: 40px;
+      font-size: 1rem;
+      border-radius: 12px;
+    }
+
+    .ap-mini-title {
+      font-size: 0.8rem;
+    }
+
+    .ap-mini-time {
+      font-size: 0.65rem;
+    }
+
+    .ap-mini-close {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* Khi mini bar đang bật — ẩn/né chat fab (mobile) */
+    body.ap-mini-active .chat-fab {
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transform: scale(0.6) !important;
+      transition: opacity 0.3s ease, transform 0.3s ease !important;
+    }
+
+    /* Dragging State */
+    #ap-bar.ap-dragging {
+      cursor: grabbing !important;
+      transition: box-shadow 0.15s, transform 0.15s;
+      box-shadow:
+        0 26px 70px rgba(0, 0, 0, 0.38),
+        0 1px 0 0 rgba(255, 255, 255, 0.95) inset,
+        0 0 0 1.5px rgba(255, 255, 255, 0.6) inset;
+      transform: scale(1.02);
+    }
+
+    .dark #ap-bar.ap-dragging {
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.65),
+        0 1px 0 0 rgba(0, 255, 204, 0.45) inset,
+        0 0 0 1.5px rgba(0, 255, 204, 0.3) inset;
+    }
+
+    /* Pulsating glow when playing */
+    #ap-bar.ap-playing-glow {
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.2),
+        0 0 28px rgba(212, 168, 83, 0.35),
+        0 1px 0 0 rgba(255, 255, 255, 0.9) inset;
+      transform: scale(var(--liquid-pulse, 1));
+    }
+
+    .dark #ap-bar.ap-playing-glow {
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.5),
+        0 0 35px rgba(0, 255, 204, 0.38),
+        0 1px 0 0 rgba(0, 255, 204, 0.35) inset;
+      transform: scale(var(--liquid-pulse, 1));
+    }
+
+    /* Sub-containers need relative position to stay above pseudo glass highlights */
+    .ap-wc-btns,
+    .ap-body,
+    .ap-progress-row,
+    .ap-volume-row,
+    .ap-mini-row {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* macOS Window Control Buttons */
+    .ap-wc-btns {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 12px 16px 0;
+      margin-bottom: -2px;
+    }
+
+    .ap-wc-btn {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      flex-shrink: 0;
+      transition: filter 0.15s, transform 0.12s;
+    }
+
+    .ap-wc-btn:hover {
+      filter: brightness(1.15);
+      transform: scale(1.15);
+    }
+
+    .ap-wc-btn:active {
+      transform: scale(0.9);
+    }
+
+    .ap-wc-close {
+      background: #FF5F57;
+      box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.18);
+    }
+
+    .ap-wc-mini {
+      background: #FEBC2E;
+      box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.18);
+    }
+
+    .ap-wc-full {
+      background: #28C840;
+      box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.18);
+    }
+
+    .ap-wc-btn i {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7px;
+      opacity: 0;
+      color: rgba(0, 0, 0, 0.7);
+      transition: opacity 0.15s;
+    }
+
+    .ap-wc-btns:hover .ap-wc-btn i {
+      opacity: 1;
+    }
+
+    /* Drag Handle */
+    .ap-handle {
+      cursor: grab;
+      padding: 2px 8px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: 4px;
+      flex: 1;
+    }
+
+    .ap-handle-dot {
+      width: 3.5px;
+      height: 3.5px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.22);
+      flex-shrink: 0;
+    }
+
+    .dark .ap-handle-dot {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .ap-header-title {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.55;
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Main Body */
+    .ap-body {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 10px 16px 8px;
+    }
+
+    /* Vinyl artwork */
+    .ap-art {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      background: rgba(0, 0, 0, 0.06);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+      cursor: pointer;
+      transition: border-radius 0.4s, transform 0.3s, box-shadow 0.3s;
+    }
+
+    .dark .ap-art {
+      border-color: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .ap-art:hover {
+      transform: scale(1.05);
+    }
+
+    .ap-art.ap-playing {
+      animation: ap-spin 8s linear infinite;
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 2px rgba(255, 255, 255, 0.3) inset,
+        0 6px 20px rgba(0, 0, 0, 0.28);
+    }
+
+    /* Info */
+    .ap-info {
+      flex: 1;
+      min-width: 0;
+      cursor: pointer;
+    }
+
+    .ap-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #1a221f;
+    }
+
+    .dark .ap-title {
+      color: #f5f9f7;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .ap-sub {
+      font-size: 0.72rem;
+      color: rgba(26, 34, 31, 0.68);
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .dark .ap-sub {
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    /* Waveform Animation */
+    .ap-wave {
+      display: flex;
+      align-items: center;
+      gap: 2.5px;
+      height: 18px;
+      flex-shrink: 0;
+      padding: 0 4px;
+    }
+
+    .ap-wave span {
+      display: block;
+      width: 2.5px;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--gold, #b8860b);
+      transition: height 0.08s ease;
+      animation: ap-wave-bar 0.9s ease-in-out infinite;
+    }
+
+    .dark .ap-wave span {
+      background: #00ffcc;
+    }
+
+    .ap-wave span:nth-child(1) {
+      height: 4px;
+      animation-delay: 0s;
+    }
+
+    .ap-wave span:nth-child(2) {
+      height: 11px;
+      animation-delay: 0.15s;
+    }
+
+    .ap-wave span:nth-child(3) {
+      height: 16px;
+      animation-delay: 0.3s;
+    }
+
+    .ap-wave span:nth-child(4) {
+      height: 8px;
+      animation-delay: 0.45s;
+    }
+
+    .ap-wave span:nth-child(5) {
+      height: 13px;
+      animation-delay: 0.6s;
+    }
+
+    @keyframes ap-wave-bar {
+
+      0%,
+      100% {
+        transform: scaleY(0.35);
+      }
+
+      50% {
+        transform: scaleY(1);
+      }
+    }
+
+    .ap-wave.ap-wave-paused span {
+      animation-play-state: paused;
+    }
+
+    /* Control Buttons */
+    .ap-ctrl-grp {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      flex-shrink: 0;
+    }
+
+    .ap-btn {
+      background: rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: #1a221f;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      transition: background 0.18s, transform 0.12s, color 0.18s;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    .ap-btn:hover {
+      background: rgba(0, 0, 0, 0.12);
+    }
+
+    .ap-btn:active {
+      transform: scale(0.9);
+    }
+
+    .dark .ap-btn {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
+    .dark .ap-btn:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .ap-btn.ap-btn-play {
+      width: 44px;
+      height: 44px;
+      background: #1a221f;
+      color: #fff;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+    }
+
+    .ap-btn.ap-btn-play:hover {
+      background: #000;
+      transform: scale(1.06);
+    }
+
+    .dark .ap-btn.ap-btn-play {
+      background: #00ffcc;
+      color: #0a1410;
+      box-shadow: 0 4px 18px rgba(0, 255, 204, 0.42);
+    }
+
+    .dark .ap-btn.ap-btn-play:hover {
+      background: #33ffd6;
+    }
+
+    /* Progress row */
+    .ap-progress-row {
+      padding: 0 16px 6px;
+    }
+
+    .ap-times {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.68rem;
+      font-variant-numeric: tabular-nums;
+      color: rgba(26, 34, 31, 0.65);
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .dark .ap-times {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .ap-seek-track {
+      position: relative;
+      height: 18px;
+      cursor: pointer;
+      touch-action: none;
+    }
+
+    .ap-seek-track::after {
+      content: '';
+      position: absolute;
+      left: -4px;
+      right: -4px;
+      top: -8px;
+      bottom: -8px;
+      cursor: pointer;
+    }
+
+    .ap-seek-track.dragging {
+      cursor: grabbing;
+    }
+
+    .ap-seek-track::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 4px;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.12);
+    }
+
+    .dark .ap-seek-track::before {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .ap-seek-fill {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      height: 4px;
+      width: 0%;
+      border-radius: 6px;
+      background: #1a221f;
+      pointer-events: none;
+      transition: width 0.1s linear;
+    }
+
+    .dark .ap-seek-fill {
+      background: #00ffcc;
+    }
+
+    .ap-seek-knob {
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.2s;
+    }
+
+    .ap-seek-track:hover .ap-seek-knob {
+      width: 18px;
+      height: 18px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .ap-seek-track.dragging .ap-seek-knob {
+      width: 28px;
+      height: 18px;
+      border-radius: 9px;
+      box-shadow: 0 3px 14px rgba(0, 0, 0, 0.45);
+      transition: width 0.25s cubic-bezier(0.22, 1.4, 0.36, 1),
+        height 0.25s cubic-bezier(0.22, 1.4, 0.36, 1),
+        border-radius 0.25s cubic-bezier(0.22, 1.4, 0.36, 1);
+    }
+
+    /* Volume Row */
+    .ap-volume-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 2px 16px 14px;
+    }
+
+    .ap-vol-icon {
+      font-size: 0.82rem;
+      color: rgba(26, 34, 31, 0.6);
+      width: 18px;
+      flex-shrink: 0;
+      text-align: center;
+    }
+
+    .dark .ap-vol-icon {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .ap-vol-track {
+      flex: 1;
+      position: relative;
+      height: 16px;
+      cursor: pointer;
+      touch-action: none;
+    }
+
+    .ap-vol-track::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 3px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .dark .ap-vol-track::before {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .ap-vol-fill {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      height: 3px;
+      border-radius: 4px;
+      background: #1a221f;
+      pointer-events: none;
+    }
+
+    .dark .ap-vol-fill {
+      background: #00ffcc;
+    }
+
+    .ap-vol-knob {
+      position: absolute;
+      top: 50%;
+      left: 80%;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.28);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .ap-vol-track:hover .ap-vol-knob {
+      width: 15px;
+      height: 15px;
+    }
+
+    .ap-vol-track.dragging .ap-vol-knob {
+      width: 24px;
+      height: 16px;
+      border-radius: 8px;
+      transition: width 0.25s cubic-bezier(0.22, 1.4, 0.36, 1),
+        height 0.25s cubic-bezier(0.22, 1.4, 0.36, 1),
+        border-radius 0.25s cubic-bezier(0.22, 1.4, 0.36, 1);
+    }
+
+    .ap-mini-row {
+      display: none;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ap-mini-play {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      border-radius: 14px;
+      border: none;
+      background: linear-gradient(135deg, var(--gold, #D4A853), var(--gold2, #E8C87A));
+      color: #1A0F00;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 14px rgba(184, 134, 11, 0.35);
+      transition: transform 0.2s cubic-bezier(.22, 1, .36, 1), box-shadow 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .ap-mini-play:hover {
+      transform: scale(1.06);
+      box-shadow: 0 6px 18px rgba(184, 134, 11, 0.5);
+    }
+
+    .ap-mini-play:active {
+      transform: scale(0.94);
+    }
+
+    .dark .ap-mini-play {
+      background: linear-gradient(135deg, var(--acc, #00FFCC), #00ddaa);
+      color: #121816;
+      box-shadow: 0 4px 18px rgba(0, 255, 204, 0.4);
+    }
+
+    .ap-mini-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .ap-mini-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+
+    .ap-mini-title {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #1a221f;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+      flex: 1;
+      min-width: 0;
+      transition: opacity 0.2s;
+    }
+
+    .ap-mini-title:hover {
+      opacity: 0.7;
+    }
+
+    .dark .ap-mini-title {
+      color: #f5f9f7;
+    }
+
+    .ap-mini-time {
+      font-size: 0.68rem;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      color: rgba(26, 34, 31, 0.65);
+      flex-shrink: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .dark .ap-mini-time {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    /* Seek bar trong mini */
+    .ap-mini-seek {
+      position: relative;
+      height: 16px;
+      cursor: pointer;
+      touch-action: none;
+    }
+
+    .ap-mini-seek::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 4px;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.12);
+    }
+
+    .dark .ap-mini-seek::before {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .ap-mini-fill {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      height: 4px;
+      width: 0%;
+      border-radius: 6px;
+      background: #1a221f;
+      pointer-events: none;
+      transition: width 0.1s linear;
+    }
+
+    .dark .ap-mini-fill {
+      background: #00ffcc;
+    }
+
+    .ap-mini-knob {
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        border-radius 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.2s;
+    }
+
+    /* Hiệu ứng bung khi kéo — giống liquidGL demo */
+    .ap-mini-seek.dragging .ap-mini-knob {
+      width: 26px;
+      height: 16px;
+      border-radius: 8px;
+      box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+      transition: width 0.25s cubic-bezier(0.22, 1.4, 0.36, 1),
+        height 0.25s cubic-bezier(0.22, 1.4, 0.36, 1),
+        border-radius 0.25s cubic-bezier(0.22, 1.4, 0.36, 1);
+    }
+
+    .ap-mini-close {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0, 0, 0, 0.06);
+      color: #1a221f;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      transition: background 0.2s, transform 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .ap-mini-close:hover {
+      background: rgba(0, 0, 0, 0.14);
+    }
+
+    .ap-mini-close:active {
+      transform: scale(0.9);
+    }
+
+    .dark .ap-mini-close {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .dark .ap-mini-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    @keyframes ap-spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      #ap-bar {
+        width: calc(100vw - 24px);
+        left: 12px !important;
+        right: 12px !important;
+        bottom: calc(70px + env(safe-area-inset-bottom, 0px)) !important;
+        border-radius: 24px;
+        cursor: default !important;
+      }
+
+      #ap-bar.ap-mini {
+        width: 210px !important;
+        left: auto !important;
+        right: 12px !important;
+        border-radius: 40px;
+      }
+
+      .ap-handle {
+        display: none;
+      }
+    }
+
+    /* Ẩn full controls trong mini mode */
+    #ap-bar.ap-mini .ap-wc-btns,
+    #ap-bar.ap-mini .ap-body,
+    #ap-bar.ap-mini .ap-progress-row,
+    #ap-bar.ap-mini .ap-volume-row {
+      display: none !important;
+    }
+
+    /* Hiện mini row */
+    #ap-bar.ap-mini .ap-mini-row {
+      display: flex !important;
+    }
+
+    /* Desktop mini: bar rộng, giữa dưới màn hình */
+    #ap-bar.ap-mini {
+      left: 50% !important;
+      right: auto !important;
+      top: auto !important;
+      bottom: 20px !important;
+      transform: translateX(-50%) !important;
+      width: min(94vw, 560px) !important;
+      max-width: 560px !important;
+      border-radius: 22px !important;
+      cursor: grab !important;
+    }
+
+    /* Mobile mini: full width, nằm trên bottom nav */
+    @media (max-width: 768px) {
+      #ap-bar.ap-mini {
+        left: 10px !important;
+        right: 10px !important;
+        width: auto !important;
+        max-width: none !important;
+        transform: none !important;
+        bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+        border-radius: 18px !important;
+        cursor: default !important;
+      }
+    }
   </style>
 </head>
 
@@ -4860,6 +5813,102 @@
     </a>
   </div>
 
+  <!-- ══ LIQUID GLASS AUDIO PLAYER BAR ══════════════════════════ -->
+  <!-- ══ LIQUID GLASS AUDIO PLAYER BAR (iOS 27 Liquid Refraction) ════════ -->
+  <div id="ap-bar" class="ap-hidden" role="region" aria-label="Trình phát âm thanh di sản">
+    <!-- macOS window controls & drag handle -->
+    <div class="ap-wc-btns" id="ap-wc-header">
+      <button class="ap-wc-btn ap-wc-close" id="ap-btn-close" title="Đóng" aria-label="Đóng trình phát">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <button class="ap-wc-btn ap-wc-mini" id="ap-btn-mini" title="Thu nhỏ" aria-label="Thu nhỏ">
+        <i class="fa-solid fa-minus"></i>
+      </button>
+      <button class="ap-wc-btn ap-wc-full" id="ap-btn-full" title="Phóng to" aria-label="Phóng to / Thu gọn">
+        <i class="fa-solid fa-expand"></i>
+      </button>
+      <!-- Drag handle dots -->
+      <div class="ap-handle" id="ap-handle" aria-hidden="true" title="Kéo để di chuyển thanh nhạc">
+        <div class="ap-handle-dot"></div>
+        <div class="ap-handle-dot"></div>
+        <div class="ap-handle-dot"></div>
+        <div class="ap-handle-dot"></div>
+        <div class="ap-handle-dot"></div>
+        <div class="ap-handle-dot"></div>
+      </div>
+      <div class="ap-header-title">
+        <i class="fa-solid fa-music"></i> <span>Giai điệu di sản</span>
+      </div>
+    </div>
+
+    <!-- Full view -->
+    <div class="ap-body">
+      <img class="ap-art" id="ap-art" src="" alt="Ảnh di sản" title="Bấm để xem chi tiết di sản" />
+      <div class="ap-info" id="ap-info" title="Bấm để xem chi tiết di sản">
+        <div class="ap-title" id="ap-title">Di sản</div>
+        <div class="ap-sub" id="ap-sub">Đang phát...</div>
+      </div>
+      <div class="ap-wave" id="ap-wave" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="ap-ctrl-grp">
+        <button class="ap-btn" id="ap-btn-rew" title="Tua lại 10s" aria-label="Tua lại 10 giây">
+          <i class="fa-solid fa-rotate-left"></i>
+        </button>
+        <button class="ap-btn ap-btn-play" id="ap-btn-play" aria-label="Phát / Tạm dừng">
+          <i class="fa-solid fa-play" id="ap-icon-play"></i>
+          <i class="fa-solid fa-pause" id="ap-icon-pause" style="display:none"></i>
+        </button>
+        <button class="ap-btn" id="ap-btn-fwd" title="Tua tới 10s" aria-label="Tua tới 10 giây">
+          <i class="fa-solid fa-rotate-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress row -->
+    <div class="ap-progress-row">
+      <div class="ap-times">
+        <span id="ap-time-cur">0:00</span>
+        <span id="ap-time-dur">-0:00</span>
+      </div>
+      <div class="ap-seek-track" id="ap-seek-track" role="slider" aria-label="Tua nhạc">
+        <div class="ap-seek-fill" id="ap-seek-fill"></div>
+        <div class="ap-seek-knob" id="ap-seek-knob"></div>
+      </div>
+    </div>
+
+    <!-- Volume row -->
+    <div class="ap-volume-row">
+      <i class="fa-solid fa-volume-low ap-vol-icon" id="ap-vol-icon"></i>
+      <div class="ap-vol-track" id="ap-vol-track" role="slider" aria-label="Âm lượng">
+        <div class="ap-vol-fill" id="ap-vol-fill" style="width:80%"></div>
+        <div class="ap-vol-knob" id="ap-vol-knob" style="left:80%"></div>
+      </div>
+      <i class="fa-solid fa-volume-high ap-vol-icon"></i>
+    </div>
+
+    <!-- Mini row (shown in ap-mini mode) -->
+    <div class="ap-mini-row" id="ap-mini-row">
+      <button class="ap-mini-play" id="ap-btn-play-mini" aria-label="Phát/Dừng">
+        <i class="fa-solid fa-play" id="ap-icon-play-mini"></i>
+        <i class="fa-solid fa-pause" id="ap-icon-pause-mini" style="display:none"></i>
+      </button>
+      <div class="ap-mini-main">
+        <div class="ap-mini-header">
+          <span class="ap-mini-title" id="ap-mini-title" title="Bấm để mở rộng">Di sản</span>
+          <span class="ap-mini-time" id="ap-mini-time">0:00</span>
+        </div>
+        <div class="ap-mini-seek" id="ap-mini-seek" role="slider" aria-label="Tua nhạc">
+          <div class="ap-mini-fill" id="ap-mini-fill"></div>
+          <div class="ap-mini-knob" id="ap-mini-knob"></div>
+        </div>
+      </div>
+      <button class="ap-mini-close" id="ap-mini-close" aria-label="Đóng trình phát">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+  </div>
   <div class="chat-fab" id="chat-fab" role="button" aria-label="Mở trợ lý AI">
     <i class="fa-solid fa-robot" aria-hidden="true"></i>
     <span class="chat-fab__tooltip">Chat với AI</span>
@@ -5808,11 +6857,121 @@
       }
 
       /* ══════════════════════════════════════════════════════════
-         AUDIO PLAYER
+         AUDIO PLAYER — LIQUID GLASS FLOATING BAR (iOS 27)
          ══════════════════════════════════════════════════════════ */
       const AudioPlayer = (function () {
         let currentAudio = null, currentBtn = null, toastTimer = null;
+        let currentRec = null;
+        let apVolume = 0.8;
+        let apBarMode = 'hidden'; // 'hidden' | 'full' | 'mini'
         const toastEl = el('audio-toast');
+
+        /* ── DOM refs for the floating bar ─────────────────── */
+        const apBar = el('ap-bar');
+        const apArt = el('ap-art');
+        const apTitle = el('ap-title');
+        const apSub = el('ap-sub');
+        const apMiniTitle = el('ap-mini-title');
+        const apMiniSeek = el('ap-mini-seek');
+        const apMiniFill = el('ap-mini-fill');
+        const apMiniKnob = el('ap-mini-knob');
+        const apMiniTime = el('ap-mini-time');
+        const apMiniClose = el('ap-mini-close');
+        const apWave = el('ap-wave');
+        const apSeekTrack = el('ap-seek-track');
+        const apSeekFill = el('ap-seek-fill');
+        const apSeekKnob = el('ap-seek-knob');
+        const apTimeCur = el('ap-time-cur');
+        const apTimeDur = el('ap-time-dur');
+        const apVolTrack = el('ap-vol-track');
+        const apVolFill = el('ap-vol-fill');
+        const apVolKnob = el('ap-vol-knob');
+        const apVolIcon = el('ap-vol-icon');
+        const apBtnPlay = el('ap-btn-play');
+        const apIconPlay = el('ap-icon-play');
+        const apIconPause = el('ap-icon-pause');
+        const apBtnPlayM = el('ap-btn-play-mini');
+        const apIconPlayM = el('ap-icon-play-mini');
+        const apIconPauseM = el('ap-icon-pause-mini');
+        const waveBars = apWave ? apWave.querySelectorAll('span') : [];
+
+        /* ── Web Audio API Visualizer ───────────────────────── */
+        let audioCtx = null, analyser = null, audioSrcNode = null, animFrameId = null;
+
+        function initAudioContext(audioEl) {
+          if (audioCtx || !audioEl) return;
+          try {
+            const AC = window.AudioContext || window.webkitAudioContext;
+            if (!AC) return;
+            audioCtx = new AC();
+            analyser = audioCtx.createAnalyser();
+            analyser.fftSize = 64;
+            analyser.smoothingTimeConstant = 0.8;
+            audioSrcNode = audioCtx.createMediaElementSource(audioEl);
+            audioSrcNode.connect(analyser);
+            analyser.connect(audioCtx.destination);
+          } catch (e) {
+            // Fallback to CSS waveform if cross-origin or restricted
+          }
+        }
+
+        function renderVisualizer() {
+          if (!analyser || !currentAudio || currentAudio.paused) {
+            if (animFrameId) cancelAnimationFrame(animFrameId);
+            animFrameId = null;
+            return;
+          }
+          const bufferLength = analyser.frequencyBinCount;
+          const dataArray = new Uint8Array(bufferLength);
+          analyser.getByteFrequencyData(dataArray);
+
+          if (waveBars && waveBars.length) {
+            const step = Math.max(1, Math.floor(bufferLength / (waveBars.length + 1)));
+            let sumBass = 0;
+            for (let i = 0; i < waveBars.length; i++) {
+              const val = dataArray[i * step + 1] || 0;
+              const h = Math.max(3, Math.min(18, (val / 255) * 18));
+              waveBars[i].style.height = h + 'px';
+              if (i < 2) sumBass += val;
+            }
+            // Liquid pulse effect on glass
+            const bassRatio = sumBass / (2 * 255);
+            if (apBar) {
+              apBar.style.setProperty('--liquid-pulse', (1 + bassRatio * 0.05).toFixed(3));
+            }
+          }
+          animFrameId = requestAnimationFrame(renderVisualizer);
+        }
+
+        function startVisualizer() {
+          if (currentAudio) initAudioContext(currentAudio);
+          if (audioCtx && audioCtx.state === 'suspended') {
+            audioCtx.resume().catch(function () { });
+          }
+          if (analyser && !animFrameId) {
+            animFrameId = requestAnimationFrame(renderVisualizer);
+          }
+        }
+
+        function stopVisualizer() {
+          if (animFrameId) {
+            cancelAnimationFrame(animFrameId);
+            animFrameId = null;
+          }
+          if (waveBars) {
+            waveBars.forEach(function (b) { b.style.height = ''; });
+          }
+          if (apBar) {
+            apBar.style.removeProperty('--liquid-pulse');
+          }
+        }
+
+        /* ── Helpers ────────────────────────────────────────── */
+        function fmt(s) {
+          if (!isFinite(s)) return '0:00';
+          const m = Math.floor(s / 60);
+          return m + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+        }
 
         function showToast(msg, icon) {
           if (!toastEl) return;
@@ -5821,6 +6980,7 @@
           if (toastTimer) clearTimeout(toastTimer);
           toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 3200);
         }
+
         function setBtnState(btn, state) {
           if (!btn) return;
           btn.classList.remove('idle', 'loading', 'playing');
@@ -5828,12 +6988,12 @@
           const icon = btn.querySelector('.audio-btn__icon i');
           const tooltip = btn.querySelector('.audio-btn__tooltip');
           if (state === 'loading') {
-            if (icon) icon.className = 'fa-solid fa-circle-notch';
+            if (icon) icon.className = 'fa-solid fa-circle-notch fa-spin';
             if (tooltip) tooltip.textContent = 'Đang tải...';
             btn.setAttribute('aria-label', 'Đang tải âm thanh');
           } else if (state === 'playing') {
             if (icon) icon.className = 'fa-solid fa-pause';
-            if (tooltip) tooltip.textContent = 'Đang phát...';
+            if (tooltip) tooltip.textContent = 'Tạm dừng';
             btn.setAttribute('aria-label', 'Tạm dừng');
           } else {
             if (icon) icon.className = 'fa-solid fa-play';
@@ -5841,56 +7001,709 @@
             btn.setAttribute('aria-label', 'Nghe giai điệu di sản');
           }
         }
+
+        /* ── Bar show / hide / mode ─────────────────────────── */
+        function showBar(mode) {
+          const prevMode = apBarMode;
+          apBarMode = mode || 'full';
+          apBar.classList.remove('ap-hidden', 'ap-mini');
+
+          if (prevMode !== apBarMode) {
+            apBar.style.left = '';
+            apBar.style.top = '';
+            apBar.style.right = '';
+            apBar.style.bottom = '';
+            apBar.style.transform = '';
+          }
+
+          if (apBarMode === 'mini') {
+            apBar.classList.add('ap-mini');
+            document.body.classList.add('ap-mini-active');
+            _updateMiniUI();
+          } else {
+            document.body.classList.remove('ap-mini-active');
+          }
+          applyMiniStyles();   // ← THÊM DÒNG NÀY
+          _clampBarPos();
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+          FORCE mini mode styles bằng inline style (bypass CSS cache)
+          ═══════════════════════════════════════════════════════════ */
+        function applyMiniStyles() {
+          const isMini = apBarMode === 'mini';
+          // Full controls: ẩn trong mini mode
+          const fullSelectors = ['.ap-wc-btns', '.ap-body', '.ap-progress-row', '.ap-volume-row'];
+          fullSelectors.forEach(function (sel) {
+            const elm = apBar.querySelector(':scope > ' + sel);
+            if (elm) elm.style.display = isMini ? 'none' : '';
+          });
+          // Mini row: hiện trong mini mode
+          const miniRow = apBar.querySelector(':scope > .ap-mini-row');
+          if (miniRow) miniRow.style.display = isMini ? 'flex' : '';
+          // Đảm bảo pointer-events auto cho các nút khi bar visible
+          if (!apBar.classList.contains('ap-hidden')) {
+            apBar.style.pointerEvents = 'auto';
+          } else {
+            apBar.style.pointerEvents = '';
+          }
+        }
+        function hideBar() {
+          apBarMode = 'hidden';
+          apBar.classList.add('ap-hidden');
+          apBar.classList.remove('ap-mini');
+          document.body.classList.remove('ap-mini-active');
+          applyMiniStyles();
+          stopVisualizer();
+        }
+        function toggleMini() {
+          if (apBarMode === 'mini') showBar('full');
+          else showBar('mini');
+        }
+
+        /* ── Update bar artwork + label ─────────────────────── */
+        function updateBarMeta(rec) {
+          if (!rec) return;
+          const folder = rec.imageFolder || rec.id;
+          const defaultSvg = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="%23222"/><circle cx="50" cy="50" r="20" fill="%23b8860b"/><circle cx="50" cy="50" r="6" fill="%23fff"/></svg>';
+          apArt.src = defaultSvg;
+
+          if (typeof loadImages === 'function' && folder) {
+            loadImages(folder, 10, function (valid) {
+              if (valid && valid.length) {
+                apArt.src = valid[0].url;
+              }
+            });
+          }
+
+          const shortName = rec.n.length > 36 ? rec.n.substring(0, 34) + '…' : rec.n;
+          apTitle.textContent = shortName;
+          apTitle.title = rec.n;
+          apMiniTitle.textContent = shortName;
+          apMiniTitle.title = rec.n;
+          apSub.textContent = rec.category || (rec.level === 'UNESCO' ? 'Di sản UNESCO' : 'Di sản Quốc gia');
+        }
+
+        /* ── Playback UI sync ───────────────────────────────── */
+        function syncPlayUI(playing) {
+          apIconPlay.style.display = playing ? 'none' : '';
+          apIconPause.style.display = playing ? '' : 'none';
+          apIconPlayM.style.display = playing ? 'none' : '';
+          apIconPauseM.style.display = playing ? '' : 'none';
+          apWave.classList.toggle('ap-wave-paused', !playing);
+          apArt.classList.toggle('ap-playing', playing);
+          apBar.classList.toggle('ap-playing-glow', playing);
+
+          if (playing) startVisualizer();
+          else stopVisualizer();
+
+          if (currentBtn) setBtnState(currentBtn, playing ? 'playing' : 'idle');
+          if (modalAudioBtn && modalAudioBtn._url && currentAudio && modalAudioBtn._url === currentAudio._url) {
+            setBtnState(modalAudioBtn, playing ? 'playing' : 'idle');
+          }
+        }
+
+        /* ── Progress update ────────────────────────────────── */
+        function updateProgress() {
+          if (!currentAudio) return;
+
+          // ① Đang seek (native) HOẶC user đang kéo → KHÔNG cập nhật UI
+          if (currentAudio.seeking || isSeeking || isSeekingMini) return;
+
+          // ② Có lock seek đang chờ không?
+          if (isSeekLocked()) {
+            const cur = currentAudio.currentTime || 0;
+            // Chỉ mở lock khi currentTime đã "đáp" gần đúng vị trí đích
+            if (Math.abs(cur - seekLockTarget) > 0.5) {
+              // Seek chưa xong — UI giữ nguyên ở vị trí target
+              return;
+            }
+            // Đã đáp → mở lock, rơi xuống update UI bình thường
+            unlockSeek();
+          }
+
+          const cur = currentAudio.currentTime || 0;
+          const dur = currentAudio.duration || 0;
+          const pct = dur ? (cur / dur) * 100 : 0;
+
+          apSeekFill.style.width = pct + '%';
+          apSeekKnob.style.left = pct + '%';
+          apTimeCur.textContent = fmt(cur);
+          apTimeDur.textContent = '-' + fmt(Math.max(0, dur - cur));
+
+          if (apMiniFill) {
+            apMiniFill.style.width = pct + '%';
+            apMiniKnob.style.left = pct + '%';
+            if (apMiniTime) apMiniTime.textContent = fmt(cur);
+          }
+        }
+
+        function _updateMiniUI() {
+          if (currentAudio && apMiniFill) {
+            const cur = currentAudio.currentTime || 0;
+            const dur = currentAudio.duration || 0;
+            const pct = dur ? (cur / dur) * 100 : 0;
+            apMiniFill.style.width = pct + '%';
+            apMiniKnob.style.left = pct + '%';
+            if (apMiniTime) apMiniTime.textContent = fmt(cur);
+          }
+        }
+        /* ── Volume update ──────────────────────────────────── */
+        function applyVolume(v) {
+          apVolume = Math.max(0, Math.min(1, v));
+          if (currentAudio) currentAudio.volume = apVolume;
+          apVolFill.style.width = (apVolume * 100) + '%';
+          apVolKnob.style.left = (apVolume * 100) + '%';
+          if (apVolume === 0) apVolIcon.className = 'fa-solid fa-volume-xmark ap-vol-icon';
+          else if (apVolume < 0.5) apVolIcon.className = 'fa-solid fa-volume-low ap-vol-icon';
+          else apVolIcon.className = 'fa-solid fa-volume-high ap-vol-icon';
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           PROFESSIONAL SLIDER — Triệt tiêu lỗi giật bằng biến dragRatio
+           ═══════════════════════════════════════════════════════════ */
+        let isSeeking = false;
+        let isSeekingMini = false;
+        let dragRatio = -1;              // -1 = "chưa có drag hợp lệ"
+        let dragRatioMini = -1;
+        let pendingSeekListener = null;  // listener "seeked" của lần seek trước
+        let seekClearTimer = null;
+        let pendingSeekListenerMini = null;
+        let seekClearTimerMini = null;
+        /* ═══════════════════════════════════════════════════════════
+           SEEK LOCK — chống nhảy UI khi playing hoặc khi bấm nút ±10s
+           UI chỉ được update từ timeupdate khi currentTime thực sự
+           "đáp" vào vị trí đích (sai số ≤ 0.5s) hoặc lock hết hạn.
+           ═══════════════════════════════════════════════════════════ */
+        let seekLockTarget = null;   // Vị trí đích kỳ vọng sau khi seek
+        let seekLockExpiry = 0;      // Mốc thời gian hết lock (3s)
+
+        function lockSeekTo(target) {
+          seekLockTarget = target;
+          seekLockExpiry = Date.now() + 3000;   // tối đa 3s
+        }
+        function unlockSeek() {
+          seekLockTarget = null;
+          seekLockExpiry = 0;
+        }
+        function isSeekLocked() {
+          if (seekLockTarget === null) return false;
+          if (Date.now() > seekLockExpiry) {
+            seekLockTarget = null;
+            seekLockExpiry = 0;
+            return false;
+          }
+          return true;
+        }
+
+        /* Helper dùng chung: seek có lock — dùng cho nút ±10s,
+           và cho bất kỳ chỗ nào muốn seek an toàn */
+        function doProgrammaticSeek(target) {
+          if (!currentAudio || !isFinite(currentAudio.duration)) return;
+          const dur = currentAudio.duration;
+          target = Math.max(0, Math.min(dur, target));
+          const pct = (target / dur) * 100;
+
+          // Optimistic UI: chốt vị trí đích ngay
+          apSeekFill.style.width = pct + '%';
+          apSeekKnob.style.left = pct + '%';
+          apTimeCur.textContent = fmt(target);
+          apTimeDur.textContent = '-' + fmt(Math.max(0, dur - target));
+          if (apMiniFill) {
+            apMiniFill.style.width = pct + '%';
+            apMiniKnob.style.left = pct + '%';
+            if (apMiniTime) apMiniTime.textContent = fmt(target);
+          }
+
+          lockSeekTo(target);
+          try {
+            currentAudio.currentTime = target;
+          } catch (e) {
+            unlockSeek();
+          }
+        }
+
+        function cancelPendingSeek(targetAudio) {
+          if (pendingSeekListener && targetAudio) {
+            try { targetAudio.removeEventListener('seeked', pendingSeekListener); } catch (e) { }
+          }
+          pendingSeekListener = null;
+          if (seekClearTimer) { clearTimeout(seekClearTimer); seekClearTimer = null; }
+        }
+        function cancelPendingSeekMini(targetAudio) {
+          if (pendingSeekListenerMini && targetAudio) {
+            try { targetAudio.removeEventListener('seeked', pendingSeekListenerMini); } catch (e) { }
+          }
+          pendingSeekListenerMini = null;
+          if (seekClearTimerMini) { clearTimeout(seekClearTimerMini); seekClearTimerMini = null; }
+        }
+        function getClientX(e) {
+          if (e.touches && e.touches[0]) return e.touches[0].clientX;
+          if (e.changedTouches && e.changedTouches[0]) return e.changedTouches[0].clientX;
+          return e.clientX;
+        }
+
+        function bindProSlider(trackEl, opts) {
+          if (!trackEl) return;
+          const onStart = opts.onStart || function () { };
+          const onDrag = opts.onDrag || function () { };
+          const onEnd = opts.onEnd || function () { };
+
+          function handleDown(e) {
+            if (e.button !== undefined && e.button !== 0 && e.type === 'mousedown') return;
+            e.preventDefault();
+            e.stopPropagation();
+
+            trackEl.classList.add('dragging');
+            if (onStart) onStart();
+
+            const rect = trackEl.getBoundingClientRect();
+            function computeRatio(clientX) {
+              return Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+            }
+
+            // Cập nhật giao diện ngay lần đầu
+            onDrag(computeRatio(getClientX(e)));
+
+            function onMove(ev) {
+              if (ev.cancelable) ev.preventDefault();
+              onDrag(computeRatio(getClientX(ev)));
+            }
+            function onUp() {
+              trackEl.classList.remove('dragging');
+              if (onEnd) onEnd();
+              document.removeEventListener('mousemove', onMove);
+              document.removeEventListener('mouseup', onUp);
+              document.removeEventListener('touchmove', onMove);
+              document.removeEventListener('touchend', onUp);
+              document.removeEventListener('touchcancel', onUp);
+            }
+
+            document.addEventListener('mousemove', onMove, { passive: false });
+            document.addEventListener('mouseup', onUp);
+            document.addEventListener('touchmove', onMove, { passive: false });
+            document.addEventListener('touchend', onUp);
+            document.addEventListener('touchcancel', onUp);
+          }
+
+          trackEl.addEventListener('mousedown', handleDown);
+          trackEl.addEventListener('touchstart', handleDown, { passive: false });
+        }
+
+        // --- SEEK TRACK CHÍNH ---
+        // --- SEEK TRACK CHÍNH (v2) ---
+        bindProSlider(apSeekTrack, {
+          onStart: function () {
+            const audio = currentAudio;
+            cancelPendingSeekMini(audio);
+            unlockSeek();
+            isSeekingMini = true;
+            dragRatioMini = -1;
+            if (apMiniFill) apMiniFill.style.transition = 'none';
+          },
+          onDrag: function (ratio) {
+            if (!currentAudio || !isFinite(currentAudio.duration)) return;
+            dragRatio = ratio;              // Chỉ set khi có duration hợp lệ
+            const t = ratio * currentAudio.duration;
+            apSeekFill.style.width = (ratio * 100) + '%';
+            apSeekKnob.style.left = (ratio * 100) + '%';
+            apTimeCur.textContent = fmt(t);
+            apTimeDur.textContent = '-' + fmt(Math.max(0, currentAudio.duration - t));
+          },
+          onEnd: function () {
+            apSeekFill.style.transition = '';
+
+            if (!currentAudio || !isFinite(currentAudio.duration) || dragRatio < 0) {
+              isSeeking = false;
+              dragRatio = -1;
+              unlockSeek();
+              return;
+            }
+
+            const audio = currentAudio;
+            const targetTime = dragRatio * audio.duration;
+            const pct = dragRatio * 100;
+
+            apSeekFill.style.width = pct + '%';
+            apSeekKnob.style.left = pct + '%';
+            apTimeCur.textContent = fmt(targetTime);
+            lockSeekTo(targetTime);
+            apTimeDur.textContent = '-' + fmt(Math.max(0, audio.duration - targetTime));
+
+            // 🔒 Lock vị trí đích — updateProgress sẽ chỉ mở khi currentTime khớp
+            lockSeekTo(targetTime);
+
+            const clearSeeking = function () {
+              audio.removeEventListener('seeked', clearSeeking);
+              if (pendingSeekListener === clearSeeking) pendingSeekListener = null;
+              if (seekClearTimer) { clearTimeout(seekClearTimer); seekClearTimer = null; }
+              isSeeking = false;
+              // Không unlockSeek() ở đây — để updateProgress verify
+            };
+            pendingSeekListener = clearSeeking;
+            audio.addEventListener('seeked', clearSeeking);
+            seekClearTimer = setTimeout(clearSeeking, 800);
+
+            try {
+              audio.currentTime = targetTime;
+            } catch (err) {
+              isSeeking = false;
+              dragRatio = -1;
+              unlockSeek();
+            }
+            dragRatio = -1;
+          }
+        });
+        // --- SEEK TRACK MINI (v2) ---
+        if (apMiniSeek) {
+          bindProSlider(apMiniSeek, {
+            onStart: function () {
+              const audio = currentAudio;
+              cancelPendingSeekMini(audio);
+              isSeekingMini = true;
+              dragRatioMini = -1;
+              if (apMiniFill) apMiniFill.style.transition = 'none';
+            },
+            onDrag: function (ratio) {
+              if (!currentAudio || !isFinite(currentAudio.duration)) return;
+              dragRatioMini = ratio;
+              const t = ratio * currentAudio.duration;
+              apMiniFill.style.width = (ratio * 100) + '%';
+              apMiniKnob.style.left = (ratio * 100) + '%';
+              if (apMiniTime) apMiniTime.textContent = fmt(t);
+            },
+            onEnd: function () {
+              if (apMiniFill) apMiniFill.style.transition = '';
+
+              if (!currentAudio || !isFinite(currentAudio.duration) || dragRatioMini < 0) {
+                isSeekingMini = false;
+                dragRatioMini = -1;
+                return;
+              }
+              const audio = currentAudio;
+              const targetTime = dragRatioMini * audio.duration;
+              const pct = dragRatioMini * 100;
+
+              if (apMiniFill) apMiniFill.style.width = pct + '%';
+              if (apMiniKnob) apMiniKnob.style.left = pct + '%';
+              if (apMiniTime) apMiniTime.textContent = fmt(targetTime);
+
+              const clearSeeking = function () {
+                audio.removeEventListener('seeked', clearSeeking);
+                if (pendingSeekListenerMini === clearSeeking) pendingSeekListenerMini = null;
+                if (seekClearTimerMini) { clearTimeout(seekClearTimerMini); seekClearTimerMini = null; }
+                isSeekingMini = false;
+              };
+              pendingSeekListenerMini = clearSeeking;
+              audio.addEventListener('seeked', clearSeeking);
+              seekClearTimerMini = setTimeout(clearSeeking, 800);
+
+              try {
+                audio.currentTime = targetTime;
+              } catch (err) {
+                isSeekingMini = false;
+              }
+              dragRatioMini = -1;
+            }
+          });
+        }
+
+        // --- VOLUME TRACK ---
+        bindProSlider(apVolTrack, {
+          onDrag: function (ratio) {
+            applyVolume(ratio);
+          }
+        });
+        /* ── Play/Pause buttons ─────────────────────────────── */
+        function togglePlayPause() {
+          if (!currentAudio) return;
+          if (currentAudio.paused) {
+            const p = currentAudio.play();
+            if (p && p.catch) p.catch(function () { });
+          } else {
+            currentAudio.pause();
+          }
+        }
+        /* Dùng pointerup thay click để tránh bị drag guard chặn */
+        function bindPlayButton(btn) {
+          if (!btn) return;
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            togglePlayPause();
+          });
+          btn.addEventListener('pointerup', function (e) {
+            // fallback nếu click bị chặn
+            if (e.button !== 0 && e.pointerType === 'mouse') return;
+          });
+        }
+        bindPlayButton(apBtnPlay);
+        bindPlayButton(apBtnPlayM);
+        /* ── Seek ±10s ──────────────────────────────────────── */
+        el('ap-btn-rew').addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          if (!currentAudio) return;
+          const dur = currentAudio.duration;
+          if (!isFinite(dur) || dur <= 0) return;
+          doProgrammaticSeek(currentAudio.currentTime - 10);
+        });
+        el('ap-btn-fwd').addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          if (!currentAudio) return;
+          const dur = currentAudio.duration;
+          if (!isFinite(dur) || dur <= 0) return;
+          doProgrammaticSeek(currentAudio.currentTime + 10);
+        });
+
+        /* ── macOS window control buttons ───────────────────── */
+        el('ap-btn-close').addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          stop();
+          hideBar();
+        });
+        el('ap-btn-mini').addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleMini();
+        });
+        el('ap-btn-full').addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleMini();
+        });
+        /* ── Click artwork or title to reopen heritage modal ── */
+        function openCurrentHeritageModal() {
+          if (currentRec && typeof openHeritage === 'function') {
+            openHeritage(currentRec);
+          }
+        }
+        apArt.addEventListener('click', openCurrentHeritageModal);
+        apTitle.addEventListener('click', openCurrentHeritageModal);
+        // Mini: title bấm để phóng to (quay lại full)
+        apMiniTitle.addEventListener('click', function (e) {
+          if (apJustDragged) return;
+          if (apBarMode === 'mini') showBar('full');
+        });
+        // Mini: close
+        if (apMiniClose) {
+          apMiniClose.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            stop();
+            hideBar();
+          });
+        }
+
+        /* ── Cursor tracking for liquid refraction sheen ────── */
+        apBar.addEventListener('pointermove', function (e) {
+          const r = apBar.getBoundingClientRect();
+          apBar.style.setProperty('--glass-x', (e.clientX - r.left) + 'px');
+          apBar.style.setProperty('--glass-y', (e.clientY - r.top) + 'px');
+        });
+        apBar.addEventListener('pointerleave', function () {
+          apBar.style.removeProperty('--glass-x');
+          apBar.style.removeProperty('--glass-y');
+        });
+
+        /* ── Drag (PC only) — same pattern as chat window ───── */
+        let apDragging = false, apDragSX, apDragSY, apStartL, apStartT;
+        let apJustDragged = false;
+
+        function _apIsDesktop() { return window.innerWidth > 768; }
+        function _clampBarPos() {
+          if (!_apIsDesktop()) return;
+          const r = apBar.getBoundingClientRect();
+          const maxL = window.innerWidth - apBar.offsetWidth - 8;
+          const maxT = window.innerHeight - apBar.offsetHeight - 8;
+          const curL = parseFloat(apBar.style.left) || r.left;
+          const curT = parseFloat(apBar.style.top) || r.top;
+          if (apBar.style.left) {
+            apBar.style.left = Math.max(8, Math.min(curL, maxL)) + 'px';
+            apBar.style.top = Math.max(8, Math.min(curT, maxT)) + 'px';
+          }
+        }
+
+        function apStartDrag(e) {
+          if (!_apIsDesktop()) return;
+          if (e.target.closest('button, .ap-btn, .ap-seek-track, .ap-vol-track, .ap-wc-btn, .ap-mini-seek, .ap-mini-close, .ap-mini-play, .ap-info, .ap-art, .ap-title, .ap-sub, .ap-mini-main')) return;
+          if (e.button !== 0 && e.type === 'mousedown') return;
+          e.preventDefault();
+          apDragging = true;
+          apJustDragged = false;
+          apBar.classList.add('ap-dragging');
+          const r = apBar.getBoundingClientRect();
+
+          // Convert mọi mode sang left/top tuyệt đối, bỏ transform
+          apBar.style.transform = 'none';
+          apBar.style.left = r.left + 'px';
+          apBar.style.top = r.top + 'px';
+          apBar.style.right = 'auto';
+          apBar.style.bottom = 'auto';
+
+          apDragSX = e.clientX; apDragSY = e.clientY;
+          apStartL = r.left;
+          apStartT = r.top;
+        }
+
+        function apOnDrag(e) {
+          if (!apDragging) return;
+          e.preventDefault();
+          const dx = e.clientX - apDragSX;
+          if (Math.abs(dx) > 5) apJustDragged = true;
+
+          if (apBarMode === 'mini') {
+            // Mini: chỉ kéo ngang
+            const nL = Math.max(8, Math.min(apStartL + dx, window.innerWidth - apBar.offsetWidth - 8));
+            apBar.style.left = nL + 'px';
+          } else {
+            // Full: kéo tự do 2 chiều
+            const dy = e.clientY - apDragSY;
+            const nL = Math.max(8, Math.min(apStartL + dx, window.innerWidth - apBar.offsetWidth - 8));
+            const nT = Math.max(8, Math.min(apStartT + dy, window.innerHeight - apBar.offsetHeight - 8));
+            apBar.style.left = nL + 'px';
+            apBar.style.top = nT + 'px';
+          }
+        }
+
+        function apEndDrag() {
+          if (!apDragging) return;
+          apDragging = false;
+          apBar.classList.remove('ap-dragging');
+          if (apJustDragged) {
+            setTimeout(function () { apJustDragged = false; }, 150);
+          }
+        }
+
+        apBar.addEventListener('mousedown', apStartDrag);
+        document.addEventListener('mousemove', apOnDrag);
+        document.addEventListener('mouseup', apEndDrag);
+
+        // Guard click sau khi drag — CHỈ chặn khi vừa kéo xong
+
+
+        /* ── Keyboard shortcut: Space to play/pause ─────────── */
+        document.addEventListener('keydown', function (e) {
+          if (apBarMode === 'hidden') return;
+          if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+          if (e.code === 'Space') { e.preventDefault(); togglePlayPause(); }
+          if (e.code === 'ArrowLeft') { if (currentAudio) currentAudio.currentTime = Math.max(0, currentAudio.currentTime - 5); }
+          if (e.code === 'ArrowRight') { if (currentAudio) currentAudio.currentTime = Math.min(currentAudio.duration || 0, currentAudio.currentTime + 5); }
+        });
+
+        /* ── stop ───────────────────────────────────────────── */
         function stop() {
+
+          cancelPendingSeek(currentAudio);
+          cancelPendingSeekMini(currentAudio);
+          isSeeking = false;
+          isSeekingMini = false;
+          dragRatio = -1;
+          dragRatioMini = -1;
+          unlockSeek();
+          stopVisualizer();
+
           if (currentAudio) {
             try {
               currentAudio.pause(); currentAudio.currentTime = 0;
-              currentAudio.onplaying = null; currentAudio.onended = null; currentAudio.onerror = null;
+              currentAudio.onplaying = null; currentAudio.onpause = null;
+              currentAudio.onended = null; currentAudio.onerror = null;
+              currentAudio.ontimeupdate = null;
               currentAudio.removeAttribute('src'); currentAudio.load();
             } catch (e) { }
             currentAudio = null;
           }
           if (currentBtn) { setBtnState(currentBtn, 'idle'); currentBtn = null; }
+          if (modalAudioBtn) setBtnState(modalAudioBtn, 'idle');
+          syncPlayUI(false);
+          updateProgress();
+          currentRec = null;
         }
-        function toggle(url, btn) {
-          if (!url || !btn) return;
-          if (btn.classList.contains('loading')) return;
-          if (currentBtn === btn && currentAudio) {
+
+        /* ── isPlayingFor ───────────────────────────────────── */
+        function isPlayingFor(url) {
+          if (!currentAudio || currentAudio.paused || !currentAudio._url) return false;
+          return currentAudio._url === url || currentAudio.src.indexOf(url) !== -1;
+        }
+
+        /* ── toggle ─────────────────────────────────────────── */
+        function toggle(url, btn, rec) {
+          if (!url) return;
+          if (btn && btn.classList.contains('loading')) return;
+
+          // Same audio currently playing/paused → toggle play/pause
+          if (currentAudio && currentAudio._url === url) {
             if (currentAudio.paused) {
-              setBtnState(btn, 'playing');
-              const p = currentAudio.play(); if (p && p.catch) p.catch(function () { setBtnState(btn, 'idle'); });
+              const p = currentAudio.play();
+              if (p && p.catch) p.catch(function () { syncPlayUI(false); });
             } else {
-              currentAudio.pause(); setBtnState(btn, 'idle');
+              currentAudio.pause();
             }
             return;
           }
+
           stop();
-          currentBtn = btn; setBtnState(btn, 'loading');
-          const audio = new Audio(); audio.preload = 'auto'; audio.src = url; currentAudio = audio;
-          audio.onplaying = function () { if (currentAudio !== audio) return; setBtnState(btn, 'playing'); };
+          currentBtn = btn;
+          currentRec = rec || currentHeritage || null;
+          if (btn) setBtnState(btn, 'loading');
+
+          // Show bar immediately
+          updateBarMeta(currentRec);
+          applyVolume(apVolume);
+          showBar(apBarMode === 'mini' ? 'mini' : 'full');
+
+          const audio = new Audio();
+          audio.preload = 'auto';
+          audio.volume = apVolume;
+          audio._url = url;
+          audio.src = url;
+          currentAudio = audio;
+
+          audio.ontimeupdate = updateProgress;
+          audio.onloadedmetadata = updateProgress;
+
+          audio.onplaying = function () {
+            if (currentAudio !== audio) return;
+            syncPlayUI(true);
+          };
+          audio.onpause = function () {
+            if (currentAudio !== audio) return;
+            syncPlayUI(false);
+          };
           audio.onended = function () {
             if (currentAudio !== audio) return;
-            setBtnState(btn, 'idle');
+            syncPlayUI(false);
             try { audio.currentTime = 0; } catch (e) { }
+            updateProgress();
           };
           audio.onerror = function () {
             if (currentAudio !== audio) return;
             stop();
+            hideBar();
             showToast('Chưa có bản ghi âm cho di sản này', 'fa-music');
           };
+
           const p = audio.play();
           if (p && p.catch) {
             p.catch(function (err) {
               if (currentAudio !== audio) return;
-              if (err && err.name === 'NotSupportedError') { stop(); showToast('Chưa có bản ghi âm cho di sản này', 'fa-music'); }
+              if (err && err.name === 'NotSupportedError') {
+                stop(); hideBar();
+                showToast('Chưa có bản ghi âm cho di sản này', 'fa-music');
+              }
             });
           }
         }
-        return { toggle, stop, setBtnState };
+
+        applyVolume(apVolume);
+
+        return { toggle, stop, setBtnState, isPlayingFor, showBar, hideBar, toggleMini };
       })();
 
       modalAudioBtn.addEventListener('click', function () {
-        if (modalAudioBtn._url) AudioPlayer.toggle(modalAudioBtn._url, modalAudioBtn);
+        if (modalAudioBtn._url) AudioPlayer.toggle(modalAudioBtn._url, modalAudioBtn, modalAudioBtn._rec || currentHeritage);
       });
 
       /* ══════════════════════════════════════════════════════════
@@ -5898,7 +7711,6 @@
          ══════════════════════════════════════════════════════════ */
       function openHeritage(rec) {
         if (!rec) return;
-        AudioPlayer.stop();
         currentHeritage = rec;
 
         el('modal-name').textContent = rec.n;
@@ -6013,10 +7825,16 @@
         if (audioUrl) {
           modalAudioBtn.style.display = 'inline-flex';
           modalAudioBtn._url = audioUrl;
-          AudioPlayer.setBtnState(modalAudioBtn, 'idle');
+          modalAudioBtn._rec = rec;
+          if (AudioPlayer.isPlayingFor(audioUrl)) {
+            AudioPlayer.setBtnState(modalAudioBtn, 'playing');
+          } else {
+            AudioPlayer.setBtnState(modalAudioBtn, 'idle');
+          }
         } else {
           modalAudioBtn.style.display = 'none';
           modalAudioBtn._url = null;
+          modalAudioBtn._rec = null;
         }
 
         heritageModal.classList.add('open');
@@ -6026,8 +7844,8 @@
       }
 
       function closeHeritage() {
-        AudioPlayer.stop();
         modalAudioBtn._url = null;
+        modalAudioBtn._rec = null;
         currentHeritage = null;
         heritageModal.classList.remove('open');
         heritageModal.setAttribute('aria-hidden', 'true');
@@ -6488,9 +8306,9 @@
       function removeTyping() { const t = document.getElementById('chat-typing'); if (t) t.remove(); }
       function scrollToBottom() { chatBody.scrollTop = chatBody.scrollHeight; }
 
-/* ═══════════════════════════════════════════════════════════
-   ANTI-SPAM: COOLDOWN 4 GIÂY SAU MỖI LẦN GỬI
-   ═══════════════════════════════════════════════════════════ */
+      /* ═══════════════════════════════════════════════════════════
+         ANTI-SPAM: COOLDOWN 4 GIÂY SAU MỖI LẦN GỬI
+         ═══════════════════════════════════════════════════════════ */
       const SEND_COOLDOWN_MS = 4000;   // 4 giây (nằm trong khoảng 3-5s)
       let lastSendAt = 0;
       let cooldownTimer = null;
