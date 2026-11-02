@@ -39,7 +39,7 @@
         /* ── 03 ─ Tiếng nói, chữ viết ─ Chữ Nôm Tày (Bằng Thành) ── */
         {
             id: 'ds03', n: 'Chữ Nôm của người Tày',
-            locations: ['Xã Bằng Thành'], year: 2014, level: 'Quốc gia', category: 'Tiếng nói, chữ viết',
+            locations: ['Bằng Thành'], year: 2014, level: 'Quốc gia', category: 'Tiếng nói, chữ viết',
             decision: '2684/QĐ-BVHTTDL ngày 25/8/2014', originalCategory: 'Tiếng nói, chữ viết', sourceOrder: 3,
             imageFolder: 'chunomtay',
             description: 'Văn hóa của người Tày được thể hiện rõ qua các ký tự, ngôn ngữ, trang phục, chữ Nôm Tày. Chữ Nôm Tày được xây dựng trên cơ sở chữ Hán (chủ yếu dạng phồn thể) gồm toàn bộ các nét, các bộ thủ và các chữ Hán nguyên bản, sử dụng âm Hán – Việt, thuộc thể loại chữ tượng hình. Trong cách viết, Nôm Tày tuân thủ trình tự viết chữ Hán là từ trái sang phải, từ trên xuống dưới theo hàng dọc, vào trước đóng sau.\n\nNhờ có chữ viết nên đến nay người Tày vẫn còn lưu giữ được nhiều thông tin về nguồn gốc tổ tiên, gia đình, dòng họ, tín ngưỡng, tôn giáo, tập quán... Mỗi cuốn sách đều hàm chứa nét văn hóa độc đáo của người Tày. Các sách văn học dân gian (như truyện thơ Lương Nguyên, Phạm Công – Cúc Hoa, Tần Chu), Sléc truyện thơ Tần Chu (sách truyện thơ Tần Chu) và sách cúng, sách tín ngưỡng của người Tày (như Sléc Tuốn – cúng đầy tháng, Sléc Chải, mo – cầu yêu giải hạn, Sléc Quét lườn – cúng vào nhà mới).\n\nVới những giá trị đặc sắc đó, Chữ Nôm của người Tày ở xã Bộc Bố – Pác Nặm – Bắc Kạn (nay là xã Bằng Thành – tỉnh Thái Nguyên) được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 2684/QĐ-BVHTTDL ngày 25/8/2014 của Bộ trưởng Bộ Văn hóa Thể thao và Du lịch.',
@@ -63,11 +63,12 @@
         /* ── 05 ─ Nghệ thuật trình diễn ─ Múa Tắc Xình ─────────── */
         {
             id: 'ds05', n: 'Múa Tắc Xình của người Sán Chay',
-            locations: ['Xã Phú Lương', 'Xã Yên Trạch', 'Xã Hợp Thành'], year: 2014, level: 'Quốc gia',
+            locations: ['Phú Lương', 'Yên Trạch', 'Hợp Thành'], year: 2014, level: 'Quốc gia',
             category: 'Nghệ thuật trình diễn dân gian',
             decision: '2684/QĐ-BVHTTDL ngày 25/8/2014', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 5,
             imageFolder: 'muatacxinh',
             description: 'Múa Tắc Xình luôn song hành cùng với tiến trình hình thành và phát triển cộng đồng người Sán Chay ở Việt Nam, tập trung tại các xã: Phú Lương, Yên Trạch, Hợp Thành – tỉnh Thái Nguyên. Đây là nghệ thuật trình diễn dân gian mang tính tâm linh quan trọng trong lễ hội Cầu mùa của người Sán Chay để tạ ơn trời đất, thần linh đã cho mưa gió thuận hòa, mùa màng tốt tươi, bản làng no ấm, lúa ngô được mùa và cầu khấn sự che chở của thần linh cho mùa vụ tiếp theo.\n\nMúa Tắc Xình có 09 động tác mô phỏng đời sống của người Sán Chay gồm: thăm và dọn đường, bắt quyết, mài dao, đánh dao, phát nương, tra mổ, chăm sóc lúa, thu hoạch mùa màng, mừng mùa và trả lễ cho thần linh. Động tác múa và âm nhạc cho múa đơn giản, dễ thực hành, tuy nhiên những người tham gia Tắc Xình phải là nam giới với chủ lễ là thầy cúng hoặc người múa có kinh nghiệm và kỹ thuật cao.\n\nMúa Tắc Xình là điệu múa nghi lễ, vừa tái hiện các hoạt động lao động sản xuất của người Sán Chay vừa thể hiện đời sống tâm linh của người dân làm nông nghiệp, phụ thuộc hoàn toàn vào các yếu tố tự nhiên. Múa Tắc Xình cũng phản ánh cấu trúc xã hội, gia đình phụ hệ của người Sán Chay, với việc chỉ có nam giới được thực hành nghi lễ.\n\nVới những giá trị đặc sắc đó, Múa Tắc Xình của người Sán Chay được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 2684/QĐ-BVHTTDL ngày 25/8/2014 của Bộ trưởng Bộ Văn hóa Thể thao và Du lịch.',
+            imageCaption: 'Hình ảnh đang cập nhật',
             imageSources: [
                 'Múa tra mố. Ảnh: Theo Hồ sơ di sản'
             ],
@@ -78,7 +79,7 @@
         /* ── 06 ─ Nghệ thuật trình diễn ─ Lượn Sương ──────────── */
         {
             id: 'ds06', n: 'Lượn Slương của người Tày',
-            locations: ['Xã Yên Bình'], year: 2014, level: 'Quốc gia',
+            locations: ['Yên Bình'], year: 2014, level: 'Quốc gia',
             category: 'Nghệ thuật trình diễn dân gian',
             decision: '2684/QĐ-BVHTTDL ngày 25/8/2014', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 6,
             imageFolder: 'luonsuong',
@@ -91,7 +92,7 @@
         /* ── 07 ─ Nghệ thuật trình diễn ─ Rối cạn ──────────────── */
         {
             id: 'ds07', n: 'Rối cạn của người Tày ở Thẩm Rộc và Ru Nghệ',
-            locations: ['Xã Định Hóa', 'Xã Bình Yên'], year: 2015, level: 'Quốc gia',
+            locations: ['Định Hóa', 'Bình Yên'], year: 2015, level: 'Quốc gia',
             category: 'Nghệ thuật trình diễn dân gian',
             decision: '1877/QĐ-BVHTTDL ngày 08/06/2015', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 7,
             imageFolder: 'roican',
@@ -108,7 +109,7 @@
         /* ── 08 ─ Nghệ thuật trình diễn ─ Múa khèn Mông ─────────── */
         {
             id: 'ds08', n: 'Nghệ thuật Múa khèn của người Mông',
-            locations: ['Xã Văn Lang'], year: 2015, level: 'Quốc gia',
+            locations: ['Văn Lang'], year: 2015, level: 'Quốc gia',
             category: 'Nghệ thuật trình diễn dân gian',
             decision: '1877/QĐ-BVHTTDL ngày 08/06/2015', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 8,
             imageFolder: 'muakhenmong',
@@ -122,7 +123,7 @@
         {
             id: 'ds09',
             n: 'Hát Soọng cô của người Sán Dìu',
-            locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng'],
+            locations: ['Đồng Hỷ', 'Quang Sơn', 'Trại Cau', 'Nam Hòa', 'Văn Hán', 'Văn Lăng'],
             year: 2015, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian',
             decision: '3465/QĐ-BVHTTDL ngày 13/10/2015', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 9,
             imageFolder: 'soongco',
@@ -135,7 +136,7 @@
         {
             id: 'ds10',
             n: 'Hát Sấng Cọ (Hát ví Lưu Tam) của người Sán Chay',
-            locations: ['Xã Phú Lương', 'Xã Yên Trạch', 'Xã Hợp Thành'],
+            locations: ['Phú Lương', 'Yên Trạch', 'Hợp Thành'],
             year: 2016, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian',
             decision: '246/QĐ-BVHTTDL ngày 19/01/2016', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 10,
             imageFolder: 'sangco',
@@ -148,7 +149,7 @@
         {
             id: 'ds11',
             n: 'Nghệ thuật Khèn của người Mông',
-            locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng', 'Xã Phú Lương', 'Xã Yên Trạch', 'Xã Hợp Thành'],
+            locations: ['Đồng Hỷ', 'Quang Sơn', 'Trại Cau', 'Nam Hòa', 'Văn Hán', 'Văn Lăng', 'Phú Lương', 'Yên Trạch', 'Hợp Thành'],
             year: 2017, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian',
             decision: '1852/QĐ-BVHTTDL ngày 08/05/2017', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 11,
             imageFolder: 'khenmong',
@@ -161,7 +162,7 @@
         {
             id: 'ds12',
             n: 'Lượn Cọi của người Tày',
-            locations: ['Xã Định Hóa', 'Xã Bình Yên', 'Xã Trung Hội', 'Xã Phượng Tiến', 'Xã Phú Đình', 'Xã Bình Thành', 'Xã Kim Phượng', 'Xã Lam Vỹ'],
+            locations: ['Định Hóa', 'Bình Yên', 'Trung Hội', 'Phượng Tiến', 'Phú Đình', 'Bình Thành', 'Kim Phượng', 'Lam Vỹ'],
             year: 2018, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian',
             decision: '266/QĐ-BVHTTDL Ngày 30/01/2018', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 12,
             imageFolder: 'luoncoi_dinhhoa',
@@ -172,7 +173,7 @@
 
         /* ── 13 ─ Nghệ thuật trình diễn ─ Pà Dung ──────────────── */
         {
-            id: 'ds13', n: 'Pả Dung của người Dao', locations: ['Xã Định Hóa', 'Xã Phú Lương'], year: 2018, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '4069/QĐ-BVHTTDL Ngày 30/10/2018', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 13, imageFolder: 'padung_dinhhoa',
+            id: 'ds13', n: 'Pả Dung của người Dao', locations: ['Định Hóa', 'Phú Lương'], year: 2018, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '4069/QĐ-BVHTTDL Ngày 30/10/2018', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 13, imageFolder: 'padung_dinhhoa',
             description: 'Pả Dung (có nghĩa là ca hát) của người Dao ở xã Phúc Chu - Định Hóa và xã Yên Ninh - Phú Lương, tỉnh Thái Nguyên là hình thức sinh hoạt văn nghệ phổ biến, có thể hát vào bất cứ thời gian nào, lời ca chủ yếu hình thành và tồn tại dưới dạng cấu trúc thơ, thể thơ thất ngôn. Trong Pà Dung, một bài hát thường gồm 4 câu, mỗi câu 7 chữ; hai câu hợp lại thành một ý, hai ý trọn vẹn là một bài, khi hát có thể nhấn nhá, dùng từ đệm để kéo dài câu hát. Giai điệu cơ bản giống nhau, nhưng với mỗi làn điệu khác nhau lại được diễn xuất với giọng điệu, âm hưởng khác nhau để trở nên mượt mà, mềm mại, êm ái, tha thiết hay khoẻ khoắn, hùng tráng… Nội dung của lời hát rất phong phú và hấp dẫn, từ những hiện tượng tự nhiên: mây, mưa, trăng, gió, cỏ cây, núi đồi đến các sự kiện lịch sử, xã hội, câu đố, lời chào… nói lên tâm trạng và nguyện vọng của con người. Pà Dung truyền khẩu tự nhiên trong cộng đồng và được ghi chép lại trong các sách nghi lễ.\n\nDo những mục đích và hoàn cảnh khác nhau, Pà Dung được chia thành nhiều thể loại: hát trong sinh hoạt (hát ru, hát giao duyên, hát đối đáp nam nữ, hát than...); hát trong nghi lễ (hát trong lễ cấp sắc, tết nhảy, lễ cưới, đám tang, cúng đầy tháng...).\n\nPà Dung trong sinh hoạt hàng ngày: chủ yếu dựa vào tài "ứng tác" của người hát, tùy từng hoàn cảnh, đối tượng khác nhau mà một chủ đề hát có những câu từ, lời ca khác nhau. Không gian diễn xướng phong phú khi hát, trong các ngày hội xuân, lúc đi chợ, lên nương...thường vào lúc nông nhàn, khi xuân sang, Tết đến. Họ hát theo từng nhóm, giữa hai người với nhau hoặc tự hát, hát dọc đường đi, con trai hát theo về đến nhà con gái. Câu hát trao gửi yêu thương hay những kinh nghiệm về cuộc sống, đề cao tinh thần lao động, đạo đức, lẽ sống, phép ứng xử, ca ngợi thiên nhiên, tình yêu đôi lứa..., thể hiện chất trữ tình đằm thắm, mượt mà, nét tươi sáng và giản dị của tâm hồn người Dao. Lối hát trong sinh hoạt được thể hiện mềm mại, bay bổng và dịu ngọt; những câu hát được gửi gắm cả tâm tình của người hát.\n\nPà Dung trong các nghi lễ: người Dao có những bài hát phải học thuộc để thực hiện trong các nghi lễ cùng với thanh âm của tiếng chuông. Những câu hát, giai điệu của hát tín ngưỡng theo quy tắc, chuẩn mực rõ ràng, nội dung giảng giải về nguồn gốc tổ tiên dòng họ như: kể về sự tích Bàn Vương, quá trình thiên di gian nan, vất vả của người Dao cũng như tinh thần đấu tranh bất khuất của họ trong việc chinh phục thiên nhiên, chống ngoại xâm, khuyên răn đạo lý…phù hợp với từng hoàn cảnh cụ thể. Hát trong nghi lễ được coi là một nhịp cầu gắn kết thế giới con người với thế giới thần linh. Tại nhà một số thầy cúng còn lưu giữ những cuốn sách ghi chép các bài hát được truyền lại: trong lễ cấp sắc, nghi lễ đám cưới, hát đố, hát kể chuyện và một số bài hát đối đáp khác. Các thầy cúng là những người trực tiếp tham gia vào quá trình hành lễ, hát cúng. Lời hát trang nghiêm, mục đích chính là gửi lời cầu nguyện của con cháu tới tổ tiên và các vị thánh thần đến chứng kiến buổi lễ.\n\nTrong lễ Cấp sắc hoặc nghi lễ Tết nhảy, người Dao hát theo sách "Phàm chiệp lụa tận", tức "Ba mươi sáu khúc ca", mỗi khúc là những câu thơ có vần điệu với những nội dung khác nhau. Khách đến xem hát chúc mừng gia đình làm lễ cho con cháu và cho người thụ lễ. Khi đêm xuống, những người đến xem lễ hình thành cuộc hát đối đáp, số lượng người không hạn chế. Nội dung các bài hát rất đa dạng, tùy chủ đề, thường hát từ khoảng nửa đêm đến trưa hôm sau mới kết thúc, các bài hát như Mặt trời mọc, Hát về Bàn vương (Bàn Vương xướng), Thân Nông xướng, về âm dương…\n\nPà Dung trong đám cưới được hát theo trình tự, do ông mối và đại diện họ nhà trai hát với đại diện họ nhà gái. Bắt đầu hát từ các cửa ải mà nhà gái tạo ra để thử thách nhà trai, trước khi vào nhà cô dâu, khi trình lễ vật cho nhà gái, lúc làm lễ bàn mệnh cho cô dâu, lễ hợp duyên, lễ bái tổ, khi đưa cô dâu về nhà chồng và làm lễ tơ hồng. Người Dao dùng câu hát để mời nhau uống rượu, ăn cỗ, chúc nhau những lời tốt lành trong mâm cơm gia đình với những người khách đến mừng đám cưới, không gian có thể ở nhà trai hoặc nhà gái. Lời hát mừng nhà mới gồm những ca từ vui tươi, đằm thắm chúc mừng gia chủ giỏi giang, biết làm ăn; chúc cho gia đình, họ hàng, làng bản mọi người đều mạnh khỏe, yên vui và làm ăn phát đạt.\n\nHiện nay, bên cạnh các bài Pà Dung truyền thống có thêm sáng tác lời mới dựa trên các làn điệu truyền thống. Pà Dung có sức sống mãnh liệt, không thể tách rời trong quá trình hình thành và phát triển và phản ánh hiện thực đời sống xã hội của cộng đồng người Dao trong các giai đoạn lịch sử. Pà Dung được sáng tạo và có sức lan tỏa sâu rộng, tạo thành một loại hình sinh hoạt văn hóa dân gian đặc sắc, riêng có của người Dao.\n\nThông qua các làn điệu Pà Dung, người Dao gửi gắm các cung bậc tình cảm của mình, là cầu nối không thể thiếu trong mọi cuộc giao duyên. Lời ca Pà Dung là sự kết tinh những mơ ước tốt đẹp của người Dao về mùa vụ, thời tiết, đồng thời, ca ngợi vẻ đẹp của quê hương, làng bản, con người, tình yêu đôi lứa, răn dạy cách sống, lối sống… góp phần cố kết, san sẻ tâm tình, yêu thương trong cộng đồng.',
             imageCaption: 'Hát Pà Dung của đồng bào dân tộc Dao thêm phong phú (Nguồn: Báo Thái Nguyên).'
         },
@@ -181,7 +182,7 @@
         {
             id: 'ds14',
             n: 'Lượn Cọi của người Tày',
-            locations: ['Xã Bằng Thành'],
+            locations: ['Bằng Thành'],
             year: 2019, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian',
             decision: '446/QĐ-BVHTTDL ngày 29/01/2019', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 14,
             imageFolder: 'luoncoi_bangthanh',
@@ -194,7 +195,7 @@
         {
             id: 'ds15',
             n: 'Hát Pả Dung của người Dao',
-            locations: ['Xã Chợ Đồn', 'Xã Ngân Sơn', 'Xã Bằng Thành', 'Xã Phủ Thông', 'Phường Bắc Kạn'],
+            locations: ['Chợ Đồn', 'Ngân Sơn', 'Bằng Thành', 'Phủ Thông', 'Bắc Kạn'],
             year: 2020, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian',
             decision: '174/QĐ-BVHTTDL ngày 14/01/2020', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 15,
             imageFolder: 'padung',
@@ -208,7 +209,11 @@
         },
 
         /* ── 16 ─ Nghệ thuật trình diễn ─ Hát Sli Nùng ─────────── */
-        { id: 'ds16', n: 'Hát Sli của người Nùng', locations: ['Xã Xuân Dương'], year: 2021, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '830/QĐ-BVHTTDL ngày 03/9/2021', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 16, imageFolder: 'slinung' },
+        {
+            id: 'ds16', n: 'Hát Sli của người Nùng', locations: ['Xuân Dương'], year: 2021, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '830/QĐ-BVHTTDL ngày 03/9/2021', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 16, imageFolder: 'slinung',
+            description: 'Thông tin đang cập nhật...',
+            imageCaption: 'Hình ảnh đang cập nhật'
+        },
 
         /* ── 17 ─ Nghệ thuật trình diễn ─ Múa bát ──────────────── */
         {
@@ -226,21 +231,30 @@
 
         /* ── 18 ─ Nghệ thuật trình diễn ─ Hát ru Tày ───────────── */
         {
-            id: 'ds18', n: 'Hát ru của người Tày', locations: ['Xã Bằng Thành'], year: 2023, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '1400/QĐ-BVHTTDL ngày 01/6/2023', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 18, imageFolder: 'hatru_tay',
-            imageCaption: 'nguồn âm thanh https://danviet.vn/ ',
+            id: 'ds18', n: 'Hát ru của người Tày', locations: ['Bằng Thành'], year: 2023, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '1400/QĐ-BVHTTDL ngày 01/6/2023', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 18, imageFolder: 'hatru_tay',
+            description: 'Thông tin đang cập nhật...',
+            imageCaption: 'nguồn âm thanh https://danviet.vn/ '
         },
 
         /* ── 19 ─ Nghệ thuật trình diễn ─ Hát Ví Tày ───────────── */
-        { id: 'ds19', n: 'Hát Ví của người Tày', locations: ['Xã Định Hóa', 'Xã Bình Yên', 'Xã Trung Hội', 'Xã Phượng Tiến', 'Xã Phú Đình', 'Xã Bình Thành', 'Xã Kim Phượng', 'Xã Lam Vỹ'], year: 2024, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '388/QĐ-BVHTTDL ngày 21/02/2024', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 19, imageFolder: 'hatvi_tay' },
+        {
+            id: 'ds19', n: 'Hát Ví của người Tày', locations: ['Định Hóa', 'Bình Yên', 'Trung Hội', 'Phượng Tiến', 'Phú Đình', 'Bình Thành', 'Kim Phượng', 'Lam Vỹ'], year: 2024, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '388/QĐ-BVHTTDL ngày 21/02/2024', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 19, imageFolder: 'hatvi_tay',
+            description: 'Thông tin đang cập nhật...',
+            imageCaption: 'Hình ảnh đang cập nhật'
+        },
 
         /* ── 20 ─ Nghệ thuật trình diễn ─ Hát Sli Nùng Phàn SLình */
-        { id: 'ds20', n: 'Hát Sli của người Nùng Phàn SLình', locations: ['Xã Văn Hán', 'Xã Văn Lăng', 'Xã Đồng Hỷ', 'Xã Quang Sơn'], year: 2025, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '2220/QĐ-BVHTTDL ngày 27/6/2025', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 20, imageFolder: 'slinung_phan_slinh' },
+        {
+            id: 'ds20', n: 'Hát Sli của người Nùng Phàn SLình', locations: ['Văn Hán', 'Văn Lăng', 'Đồng Hỷ', 'Quang Sơn'], year: 2025, level: 'Quốc gia', category: 'Nghệ thuật trình diễn dân gian', decision: '2220/QĐ-BVHTTDL ngày 27/6/2025', originalCategory: 'Nghệ thuật trình diễn dân gian', sourceOrder: 20, imageFolder: 'slinung_phan_slinh',
+            description: 'Thông tin đang cập nhật...',
+            imageCaption: 'Hình ảnh đang cập nhật'
+        },
 
         /* ── 21 ─ Tập quán & tín ngưỡng ─ Cấp sắc Dao (Thanh Thịnh) */
         {
             id: 'ds21',
             n: 'Nghi lễ Cấp sắc của người Dao',
-            locations: ['Xã Thanh Thịnh'], year: 2012, level: 'Quốc gia',
+            locations: ['Thanh Thịnh'], year: 2012, level: 'Quốc gia',
             category: 'Tập quán xã hội và tín ngưỡng',
             decision: '5079/QĐ-BVHTTDL ngày 27/12/2012', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 21,
             imageFolder: 'capsacdao_thanhthinh',
@@ -268,14 +282,14 @@
 
         /* ── 23 ─ Tập quán & tín ngưỡng ─ Cấp sắc Tày ──────────── */
         {
-            id: 'ds23', n: 'Lễ Cấp sắc của người Tày', locations: ['Xã Na Rì'], year: 2015, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '1877/QĐ-BVHTTDL ngày 06/8/2015', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 23, imageFolder: 'capsactay',
+            id: 'ds23', n: 'Lễ Cấp sắc của người Tày', locations: ['Na Rì'], year: 2015, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '1877/QĐ-BVHTTDL ngày 06/8/2015', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 23, imageFolder: 'capsactay',
             description: 'Lễ Cấp sắc của người Tày ở thị trấn Yên Lạc - Na Rì - Bắc Kạn (thuộc xã Na Rì, tỉnh Thái Nguyên) là nghi lễ dành cho những người đàn ông trong cộng đồng dân tộc Tày, nhằm công nhận họ trở thành thành viên chính thức trong các hoạt động tín ngưỡng và xã hội, là một nghi lễ quan trọng trong văn hóa của họ, thể hiện sự trưởng thành và khẳng định bản sắc dân tộc.\n\nLễ Cấp sắc thường được tổ chức cho nam giới khi họ đến tuổi trưởng thành, đánh dấu sự chuyển giao từ tuổi thơ sang tuổi trưởng thành. Nghi lễ này không chỉ mang ý nghĩa tâm linh mà còn thể hiện sự kết nối với tổ tiên và các giá trị văn hóa truyền thống của người Tày.\n\nThời gian tổ chức: Lễ Cấp sắc thường được tổ chức vào các dịp lễ hội lớn hoặc vào mùa xuân vì đây là thời điểm thời tiết thuận lợi và cộng đồng có thể tập trung đông đủ.\n\nTrước lễ, gia đình sẽ chuẩn bị các vật phẩm cần thiết như trâu, gà, rượu, và các món ăn truyền thống. Những vật phẩm này không chỉ để cúng tế mà còn để đãi khách trong lễ hội.\n\nLễ Cấp sắc bao gồm nhiều nghi thức như cúng tổ tiên, cầu mong sức khỏe và may mắn cho người được cấp sắc. Trong lễ, người ta thường sử dụng các bài hát Then để cầu nguyện và tạo không khí linh thiêng.\n\nNgười tham gia lễ thường mặc trang phục truyền thống của dân tộc Tày, với các họa tiết và màu sắc đặc trưng, thể hiện bản sắc văn hóa riêng biệt.\n\nLễ Cấp sắc không chỉ là một nghi lễ thể hiện tín ngưỡng của người Tày mà còn là dịp để cộng đồng gắn kết, thể hiện tình đoàn kết và sự tôn trọng đối với văn hóa dân tộc. Lễ Cấp sắc là một phần không thể thiếu trong đời sống văn hóa của người Tày, giúp gìn giữ và phát huy các giá trị văn hóa truyền thống trong cộng đồng.',
             imageCaption: 'Lễ Cấp sắc Pụt Tày (Nguồn: Di sản văn hóa phi vật thể Bắc Kạn - Tập 1)'
         },
 
         /* ── 24 ─ Tập quán & tín ngưỡng ─ Then Tày ─────────────── */
         {
-            id: 'ds24', n: 'Nghi lễ Then của người Tày', locations: ['Xã Định Hóa', 'Xã Bình Yên', 'Xã Trung Hội', 'Xã Phượng Tiến', 'Xã Phú Đình', 'Xã Bình Thành', 'Xã Kim Phượng', 'Xã Lam Vỹ'], year: 2015, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '3465/QĐ-BVHTTDL ngày 12/10/2015', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 24, imageFolder: 'thentay',
+            id: 'ds24', n: 'Nghi lễ Then của người Tày', locations: ['Định Hóa', 'Bình Yên', 'Trung Hội', 'Phượng Tiến', 'Phú Đình', 'Bình Thành', 'Kim Phượng', 'Lam Vỹ'], year: 2015, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '3465/QĐ-BVHTTDL ngày 12/10/2015', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 24, imageFolder: 'thentay',
             description: 'Nghi lễ Then của người Tày ở các xã: Định Hóa, Bình Yên, Trung Hội, Phượng Tiến, Phú Đình, Bình Thành, Kim Phượng, Lam Vỹ, Thái Nguyên là một di sản văn hóa phi vật thể quan trọng, thể hiện bản sắc văn hóa và tín ngưỡng của cộng đồng người Tày.\n\nNghi lễ Then không chỉ là một hình thức nghệ thuật mà còn là một phần không thể thiếu trong đời sống tinh thần của người Tày. Nghi lễ Then thường bao gồm các bài hát, điệu múa và nghi thức cầu nguyện, phản ánh tâm tư, nguyện vọng của con người và mối quan hệ với thiên nhiên. Nghi lễ này không chỉ mang tính chất giải trí mà còn có vai trò quan trọng trong các nghi thức cầu an, chữa bệnh và các lễ hội truyền thống.\n\nNghi lễ Then chứa đựng trong bản thân nó nhiều yếu tố của tôn giáo nguyên thủy, được chia làm nhiều loại: Then Cầu an, tổ chức vào đầu năm để cầu sự yên bình may mắn cho một năm mới; Then Chữa bệnh, tổ chức khi nhà có người ốm; Then Cầu mùa là một nghi lễ nhằm cầu xin các vị thần thiên nhiên cho mưa thuận gió hòa, cho mùa màng tươi tốt, ngoài ra còn Then chúc tụng, Then cấp sắc.',
             imageCaption: 'Nghi lễ Then ở Định Hóa (Nguồn: YouTube Văn hóa Dân tộc)'
         },
@@ -284,7 +298,7 @@
         {
             id: 'ds25',
             n: 'Nghi lễ Hét khoăn của người Nùng',
-            locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng'],
+            locations: ['Đồng Hỷ', 'Quang Sơn', 'Trại Cau', 'Nam Hòa', 'Văn Hán', 'Văn Lăng'],
             year: 2015, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng',
             decision: '3465/QĐ-BVHTTDL ngày 13/10/2015', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 25,
             imageFolder: 'hetkhoan_nung',
@@ -297,7 +311,7 @@
         {
             id: 'ds26',
             n: 'Lễ cầu năm mới, cầu mùa của người Dao (Tịu siếng thun boaù liu)',
-            locations: ['Xã Xuân Dương'],
+            locations: ['Xuân Dương'],
             year: 2016, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng',
             decision: '246/QĐ-BVHTTDL ngày 19/01/2016', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 26,
             imageFolder: 'caunammoi_dao',
@@ -310,7 +324,7 @@
         {
             id: 'ds27',
             n: 'Nghi lễ Tết nhảy (Nhảng chầm đao) của người Dao',
-            locations: ['Xã Đại Từ', 'Xã Đức Lương', 'Xã Phú Thịnh', 'Xã La Bằng', 'Xã Phú Lạc', 'Xã An Khánh', 'Xã Quân Chu', 'Xã Vạn Phú', 'Xã Phú Xuyên'],
+            locations: ['Đại Từ', 'Đức Lương', 'Phú Thịnh', 'La Bằng', 'Phú Lạc', 'An Khánh', 'Quân Chu', 'Vạn Phú', 'Phú Xuyên'],
             year: 2016,
             level: 'Quốc gia',
             category: 'Tập quán xã hội và tín ngưỡng',
@@ -352,7 +366,7 @@ Với những nét độc đáo đó, Nghi lễ Tết Nhảy của cộng đồn
         {
             id: 'ds28',
             n: 'Nghi lễ mừng sinh nhật (Hoắt khoăn) của người Nùng',
-            locations: ['Xã Xuân Dương'],
+            locations: ['Xuân Dương'],
             year: 2016,
             level: 'Quốc gia',
             category: 'Tập quán xã hội và tín ngưỡng',
@@ -380,7 +394,7 @@ Với những nét độc đáo đó, Nghi lễ mừng sinh nhật (Hoắt khoă
         {
             id: 'ds29',
             n: 'Nghi lễ Cấp sắc Tào của người Tày',
-            locations: ['Xã Côn Minh'], year: 2016, level: 'Quốc gia',
+            locations: ['Côn Minh'], year: 2016, level: 'Quốc gia',
             category: 'Tập quán xã hội và tín ngưỡng',
             decision: '4036/QĐ-BVHTTDL ngày 21/11/2016', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 29,
             imageFolder: 'capsactao',
@@ -394,7 +408,7 @@ Với những nét độc đáo đó, Nghi lễ mừng sinh nhật (Hoắt khoă
         {
             id: 'ds30',
             n: 'Nghi lễ Cấp sắc của người Nùng',
-            locations: ['Xã Đồng Hỷ', 'Xã Quang Sơn', 'Xã Trại Cau', 'Xã Nam Hòa', 'Xã Văn Hán', 'Xã Văn Lăng'],
+            locations: ['Đồng Hỷ', 'Quang Sơn', 'Trại Cau', 'Nam Hòa', 'Văn Hán', 'Văn Lăng'],
             year: 2017,
             level: 'Quốc gia',
             category: 'Tập quán xã hội và tín ngưỡng',
@@ -422,7 +436,7 @@ Với những nét độc đáo đó, Nghi lễ Cấp sắc của người Nùng
         {
             id: 'ds31',
             n: 'Lễ cấp sắc Pụt (Lẩu Pụt) của người Tày',
-            locations: ['Xã Đồng Phúc'],
+            locations: ['Đồng Phúc'],
             year: 2018, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng',
             decision: '266/QĐ-BVHTTDL ngày 30/01/2018', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 31,
             imageFolder: 'capput_tay',
@@ -433,7 +447,7 @@ Với những nét độc đáo đó, Nghi lễ Cấp sắc của người Nùng
 
         /* ── 32 ─ Tập quán & tín ngưỡng ─ Cấp sắc Sán Dìu ──────── */
         {
-            id: 'ds32', n: 'Lễ Cấp sắc của người Sán Dìu', locations: ['Xã Đồng Phúc'], year: 2018, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '4069/QĐ-BVHTTDL Ngày 30/10/2018', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 32, imageFolder: 'capsacsandiu',
+            id: 'ds32', n: 'Lễ Cấp sắc của người Sán Dìu', locations: ['Đồng Phúc'], year: 2018, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '4069/QĐ-BVHTTDL Ngày 30/10/2018', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 32, imageFolder: 'capsacsandiu',
             description: 'Nghi lễ Cấp sắc của người Sán Dìu ở tỉnh Thái Nguyên thường tổ chức vào dịp cuối năm. Những người được cấp sắc thường là người nối nghiệp gia đình, dòng họ; người có "căn"; những người do mong muốn được hành nghề thầy cúng trong cộng đồng. Khi nghiên cứu, học tập văn hóa truyền thống và vốn chữ Nôm của dân tộc Sán Dìu đạt đến trình độ nhất định, họ sẽ được tổ chức làm lễ Cấp sắc để khẳng định vị thế trong cộng đồng.\n\nLễ Cấp sắc của người Sán Dìu thường trải qua 3 cấp, từ thấp đến cao, mỗi lần thăng cấp lại đối pháp danh, được cấp thêm âm binh, tăng thêm uy lực, quyền phép. Cấp sắc lần đầu gọi là Vào sớ (lọc sộ) - trình với thần thánh việc chính thức theo học nghề thầy cúng, người thụ lễ đạt cấp Pháp sư; lần thứ hai là Cấp sắc (Hoi séo), người thụ lễ đạt cấp Chức sư (Chếch ca); lần thứ ba là Hoi chống sọn, người thụ lễ đạt cấp Thứ gia Tống xuyên (Xị ca chống sọn) - bậc cao nhất trong nghề thầy cúng. Cả 3 chức vị này có quyền hành pháp và truyền pháp cho đệ tử cấp dưới hay người mới học. Trước đây còn có trường hợp cấp sắc cho phụ nữ, chủ yếu là vợ của các ông thầy. Các nghi lễ được thực hiện vào ngày tốt, hầu hết diễn ra tại nhà người thụ lễ, rất ít trường hợp tổ chức tại nhà thầy.\n\nKhi thực hiện nghi lễ Cấp sắc, những điều răn, thề nguyện trước thần linh được người thụ lễ tự nguyện thực hiện trong suốt cuộc đời của họ. Hệ thống tranh thờ, đồ nghề hành lễ được cất giữ tại nơi trang trọng.\n\nNghi lễ Cấp sắc thể hiện ý thức tôn sư trọng đạo của người Sán Dìu, người thầy được người thụ lễ kính trọng như cha, thực hiện các hành động báo hiếu. Nghi lễ góp phần giáo dục các thành viên trong cộng đồng về đạo đức, lễ nghĩa, cách ứng xử giữa con người với con người, giữa con người với thiên nhiên. Nghi lễ Cấp sắc của người Sán Dìu bảo lưu giá trị nghệ thuật như: nghệ thuật múa, cắt dán giấy, trang trí đàn lễ, hệ thống tranh thờ dân gian.\n\nNghi lễ Cấp sắc là một hình thức sinh hoạt tín ngưỡng trong nội bộ các thầy cúng, do nhu cầu hành nghề và sự tham gia của cộng đồng. Mọi người đến trong dịp lễ này để thỏa mãn nhu cầu về tinh thần như thưởng thức nghệ thuật trình diễn dân gian và được đấng thần linh ban phát lộc. Những người bình thường đến dự lễ thì cầu may mắn, những người ốm đau bệnh tật thì cầu khỏe mạnh và cầu mong mọi sự suôn sẻ, mang những điều không tốt đi và mang sự yên bình đến cho cả gia đình và bản thân họ.',
             imageCaption: 'Nghi lễ cúng trong Lễ Cấp sắc của người Sán Dìu (Nguồn: Báo Phụ nữ Việt Nam)'
         },
@@ -442,7 +456,7 @@ Với những nét độc đáo đó, Nghi lễ Cấp sắc của người Nùng
         {
             id: 'ds33',
             n: 'Lễ Kỳ Yên của người Tày',
-            locations: ['Xã Phong Quang'],
+            locations: ['Phong Quang'],
             year: 2020, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng',
             decision: '175/QĐ-BVHTTDL ngày 14/01/2020', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 33,
             imageFolder: 'kyven_tay',
@@ -452,13 +466,17 @@ Với những nét độc đáo đó, Nghi lễ Cấp sắc của người Nùng
         },
 
         /* ── 34 ─ Tập quán & tín ngưỡng ─ Cấp sắc Dao Tiền ─────── */
-        { id: 'ds34', n: 'Lễ Cấp sắc của người Dao Tiền', locations: ['Xã Phong Quang'], year: 2022, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '775/QĐ-BVHTTDL ngày 04/4/2022', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 34, imageFolder: 'capsacdaotien' },
+        {
+            id: 'ds34', n: 'Lễ Cấp sắc của người Dao Tiền', locations: ['Phong Quang'], year: 2022, level: 'Quốc gia', category: 'Tập quán xã hội và tín ngưỡng', decision: '775/QĐ-BVHTTDL ngày 04/4/2022', originalCategory: 'Tập quán xã hội và tín ngưỡng', sourceOrder: 34, imageFolder: 'capsacdaotien',
+            description: 'Thông tin đang cập nhật...',
+            imageCaption: 'Hình ảnh đang cập nhật'
+        },
 
         /* ── 35 ─ Lễ hội truyền thống ─ Lồng tồng Ba Bể ────────── */
         {
             id: 'ds35',
             n: 'Lễ hội Lồng tồng Ba Bể',
-            locations: ['Xã Ba Bể'], year: 2014, level: 'Quốc gia',
+            locations: ['Ba Bể'], year: 2014, level: 'Quốc gia',
             category: 'Lễ hội truyền thống',
             decision: '4205/QĐ-BVHTTDL ngày 19/12/2014', originalCategory: 'Lễ hội truyền thống', sourceOrder: 35,
             imageFolder: 'longtongbabe',
@@ -470,7 +488,7 @@ Với những nét độc đáo đó, Nghi lễ Cấp sắc của người Nùng
 
         /* ── 36 ─ Lễ hội truyền thống ─ Đền Đuồm (rất dài) ────── */
         {
-            id: 'ds36', n: 'Lễ hội Đền Đuồm', locations: ['Xã Phú Lương'], year: 2017, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '217/QĐ-BVHTTDL ngày 23/01/2017', originalCategory: 'Lễ hội truyền thống', sourceOrder: 36, imageFolder: 'denduom',
+            id: 'ds36', n: 'Lễ hội Đền Đuồm', locations: ['Phú Lương'], year: 2017, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '217/QĐ-BVHTTDL ngày 23/01/2017', originalCategory: 'Lễ hội truyền thống', sourceOrder: 36, imageFolder: 'denduom',
             description: 'Đền Đuồm nằm dưới chân núi Đuồm, thuộc xã Động Đạt, huyện Phú Lương, tỉnh Thái Nguyên. Tương truyền, vào thời Lý, tướng Dương Tự Minh đến đây ở, khi ngài mất dân địa phương lập đền thờ trên sườn núi Đuồm. Dương Tự Minh là người Tày, sinh ra và lớn lên ở Quan Triều, dưới thời ba đời vua nhà Lý là: Lý Nhân Tông (1072 - 1128), Lý Thần Tông (1128 - 1138), Lý Anh Tông (1138 - 1175) và có cống hiến xuất sắc trong sự nghiệp xây dựng và bảo vệ vững chắc vùng biên cương phía Bắc của Đại Việt; Phủ Phú Lương trở thành một vùng phồn thịnh trong hơn ba mươi năm dưới quyền Ông cai quản. Ông được nhà vua hai lần gả công chúa (Thiều Dung và Diên Bình công chúa), phong là "Phò mã lang". Khi rời khỏi chức vụ thủ lĩnh phủ Phú Lương, ông trở về Điểm Sơn, mất ở đấy và được nhân dân lập đền thờ (có câu "thượng Đu Đuồm, hạ Lục Đầu"). Sau khi ông mất, nhà Lý sắc phong cho ông là Uy viễn đôn tỉnh cao sơn quảng độ chi thần, các đời sau đều phong ông là Cao Sơn Quý Minh.\n\nTại đền Đuồm một năm có bốn lệ: mùng 6 tháng Giêng Âm lịch là ngày đản sinh của Thánh, 24 tháng Tư là lễ hạ điền, mùng 7 tháng Bảy là lễ thượng điền, 14 tháng Chạp là lễ tắt niên (quan trọng nhất là hội mùng 6 tháng Giêng).\n\n## Lễ hội mùng 6 tháng Giêng và lệ 13 tháng Chạp\n\nTrước làm thủ nhang ở đền, vào hội mùng 6 tháng Giêng và lệ 13 tháng Chạp, bao giờ dân làng cũng dâng cúng 12 con cá (nhất là cá chép) được mổ bỏ ruột, để vây, vảy và nướng. Việc cúng cá là để tưởng nhớ đến việc tướng Dương Tự Minh chuyên mò cua bắt ốc nuôi mẹ ở sông Cầu (12 con cá tượng trưng cho 12 tháng). Đồng thời có thể hiểu đây là hiện tượng liên quan đến tín ngưỡng thờ mặt trăng và ý thức cầu được mùa của cư dân nông nghiệp.\n\nLễ rước nước và rước đất. Mùng 5 tháng Giêng, dân làng làm lễ rước nước và rước đất. Xưa có hai địa điểm dân làng có thể đến rước nước về đền: thông thường đến giếng Dội, khi mưa gió, dân làng đến rước nước từ giếng ở chân núi gần đền (nay giếng đã bị lấp). Đất được lấy từ bãi bồi của cánh đồng Đuồm. Người dân trong vùng cho rằng đây là vùng đất thiêng với núi thông thiên, giếng thông địa. Nước từ giếng Dội được coi là nguồn nước thiêng của mạch nguồn núi Đuồm. Trong những ngày lễ hội tháng Giêng nhân dân làng Đuồm và đồng bào các dân tộc trong vùng lại về đây rước hồn nước thiêng về đền Đuồm dâng cúng, cầu mong một năm mưa thuận gió hòa, vạn vật sinh sôi nảy nở, dân làng may mắn bình an.\n\nLễ mộc dục. Nửa đêm ngày mùng 5 tháng Giêng, dân làng tổ chức lễ mộc dục, lễ tắm tượng, bài vị Dương Tự Minh. Tượng Thánh được tắm lần thứ nhất bằng nước rước về từ giếng Dội, lần thứ hai bằng nước ngũ vị đã chuẩn bị sẵn. Sau khi tượng Ngài tắm xong, nước ngũ vị được giữ lại để các vị chức sắc, hương lão nhúng tay, xoa vào mặt gọi là "hưởng ơn Thánh"; Mảnh vải đỏ bịt ống nước được xé nhỏ chia cho dân làng "lấy phước", cầu may mắn, an lành, hạnh phúc.\n\nLễ tế Gia quan. Sau lễ mộc dục là lễ tế Gia quan, nghĩa là khoác áo mũ cho tượng Ngài, do người nhà đền đảm nhiệm và được thực hiện ngay sau khi làm lễ mộc dục.\n\nLễ rước lễ vật vào đền. Mùng 6 chính hội, đúng giờ Thìn, người dân các làng tổ chức lễ rước cô chay và cô mặn vào đền để làm lễ dâng hương tế Thánh. Khi ông thủ chỉ nổi trống, mọi người rước cô vào đền. Cô chay rước trước, cô mặn rước sau. Đoàn tế đi từ sân rồng lên theo bên phải của người tế và xuống bên trái. Việc di chuyển này có thể gắn với tục thờ mặt trời, cầu sinh lực và sức khỏe cho nhân an vật thịnh, mùa màng tốt tươi.\n\nLễ Đại tế được bắt đầu sau khi rước cỗ vào đền, đây là nghi lễ quan trọng nhất của Lễ hội đền Đuồm. Chủ tế có 02 bồi tế hỗ trợ để thực hành nghi lễ. Ngày xưa, văn tế được giữ ở đền Thượng năm này qua năm khác. Mỗi năm, vào dịp hội, chủ tế đọc văn tế cùng các tên hèm của Thánh. Ngày nay, nội dung bài văn tế ngắn gọn, chuyển tải tâm nguyện của mọi người dân đến với anh linh thánh Đuồm, cầu phúc, cầu tài, cầu bình an cho dân làng.\n\nBên cạnh các nghi lễ tín ngưỡng, lễ hội đền Đuồm còn có các trò chơi dân gian diễn ra tại khu ruộng ngay cạnh đền như: tung còn, đấu vật, kéo co, đánh cờ, bịt mắt bắt dê…, hay mời các gánh hát ở Bắc Kạn, Thái Nguyên, Bắc Giang, Bắc Ninh, Hà Nội về trình diễn trong sân đền. Các đoàn trai gái tổ chức hát ví, hát sli, hát lượn. Buổi tối, dân làng mời các đoàn về nhà ăn uống và hát đối đáp suốt đêm. Nhà nào mời được càng nhiều người về, càng phấn khởi, vì đây cũng là mong muốn cầu được mùa của người nông dân.\n\nNgoài ra, lễ hội còn các hoạt động như: trưng bày sản vật địa phương của các xã, thị trấn trong huyện; thi sao chè của các xã vùng chè như: Võ Tranh, Tức Tranh, Phú Đô, Yên Lạc; thi gói bánh chưng của 3 làng xã Cổ Lũng; thi giã bánh dày truyền thống của các xã Ôn Lương, Hợp Thành, Phủ Lý và Yên Trạch.\n\nLễ hạ điền, ngày 24 tháng Tư Âm lịch: trước đây, làng chọn ruộng của một gia đình trong làng để cấy lúa "gà gáy" (lúa cấy sớm nhất, chín sớm nhất), lấy gạo thổi cơm mới mang ra đền cúng. Sau đó, cơm được mang ra đồng cho người cấy lúa ăn. Lễ hạ điền thực chất là lễ đón mưa nhưng vào thời gian muộn như ở đây có lễ mang tính địa phương của vùng bán sơn địa.\n\nLễ thượng điền, mùng 7 tháng Bảy Âm lịch, là lễ tổng kết hết vụ cày cấy, dân rửa cày bừa cất đi. Lễ tắt niên, ngày 13 tháng Chạp Âm lịch.\n\nLễ hội đền Đuồm có giá trị lịch sử to lớn, đánh dấu thời kỳ nhà Lý củng cố khối đoàn kết dân tộc và mở rộng ảnh hưởng của triều đình lên miền núi. Lễ hội thể hiện sự suy tôn của cộng đồng các dân tộc vùng Đông Bắc đối với công lao to lớn của tướng Dương Tự Minh trong lịch sử. Các hiện tượng trong lễ hội ít nhiều gắn với tín ngưỡng của cư dân nông nghiệp, thể hiện ước mong mưa thuận gió hòa, mùa màng tốt tươi. Hơn nữa, lễ hội cũng là môi trường giáo dục hiệu quả nhất về truyền thống yêu nước, đoàn kết chống giặc ngoại xâm, giúp tăng cường mối đoàn kết, gắn bó giữa các thành viên trong làng, giữa các thôn xóm, gia đình…',
             imageCaption: 'Nguồn: Cục Du lịch quốc gia Việt Nam',
             imageSources: [
@@ -484,7 +502,7 @@ Với những nét độc đáo đó, Nghi lễ Cấp sắc của người Nùng
         {
             id: 'ds37',
             n: 'Lễ hội Lồng Tồng của người Tày',
-            locations: ['Xã Định Hóa', 'Xã Bình Yên', 'Xã Trung Hội', 'Xã Phượng Tiến', 'Xã Phú Đình', 'Xã Bình Thành', 'Xã Kim Phượng', 'Xã Lam Vỹ'],
+            locations: ['Định Hóa', 'Bình Yên', 'Trung Hội', 'Phượng Tiến', 'Phú Đình', 'Bình Thành', 'Kim Phượng', 'Lam Vỹ'],
             year: 2017,
             level: 'Quốc gia',
             category: 'Lễ hội truyền thống',
@@ -508,7 +526,7 @@ Với những nét độc đáo đó, Lễ hội Lồng Tồng của người T�
         {
             id: 'ds38',
             n: 'Lễ hội Cầu mùa của người Sán Chay',
-            locations: ['Xã Vô Tranh', 'Xã Yên Trạch', 'Xã Phú Lương'],
+            locations: ['Vô Tranh', 'Yên Trạch', 'Phú Lương'],
             year: 2018, level: 'Quốc gia', category: 'Lễ hội truyền thống',
             decision: '266/QĐ-BVHTTDL Ngày 30/01/2018', originalCategory: 'Lễ hội truyền thống', sourceOrder: 38,
             imageFolder: 'caumua_sanchay',
@@ -520,7 +538,7 @@ Với những nét độc đáo đó, Lễ hội Lồng Tồng của người T�
         /* ── 39 ─ Lễ hội truyền thống ─ Đình Phương Độ ─────────── */
         {
             id: 'ds39', n: 'Lễ hội đình Phương Độ',
-            locations: ['Xã Phú Bình', 'Xã Tân Thành', 'Xã Điềm Thụy', 'Xã Kha Sơn', 'Xã Tân Khánh'],
+            locations: ['Phú Bình', 'Tân Thành', 'Điềm Thụy', 'Kha Sơn', 'Tân Khánh'],
             year: 2018, level: 'Quốc gia',
             category: 'Lễ hội truyền thống',
             decision: '266/QĐ-BVHTTDL Ngày 30/01/2018',
@@ -552,7 +570,7 @@ Với giá trị tiêu biểu, Lễ hội truyền thống Đình Phương Độ
         /* ── 40 ─ Lễ hội truyền thống ─ Núi Văn-Núi Võ ─────────── */
         {
             id: 'ds40', n: 'Lễ hội Núi Văn-Núi Võ',
-            locations: ['Xã Vạn Phú'],
+            locations: ['Vạn Phú'],
             year: 2023, level: 'Quốc gia',
             category: 'Lễ hội truyền thống',
             decision: '239/QĐ-BVHTTDL ngày 14/02/2023',
@@ -578,7 +596,7 @@ Với giá trị tiêu biểu, Lễ hội Núi Văn - Núi Võ (Vạn Phú - Th�
         /* ── 41 ─ Lễ hội truyền thống ─ Đền Lục Giáp ───────────── */
         {
             id: 'ds41', n: 'Lễ hội đền Lục Giáp',
-            locations: ['Phường Phổ Yên'],
+            locations: ['Phổ Yên'],
             year: 2024, level: 'Quốc gia',
             category: 'Lễ hội truyền thống',
             decision: '857/QĐ-BVHTTDL ngày 01/04/2024',
@@ -616,13 +634,17 @@ Với giá trị tiêu biểu, Lễ hội Đền Lục Giáp xã Đắc Phong (P
         },
 
         /* ── 42 ─ Lễ hội truyền thống ─ Cầu mùa Dao Lô Gang ────── */
-        { id: 'ds42', n: 'Lễ hội Cầu mùa của người Dao Lô Gang', locations: ['Xã Dân Tiến', 'Xã Võ Nhai', 'Xã Thần Sa', 'Xã Nghinh Tường'], year: 2025, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '2219/QĐ-BVHTTDL ngày 27/6/2025', originalCategory: 'Lễ hội truyền thống, Tập quán xã hội và tín ngưỡng', sourceOrder: 42, imageFolder: 'caumua_daologang' },
+        {
+            id: 'ds42', n: 'Lễ hội Cầu mùa của người Dao Lô Gang', locations: ['Dân Tiến', 'Võ Nhai', 'Thần Sa', 'Nghinh Tường'], year: 2025, level: 'Quốc gia', category: 'Lễ hội truyền thống', decision: '2219/QĐ-BVHTTDL ngày 27/6/2025', originalCategory: 'Lễ hội truyền thống, Tập quán xã hội và tín ngưỡng', sourceOrder: 42, imageFolder: 'caumua_daologang',
+            description: 'Thông tin đang cập nhật...',
+            imageCaption: 'Hình ảnh đang cập nhật'
+        },
 
         /* ── 43 ─ Làng nghề ─ Dệt thủ công Tày ─────────────────── */
         {
             id: 'ds43',
             n: 'Nghề dệt thủ công truyền thống của người Tày',
-            locations: ['Xã Ba Bể'], year: 2014, level: 'Quốc gia',
+            locations: ['Ba Bể'], year: 2014, level: 'Quốc gia',
             category: 'Làng nghề thủ công truyền thống',
             decision: '4205/QĐ-BVHTTDL ngày 19/12/2014', originalCategory: 'Nghề thủ công truyền thống', sourceOrder: 43,
             imageFolder: 'detthocam',
@@ -636,7 +658,7 @@ Với giá trị tiêu biểu, Lễ hội Đền Lục Giáp xã Đắc Phong (P
         {
             id: 'ds44',
             n: 'Nghệ thuật trang trí hoa văn trên trang phục của người Dao Đỏ',
-            locations: ['Xã Chợ Đồn'],
+            locations: ['Chợ Đồn'],
             year: 2018, level: 'Quốc gia', category: 'Tri thức dân gian',
             decision: '266/QĐ-BVHTTDL ngày 30/01/2018', originalCategory: 'Tri thức dân gian', sourceOrder: 44,
             imageFolder: 'hoavan_daodo',
@@ -646,15 +668,24 @@ Với giá trị tiêu biểu, Lễ hội Đền Lục Giáp xã Đắc Phong (P
         },
 
         /* ── 45 ─ Tri thức dân gian ─ Chè Tân Cương ────────────── */
-        { id: 'ds45', n: 'Tri thức trồng và chế biến chè Tân Cương', locations: ['Xã Tân Cương', 'Xã Đại Phúc'], year: 2023, level: 'Quốc gia', category: 'Tri thức dân gian', decision: '240/QĐ-BVHTTDL ngày 14/02/2023', originalCategory: 'Tri thức dân gian', sourceOrder: 45, imageFolder: 'chetancuong' },
+        {
+            id: 'ds45', n: 'Tri thức trồng và chế biến chè Tân Cương', locations: ['Tân Cương', 'Đại Phúc'], year: 2023, level: 'Quốc gia', category: 'Tri thức dân gian', decision: '240/QĐ-BVHTTDL ngày 14/02/2023', originalCategory: 'Tri thức dân gian', sourceOrder: 45, imageFolder: 'chetancuong',
+            description: 'Thông tin đang cập nhật...',
+            imageCaption: 'Hình ảnh đang cập nhật'
+        },
 
         /* ── 46 ─ Tri thức dân gian ─ May thêu Dao ────────────── */
-        { id: 'ds46', n: 'Nghệ thuật may, thêu trang phục của người Dao', locations: ['Xã Trại Cau', 'Xã Tràng Xá', 'Xã Nghinh Tường'], year: 2024, level: 'Quốc gia', category: 'Tri thức dân gian', decision: '383/QĐ-BVHTTDL ngày 21/02/2024', originalCategory: 'Tri thức dân gian', sourceOrder: 46, imageFolder: 'maytheudao' }
+        {
+            id: 'ds46', n: 'Nghệ thuật may, thêu trang phục của người Dao', locations: ['Trại Cau', 'Tràng Xá', 'Nghinh Tường'], year: 2024, level: 'Quốc gia', category: 'Tri thức dân gian', decision: '383/QĐ-BVHTTDL ngày 21/02/2024', originalCategory: 'Tri thức dân gian', sourceOrder: 46, imageFolder: 'maytheudao',
+            description: 'Thông tin đang cập nhật...',
+            imageCaption: 'Hình ảnh đang cập nhật'
+        }
 
     ];
 
     /* ══════════════════════════════════════════════════════════════
        2. DANH SÁCH XÃ/PHƯỜNG (sau sáp nhập) — ĐÃ BỔ SUNG "Phủ Thông"
+       + "Thái Nguyên" (cấp tỉnh, tránh UNASSIGNED cho ds01/ds17/ds22)
        ══════════════════════════════════════════════════════════════ */
     var COMMUNE_LIST = [
         'An Khánh', 'Ba Bể', 'Bá Xuyên', 'Bạch Thông', 'Bách Quang', 'Bắc Kạn', 'Bằng Thành', 'Bằng Vân',
@@ -669,7 +700,8 @@ Với giá trị tiêu biểu, Lễ hội Đền Lục Giáp xã Đắc Phong (P
         'Tân Cương', 'Tân Khánh', 'Tân Kỳ', 'Tân Thành', 'Thành Công', 'Thanh Mai', 'Thanh Thịnh', 'Thần Sa',
         'Thượng Minh', 'Thượng Quan', 'Tích Lương', 'Trại Cau', 'Tràng Xá', 'Trần Phú', 'Trung Hội', 'Trung Thành',
         'Văn Hán', 'Văn Lang', 'Văn Lăng', 'Vạn Phú', 'Vạn Xuân', 'Vĩnh Thông', 'Vô Tranh', 'Võ Nhai',
-        'Xuân Dương', 'Yên Bình', 'Yên Phong', 'Yên Thịnh', 'Yên Trạch'
+        'Xuân Dương', 'Yên Bình', 'Yên Phong', 'Yên Thịnh', 'Yên Trạch',
+        'Thái Nguyên'
     ].sort();
 
     /* ══════════════════════════════════════════════════════════════
