@@ -4,8 +4,10 @@ Disallow: /admin/
 Disallow: /assets/js/
 Disallow: /assets/css/
 
-Sitemap: https://disanthainguyen.pages.dev/sitemap.xml
+User-agent: *
+Allow: /
 
+Sitemap: https://disanthainguyen.pages.dev/sitemap.xml
 
 User-agent: Googlebot
 Allow: /
