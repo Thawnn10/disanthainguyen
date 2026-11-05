@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://disanthainguyen.pages.dev/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="vi" href="https://disanthainguyen.pages.dev/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://disanthainguyen.pages.dev/?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://disanthainguyen.pages.dev/"/>
     <image:image>
       <image:loc>https://disanthainguyen.pages.dev/light.png</image:loc>
       <image:title>Bản đồ Di sản Văn hóa tỉnh Thái Nguyên</image:title>
-      <image:caption>Di Sản Thái Nguyên · Âm Vang Di Sản</image:caption>
+      <image:caption>Di Sản Thái Nguyên - Âm Vang Di Sản</image:caption>
     </image:image>
   </url>
 </urlset>
