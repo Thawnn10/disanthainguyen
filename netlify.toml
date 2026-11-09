@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "/*"
-  to = "https://disanthainguyen.pages.dev/:splat"
-  status = 301
-  force = true

@@ -1,5 +1,15 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
+Disallow: /assets/js/
+Disallow: /assets/css/
 
 Sitemap: https://disanthainguyen.pages.dev/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
