@@ -951,38 +951,64 @@
             trackEl.addEventListener('mousedown', handleDown);
             trackEl.addEventListener('touchstart', handleDown, { passive: false });
         }
-        bindProSlider(apSeekTrack, {
-            onStart: () => { const a = currentAudio; cancelPendingSeekMini(a); unlockSeek(); isSeekingMini = true; dragRatioMini = -1; if (apMiniFill) apMiniFill.style.transition = 'none'; },
-            onDrag: ratio => { if (!currentAudio || !isFinite(currentAudio.duration)) return; dragRatio = ratio; const t = ratio * currentAudio.duration; apSeekFill.style.width = (ratio * 100) + '%'; apSeekKnob.style.left = (ratio * 100) + '%'; apTimeCur.textContent = fmt(t); apTimeDur.textContent = '-' + fmt(Math.max(0, currentAudio.duration - t)); },
-            onEnd: () => {
-                apSeekFill.style.transition = '';
-                if (!currentAudio || !isFinite(currentAudio.duration) || dragRatio < 0) { isSeeking = false; dragRatio = -1; unlockSeek(); return; }
-                const a = currentAudio, targetTime = dragRatio * a.duration, pct = dragRatio * 100;
-                apSeekFill.style.width = pct + '%'; apSeekKnob.style.left = pct + '%'; apTimeCur.textContent = fmt(targetTime);
-                lockSeekTo(targetTime); apTimeDur.textContent = '-' + fmt(Math.max(0, a.duration - targetTime));
-                lockSeekTo(targetTime);
-                const clearSeeking = () => { a.removeEventListener('seeked', clearSeeking); if (pendingSeekListener === clearSeeking) pendingSeekListener = null; if (seekClearTimer) { clearTimeout(seekClearTimer); seekClearTimer = null; } isSeeking = false; };
-                pendingSeekListener = clearSeeking; a.addEventListener('seeked', clearSeeking); seekClearTimer = setTimeout(clearSeeking, 800);
-                try { a.currentTime = targetTime; } catch (err) { isSeeking = false; dragRatio = -1; unlockSeek(); }
-                dragRatio = -1;
-            }
-        });
-        if (apMiniSeek) {
-            bindProSlider(apMiniSeek, {
-                onStart: () => { const a = currentAudio; cancelPendingSeekMini(a); isSeekingMini = true; dragRatioMini = -1; if (apMiniFill) apMiniFill.style.transition = 'none'; },
-                onDrag: ratio => { if (!currentAudio || !isFinite(currentAudio.duration)) return; dragRatioMini = ratio; const t = ratio * currentAudio.duration; apMiniFill.style.width = (ratio * 100) + '%'; apMiniKnob.style.left = (ratio * 100) + '%'; if (apMiniTime) apMiniTime.textContent = fmt(t); },
-                onEnd: () => {
-                    if (apMiniFill) apMiniFill.style.transition = '';
-                    if (!currentAudio || !isFinite(currentAudio.duration) || dragRatioMini < 0) { isSeekingMini = false; dragRatioMini = -1; return; }
-                    const a = currentAudio, targetTime = dragRatioMini * a.duration, pct = dragRatioMini * 100;
-                    if (apMiniFill) apMiniFill.style.width = pct + '%'; if (apMiniKnob) apMiniKnob.style.left = pct + '%'; if (apMiniTime) apMiniTime.textContent = fmt(targetTime);
-                    const clearSeeking = () => { a.removeEventListener('seeked', clearSeeking); if (pendingSeekListenerMini === clearSeeking) pendingSeekListenerMini = null; if (seekClearTimerMini) { clearTimeout(seekClearTimerMini); seekClearTimerMini = null; } isSeekingMini = false; };
-                    pendingSeekListenerMini = clearSeeking; a.addEventListener('seeked', clearSeeking); seekClearTimerMini = setTimeout(clearSeeking, 800);
-                    try { a.currentTime = targetTime; } catch (err) { isSeekingMini = false; }
-                    dragRatioMini = -1;
-                }
-            });
+        /*── TUA THEO THỜI GIAN THỰC (REAL-TIME SCRUBBING) ──
+          Âm thanh được nhảy tới vị trí mới ngay trong lúc kéo thanh tua.
+          Mỗi lần chỉ gửi 1 lệnh seek; lệnh kế tiếp được gửi khi trình duyệt báo 'seeked'
+          (hoặc sau 250ms nếu sự kiện bị trễ) để tránh dồn lệnh gây giật/treo âm thanh. */
+        const scrub = { audio: null, target: -1, inFlight: false, inFlightAt: 0 };
+        function paintProgress(t, dur) {
+            const pct = dur ? (t / dur) * 100 : 0;
+            apSeekFill.style.width = pct + '%'; apSeekKnob.style.left = pct + '%';
+            apTimeCur.textContent = fmt(t); apTimeDur.textContent = '-' + fmt(Math.max(0, dur - t));
+            if (apMiniFill) { apMiniFill.style.width = pct + '%'; apMiniKnob.style.left = pct + '%'; if (apMiniTime) apMiniTime.textContent = fmt(t); }
         }
+        function setProgressTransition(v) {
+            apSeekFill.style.transition = v; apSeekKnob.style.transition = v;
+            if (apMiniFill) { apMiniFill.style.transition = v; apMiniKnob.style.transition = v; }
+        }
+        function flushScrub() {
+            const a = scrub.audio;
+            if (!a || a !== currentAudio || scrub.target < 0) return;
+            if (scrub.inFlight && Date.now() - scrub.inFlightAt < 250) return;
+            if (Math.abs((a.currentTime || 0) - scrub.target) < 0.05) { scrub.inFlight = false; return; }
+            scrub.inFlight = true; scrub.inFlightAt = Date.now();
+            try { a.currentTime = scrub.target; } catch (e) { scrub.inFlight = false; }
+        }
+        function onScrubSeeked() { scrub.inFlight = false; flushScrub(); }
+        function resetScrub() {
+            if (scrub.audio) scrub.audio.removeEventListener('seeked', onScrubSeeked);
+            scrub.audio = null; scrub.target = -1; scrub.inFlight = false; scrub.inFlightAt = 0;
+        }
+        function startScrub() {
+            const a = currentAudio;
+            resetScrub();
+            if (!a) return;
+            cancelPendingSeek(a); cancelPendingSeekMini(a); unlockSeek();
+            scrub.audio = a; isSeeking = true;
+            a.addEventListener('seeked', onScrubSeeked);
+            setProgressTransition('none');
+        }
+        function moveScrub(ratio) {
+            const a = scrub.audio;
+            if (!a || a !== currentAudio || !isFinite(a.duration) || a.duration <= 0) return;
+            const t = ratio * a.duration;
+            scrub.target = t;
+            paintProgress(t, a.duration);
+            flushScrub();
+        }
+        function endScrub() {
+            const a = scrub.audio, t = scrub.target;
+            setProgressTransition('');
+            resetScrub();
+            if (!a || a !== currentAudio || t < 0 || !isFinite(a.duration)) { isSeeking = false; unlockSeek(); return; }
+            paintProgress(t, a.duration);
+            lockSeekTo(t);
+            try { if (Math.abs((a.currentTime || 0) - t) > 0.05) a.currentTime = t; } catch (e) { unlockSeek(); }
+            isSeeking = false;
+        }
+        const scrubHandlers = { onStart: startScrub, onDrag: moveScrub, onEnd: endScrub };
+        bindProSlider(apSeekTrack, scrubHandlers);
+        if (apMiniSeek) bindProSlider(apMiniSeek, scrubHandlers);
         bindProSlider(apVolTrack, { onDrag: ratio => applyVolume(ratio) });
         function togglePlayPause() {
             if (!currentAudio) return;
@@ -1066,11 +1092,11 @@
             if (apBarMode === 'hidden') return;
             if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
             if (e.code === 'Space') { e.preventDefault(); togglePlayPause(); }
-            if (e.code === 'ArrowLeft') { if (currentAudio) currentAudio.currentTime = Math.max(0, currentAudio.currentTime - 5); }
-            if (e.code === 'ArrowRight') { if (currentAudio) currentAudio.currentTime = Math.min(currentAudio.duration || 0, currentAudio.currentTime + 5); }
+            if (e.code === 'ArrowLeft') { if (currentAudio) doProgrammaticSeek(currentAudio.currentTime - 5); }
+            if (e.code === 'ArrowRight') { if (currentAudio) doProgrammaticSeek(currentAudio.currentTime + 5); }
         });
         function stop() {
-            cancelPendingSeek(currentAudio); cancelPendingSeekMini(currentAudio);
+            cancelPendingSeek(currentAudio); cancelPendingSeekMini(currentAudio); resetScrub(); setProgressTransition('');
             isSeeking = false; isSeekingMini = false; dragRatio = -1; dragRatioMini = -1; unlockSeek(); stopVisualizer();
             if (currentAudio) {
                 try {
