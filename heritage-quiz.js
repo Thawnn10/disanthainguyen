@@ -1,6 +1,6 @@
 /**
  * HỆ THỐNG TRÒ CHƠI TƯƠNG TÁC:
- * "THỬ THÁCH DI SẢN THÁI NGUYÊN – KHÁM PHÁ VĂN HÓA, CHINH PHỤC TRI THỨC"
+ * "SẮC MÀU DI SẢN THÁI NGUYÊN – KHÁM PHÁ VĂN HÓA, CHINH PHỤC TRI THỨC"
  * File: heritage-quiz.js
  */
 (function (window, document) {
@@ -535,6 +535,12 @@
   function renderOptions(q) {
     if (!dom.optionsGrid) return;
     dom.optionsGrid.innerHTML = '';
+
+    const isStacked = q.layout === 'stacked' ||
+      (q.id === 1 && state.selectedQuiz === 'knowledge') ||
+      (Array.isArray(q.options) && q.options.some(function (opt) { return opt.text && opt.text.length > 50; }));
+
+    dom.optionsGrid.classList.toggle('quiz-options-stacked', Boolean(isStacked));
 
     q.options.forEach(function (opt) {
       const btn = document.createElement('button');

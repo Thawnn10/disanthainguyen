@@ -1,6 +1,6 @@
 /**
  * NGÂN HÀNG CÂU HỎI TRÒ CHƠI TƯƠNG TÁC:
- * "THỬ THÁCH DI SẢN THÁI NGUYÊN – KHÁM PHÁ VĂN HÓA, CHINH PHỤC TRI THỨC"
+ * "SẮC MÀU DI SẢN THÁI NGUYÊN – KHÁM PHÁ VĂN HÓA, CHINH PHỤC TRI THỨC"
  * Nguồn dữ liệu: Tài liệu Chủ đề 2 - Di sản văn hóa phi vật thể tỉnh Thái Nguyên (okok.docx)
  */
 (function (window) {
@@ -8,16 +8,16 @@
 
   const HERITAGE_QUIZ_DATA = {
     meta: {
-      title: 'THỬ THÁCH DI SẢN THÁI NGUYÊN',
+      title: 'SẮC MÀU DI SẢN THÁI NGUYÊN',
       subtitle: 'Khám phá kho tàng văn hóa – Chinh phục những giá trị di sản quê hương.',
-      welcomeTitle: 'CHÀO MỪNG ĐẾN VỚI THỬ THÁCH DI SẢN THÁI NGUYÊN',
+      welcomeTitle: 'CHÀO MỪNG ĐẾN VỚI SẮC MÀU DI SẢN THÁI NGUYÊN',
       pointsPerCorrect: 100
     },
 
     decks: {
       knowledge: {
         id: 'knowledge',
-        badge: 'THẺ 1 – NHÀ KHÁM PHÁ DI SẢN',
+        badge: 'THẺ 1 – DI SẢN VĂN HÓA XỨ CHÈ XỨ TRÀ',
         title: 'KIẾN THỨC DI SẢN',
         icon: 'fa-solid fa-brain',
         description: 'Kiểm tra kiến thức về lịch sử, đặc điểm và các loại hình di sản văn hóa phi vật thể tỉnh Thái Nguyên.',
@@ -27,6 +27,7 @@
         questions: [
           {
             id: 1,
+            layout: 'stacked',
             question: 'Nội dung nào sau đây phản ánh đúng khái niệm “Di sản văn hóa phi vật thể”?',
             options: [
               { id: 'A', text: 'Di tích lịch sử - văn hoá tiêu biểu, danh lam thắng cảnh.' },
@@ -96,9 +97,9 @@
             question: 'Múa Tắc Xình của người Sán Chay ở Xã Phú Lương, Xã Yên Trạch, Xã Hợp Thành, xã Yên Trạch Tỉnh Thái Nguyên là di sản văn hóa phi vật thể quốc gia thuộc loại hình nào sau đây?',
             options: [
               { id: 'A', text: 'Nghệ thuật trình diễn dân gian.' },
-              { id: 'B', text: 'tập quán xã hội và tín ngưỡng.' },
-              { id: 'C', text: 'lễ hội truyền thống.' },
-              { id: 'D', text: 'tri thức dân gian.' }
+              { id: 'B', text: 'Tập quán xã hội và tín ngưỡng.' },
+              { id: 'C', text: 'Lễ hội truyền thống.' },
+              { id: 'D', text: 'Tri thức dân gian.' }
             ],
             correctAnswer: 'A'
           },
@@ -107,9 +108,9 @@
             question: 'Lễ hội đình Phương Độ trên địa bàn Phú Bình - tỉnh Thái Nguyên là di sản văn hóa phi vật thể quốc gia thuộc loại hình',
             options: [
               { id: 'A', text: 'Nghệ thuật trình diễn dân gian.' },
-              { id: 'B', text: 'tập quán xã hội và tín ngưỡng.' },
-              { id: 'C', text: 'lễ hội truyền thống.' },
-              { id: 'D', text: 'tri thức dân gian.' }
+              { id: 'B', text: 'Tập quán xã hội và tín ngưỡng.' },
+              { id: 'C', text: 'Lễ hội truyền thống.' },
+              { id: 'D', text: 'Tri thức dân gian.' }
             ],
             correctAnswer: 'C'
           },
@@ -118,9 +119,9 @@
             question: 'Chữ Nôm của người Dao tỉnh Thái Nguyên là di sản văn hóa phi vật thể quốc gia thuộc loại hình nào sau đây?',
             options: [
               { id: 'A', text: 'Nghệ thuật trình diễn dân gian.' },
-              { id: 'B', text: 'tập quán xã hội và tín ngưỡng.' },
-              { id: 'C', text: 'lễ hội truyền thống.' },
-              { id: 'D', text: 'tiếng nói, chữ viết.' }
+              { id: 'B', text: 'Tập quán xã hội và tín ngưỡng.' },
+              { id: 'C', text: 'Lễ hội truyền thống.' },
+              { id: 'D', text: 'Tiếng nói, chữ viết.' }
             ],
             correctAnswer: 'D'
           },
@@ -140,9 +141,9 @@
             question: 'Nghệ thuật may thêu trang phục của người Dao Xã Trại Cau, Tràng Xá, Nghinh Tường Tỉnh Thái Nguyên là di sản văn hóa phi vật thể quốc gia thuộc loại hình nào sau đây?',
             options: [
               { id: 'A', text: 'Nghệ thuật trình diễn dân gian.' },
-              { id: 'B', text: 'tập quán xã hội và tín ngưỡng.' },
-              { id: 'C', text: 'tri thức dân gian.' },
-              { id: 'D', text: 'lễ hội truyền thống.' }
+              { id: 'B', text: 'Tập quán xã hội và tín ngưỡng.' },
+              { id: 'C', text: 'Tri thức dân gian.' },
+              { id: 'D', text: 'Lễ hội truyền thống.' }
             ],
             correctAnswer: 'C'
           },
@@ -159,7 +160,7 @@
           },
           {
             id: 13,
-            question: 'Lễ hội đền Đuổm ở xã Xã Phú Lương Tỉnh Thái Nguyên thuộc loại hình di sản văn hóa phi vật thể nào sau đây?',
+            question: 'Lễ hội Đền Đuổm ở xã Xã Phú Lương Tỉnh Thái Nguyên thuộc loại hình di sản văn hóa phi vật thể nào sau đây?',
             options: [
               { id: 'A', text: 'Tiếng nói, chữ viết.' },
               { id: 'B', text: 'Lễ hội truyền thống.' },
@@ -377,9 +378,9 @@
             caption: 'Nguồn: Cục Du lịch quốc gia Việt Nam',
             options: [
               { id: 'A', text: 'Tri thức dân gian.' },
-              { id: 'B', text: 'Lễ hội truyền thống' },
+              { id: 'B', text: 'Lễ hội truyền thống.' },
               { id: 'C', text: 'Nghệ thuật trình diễn dân gian.' },
-              { id: 'D', text: 'Tập quán xã hội và tín ngưỡng' }
+              { id: 'D', text: 'Tập quán xã hội và tín ngưỡng.' }
             ],
             correctAnswer: 'B'
           },
@@ -391,9 +392,9 @@
             caption: 'Người Mông ở Đồng Hỷ (Thái Nguyên) múa khèn trong ngày hội (Nguồn: TTXVN)',
             options: [
               { id: 'A', text: 'Tri thức dân gian.' },
-              { id: 'B', text: 'Lễ hội truyền thống' },
+              { id: 'B', text: 'Lễ hội truyền thống.' },
               { id: 'C', text: 'Nghệ thuật trình diễn dân gian.' },
-              { id: 'D', text: 'Tập quán xã hội và tín ngưỡng' }
+              { id: 'D', text: 'Tập quán xã hội và tín ngưỡng.' }
             ],
             correctAnswer: 'C'
           },
@@ -405,9 +406,9 @@
             caption: 'Một tiết mục biểu diễn của giáo viên trường THPT Bình Yên (ảnh thực nghiệm)',
             options: [
               { id: 'A', text: 'Tri thức dân gian.' },
-              { id: 'B', text: 'Nghi lễ cầu mùa người Sán Chay' },
-              { id: 'C', text: 'Rối cạn của người Tày ở Thẩm Rộc và Ru Nghệ' },
-              { id: 'D', text: 'Lễ hội truyền thống Đền Đuổm' }
+              { id: 'B', text: 'Nghi lễ cầu mùa người Sán Chay.' },
+              { id: 'C', text: 'Rối cạn của người Tày ở Thẩm Rộc và Ru Nghệ.' },
+              { id: 'D', text: 'Lễ hội truyền thống Đền Đuổm.' }
             ],
             correctAnswer: 'C'
           },
@@ -418,10 +419,10 @@
             imageAlt: 'Trang phục truyền thống của người Dao đỏ ở Bắc Kạn',
             caption: 'Trang phục truyền thống của người Dao đỏ ở Bắk Kạn. Ảnh: baobackan.org.vn',
             options: [
-              { id: 'A', text: 'Không gian văn hóa cộng đồng' },
+              { id: 'A', text: 'Không gian văn hóa cộng đồng.' },
               { id: 'B', text: 'Nghi lễ trong ngày cưới hỏi.' },
               { id: 'C', text: 'Nghi lễ Cấp sắc.' },
-              { id: 'D', text: 'Nghệ thuật trang trí hoa văn trên trang phục' }
+              { id: 'D', text: 'Nghệ thuật trang trí hoa văn trên trang phục.' }
             ],
             correctAnswer: 'D'
           },
@@ -432,10 +433,10 @@
             imageAlt: 'Múa tra mố - Múa Tắc Xình của người Sán Chay',
             caption: 'Múa tra mố. Ảnh: Theo Hồ sơ di sản',
             options: [
-              { id: 'A', text: 'Nghi lễ trong Lễ hội Lồng Tồng' },
+              { id: 'A', text: 'Nghi lễ trong Lễ hội Lồng Tồng.' },
               { id: 'B', text: 'Múa Tắc Xình.' },
-              { id: 'C', text: 'Nghi lễ trong Lễ hội Cầu mùa' },
-              { id: 'D', text: 'Nghi lễ Tết nhảy (Nhảng chầm đao)' }
+              { id: 'C', text: 'Nghi lễ trong Lễ hội Cầu mùa.' },
+              { id: 'D', text: 'Nghi lễ Tết nhảy (Nhảng chầm đao).' }
             ],
             correctAnswer: 'B'
           },
@@ -446,10 +447,10 @@
             imageAlt: 'Dòng họ Lưu ở xã Văn Yên (Đại Từ) rước Lễ vào đền thờ Lưu Nhân Chú',
             caption: 'Dòng họ Lưu ở xã Văn Yên (Đại Từ) rước Lễ vào đền thờ Lưu Nhân Chú (Nguồn: THPT Lưu Nhân Chú)',
             options: [
-              { id: 'A', text: 'Nghi lễ trong Lễ hội Lồng Tồng' },
-              { id: 'B', text: 'Lễ hội Núi Văn-Núi Võ' },
-              { id: 'C', text: 'Nghi lễ trong Lễ hội Cầu mùa' },
-              { id: 'D', text: 'Nghi lễ Tết nhảy (Nhảng chầm đao)' }
+              { id: 'A', text: 'Nghi lễ trong Lễ hội Lồng Tồng.' },
+              { id: 'B', text: 'Lễ hội Núi Văn-Núi Võ.' },
+              { id: 'C', text: 'Nghi lễ trong Lễ hội Cầu mùa.' },
+              { id: 'D', text: 'Nghi lễ Tết nhảy (Nhảng chầm đao).' }
             ],
             correctAnswer: 'B'
           }
