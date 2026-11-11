@@ -17,7 +17,7 @@
     decks: {
       knowledge: {
         id: 'knowledge',
-        badge: 'THẺ 1 – DI SẢN VĂN HÓA XỨ CHÈ XỨ TRÀ',
+        badge: 'THẺ 1 – DI SẢN VĂN HÓA XỨ CHÀM XỨ TRÀ',
         title: 'KIẾN THỨC DI SẢN',
         icon: 'fa-solid fa-brain',
         description: 'Kiểm tra kiến thức về lịch sử, đặc điểm và các loại hình di sản văn hóa phi vật thể tỉnh Thái Nguyên.',
