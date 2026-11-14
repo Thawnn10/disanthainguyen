@@ -1,8 +1,354 @@
 /* ═══════════════════════════════════════════════════════════
    SCRIPT.JS — Di Sản Thái Nguyên
+   Module 0: Typography Orphan Guard (chống rớt 1–2 chữ cuối dòng)
    Module 1: Main App (bản đồ, tìm kiếm, drawer, audio player)
    Module 2: Chatbot AI (Gemini backend)
    ═══════════════════════════════════════════════════════════ */
+
+/* ═══════════════ MODULE 0: TYPOGRAPHY ORPHAN GUARD ═══════════════ */
+(function (window, document) {
+    'use strict';
+
+    const NBSP = '\u00A0';
+    const HAS_ALNUM_RE = /[0-9A-Za-z\u00C0-\u024F\u1E00-\u1EFF]/;
+    const URL_OR_CODE_RE = /^(https?:\/\/|www\.|mailto:|data:|tel:)/i;
+    const SKIP_TAGS = {
+        SCRIPT: 1, STYLE: 1, TEXTAREA: 1, INPUT: 1, SELECT: 1, OPTION: 1,
+        CODE: 1, PRE: 1, KBD: 1, SAMP: 1, SVG: 1, CANVAS: 1, NOSCRIPT: 1
+    };
+    const BLOCK_TAGS = {
+        ADDRESS: 1, ARTICLE: 1, ASIDE: 1, BLOCKQUOTE: 1, DD: 1, DETAILS: 1,
+        DIALOG: 1, DIV: 1, DL: 1, DT: 1, FIELDSET: 1, FIGCAPTION: 1, FIGURE: 1,
+        FOOTER: 1, FORM: 1, H1: 1, H2: 1, H3: 1, H4: 1, H5: 1, H6: 1, HEADER: 1,
+        HGROUP: 1, HR: 1, LI: 1, MAIN: 1, NAV: 1, OL: 1, P: 1, PRE: 1,
+        SECTION: 1, SUMMARY: 1, TABLE: 1, TD: 1, TH: 1, UL: 1
+    };
+    const DEFAULT_SELECTORS = [
+        '#hero .khkt-badge > span',
+        '#hero h1',
+        '#hero .sub',
+        '#hero .slogan',
+        '#ft .ft-khkt > span',
+        '#ft .ft-copyright',
+        '#am-box h2',
+        '#am-box .am-lead',
+        '#am-box .am-sec-title > span',
+        '#am-box ul.am-features li',
+        '#am-box .am-highlight',
+        '#am-box .am-khkt-box p',
+        '#am-box .am-khkt-item > div',
+        '#am-box .am-sign',
+        '#am-box .am-domain',
+        '#qr-modal p',
+        '#qr-modal small',
+        '#modal-name',
+        '#modal-decision',
+        '#modal-desc',
+        '#modal-image-source',
+        '#heritage-modal .source-list .src-text',
+        '.heritage-caption',
+        '.ds-card .ds-name',
+        '.cat-card .cat-name',
+        '.cat-card .cat-desc',
+        '.empty-state .es-title',
+        '.empty-state .es-desc',
+        '.list-empty',
+        '.m-result-name',
+        '.m-result-sub',
+        '.m-empty',
+        '.m-menu-item > span',
+        '.chat-message',
+        '#quiz-header-title',
+        '#quiz-header-sub',
+        '.quiz-welcome-kicker',
+        '.quiz-welcome-title',
+        '.quiz-welcome-sub',
+        '.quiz-deck-title',
+        '.quiz-deck-desc',
+        '.quiz-deck-meta-item > span',
+        '.quiz-question-tag',
+        '.quiz-question-text',
+        '.quiz-image-caption',
+        '.quiz-hint-text',
+        '.quiz-unlock-hint-btn > span',
+        '.quiz-option-text',
+        '.quiz-feedback-title',
+        '.quiz-feedback-msg',
+        '.quiz-feedback-answer-reveal',
+        '.quiz-result-heading',
+        '.quiz-result-deck-name',
+        '.quiz-rank-badge > span',
+        '.quiz-rank-desc'
+    ];
+
+    function isPreLike(ws) {
+        return ws === 'pre' || ws === 'pre-wrap' || ws === 'pre-line' || ws === 'break-spaces';
+    }
+
+    function isBlockComputed(el) {
+        if (BLOCK_TAGS[el.tagName]) return true;
+        if (!window.getComputedStyle) return false;
+        const d = window.getComputedStyle(el).display || '';
+        return d === 'block' || d === 'flex' || d === 'grid' || d === 'list-item' || d.indexOf('table') === 0;
+    }
+
+    function scanSegments(el, isPre, patchesByNode) {
+        const segments = [[]];
+
+        function walk(node) {
+            const children = node.childNodes;
+            for (let i = 0; i < children.length; i++) {
+                const child = children[i];
+                if (child.nodeType === 3) {
+                    const val = child.nodeValue || '';
+                    if (!val) continue;
+                    if (!isPre) {
+                        segments[segments.length - 1].push({ node: child, start: 0, end: val.length });
+                    } else {
+                        let cursor = 0;
+                        while (cursor <= val.length) {
+                            const nl = val.indexOf('\n', cursor);
+                            if (nl === -1) {
+                                if (cursor < val.length) {
+                                    segments[segments.length - 1].push({ node: child, start: cursor, end: val.length });
+                                }
+                                break;
+                            }
+                            if (nl > cursor) {
+                                segments[segments.length - 1].push({ node: child, start: cursor, end: nl });
+                            }
+                            segments.push([]);
+                            cursor = nl + 1;
+                        }
+                    }
+                } else if (child.nodeType === 1) {
+                    if (child.tagName === 'BR') {
+                        segments.push([]);
+                    } else if (SKIP_TAGS[child.tagName]) {
+                        segments.push([]);
+                    } else {
+                        const cs = window.getComputedStyle ? window.getComputedStyle(child) : null;
+                        if (cs && cs.whiteSpace === 'nowrap') {
+                            segments.push([]);
+                        } else if (isBlockComputed(child)) {
+                            segments.push([]);
+                            preventOrphansBlock(child, null, patchesByNode);
+                            segments.push([]);
+                        } else {
+                            walk(child);
+                        }
+                    }
+                }
+            }
+        }
+
+        walk(el);
+        return segments;
+    }
+
+    function tokenizeSegment(slices) {
+        const parts = [];
+        for (let i = 0; i < slices.length; i++) {
+            const s = slices[i];
+            const sub = (s.node.nodeValue || '').slice(s.start, s.end);
+            const re = /([ \t\r\n\u00A0]+)|([^ \t\r\n\u00A0]+)/g;
+            let m;
+            while ((m = re.exec(sub)) !== null) {
+                if (m[1]) {
+                    const piece = { node: s.node, start: s.start + m.index, end: s.start + m.index + m[1].length, text: m[1] };
+                    if (parts.length && parts[parts.length - 1].isSpace) {
+                        parts[parts.length - 1].slices.push(piece);
+                    } else {
+                        parts.push({ isSpace: true, slices: [piece] });
+                    }
+                } else if (m[2]) {
+                    if (parts.length && !parts[parts.length - 1].isSpace) {
+                        parts[parts.length - 1].text += m[2];
+                    } else {
+                        parts.push({ isSpace: false, text: m[2] });
+                    }
+                }
+            }
+        }
+
+        while (parts.length && parts[0].isSpace) parts.shift();
+        while (parts.length && parts[parts.length - 1].isSpace) parts.pop();
+
+        const words = [];
+        const gaps = [];
+        for (let i = 0; i < parts.length; i++) {
+            const p = parts[i];
+            if (p.isSpace) {
+                gaps.push(p.slices);
+            } else {
+                words.push({
+                    text: p.text,
+                    isAlnum: HAS_ALNUM_RE.test(p.text),
+                    isUrl: URL_OR_CODE_RE.test(p.text) || p.text.length >= 20
+                });
+            }
+        }
+        return { words: words, gaps: gaps };
+    }
+
+    function findFirstWordIdxForRealCount(words, targetRealWords) {
+        let seen = 0;
+        let idx = words.length - 1;
+        for (; idx >= 0; idx--) {
+            if (words[idx].isAlnum) {
+                seen++;
+                if (seen >= targetRealWords) return idx;
+            }
+        }
+        return 0;
+    }
+
+    function computeTailLength(words, startIdx) {
+        let len = 0;
+        for (let i = startIdx; i < words.length; i++) {
+            if (i > startIdx) len += 1;
+            len += words[i].text.length;
+        }
+        return len;
+    }
+
+    function hasUrlInRange(words, startIdx) {
+        for (let i = startIdx; i < words.length; i++) {
+            if (words[i].isUrl) return true;
+        }
+        return false;
+    }
+
+    function processSegment(slices, maxHeadingChars, maxBodyChars, patchesByNode) {
+        const tok = tokenizeSegment(slices);
+        const words = tok.words;
+        const gaps = tok.gaps;
+        if (words.length < 2 || gaps.length !== words.length - 1) return;
+
+        let realCount = 0;
+        for (let i = 0; i < words.length; i++) {
+            if (words[i].isAlnum) realCount++;
+        }
+        if (realCount < 2) return;
+
+        const fullLen = computeTailLength(words, 0);
+        let desiredReal = 0;
+        if (realCount >= 5) desiredReal = 3;
+        else if (realCount === 4) desiredReal = 2;
+        else if (realCount === 3) desiredReal = fullLen <= 16 ? 3 : 2;
+        else desiredReal = fullLen <= 16 ? 2 : 0;
+
+        let firstGapIdx = gaps.length;
+        const max3 = maxHeadingChars || maxBodyChars;
+
+        if (desiredReal === 3) {
+            const wStart = findFirstWordIdxForRealCount(words, 3);
+            if (!hasUrlInRange(words, wStart) && computeTailLength(words, wStart) <= max3) {
+                firstGapIdx = wStart;
+            } else {
+                desiredReal = 2;
+            }
+        }
+        if (desiredReal === 2) {
+            const wStart2 = findFirstWordIdxForRealCount(words, 2);
+            const max2 = Math.min(22, max3);
+            if (!hasUrlInRange(words, wStart2) && computeTailLength(words, wStart2) <= max2) {
+                firstGapIdx = wStart2;
+            }
+        }
+
+        for (let g = 0; g < gaps.length; g++) {
+            const gSlices = gaps[g];
+            if (g >= firstGapIdx) {
+                for (let k = 0; k < gSlices.length; k++) {
+                    const sl = gSlices[k];
+                    const want = k === 0 ? NBSP : '';
+                    if (sl.text !== want) {
+                        if (!patchesByNode.has(sl.node)) patchesByNode.set(sl.node, []);
+                        patchesByNode.get(sl.node).push({ start: sl.start, end: sl.end, text: want });
+                    }
+                }
+            } else {
+                for (let k = 0; k < gSlices.length; k++) {
+                    const sl = gSlices[k];
+                    if (sl.text.indexOf(NBSP) !== -1) {
+                        if (!patchesByNode.has(sl.node)) patchesByNode.set(sl.node, []);
+                        patchesByNode.get(sl.node).push({ start: sl.start, end: sl.end, text: sl.text.replace(/\u00A0+/g, ' ') });
+                    }
+                }
+            }
+        }
+    }
+
+    function applyPatches(patchesByNode) {
+        patchesByNode.forEach(function (patches, node) {
+            if (!patches.length) return;
+            patches.sort(function (a, b) { return b.start - a.start; });
+            let val = node.nodeValue || '';
+            for (let i = 0; i < patches.length; i++) {
+                const p = patches[i];
+                val = val.slice(0, p.start) + p.text + val.slice(p.end);
+            }
+            if (val !== node.nodeValue) node.nodeValue = val;
+        });
+    }
+
+    function preventOrphansBlock(el, maxCharsOpt, sharedPatches) {
+        if (!el || el.nodeType !== 1 || SKIP_TAGS[el.tagName]) return;
+        const cs = window.getComputedStyle ? window.getComputedStyle(el) : null;
+        if (cs && cs.whiteSpace === 'nowrap') return;
+
+        const ownPatches = sharedPatches || new Map();
+        const isHeading1 = el.tagName === 'H1';
+        const isHeading = /^H[2-4]$/.test(el.tagName);
+        const maxChars = maxCharsOpt || (isHeading1 ? 18 : (isHeading ? 24 : 28));
+        const segments = scanSegments(el, cs ? isPreLike(cs.whiteSpace) : false, ownPatches);
+
+        for (let i = 0; i < segments.length; i++) {
+            if (segments[i].length) {
+                processSegment(segments[i], maxChars, 28, ownPatches);
+            }
+        }
+
+        if (!sharedPatches) applyPatches(ownPatches);
+    }
+
+    function applyAll(root, extraSelectors) {
+        const scope = root && root.nodeType ? root : document;
+        const list = extraSelectors ? DEFAULT_SELECTORS.concat(extraSelectors) : DEFAULT_SELECTORS;
+        const seen = typeof Set === 'function' ? new Set() : null;
+        const targets = [];
+
+        function pushTarget(node) {
+            if (!node || node.nodeType !== 1) return;
+            if (seen) {
+                if (seen.has(node)) return;
+                seen.add(node);
+            }
+            targets.push(node);
+        }
+
+        for (let i = 0; i < list.length; i++) {
+            const sel = list[i];
+            if (scope.nodeType === 1 && scope.matches && scope.matches(sel)) {
+                pushTarget(scope);
+            }
+            if (scope.querySelectorAll) {
+                const found = scope.querySelectorAll(sel);
+                for (let j = 0; j < found.length; j++) pushTarget(found[j]);
+            }
+        }
+
+        for (let i = 0; i < targets.length; i++) {
+            preventOrphansBlock(targets[i]);
+        }
+    }
+
+    window.HeritageTypography = {
+        applyBlock: preventOrphansBlock,
+        applyAll: applyAll
+    };
+})(window, document);
 
 /* ═══════════════ MODULE 1: MAIN APP ═══════════════ */
 (function () {
@@ -380,6 +726,9 @@
             if (showBack) { drBack.classList.add('show'); if (backLabel) drBack.innerHTML = '<i class="fa-solid fa-arrow-left"></i> ' + esc(backLabel); }
             else drBack.classList.remove('show');
             dr.classList.add('open'); bs.classList.remove('open'); drList.scrollTop = 0;
+        }
+        if (window.HeritageTypography) {
+            window.HeritageTypography.applyAll(isMobile() ? bsList : drList);
         }
     }
     function closeDrawers() {
@@ -1192,6 +1541,7 @@
             capEl.textContent = rec.imageCaption;
             imgSliderEl.appendChild(capEl);
         }
+        if (window.HeritageTypography) window.HeritageTypography.applyAll(heritageModal);
         const imgSlider = heritageModal.querySelector('.img-slider');
         const folderName = rec.imageFolder || rec.id;
         buildSlider(imgSlider, folderName, lg === 'en' ? (rec.n_en || rec.n) : rec.n);
@@ -1279,7 +1629,7 @@
         if (!mobileMenuBody) return;
         let html = '';
         html += '<div class="m-menu-section"><div class="m-menu-label">' + (lg === 'en' ? 'Catalogue' : 'Danh mục') + '</div><button class="m-menu-item" id="m-overview-item" type="button"><i class="fa-solid fa-layer-group"></i><span>' + (lg === 'en' ? 'Overview — Heritage catalogue' : 'Tổng quát — Danh mục di sản') + '</span><i class="fa-solid fa-chevron-right m-menu-arrow"></i></button></div>';
-        html += '<div class="m-menu-section"><div class="m-menu-label">' + (lg === 'en' ? 'Quick Links' : 'Liên kết nhanh') + '</div><a class="m-menu-item" href="https://sachdoc.pages.dev/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;"><i class="fa-solid fa-book-open"></i><span>' + (lg === 'en' ? 'Heritage Book' : 'Cuốn sách di sản') + '</span><i class="fa-solid fa-arrow-up-right-from-square m-menu-arrow"></i></a><a class="m-menu-item" href="http://thainguyentravel.pages.dev/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;"><i class="fa-solid fa-plane-departure"></i><span>' + (lg === 'en' ? 'Thai Nguyen Travel' : 'Thái Nguyên Travel') + '</span><i class="fa-solid fa-arrow-up-right-from-square m-menu-arrow"></i></a></div>';
+        html += '<div class="m-menu-section"><div class="m-menu-label">' + (lg === 'en' ? 'Quick Links' : 'Liên kết nhanh') + '</div><a class="m-menu-item" href="https://sachdoc.pages.dev/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;"><i class="fa-solid fa-book-open"></i><span>' + (lg === 'en' ? 'Heritage Book' : 'Cuốn sách di sản') + '</span><i class="fa-solid fa-arrow-up-right-from-square m-menu-arrow"></i></a><button class="m-menu-item" id="m-quiz-item" type="button"><i class="fa-solid fa-gamepad"></i><span>' + (lg === 'en' ? 'Colors of Thai Nguyen Heritage' : 'Sắc màu di sản Thái Nguyên') + '</span><i class="fa-solid fa-chevron-right m-menu-arrow"></i></button><a class="m-menu-item" href="http://thainguyentravel.pages.dev/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;"><i class="fa-solid fa-plane-departure"></i><span>' + (lg === 'en' ? 'Thai Nguyen Travel' : 'Thái Nguyên Travel') + '</span><i class="fa-solid fa-arrow-up-right-from-square m-menu-arrow"></i></a></div>';
         html += '<div class="m-menu-section"><div class="m-menu-label">' + (lg === 'en' ? 'Display' : 'Hiển thị') + '</div><button class="m-menu-item" id="m-theme-item" type="button"><i class="fa-solid ' + (isDark ? 'fa-moon' : 'fa-sun') + '" id="m-theme-icon"></i><span>' + (lg === 'en' ? (isDark ? 'Dark Mode' : 'Light Mode') : 'Chế độ ' + (isDark ? 'Tối' : 'Sáng')) + '</span><i class="fa-solid fa-chevron-right m-menu-arrow"></i></button></div>';
         html += '<div class="m-menu-section"><div class="m-menu-label">' + (lg === 'en' ? 'Language' : 'Ngôn ngữ') + '</div><div class="m-lang-switch"><button class="m-lang-btn' + (lg === 'vi' ? ' active' : '') + '" data-lang="vi" type="button">VN · Tiếng Việt</button><button class="m-lang-btn' + (lg === 'en' ? ' active' : '') + '" data-lang="en" type="button">EN · English</button></div></div>';
         html += '<div class="m-menu-section" data-region><div class="m-menu-label">' + (lg === 'en' ? 'Regions · Tap to view' : 'Khu vực · Chạm để xem') + '</div><div class="m-region-group open"><button class="m-region-province" type="button"><span>' + (lg === 'en' ? 'Thai Nguyen Province' : 'Tỉnh Thái Nguyên') + '</span><i class="fa-solid fa-chevron-down"></i></button><div class="m-region-districts">';
@@ -1309,8 +1659,34 @@
         });
         const overviewItem = mobileMenuBody.querySelector('#m-overview-item');
         if (overviewItem) overviewItem.addEventListener('click', () => { closeMobileMenu(); setTimeout(openOverview, 200); });
+        const quizItem = mobileMenuBody.querySelector('#m-quiz-item');
+        if (quizItem) quizItem.addEventListener('click', () => {
+            closeMobileMenu();
+            setTimeout(() => {
+                if (typeof window.openHeritageQuiz === 'function') window.openHeritageQuiz();
+                else {
+                    const qFab = document.getElementById('heritage-quiz-fab');
+                    if (qFab) qFab.click();
+                }
+            }, 220);
+        });
+        if (window.HeritageTypography) window.HeritageTypography.applyAll(mobileMenuBody);
     }
     buildMobileMenuBody();
+    document.addEventListener('click', e => {
+        if (e.target.closest('#lang-sw [data-lang], .m-lang-btn[data-lang]')) {
+            setTimeout(() => {
+                buildMobileMenuBody();
+                if (window.HeritageTypography) window.HeritageTypography.applyAll(document);
+            }, 0);
+        }
+    });
+    if (window.HeritageTypography) {
+        window.HeritageTypography.applyAll(document);
+        if (mSearchBody && typeof MutationObserver !== 'undefined') {
+            new MutationObserver(() => window.HeritageTypography.applyAll(mSearchBody)).observe(mSearchBody, { childList: true });
+        }
+    }
 
     /*════ KEYBOARD ════*/
     document.addEventListener('keydown', e => {
@@ -1498,7 +1874,9 @@
     function addMessage(type, content) {
         const div = document.createElement('div'); div.className = 'chat-message ' + type;
         if (type === 'ai') div.innerHTML = renderChatMarkdown(content); else div.textContent = content;
-        chatBody.appendChild(div); scrollToBottom(); return div;
+        chatBody.appendChild(div);
+        if (window.HeritageTypography) window.HeritageTypography.applyAll(div);
+        scrollToBottom(); return div;
     }
     function showTyping() {
         const t = document.createElement('div'); t.className = 'chat-typing'; t.id = 'chat-typing';

@@ -261,6 +261,12 @@
     return Number(num || 0).toLocaleString('vi-VN');
   }
 
+  function applyQuizTypography() {
+    if (window.HeritageTypography && dom.modal) {
+      window.HeritageTypography.applyAll(dom.modal);
+    }
+  }
+
   function pad2(num) {
     return String(num).padStart(2, '0');
   }
@@ -372,6 +378,7 @@
 
       dom.deckGrid.appendChild(card);
     });
+    applyQuizTypography();
   }
 
   function showWelcomeScreen() {
@@ -389,6 +396,7 @@
       dom.headerSub.textContent = DATA.meta.subtitle;
     }
     switchScreen('welcome');
+    applyQuizTypography();
   }
 
   /* ──── 6. BẮT ĐẦU & HIỂN THỊ CÂU HỎI ──── */
@@ -412,6 +420,7 @@
 
     switchScreen('play');
     renderCurrentQuestion();
+    applyQuizTypography();
   }
 
   function updateStatsBar() {
@@ -492,6 +501,7 @@
     if (dom.feedbackBanner) {
       dom.feedbackBanner.className = 'quiz-feedback-banner';
     }
+    applyQuizTypography();
   }
 
   function renderHintsList(q) {
@@ -521,6 +531,7 @@
         '<i class="fa-solid fa-check-double" aria-hidden="true"></i> ' +
         '<span>ĐÃ MỞ ĐỦ 3 GỢI Ý</span>';
     }
+    applyQuizTypography();
   }
 
   function unlockNextHint() {
@@ -643,7 +654,10 @@
       dom.nextQuestionBtn.innerHTML =
         '<span>' + nextBtnLabel + '</span>' +
         '<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>';
+      applyQuizTypography();
       dom.nextQuestionBtn.focus();
+    } else {
+      applyQuizTypography();
     }
   }
 
@@ -699,6 +713,7 @@
     if (dom.sumAccuracy) dom.sumAccuracy.textContent = percent + '%';
 
     switchScreen('result');
+    applyQuizTypography();
 
     if (percent >= 50) {
       fireworks.launch();
@@ -856,6 +871,8 @@
     if (!dom.modal) return;
     renderDeckSelectionCards();
     bindEvents();
+    window.openHeritageQuiz = openQuizModal;
+    applyQuizTypography();
   }
 
   if (document.readyState === 'loading') {
