@@ -62,91 +62,10 @@
   }
 }
 
-.quiz-fab__mobile-label {
-  display: none;
-}
-
-/* Hiển thị nút truy cập nhanh Sắc màu di sản gọn đẹp trên điện thoại */
+/* Ẩn icon nổi ngoài màn hình trên điện thoại (chỉ truy cập qua menu 3 gạch) */
 @media (max-width: 768px) {
-  body .extra-fabs {
-    display: flex !important;
-    right: 16px;
-    bottom: calc(146px + env(safe-area-inset-bottom, 0px));
-    gap: 10px;
-    z-index: 9998;
-  }
-
-  body.map-view .extra-fabs,
-  body:has(.chat-window.open) .extra-fabs,
-  body:has(#ap-bar:not(.ap-hidden)) .extra-fabs,
-  body:has(#heritage-quiz-modal.quiz-open) .extra-fabs {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-
-  .extra-fab.book-fab,
-  .extra-fab.travel-fab {
+  .extra-fab.quiz-fab {
     display: none !important;
-  }
-
-  .extra-fab.quiz-fab {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    min-width: 48px;
-    height: 44px;
-    padding: 0 14px;
-    border-radius: 999px;
-    gap: 8px;
-    font-size: 1.12rem;
-    box-shadow: 0 8px 22px rgba(27, 67, 50, 0.36);
-  }
-
-  .extra-fab.quiz-fab .quiz-fab__pulse {
-    border-radius: inherit;
-  }
-
-  .extra-fab.quiz-fab .quiz-fab__mobile-label {
-    display: inline-block;
-    font-family: var(--fn, "Be Vietnam Pro", sans-serif);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    white-space: nowrap;
-    line-height: 1;
-  }
-}
-
-@media (max-width: 768px) and (max-height: 580px) {
-  .extra-fab.quiz-fab {
-    width: 48px;
-    height: 48px;
-    padding: 0;
-    border-radius: 50%;
-  }
-
-  .extra-fab.quiz-fab .quiz-fab__mobile-label {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  body .extra-fabs {
-    right: 14px;
-    bottom: calc(144px + env(safe-area-inset-bottom, 0px));
-  }
-
-  .extra-fab.quiz-fab {
-    height: 42px;
-    padding: 0 13px;
-    gap: 7px;
-    font-size: 1.05rem;
-  }
-
-  .extra-fab.quiz-fab .quiz-fab__mobile-label {
-    font-size: 0.75rem;
   }
 }
 
