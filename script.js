@@ -1688,7 +1688,7 @@
         }
     }
 
-    /*════ KEYBOARD ════*/
+    /*════ KEYBOARD ══ ══*/
     document.addEventListener('keydown', e => {
         if (e.key === 'Escape') {
             if (lightbox.classList.contains('open')) { closeLightbox(); return; }
@@ -1737,7 +1737,7 @@
     const chatBody = document.getElementById('chat-body'), chatInput = document.getElementById('chat-input');
     const chatSend = document.getElementById('chat-send'), chatMinimize = document.getElementById('chat-minimize');
     const chatClose = document.getElementById('chat-close'), chatHeader = chatWindow.querySelector('.chat-header');
-    const API_URL = 'https://disanthainguyen-backend.tathanh72727.workers.dev/api/chat';
+    const API_URL = 'https://disanthainguyen-backendd.tathanh72727.workers.dev/api/chat';
     const FAB_POS_KEY = 'chatFabPos_v1';
     let isOpen = false, firstOpen = true, isLoading = false, lastChatToggleAt = 0;
 
