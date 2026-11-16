@@ -30,7 +30,7 @@
             layout: 'stacked',
             question: 'Nội dung nào sau đây phản ánh đúng khái niệm “Di sản văn hóa phi vật thể”?',
             options: [
-              { id: 'A', text: 'Di tích lịch sử - văn hoá tiêu biểu, danh lam thắng cảnh.' },
+              { id: 'A', text: 'Di tích lịch sử - văn hóa tiêu biểu, danh lam thắng cảnh.' },
               { id: 'B', text: 'Sản phẩm tinh thần gắn với cộng đồng hoặc cá nhân.' },
               { id: 'C', text: 'Di vật, cổ vật tiêu biểu được xếp hạng bảo vật quốc gia.' },
               { id: 'D', text: 'Sản phẩm vật chất được kế thừa của quốc gia, dân tộc.' }
@@ -50,7 +50,7 @@
           },
           {
             id: 3,
-            question: 'Nội dung nào sau đây là điểm giống nhau giữa di sản văn hoá phi vật thể và di sản văn hoá vật thể?',
+            question: 'Nội dung nào sau đây là điểm giống nhau giữa di sản văn hóa phi vật thể và di sản văn hóa vật thể?',
             options: [
               { id: 'A', text: 'Gắn với cộng đồng hoặc cá nhân, vật thể và không gian văn hóa liên quan.' },
               { id: 'B', text: 'Có giá trị lịch sử, văn hóa, khoa học, được lưu truyền qua các thế hệ khác nhau.' },
@@ -83,7 +83,7 @@
           },
           {
             id: 6,
-            question: 'Nghi lễ Hét khoăn của người Nùng ở Đồng Hỷ -tỉnh Thái Nguyên thuộc loại hình di sản văn hóa phi vật thể nào sau đây?',
+            question: 'Nghi lễ Hét Khoăn của người Nùng ở Đồng Hỷ - tỉnh Thái Nguyên thuộc loại hình di sản văn hóa phi vật thể nào sau đây?',
             options: [
               { id: 'A', text: 'Tiếng nói, chữ viết.' },
               { id: 'B', text: 'Ngữ văn dân gian.' },
@@ -94,7 +94,7 @@
           },
           {
             id: 7,
-            question: 'Múa Tắc Xình của người Sán Chay ở Xã Phú Lương, Xã Yên Trạch, Xã Hợp Thành, xã Yên Trạch Tỉnh Thái Nguyên là di sản văn hóa phi vật thể quốc gia thuộc loại hình nào sau đây?',
+            question: 'Múa Tắc Xình của người Sán Chay ở xã Phú Lương, xã Yên Trạch, xã Hợp Thành, tỉnh Thái Nguyên là di sản văn hóa phi vật thể quốc gia thuộc loại hình nào sau đây?',
             options: [
               { id: 'A', text: 'Nghệ thuật trình diễn dân gian.' },
               { id: 'B', text: 'Tập quán xã hội và tín ngưỡng.' },
@@ -105,7 +105,7 @@
           },
           {
             id: 8,
-            question: 'Lễ hội đình Phương Độ trên địa bàn Phú Bình - tỉnh Thái Nguyên là di sản văn hóa phi vật thể quốc gia thuộc loại hình',
+            question: 'Lễ hội đình Phương Độ trên địa bàn Phú Bình - tỉnh Thái Nguyên là di sản văn hóa phi vật thể quốc gia thuộc loại hình nào sau đây?',
             options: [
               { id: 'A', text: 'Nghệ thuật trình diễn dân gian.' },
               { id: 'B', text: 'Tập quán xã hội và tín ngưỡng.' },
@@ -138,7 +138,7 @@
           },
           {
             id: 11,
-            question: 'Nghệ thuật may thêu trang phục của người Dao Xã Trại Cau, Tràng Xá, Nghinh Tường Tỉnh Thái Nguyên là di sản văn hóa phi vật thể quốc gia thuộc loại hình nào sau đây?',
+            question: 'Nghệ thuật may thêu trang phục của người Dao ở các xã Trại Cau, Tràng Xá, Nghinh Tường, tỉnh Thái Nguyên là di sản văn hóa phi vật thể quốc gia thuộc loại hình nào sau đây?',
             options: [
               { id: 'A', text: 'Nghệ thuật trình diễn dân gian.' },
               { id: 'B', text: 'Tập quán xã hội và tín ngưỡng.' },
@@ -149,7 +149,7 @@
           },
           {
             id: 12,
-            question: 'Lượn Cọi của người Tày ở xã: Định Hóa, Bình Yên, Trung Hội, Phượng Tiến, Phú Đình, Bình Thành, Kim Phượng, Lam Vỹ Tỉnh Thái Nguyên thuộc loại hình di sản văn hóa phi vật thể nào sau đây?',
+            question: 'Lượn Cọi của người Tày ở các xã Định Hóa, Bình Yên, Trung Hội, Phượng Tiến, Phú Đình, Bình Thành, Kim Phượng, Lam Vỹ, tỉnh Thái Nguyên thuộc loại hình di sản văn hóa phi vật thể nào sau đây?',
             options: [
               { id: 'A', text: 'Tiếng nói, chữ viết.' },
               { id: 'B', text: 'Ngữ văn dân gian.' },
@@ -160,7 +160,7 @@
           },
           {
             id: 13,
-            question: 'Lễ hội Đền Đuổm ở xã Xã Phú Lương Tỉnh Thái Nguyên thuộc loại hình di sản văn hóa phi vật thể nào sau đây?',
+            question: 'Lễ hội Đền Đuổm ở xã Phú Lương, tỉnh Thái Nguyên thuộc loại hình di sản văn hóa phi vật thể nào sau đây?',
             options: [
               { id: 'A', text: 'Tiếng nói, chữ viết.' },
               { id: 'B', text: 'Lễ hội truyền thống.' },
@@ -171,7 +171,7 @@
           },
           {
             id: 14,
-            question: 'Gia phả dòng họ Lưu Nhân Chú ở Đại Từ Tỉnh Thái Nguyên thuộc loại hình di sản văn hóa phi vật thể nào sau đây?',
+            question: 'Gia phả dòng họ Lưu Nhân Chú ở Đại Từ, tỉnh Thái Nguyên thuộc loại hình di sản văn hóa phi vật thể nào sau đây?',
             options: [
               { id: 'A', text: 'Tiếng nói, chữ viết.' },
               { id: 'B', text: 'Lễ hội truyền thống.' },
@@ -182,7 +182,7 @@
           },
           {
             id: 15,
-            question: 'Nghệ thuật Khèn của người Mông ở Xã Đồng Hỷ, Quang Sơn, Trại Cau, Nam Hòa, Văn Hán, Văn Lăng, Phú Lương, Yên Trạch, Hợp Thành, Yên Trạch -Tỉnh Thái Nguyên thuộc loại hình di sản văn hóa phi vật thể nào sau đây?',
+            question: 'Nghệ thuật Khèn của người Mông ở các xã Đồng Hỷ, Quang Sơn, Trại Cau, Nam Hòa, Văn Hán, Văn Lăng, Phú Lương, Yên Trạch, Hợp Thành, tỉnh Thái Nguyên thuộc loại hình di sản văn hóa phi vật thể nào sau đây?',
             options: [
               { id: 'A', text: 'Tiếng nói, chữ viết.' },
               { id: 'B', text: 'Lễ hội dân gian.' },
@@ -215,7 +215,7 @@
           },
           {
             id: 18,
-            question: 'Ở Thái Nguyên, di sản nào sau đây thuộc các xã xã Phúc Chu - Định Hóa xã Yên Ninh - Phú Lương, tỉnh Thái Nguyên được đưa vào danh mục di sản văn hóa phi vật thể quốc gia năm 2018?',
+            question: 'Ở Thái Nguyên, di sản nào sau đây thuộc xã Phúc Chu - Định Hóa và xã Yên Ninh - Phú Lương, tỉnh Thái Nguyên được đưa vào danh mục di sản văn hóa phi vật thể quốc gia năm 2018?',
             options: [
               { id: 'A', text: 'Hát ví của người Tày.' },
               { id: 'B', text: 'Lễ hội đình Phương Độ.' },
@@ -237,12 +237,12 @@
           },
           {
             id: 20,
-            question: 'Năm 2015, di sản nào sau đây ở các xã xã Định Hóa, xã Bình Yên Thái Nguyên được đưa vào danh mục di sản văn hóa phi vật thể quốc gia?',
+            question: 'Năm 2015, di sản nào sau đây ở xã Định Hóa, xã Bình Yên, tỉnh Thái Nguyên được đưa vào danh mục di sản văn hóa phi vật thể quốc gia?',
             options: [
               { id: 'A', text: 'Lễ hội Lồng Tồng của người Tày.' },
               { id: 'B', text: 'Hát Sọong cô của người Sán Dìu.' },
-              { id: 'C', text: 'Lễ hội Cẩu mùa của người Sán Chay.' },
-              { id: 'D', text: 'Rối cạn của người Tày ở Thẩm Rộc và Ru nghệ.' }
+              { id: 'C', text: 'Lễ hội Cầu mùa của người Sán Chay.' },
+              { id: 'D', text: 'Rối cạn của người Tày ở Thẩm Rộc và Ru Nghệ.' }
             ],
             correctAnswer: 'D'
           },
@@ -259,7 +259,7 @@
           },
           {
             id: 22,
-            question: 'Năm 2016, Hát Sấng cọ của người Sán Chay trên địa bàn nào sau đây ở tỉnh Thái Nguyên được đưa vào danh mục di sản văn hóa phi vật thể quốc gia?',
+            question: 'Năm 2016, Hát Sấng Cọ của người Sán Chay trên địa bàn nào sau đây ở tỉnh Thái Nguyên được đưa vào danh mục di sản văn hóa phi vật thể quốc gia?',
             options: [
               { id: 'A', text: 'Định Hóa.' },
               { id: 'B', text: 'Phú Lương.' },
@@ -281,12 +281,12 @@
           },
           {
             id: 24,
-            question: 'Năm 2018, di sản nào sau đây ở các Xã Vô Tranh, Yên Trạch, Phú Lương -Tỉnh Thái Nguyên được đưa vào danh mục di sản văn hóa phi vật thể quốc gia?',
+            question: 'Năm 2018, di sản nào sau đây ở các xã Vô Tranh, Yên Trạch, Phú Lương, tỉnh Thái Nguyên được đưa vào danh mục di sản văn hóa phi vật thể quốc gia?',
             options: [
               { id: 'A', text: 'Lễ hội Lồng Tồng của người Tày.' },
               { id: 'B', text: 'Hát Sọong cô của người Sán Dìu.' },
               { id: 'C', text: 'Lễ hội Cầu mùa của người Sán Chay.' },
-              { id: 'D', text: 'Nghệ thuật khèn của người Mông.' }
+              { id: 'D', text: 'Nghệ thuật Khèn của người Mông.' }
             ],
             correctAnswer: 'C'
           },
@@ -294,8 +294,8 @@
             id: 25,
             question: 'Tri thức trồng và chế biến chè Tân Cương thuộc địa bàn nào của tỉnh Thái Nguyên được đưa vào danh mục di sản văn hóa phi vật thể quốc gia năm 2023?',
             options: [
-              { id: 'A', text: 'Các Xã Tân Cương, Xã Đại Phúc Tỉnh Thái Nguyên' },
-              { id: 'B', text: 'Các xã phía nam huyện Đại Từ và các xã phía Tây thành phố Phổ Yên.' },
+              { id: 'A', text: 'Các xã Tân Cương, Đại Phúc, tỉnh Thái Nguyên.' },
+              { id: 'B', text: 'Các xã phía nam huyện Đại Từ và các xã phía tây thành phố Phổ Yên.' },
               { id: 'C', text: 'Phân bố rộng khắp trên địa bàn các xã phía bắc tỉnh Thái Nguyên.' },
               { id: 'D', text: 'Phân bố trên địa bàn khắp các xã thuộc thành phố Thái Nguyên.' }
             ],
@@ -319,7 +319,7 @@
             question: 'Hình ảnh sau đây thuộc loại hình di sản văn hóa phi vật thể nào?',
             image: 'cauhoi/chu-nom-dao.png',
             imageAlt: 'Một trang của cuốn sách chữ Nôm Dao được lưu giữ tại gia đình ông Triệu Văn Thuận, xã Hợp Tiến, huyện Đồng Hỷ',
-            caption: 'Một trang của cuốn sách chữ Nôm Dao được lưu giữ tại gia đình ông Triệu Văn Thuận, xã Hợp Tiến, huyện Đồng Hỷ (Nguồn: Sở Văn hóa, Thể Thao và Du lịch Thái Nguyên)',
+            caption: 'Một trang của cuốn sách chữ Nôm Dao được lưu giữ tại gia đình ông Triệu Văn Thuận, xã Hợp Tiến, huyện Đồng Hỷ (Nguồn: Sở Văn hóa, Thể thao và Du lịch Thái Nguyên)',
             options: [
               { id: 'A', text: 'Tiếng nói, chữ viết.' },
               { id: 'B', text: 'Lễ hội dân gian.' },
@@ -347,7 +347,7 @@
             question: 'Hình ảnh sau đây thuộc loại hình di sản văn hóa phi vật thể nào?',
             image: 'cauhoi/che-tan-cuong.png',
             imageAlt: 'Chế biến chè Tân Cương - Thái Nguyên',
-            caption: 'Chế biến chè Tân Cương - Thái Nguyên (Nguồn: Sở Văn hóa, Thể Thao và Du lịch Thái Nguyên)',
+            caption: 'Chế biến chè Tân Cương - Thái Nguyên (Nguồn: Sở Văn hóa, Thể thao và Du lịch Thái Nguyên)',
             options: [
               { id: 'A', text: 'Tri thức dân gian.' },
               { id: 'B', text: 'Lễ hội dân gian.' },
@@ -360,8 +360,8 @@
             id: 4,
             question: 'Hình ảnh sau đây thuộc loại hình di sản văn hóa phi vật thể nào?',
             image: 'cauhoi/nghi-le-het-khoan.png',
-            imageAlt: 'Nghi lễ Hét khoăn - Lễ mừng sinh nhật của người Nùng',
-            caption: '“Nghi lễ Hét khoăn” - Lễ mừng sinh nhật của người Nùng (Nguồn Du lịch Thái Nguyên)',
+            imageAlt: 'Nghi lễ Hét Khoăn - Lễ mừng sinh nhật của người Nùng',
+            caption: '“Nghi lễ Hét Khoăn” - Lễ mừng sinh nhật của người Nùng (Nguồn: Du lịch Thái Nguyên)',
             options: [
               { id: 'A', text: 'Tri thức dân gian.' },
               { id: 'B', text: 'Lễ hội dân gian.' },
@@ -375,7 +375,7 @@
             question: 'Hình ảnh sau đây thuộc loại hình di sản văn hóa phi vật thể nào?',
             image: 'cauhoi/le-hoi-den-duom.png',
             imageAlt: 'Lễ hội Đền Đuổm',
-            caption: 'Nguồn: Cục Du lịch quốc gia Việt Nam',
+            caption: 'Nguồn: Cục Du lịch Quốc gia Việt Nam',
             options: [
               { id: 'A', text: 'Tri thức dân gian.' },
               { id: 'B', text: 'Lễ hội truyền thống.' },
@@ -400,10 +400,10 @@
           },
           {
             id: 7,
-            question: 'Hình ảnh sau đây thuộc di sản văn hóa phi vật thể nào của người Tày ở Thẩm Rộc và Ru Nghệ (xã Định Hóa, xã Bình Yên)',
+            question: 'Hình ảnh sau đây thuộc di sản văn hóa phi vật thể nào của người Tày ở Thẩm Rộc và Ru Nghệ (xã Định Hóa, xã Bình Yên)?',
             image: 'cauhoi/roi-can-tay.png',
-            imageAlt: 'Một tiết mục biểu diễn Rối cạn của giáo viên trường THPT Bình Yên',
-            caption: 'Một tiết mục biểu diễn của giáo viên trường THPT Bình Yên (ảnh thực nghiệm)',
+            imageAlt: 'Một tiết mục biểu diễn Rối cạn của giáo viên Trường THPT Bình Yên',
+            caption: 'Một tiết mục biểu diễn của giáo viên Trường THPT Bình Yên (ảnh thực nghiệm)',
             options: [
               { id: 'A', text: 'Tri thức dân gian.' },
               { id: 'B', text: 'Nghi lễ cầu mùa người Sán Chay.' },
@@ -414,10 +414,10 @@
           },
           {
             id: 8,
-            question: 'Hình ảnh sau đây thuộc di sản văn hóa phi vật thể nào của người Dao Đỏ Xã Chợ Đồn Tỉnh Thái Nguyên',
+            question: 'Hình ảnh sau đây thuộc di sản văn hóa phi vật thể nào của người Dao Đỏ ở xã Chợ Đồn, tỉnh Thái Nguyên?',
             image: 'cauhoi/trang-phuc-dao-do.png',
             imageAlt: 'Trang phục truyền thống của người Dao đỏ ở Bắc Kạn',
-            caption: 'Trang phục truyền thống của người Dao đỏ ở Bắk Kạn. Ảnh: baobackan.org.vn',
+            caption: 'Trang phục truyền thống của người Dao đỏ ở Bắc Kạn. Ảnh: baobackan.org.vn',
             options: [
               { id: 'A', text: 'Không gian văn hóa cộng đồng.' },
               { id: 'B', text: 'Nghi lễ trong ngày cưới hỏi.' },
@@ -428,7 +428,7 @@
           },
           {
             id: 9,
-            question: 'Hình ảnh sau đây thuộc di sản văn hóa phi vật thể nào của người Sán Chay ở Xã Phú Lương, Xã Yên Trạch, Xã Hợp Thành, xã Yên Trạch Tỉnh Thái Nguyên',
+            question: 'Hình ảnh sau đây thuộc di sản văn hóa phi vật thể nào của người Sán Chay ở xã Phú Lương, xã Yên Trạch, xã Hợp Thành, tỉnh Thái Nguyên?',
             image: 'cauhoi/mua-tac-xinh.png',
             imageAlt: 'Múa tra mố - Múa Tắc Xình của người Sán Chay',
             caption: 'Múa tra mố. Ảnh: Theo Hồ sơ di sản',
@@ -442,13 +442,13 @@
           },
           {
             id: 10,
-            question: 'Hình ảnh sau đây thuộc di sản văn hóa phi vật thể nào (Xã Vạn Phú -Tỉnh Thái Nguyên)',
+            question: 'Hình ảnh sau đây thuộc di sản văn hóa phi vật thể nào (xã Vạn Phú, tỉnh Thái Nguyên)?',
             image: 'cauhoi/le-hoi-nui-van-nui-vo.png',
-            imageAlt: 'Dòng họ Lưu ở xã Văn Yên (Đại Từ) rước Lễ vào đền thờ Lưu Nhân Chú',
-            caption: 'Dòng họ Lưu ở xã Văn Yên (Đại Từ) rước Lễ vào đền thờ Lưu Nhân Chú (Nguồn: THPT Lưu Nhân Chú)',
+            imageAlt: 'Dòng họ Lưu ở xã Văn Yên (Đại Từ) rước lễ vào đền thờ Lưu Nhân Chú',
+            caption: 'Dòng họ Lưu ở xã Văn Yên (Đại Từ) rước lễ vào đền thờ Lưu Nhân Chú (Nguồn: THPT Lưu Nhân Chú)',
             options: [
               { id: 'A', text: 'Nghi lễ trong Lễ hội Lồng Tồng.' },
-              { id: 'B', text: 'Lễ hội Núi Văn-Núi Võ.' },
+              { id: 'B', text: 'Lễ hội Núi Văn - Núi Võ.' },
               { id: 'C', text: 'Nghi lễ trong Lễ hội Cầu mùa.' },
               { id: 'D', text: 'Nghi lễ Tết nhảy (Nhảng chầm đao).' }
             ],
@@ -471,9 +471,9 @@
             id: 1,
             question: 'Đây là lễ hội nào?',
             hints: [
-              'Có 3 kỳ lễ (lễ Khai đài cầu phúc diễn ra vào ngày 14 và 15 tháng Giêng; Tiểu lệ - Lễ Cầu mác diễn ra vào ngày 10/4 âm lịch và Đại lệ - lệ làng diễn ra vào ngày 9 đến 11/10 âm lịch.',
-              'Lễ hội gắn liền với tín ngưỡng thờ Dương Tự Minh',
-              'Diễn ra trên địa bàn Xã Phú Bình'
+              'Có 3 kỳ lễ (lễ Khai đài cầu phúc diễn ra vào ngày 14 và 15 tháng Giêng; Tiểu lệ - Lễ Cầu mác diễn ra vào ngày 10/4 âm lịch và Đại lệ - lệ làng diễn ra vào ngày 9 đến 11/10 âm lịch).',
+              'Lễ hội gắn liền với tín ngưỡng thờ Dương Tự Minh.',
+              'Diễn ra trên địa bàn xã Phú Bình.'
             ],
             options: [
               { id: 'A', text: 'Lễ hội Đền Đuổm' },
@@ -486,28 +486,28 @@
           },
           {
             id: 2,
-            question: 'Đây là nghi lễ nào của người Nùng ở Xã Xuân Dương tỉnh Thái Nguyên?',
+            question: 'Đây là nghi lễ nào của người Nùng ở xã Xuân Dương, tỉnh Thái Nguyên?',
             hints: [
-              'Có nghi thức Bắc cầu để kéo dài tuổi thọ',
-              'Người được tổ chức từ 70 tuổi trở lên',
-              'Được tổ chức vào đúng ngày sinh nhật hoặc nhưng nếu sinh nhật trùng vào dịp đầu xuân năm mới.'
+              'Có nghi thức bắc cầu để kéo dài tuổi thọ.',
+              'Người được tổ chức từ 70 tuổi trở lên.',
+              'Được tổ chức vào đúng ngày sinh nhật hoặc vào dịp đầu xuân năm mới.'
             ],
             options: [
-              { id: 'A', text: 'Lễ Nghi lễ mừng sinh nhật (Hoắt khoăn)' },
+              { id: 'A', text: 'Nghi lễ mừng sinh nhật (Hoắt khoăn)' },
               { id: 'B', text: 'Nghi lễ Cấp sắc' },
               { id: 'C', text: 'Nghi lễ Tết nhảy (Nhảng chầm đao)' },
               { id: 'D', text: 'Lễ hội Cầu mùa' }
             ],
             correctAnswer: 'A',
-            answer: 'Lễ Nghi lễ mừng sinh nhật (Hoắt khoăn)'
+            answer: 'Nghi lễ mừng sinh nhật (Hoắt khoăn)'
           },
           {
             id: 3,
             question: 'Đây là lễ hội nào?',
             hints: [
               'Cầu cho một năm mới mưa thuận, gió hòa, mùa màng bội thu, nhà nhà no ấm, hạnh phúc.',
-              'Lễ hội truyền thống đặc sắc của của người Tày',
-              'Lễ hội có tên gọi khác là “ Xuống đồng”'
+              'Lễ hội truyền thống đặc sắc của người Tày.',
+              'Lễ hội có tên gọi khác là “Xuống đồng”.'
             ],
             options: [
               { id: 'A', text: 'Lễ hội Đền Lục Giáp' },
@@ -522,9 +522,9 @@
             id: 4,
             question: 'Đây là loại hình nghệ thuật trình diễn dân gian nào?',
             hints: [
-              'Là một trong những loại hình nghệ thuật trình diễn dân gian tiêu biểu của người Tày',
+              'Là một trong những loại hình nghệ thuật trình diễn dân gian tiêu biểu của người Tày.',
               'Do người phụ nữ đảm nhiệm, biểu diễn theo nhóm từ 4 đến 12 người.',
-              'Nhạc cụ chính của điệu múa là chiếc bát và đôi đũa'
+              'Nhạc cụ chính của điệu múa là chiếc bát và đôi đũa.'
             ],
             options: [
               { id: 'A', text: 'Múa Tắc Xình của người Sán Chay' },
@@ -540,8 +540,8 @@
             question: 'Đây là loại hình nghệ thuật trình diễn dân gian nào?',
             hints: [
               'Không sử dụng bất kỳ nhạc cụ đệm nào, chỉ đơn thuần là giọng hát đối đáp giữa các cặp nam nữ.',
-              'Là một trong những loại hình nghệ thuật trình diễn dân gian tiêu biểu của người Sán Chay ở Phú Lương (Thái Nguyên)',
-              'Còn có tên gọi khác là Hát ví Lưu Tam'
+              'Là một trong những loại hình nghệ thuật trình diễn dân gian tiêu biểu của người Sán Chay ở Phú Lương (Thái Nguyên).',
+              'Còn có tên gọi khác là Hát ví Lưu Tam.'
             ],
             options: [
               { id: 'A', text: 'Hát Sọong cô' },
