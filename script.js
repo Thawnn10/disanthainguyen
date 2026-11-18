@@ -1041,6 +1041,17 @@
     const contribReceiptId = el('contrib-receipt-id');
     const contribAnotherBtn = el('contrib-another-btn');
     const contribDoneBtn = el('contrib-done-btn');
+    const WORKER_API_ORIGIN = 'https://disanthainguyen-backendd.tathanh72727.workers.dev';
+    function getContribApiUrl() {
+        if (typeof window.__DSTN_API_BASE__ === 'string') {
+            return window.__DSTN_API_BASE__.replace(/\/+$/, '') + '/api/contributions';
+        }
+        const host = window.location.hostname;
+        if (host === 'localhost' || host === '127.0.0.1') {
+            return '/api/contributions';
+        }
+        return WORKER_API_ORIGIN + '/api/contributions';
+    }
     let isContribSubmitting = false;
 
     function autoResizeContribTextarea() {
@@ -1206,17 +1217,32 @@
             }
 
             try {
-                const res = await fetch('/api/contributions', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        school_name: schoolVal,
-                        contributor_name: nameVal,
-                        contribution_type: typeVal || 'Bổ sung kiến thức di sản',
-                        content: contentVal,
-                        website: websiteVal
-                    })
+                const payloadStr = JSON.stringify({
+                    school_name: schoolVal,
+                    contributor_name: nameVal,
+                    contribution_type: typeVal || 'Bổ sung kiến thức di sản',
+                    content: contentVal,
+                    website: websiteVal
                 });
+                const primaryUrl = getContribApiUrl();
+                let res;
+                try {
+                    res = await fetch(primaryUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: payloadStr
+                    });
+                } catch (primaryErr) {
+                    if (primaryUrl !== '/api/contributions') {
+                        res = await fetch('/api/contributions', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: payloadStr
+                        });
+                    } else {
+                        throw primaryErr;
+                    }
+                }
 
                 let data = null;
                 try {

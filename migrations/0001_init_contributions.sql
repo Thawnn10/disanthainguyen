@@ -1,7 +1,9 @@
 -- ============================================================================
 -- Migration: 0001_init_contributions.sql
 -- Hệ thống Đóng góp Tri thức Cộng đồng — Di Sản Thái Nguyên · Âm Vang Di Sản
--- Database: Cloudflare D1 (SQLite)
+-- Worker: disanthainguyen-backendd
+-- Database: disanthainguyen-contributions (6a0e2ff6-2230-43ba-8ec4-22987349bb7a)
+-- An toàn: Chỉ sử dụng CREATE TABLE/INDEX IF NOT EXISTS, không xóa dữ liệu cũ
 -- ============================================================================
 
 CREATE TABLE IF NOT EXISTS contributions (

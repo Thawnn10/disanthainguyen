@@ -11,6 +11,21 @@
   const el = id => document.getElementById(id);
   const $$ = (sel, root) => Array.prototype.slice.call((root || document).querySelectorAll(sel));
 
+  const WORKER_API_ORIGIN = 'https://disanthainguyen-backendd.tathanh72727.workers.dev';
+
+  function resolveAdminApiBase() {
+    if (typeof window.__DSTN_API_BASE__ === 'string') {
+      return window.__DSTN_API_BASE__.trim().replace(/\/+$/, '');
+    }
+    const host = window.location.hostname;
+    if (host === 'localhost' || host === '127.0.0.1') {
+      return '';
+    }
+    // Mặc định ưu tiên qua proxy cùng origin (/api/admin/* -> Worker disanthainguyen-backendd)
+    // để Cookie HttpOnly là First-Party; tự động chuyển sang WORKER_API_ORIGIN nếu chạy tĩnh không proxy.
+    return state.useDirectWorkerOrigin ? WORKER_API_ORIGIN : '';
+  }
+
   // Trạng thái ứng dụng (chỉ giữ trong RAM)
   const state = {
     authenticated: false,
@@ -34,7 +49,8 @@
     },
     currentDetail: null,
     pendingConfirmAction: null,
-    isDark: false
+    isDark: false,
+    useDirectWorkerOrigin: false
   };
 
   /* ─────────────────────────── HELPERS ─────────────────────────── */
@@ -93,9 +109,13 @@
   }
 
   async function apiFetch(path, options = {}) {
+    const base = resolveAdminApiBase();
+    const url = path.startsWith('http') ? path : (base + path);
+    const isCrossOrigin = Boolean(base && !url.startsWith(window.location.origin));
+
     const opts = {
       method: options.method || 'GET',
-      credentials: 'same-origin',
+      credentials: isCrossOrigin ? 'include' : 'same-origin',
       headers: {
         ...(options.headers || {})
       }
@@ -110,7 +130,23 @@
       opts.headers['X-CSRF-Token'] = state.csrfToken;
     }
 
-    const res = await fetch(path, opts);
+    let res = await fetch(url, opts);
+
+    // Nếu trang tĩnh chưa bật Pages Proxy (trả về 404 HTML hoặc 405), tự động gọi trực tiếp tới Worker disanthainguyen-backendd
+    const contentType = res.headers.get('content-type') || '';
+    if (
+      !base &&
+      !state.useDirectWorkerOrigin &&
+      (res.status === 405 || (res.status === 404 && !contentType.includes('application/json')))
+    ) {
+      state.useDirectWorkerOrigin = true;
+      const directUrl = WORKER_API_ORIGIN + path;
+      res = await fetch(directUrl, {
+        ...opts,
+        credentials: 'include'
+      });
+    }
+
     let data = null;
     try {
       data = await res.json();
@@ -621,8 +657,10 @@
     if (btn) btn.disabled = true;
     try {
       const qs = buildFilterQueryString(false);
-      const url = '/api/admin/export.csv' + (qs ? '?' + qs : '');
-      const res = await fetch(url, { credentials: 'same-origin' });
+      const base = resolveAdminApiBase();
+      const url = base + '/api/admin/export.csv' + (qs ? '?' + qs : '');
+      const isCrossOrigin = Boolean(base && !url.startsWith(window.location.origin));
+      const res = await fetch(url, { credentials: isCrossOrigin ? 'include' : 'same-origin' });
       if (res.status === 401) {
         handleSessionExpired();
         return;

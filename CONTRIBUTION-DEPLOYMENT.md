@@ -1,246 +1,177 @@
 # HƯỚNG DẪN TRIỂN KHAI HỆ THỐNG ĐÓNG GÓP TRI THỨC CỘNG ĐỒNG
 ## DI SẢN THÁI NGUYÊN · ÂM VANG DI SẢN (`CONTRIBUTION-DEPLOYMENT.md`)
 
-Tài liệu này hướng dẫn chi tiết kiến trúc, cách cấu hình **Cloudflare D1**, **Cloudflare Pages Functions**, quản lý biến mật (**Secrets**), chạy **Migrations**, khởi tạo tài khoản **Admin** an toàn và quy trình triển khai lên môi trường Production (`https://disanthainguyen.pages.dev/`).
+Tài liệu này mô tả kiến trúc chính thức đã đồng bộ, cấu hình **Cloudflare Worker (`disanthainguyen-backendd`)**, **Cloudflare D1 (`disanthainguyen-contributions`)**, **Cloudflare Pages (`disanthainguyen.pages.dev`)**, quản lý **Secrets**, chạy **Migrations** và quy trình triển khai tách biệt giữa Worker và Pages.
 
 ---
 
-## 1. Kiến trúc hệ thống
+## 1. Kiến trúc Hệ thống Chính thức
 
-Hệ thống được tích hợp trực tiếp vào kiến trúc **Cloudflare Pages** hiện tại của dự án mà không cần tạo server rời hay làm ảnh hưởng tới Worker Chatbot AI (`https://disanthainguyen-backendd.tathanh72727.workers.dev/api/chat`):
-
-```
-Người xem (Public UI: /)
-   └── Nhấn nút "ĐÓNG GÓP" (#contribute-btn)
-   └── Điền biểu mẫu (#contribution-modal)
-   └── POST /api/contributions
-          │
-          ▼
-Cloudflare Pages Functions (/functions/api/[[path]].js)
-   ├── Kiểm tra dữ liệu (Server-side validation, chống XSS, chống SQLi bằng Prepared Statements)
-   ├── Chống Spam (Honeypot + Rate Limiting theo IP + Chống trùng lặp)
-   └── Lưu vào Cloudflare D1 (Bảng `contributions` với trạng thái mặc định `pending`)
-          │
-          ▼
-Trang Quản trị (/admin/)
-   ├── Xác thực Admin qua PBKDF2-HMAC-SHA256 + Phiên Cookie HttpOnly + CSRF Token
-   ├── Thống kê thời gian thực (Tổng số, Chờ duyệt, Đã duyệt, Từ chối, Biểu đồ 14 ngày)
-   ├── Tìm kiếm, Lọc trạng thái / loại đóng góp, Sắp xếp, Phân trang
-   ├── Xem chi tiết, Ghi chú nội bộ, Duyệt / Từ chối / Lưu trữ (có lưu Audit Log)
-   └── Xuất dữ liệu CSV chuẩn UTF-8 BOM (hiển thị tiếng Việt có dấu trên Excel)
-```
-
----
-
-## 2. Danh sách các file được thêm mới và chỉnh sửa
-
-### Các file thêm mới:
-- `migrations/0001_init_contributions.sql`: Schema khởi tạo các bảng `contributions`, `contribution_audit_logs`, `admin_users`, `admin_sessions`, `rate_limits` và các chỉ mục (indexes) tối ưu truy vấn.
-- `functions/api/[[path]].js`: Backend API chạy trên Cloudflare Pages Functions / Workers xử lý toàn bộ `/api/contributions` và `/api/admin/*`.
-- `admin/index.html`: Giao diện trang quản trị `/admin/` (Đăng nhập, Tổng quan, Quản lý đóng góp, Chi tiết & Kiểm duyệt, Cài đặt).
-- `admin/admin.css`: Hệ thống thiết kế SaaS chuẩn Linear / Stripe / Vercel (bảng màu `#F7F8FA`, `#FFFFFF`, `#17191C`, `#707782`, `#E6E8EC`, **hoàn toàn không sử dụng gradient**).
-- `admin/admin.js`: Logic điều khiển trang quản trị, kết nối API bảo mật qua Cookie `HttpOnly` và `X-CSRF-Token`.
-- `scripts/hash-admin-password.mjs`: Công cụ CLI giúp chủ dự án tự tạo mã băm mật khẩu PBKDF2-HMAC-SHA256 và lệnh SQL khởi tạo Admin mà không bao giờ lưu mật khẩu dạng rõ trong code.
-- `wrangler.toml`: Cấu hình Cloudflare Pages & D1 database binding (`DB`).
-- `.dev.vars.example` & `.gitignore`: Mẫu cấu hình biến môi trường local và danh sách loại trừ file nhạy cảm khi commit Git.
-- `CONTRIBUTION-DEPLOYMENT.md` & `README.md`: Tài liệu kỹ thuật và hướng dẫn vận hành.
-
-### Các file được chỉnh sửa (bảo toàn 100% tính năng cũ):
-- `index.html`: Thay thế nút Donate (`#qr-donate-btn`) bằng nút **ĐÓNG GÓP** (`#contribute-btn`) và thay `#qr-modal` bằng Modal biểu mẫu đóng góp (`#contribution-modal`).
-- `style.css`: Thay thế CSS của nút/modal QR cũ bằng CSS cho nút **ĐÓNG GÓP** và Modal biểu mẫu đóng góp theo phong cách *Premium Editorial + Modern Product Design + Soft Liquid Glass*.
-- `script.js`: Thay thế sự kiện nút QR cũ bằng bộ điều khiển Modal Đóng góp (auto-resize textarea, bộ đếm ký tự, kiểm tra trường bắt buộc, xử lý gửi API, hiển thị mã tiếp nhận và giữ nguyên dữ liệu nếu lỗi mạng).
-- `_headers`: Bổ sung header bảo mật (`X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `X-Robots-Tag: noindex, nofollow`) cho `/admin/*`.
+1. **Cloudflare Pages (`https://disanthainguyen.pages.dev`)**:
+   - Chỉ phục vụ giao diện công khai (`/`) và giao diện quản trị (`/admin/`).
+   - File `functions/api/[[path]].js` chỉ đóng vai trò **Reverse Proxy không trạng thái (Stateless Proxy)** chuyển tiếp `/api/*` sang Worker `disanthainguyen-backendd` để hỗ trợ First-Party Cookie `HttpOnly` cùng origin trên mọi trình duyệt (không gắn D1, không chứa bất kỳ câu lệnh SQL hay logic nghiệp vụ nào).
+2. **Cloudflare Worker (`disanthainguyen-backendd` — `https://disanthainguyen-backendd.tathanh72727.workers.dev`)**:
+   - Là **Backend duy nhất và trung tâm** của toàn bộ hệ thống.
+   - Xử lý **Chatbot AI Gemini** (`POST /api/chat`, `POST /api/heritage/ask`, `GET /api/heritage/search`, `GET /api/heritage/health`, `GET /api/heritage/health/deep`) thông qua **Durable Object `GEMINI_EXECUTOR` (`GeminiRegionExecutor`)**.
+   - Xử lý **toàn bộ API Đóng góp Cộng đồng & API Quản trị Admin** trực tiếp thông qua kết nối **Cloudflare D1 (`env.DB`)**:
+     - `POST /api/contributions`
+     - `POST /api/admin/login`
+     - `POST /api/admin/logout`
+     - `GET /api/admin/me`
+     - `POST /api/admin/password`
+     - `GET /api/admin/stats`
+     - `GET /api/admin/contributions`
+     - `GET /api/admin/contributions/:id`
+     - `PATCH /api/admin/contributions/:id`
+     - `GET /api/admin/export.csv`
+3. **Cloudflare D1 Database**:
+   - Gắn trực tiếp với Worker `disanthainguyen-backendd` qua biến môi trường `env.DB`:
+     - **Binding**: `DB`
+     - **Database name**: `disanthainguyen-contributions`
+     - **Database ID**: `6a0e2ff6-2230-43ba-8ec4-22987349bb7a`
 
 ---
 
-## 3. Tạo cơ sở dữ liệu Cloudflare D1
+## 2. Cấu hình `wrangler.toml` của Worker (`disanthainguyen-backendd`)
 
-Mở terminal tại thư mục gốc của dự án và đăng nhập Cloudflare (nếu chưa đăng nhập):
-
-```bash
-npx wrangler login
-```
-
-Tạo cơ sở dữ liệu D1 mới mang tên `disanthainguyen-db`:
-
-```bash
-npx wrangler d1 create disanthainguyen-db
-```
-
-Sau khi lệnh chạy xong, Cloudflare sẽ trả về thông tin tương tự:
+File `wrangler.toml` (tại `D:\code\disanthainguyen_backendd\wrangler.toml` và đã đồng bộ tại `c:\Users\Thanhh\OneDrive\code\KHKT\wrangler.toml`):
 
 ```toml
+name = "disanthainguyen-backendd"
+main = "src/index.js"
+compatibility_date = "2025-02-01"
+
+[vars]
+GEMINI_MODEL = "gemini-3.8-flash"
+GEMINI_FALLBACK_MODELS = "gemini-3.5-flash-lite,gemini-3.1-flash-lite"
+GEMINI_API_VERSION = "v1beta"
+GEMINI_INTERACTIONS_REVISION = "2026-05-20"
+GEMINI_DO_REGION = "wnam"
+ALLOWED_ORIGINS = "*"
+RATE_LIMIT_MAX_REQUESTS = "25"
+RATE_LIMIT_WINDOW_SECONDS = "60"
+
+[[durable_objects.bindings]]
+name = "GEMINI_EXECUTOR"
+class_name = "GeminiRegionExecutor"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["GeminiRegionExecutor"]
+
 [[d1_databases]]
 binding = "DB"
-database_name = "disanthainguyen-db"
-database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+database_name = "disanthainguyen-contributions"
+database_id = "6a0e2ff6-2230-43ba-8ec4-22987349bb7a"
+migrations_dir = "migrations"
 ```
 
 ---
 
-## 4. Cấu hình Binding `DB`
+## 3. API URL mà Frontend và Admin sử dụng
 
-1. **Trong file `wrangler.toml`**:
-   Thay giá trị `database_id` bằng chuỗi UUID thực tế vừa nhận được ở Bước 3:
-   ```toml
-   name = "disanthainguyen"
-   pages_build_output_dir = "."
-   compatibility_date = "2025-01-01"
-
-   [[d1_databases]]
-   binding = "DB"
-   database_name = "disanthainguyen-db"
-   database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-   migrations_dir = "migrations"
-   ```
-
-2. **Trên Cloudflare Dashboard (cho Cloudflare Pages)**:
-   - Truy cập **Cloudflare Dashboard** → **Workers & Pages** → chọn dự án **disanthainguyen**.
-   - Vào tab **Settings** → **Bindings** (hoặc **Functions** → **D1 database bindings**).
-   - Nhấn **Add** → chọn **D1 database**:
-     - **Variable name**: `DB` (viết hoa chính xác).
-     - **D1 database**: chọn `disanthainguyen-db`.
-   - Nhấn **Save**.
+- **Worker Base URL:** `https://disanthainguyen-backendd.tathanh72727.workers.dev`
+- **Các đường dẫn API trên Worker:**
+  - Chatbot AI: `https://disanthainguyen-backendd.tathanh72727.workers.dev/api/chat`
+  - Gửi đóng góp công khai: `https://disanthainguyen-backendd.tathanh72727.workers.dev/api/contributions` (cũng hoạt động qua `/api/contributions` nhờ proxy mỏng trên Pages).
+  - Quản trị Admin:
+    - `POST /api/admin/login`
+    - `POST /api/admin/logout`
+    - `GET /api/admin/me`
+    - `GET /api/admin/stats`
+    - `GET /api/admin/contributions`
+    - `GET /api/admin/contributions/:id`
+    - `PATCH /api/admin/contributions/:id`
+    - `GET /api/admin/export.csv`
+    *(Trong `admin/admin.js`, hệ thống tự động gọi qua đường dẫn cùng origin `/api/admin/*` — được proxy thẳng tới `https://disanthainguyen-backendd.tathanh72727.workers.dev/api/admin/*` — hoặc tự động chuyển sang gọi trực tiếp `https://disanthainguyen-backendd.tathanh72727.workers.dev/api/admin/*` với `credentials: 'include'` nếu chạy thuần tĩnh).*
 
 ---
 
-## 5. Cấu hình Secrets & Tạo tài khoản Admin an toàn
+## 4. Khởi tạo Tài khoản Admin & Cấu hình Secrets trên Worker
 
-Hệ thống **không sử dụng mật khẩu mặc định** và **không lưu mật khẩu dạng văn bản rõ**.
-
-### Bước 5.1: Sinh mã băm mật khẩu và `SESSION_SECRET`
-Chạy công cụ đi kèm trên máy của bạn (thay `<ten_dang_nhap>` và `<mat_khau_manh>` bằng thông tin thật của bạn):
+Hệ thống không hardcode mật khẩu trong mã nguồn. Hãy tạo mã băm mật khẩu PBKDF2-HMAC-SHA256 (100.000 vòng lặp + salt 16 byte) bằng công cụ đi kèm:
 
 ```bash
 node scripts/hash-admin-password.mjs admin "MatKhauQuanTri_Manh_2026!"
 ```
 
-Lệnh trên sẽ in ra 3 giá trị:
+Lệnh trên xuất ra 3 biến mật cần đặt trên **Worker `disanthainguyen-backendd`**:
 - `ADMIN_USERNAME`
-- `ADMIN_PASSWORD_HASH` (định dạng `pbkdf2_sha256$100000$<salt>$<hash>`)
-- `SESSION_SECRET` (64 ký tự hex ngẫu nhiên)
+- `ADMIN_PASSWORD_HASH`
+- `SESSION_SECRET`
 
-### Bước 5.2: Cấu hình cho môi trường Local (`.dev.vars`)
-Tạo file `.dev.vars` ở thư mục gốc dự án (file này đã được chặn trong `.gitignore`, không bao giờ đẩy lên GitHub) và dán 3 dòng vừa tạo vào:
+Thiết lập 3 biến này lên Worker `disanthainguyen-backendd`:
 
-```ini
-ADMIN_USERNAME=admin
-ADMIN_PASSWORD_HASH=pbkdf2_sha256$100000$...
-SESSION_SECRET=...
+```bash
+cd D:\code\disanthainguyen_backendd
+npx wrangler secret put ADMIN_USERNAME --name disanthainguyen-backendd
+npx wrangler secret put ADMIN_PASSWORD_HASH --name disanthainguyen-backendd
+npx wrangler secret put SESSION_SECRET --name disanthainguyen-backendd
 ```
 
-### Bước 5.3: Cấu hình Secrets trên Cloudflare Pages Production
-Bạn có thể thiết lập qua CLI hoặc trên giao diện Cloudflare Dashboard:
+*(Các biến `GEMINI_API_KEY_1` .. `GEMINI_API_KEY_9` hiện có trên Worker được giữ nguyên tuyệt đối, không bị ghi đè).*
 
-- **Cách 1 (Qua Wrangler CLI):**
+---
+
+## 5. Kiểm thử Local
+
+1. **Áp dụng migration D1 ở chế độ Local:**
+   ```bash
+   npx wrangler d1 migrations apply disanthainguyen-contributions --local
+   ```
+
+2. **Chạy toàn bộ 27 bài kiểm thử tự động (Gemini RAG + 9-Key Rotation + Durable Object `GEMINI_EXECUTOR` + D1 Contributions + Admin Auth/Moderation + CORS/CSRF):**
+   ```bash
+   node --no-warnings tests/quality-checks.test.js
+   ```
+
+---
+
+## 6. Quy trình Migration Database Production An toàn (Chỉ chạy khi bạn xác nhận)
+
+File `migrations/0001_init_contributions.sql` chỉ sử dụng `CREATE TABLE IF NOT EXISTS` và `CREATE INDEX IF NOT EXISTS`, đảm bảo **không xóa hoặc ghi đè bất kỳ bảng hay dữ liệu nào đang có** trong `disanthainguyen-contributions` (`6a0e2ff6-2230-43ba-8ec4-22987349bb7a`).
+
+Khi bạn sẵn sàng áp dụng lên D1 Production:
+
+1. **Đăng nhập Wrangler (nếu chưa đăng nhập):**
+   ```bash
+   npx wrangler login
+   ```
+2. **Kiểm tra danh sách migration chờ áp dụng trên Production:**
+   ```bash
+   npx wrangler d1 migrations list disanthainguyen-contributions --remote
+   ```
+3. **Thực thi migration trên D1 Production:**
+   ```bash
+   npx wrangler d1 migrations apply disanthainguyen-contributions --remote
+   ```
+4. **Xác nhận các bảng đã tồn tại trên D1 Production:**
+   ```bash
+   npx wrangler d1 execute disanthainguyen-contributions --remote --command "SELECT name FROM sqlite_master WHERE type='table';"
+   ```
+
+---
+
+## 7. Quy trình Deploy Worker và Cloudflare Pages Riêng biệt
+
+### Bước A: Deploy Backend Worker (`disanthainguyen-backendd`)
+Triển khai Worker trước để các API `/api/contributions` và `/api/admin/*` sẵn sàng trên `https://disanthainguyen-backendd.tathanh72727.workers.dev`:
+
+```bash
+cd D:\code\disanthainguyen_backendd
+npx wrangler deploy
+```
+
+Kiểm tra nhanh sau khi deploy Worker:
+- Mở `https://disanthainguyen-backendd.tathanh72727.workers.dev/health` → xác nhận `"ok": true` và `"communityContributionsD1": true`.
+
+### Bước B: Deploy Frontend & Admin UI lên Cloudflare Pages (`disanthainguyen.pages.dev`)
+Trong thư mục `c:\Users\Thanhh\OneDrive\code\KHKT`:
+
+- **Cách 1 (Qua GitHub CI/CD như hiện tại):**
+  Commit và push các file giao diện (`index.html`, `style.css`, `script.js`, `_headers`, `admin/*`, `functions/api/[[path]].js`) lên nhánh chính của repository `https://github.com/Thawnn10/disanthainguyen`.
+  *(Lưu ý: Nếu Cloudflare Pages tự động build từ GitHub, không cần đẩy file `wrangler.toml` của Worker lên nhánh Pages hoặc chỉ giữ `wrangler.toml` trong thư mục Worker `D:\code\disanthainguyen_backendd` để Pages build thuần tĩnh + Pages Functions proxy).*
+- **Cách 2 (Deploy trực tiếp qua Wrangler Pages CLI):**
   ```bash
-  npx wrangler pages secret put ADMIN_USERNAME --project-name disanthainguyen
-  npx wrangler pages secret put ADMIN_PASSWORD_HASH --project-name disanthainguyen
-  npx wrangler pages secret put SESSION_SECRET --project-name disanthainguyen
+  npx wrangler pages deploy . --project-name disanthainguyen
   ```
-- **Cách 2 (Qua Cloudflare Dashboard):**
-  Vào **Workers & Pages** → **disanthainguyen** → **Settings** → **Environment variables** → nhấn **Add** (chọn loại **Secret** / **Encrypt**) cho cả 3 biến `ADMIN_USERNAME`, `ADMIN_PASSWORD_HASH`, `SESSION_SECRET`.
-
----
-
-## 6. Chạy Migrations ở môi trường Local
-
-Áp dụng file migration `migrations/0001_init_contributions.sql` vào cơ sở dữ liệu D1 cục bộ:
-
-```bash
-npx wrangler d1 migrations apply disanthainguyen-db --local
-```
-
-Kiểm tra các bảng đã được tạo trong D1 local:
-
-```bash
-npx wrangler d1 execute disanthainguyen-db --local --command "SELECT name FROM sqlite_master WHERE type='table';"
-```
-
----
-
-## 7. Kiểm thử Local
-
-Khởi chạy toàn bộ website kèm Cloudflare Pages Functions và D1 local:
-
-```bash
-npx wrangler pages dev . --d1 DB=disanthainguyen-db --port 8788
-```
-
-Sau đó mở trình duyệt:
-- **Giao diện công khai:** `http://localhost:8788/`
-  - Cuộn xuống chân trang (hoặc mở Menu trên điện thoại), nhấn nút **ĐÓNG GÓP**.
-  - Điền thông tin trường học, họ tên, nội dung và nhấn **Gửi đóng góp**.
-  - Kiểm tra thông báo thành công kèm **Mã tiếp nhận** (`DSTN-...`).
-- **Giao diện quản trị:** `http://localhost:8788/admin/`
-  - Đăng nhập bằng tài khoản đã cấu hình trong `.dev.vars`.
-  - Kiểm tra số liệu thống kê, tìm kiếm, lọc trạng thái, mở chi tiết bản ghi, thử **Duyệt / Từ chối / Lưu trữ** và **Xuất CSV**.
-
----
-
-## 8. Chạy Migration trên Database Production (Chỉ thực hiện sau khi xác nhận)
-
-> **LƯU Ý QUAN TRỌNG:** Chỉ chạy lệnh dưới đây sau khi bạn đã tạo D1 database trên Cloudflare, điền `database_id` vào `wrangler.toml` và sẵn sàng áp dụng schema lên Production.
-
-```bash
-npx wrangler d1 migrations apply disanthainguyen-db --remote
-```
-
----
-
-## 9. Triển khai Backend & 10. Triển khai Frontend
-
-Do dự án sử dụng kiến trúc hợp nhất trên **Cloudflare Pages** (Frontend tĩnh + `/functions/api/[[path]].js`), cả Frontend và Backend sẽ được triển khai đồng bộ:
-
-### Cách 1: Tự động qua GitHub CI/CD (Khuyến nghị — giữ nguyên cơ chế hiện tại)
-Sau khi kiểm tra kỹ ở local, commit và push code lên nhánh chính của repository `https://github.com/Thawnn10/disanthainguyen`:
-
-```bash
-git add .
-git commit -m "feat: add community contribution system and admin dashboard with Cloudflare D1"
-git push origin main
-```
-
-Cloudflare Pages sẽ tự động build cả giao diện tĩnh (`/`, `/admin/`) lẫn Functions (`/api/*`).
-
-### Cách 2: Triển khai thủ công qua Wrangler CLI (Khi cần)
-```bash
-npx wrangler pages deploy . --project-name disanthainguyen
-```
-
----
-
-## 11. Kiểm tra sau khi triển khai Production
-
-1. Truy cập `https://disanthainguyen.pages.dev/api/health` → xác nhận phản hồi `{"ok":true,"hasDbBinding":true}`.
-2. Truy cập `https://disanthainguyen.pages.dev/` → nhấn nút **ĐÓNG GÓP**, gửi một đóng góp thử nghiệm.
-3. Truy cập `https://disanthainguyen.pages.dev/admin/` → đăng nhập quản trị, kiểm tra bản ghi vừa gửi hiển thị ở mục **Chờ duyệt**, thực hiện **Duyệt** hoặc **Lưu trữ**, và thử **Xuất CSV**.
-4. Kiểm tra lại các chức năng gốc (Bản đồ 46 di sản, Tìm kiếm, Tổng quát, Trình phát âm thanh, Trợ lý AI, Trò chơi Sắc màu di sản).
-
----
-
-## 12. Hướng dẫn Quản lý Tài khoản Admin & Đổi mật khẩu
-
-- **Đổi mật khẩu trực tiếp trên giao diện Admin:**
-  1. Đăng nhập vào `/admin/`.
-  2. Chọn mục **Cài đặt** ở thanh điều hướng bên trái.
-  3. Nhập **Mật khẩu hiện tại** và **Mật khẩu mới** (tối thiểu 8 ký tự), nhấn **Cập nhật mật khẩu**.
-  4. Hệ thống sẽ tự động băm mật khẩu mới bằng `PBKDF2-HMAC-SHA256` (100.000 vòng lặp) và lưu vào bảng `admin_users` trên Cloudflare D1, đồng thời thu hồi các phiên đăng nhập cũ khác.
-
-- **Tạo thêm hoặc đặt lại mật khẩu Admin bằng CLI:**
-  Chạy lệnh sinh câu lệnh SQL an toàn:
-  ```bash
-  node scripts/hash-admin-password.mjs admin "MatKhauMoi@2026" --sql-only > reset-admin.sql
-  ```
-  Thực thi trên D1 Local:
-  ```bash
-  npx wrangler d1 execute disanthainguyen-db --local --file=reset-admin.sql
-  ```
-  Hoặc trên D1 Production (sau khi xác nhận):
-  ```bash
-  npx wrangler d1 execute disanthainguyen-db --remote --file=reset-admin.sql
-  ```
-  *(Nhớ xóa file `reset-admin.sql` sau khi chạy xong).*
-
-- **Bảo vệ bổ sung với Cloudflare Access (Tùy chọn nâng cao):**
-  Trên Cloudflare Zero Trust Dashboard (**Access** → **Applications**), bạn có thể tạo thêm một Self-hosted Application cho đường dẫn `disanthainguyen.pages.dev/admin*` để yêu cầu xác thực OTP qua Email chủ dự án trước khi vào trang đăng nhập Admin.
