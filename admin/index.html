@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Quản trị hệ thống · Di Sản Thái Nguyên</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+
+<body>
+  <!-- MÀN HÌNH KIỂM TRA PHIÊN BAN ĐẦU -->
+  <div id="boot-screen" class="boot-screen" aria-live="polite">
+    <div class="boot-card">
+      <div class="boot-spinner" aria-hidden="true"></div>
+      <span class="boot-text">Đang xác thực phiên quản trị...</span>
+    </div>
+  </div>
+
+  <!-- MÀN HÌNH 1: TRANG ĐĂNG NHẬP TỐI GIẢN -->
+  <main id="login-screen" class="login-screen" hidden>
+    <div class="login-card">
+      <div class="login-brand">
+        <img src="/lg.png" alt="Logo Di Sản Thái Nguyên" class="login-logo">
+        <div class="login-brand-text">
+          <span class="login-org">Di Sản Thái Nguyên · Âm Vang Di Sản</span>
+          <h1 class="login-title">Quản trị hệ thống</h1>
+        </div>
+      </div>
+
+      <p class="login-desc">Đăng nhập để tiếp nhận, kiểm duyệt và quản lý các đóng góp tri thức cộng đồng.</p>
+
+      <form id="login-form" class="login-form" novalidate>
+        <div class="form-group">
+          <label for="login-username" class="form-label">Tên đăng nhập</label>
+          <input type="text" id="login-username" name="username" class="form-input" placeholder="Nhập tên đăng nhập..."
+            autocomplete="username" required>
+        </div>
+
+        <div class="form-group">
+          <label for="login-password" class="form-label">Mật khẩu</label>
+          <div class="password-input-wrap">
+            <input type="password" id="login-password" name="password" class="form-input" placeholder="Nhập mật khẩu..."
+              autocomplete="current-password" required>
+            <button type="button" id="toggle-password-btn" class="password-toggle" aria-label="Hiện hoặc ẩn mật khẩu">
+              <i class="fa-regular fa-eye" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="login-error" class="login-error" role="alert" hidden></div>
+
+        <button type="submit" id="login-submit-btn" class="btn btn-primary btn-block">
+          <span class="btn-spinner" id="login-spinner" aria-hidden="true"></span>
+          <span id="login-submit-text">Đăng nhập</span>
+        </button>
+      </form>
+
+      <div class="login-footer">
+        <a href="/" class="login-back-link">
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+          <span>Quay về trang công khai</span>
+        </a>
+        <span class="login-security-badge">
+          <i class="fa-solid fa-lock" aria-hidden="true"></i>
+          Cloudflare D1 · HttpOnly Session
+        </span>
+      </div>
+    </div>
+  </main>
+
+  <!-- MÀN HÌNH 2: ADMIN DASHBOARD -->
+  <div id="dashboard-screen" class="admin-layout" hidden>
+    <!-- Backdrop cho Sidebar trên Mobile -->
+    <div id="sidebar-backdrop" class="sidebar-backdrop" hidden></div>
+
+    <!-- SIDEBAR -->
+    <aside id="admin-sidebar" class="admin-sidebar" aria-label="Điều hướng quản trị">
+      <div class="sidebar-header">
+        <a href="/admin/" class="sidebar-brand" id="sidebar-brand-link">
+          <img src="/lg.png" alt="Logo Di Sản Thái Nguyên" class="sidebar-logo">
+          <div class="sidebar-brand-info">
+            <span class="sidebar-brand-name">Di Sản Thái Nguyên</span>
+            <span class="sidebar-brand-role">Community Admin</span>
+          </div>
+        </a>
+        <button type="button" id="sidebar-close-btn" class="icon-btn mobile-only" aria-label="Đóng thanh bên">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Danh mục quản lý">
+        <div class="sidebar-section-label">Quản lý nội dung</div>
+        <button type="button" class="nav-item active" data-nav="overview">
+          <i class="fa-solid fa-chart-Simple nav-icon fa-chart-column" aria-hidden="true"></i>
+          <span class="nav-label">Tổng quan</span>
+        </button>
+        <button type="button" class="nav-item" data-nav="all">
+          <i class="fa-solid fa-layer-group nav-icon" aria-hidden="true"></i>
+          <span class="nav-label">Tất cả đóng góp</span>
+          <span class="nav-badge" id="nav-badge-total">0</span>
+        </button>
+        <button type="button" class="nav-item" data-nav="pending">
+          <i class="fa-regular fa-clock nav-icon" aria-hidden="true"></i>
+          <span class="nav-label">Chờ duyệt</span>
+          <span class="nav-badge nav-badge-warning" id="nav-badge-pending">0</span>
+        </button>
+        <button type="button" class="nav-item" data-nav="approved">
+          <i class="fa-regular fa-circle-check nav-icon" aria-hidden="true"></i>
+          <span class="nav-label">Đã duyệt</span>
+          <span class="nav-badge nav-badge-success" id="nav-badge-approved">0</span>
+        </button>
+        <button type="button" class="nav-item" data-nav="rejected">
+          <i class="fa-regular fa-circle-xmark nav-icon" aria-hidden="true"></i>
+          <span class="nav-label">Từ chối</span>
+          <span class="nav-badge nav-badge-danger" id="nav-badge-rejected">0</span>
+        </button>
+        <button type="button" class="nav-item" data-nav="archived">
+          <i class="fa-solid fa-box-archive nav-icon" aria-hidden="true"></i>
+          <span class="nav-label">Lưu trữ</span>
+          <span class="nav-badge" id="nav-badge-archived">0</span>
+        </button>
+
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-section-label">Hệ thống</div>
+        <button type="button" class="nav-item" data-nav="settings">
+          <i class="fa-solid fa-sliders nav-icon" aria-hidden="true"></i>
+          <span class="nav-label">Cài đặt</span>
+        </button>
+        <button type="button" class="nav-item nav-item-danger" id="sidebar-logout-btn">
+          <i class="fa-solid fa-arrow-right-from-bracket nav-icon" aria-hidden="true"></i>
+          <span class="nav-label">Đăng xuất</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="admin-user-pill">
+          <div class="admin-avatar" id="admin-avatar">A</div>
+          <div class="admin-user-meta">
+            <span class="admin-username" id="admin-username-display">admin</span>
+            <span class="admin-role-tag">Quản trị viên</span>
+          </div>
+        </div>
+        <a href="/" target="_blank" rel="noopener noreferrer" class="sidebar-ext-link" title="Mở trang chủ công khai">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+    </aside>
+
+    <!-- KHU VỰC NỘI DUNG CHÍNH -->
+    <div class="admin-main">
+      <!-- TOPBAR -->
+      <header class="admin-topbar">
+        <div class="topbar-left">
+          <button type="button" id="sidebar-open-btn" class="icon-btn mobile-only" aria-label="Mở menu điều hướng">
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+          </button>
+          <div>
+            <h2 class="topbar-title" id="topbar-title">Tổng quan</h2>
+            <p class="topbar-subtitle" id="topbar-subtitle">Thống kê thời gian thực và hoạt động đóng góp cộng đồng</p>
+          </div>
+        </div>
+
+        <div class="topbar-actions">
+          <button type="button" id="theme-toggle-btn" class="btn btn-secondary btn-sm" title="Chuyển chế độ Sáng / Tối">
+            <i class="fa-regular fa-moon" id="theme-toggle-icon" aria-hidden="true"></i>
+            <span class="hide-sm" id="theme-toggle-label">Giao diện tối</span>
+          </button>
+          <button type="button" id="refresh-data-btn" class="btn btn-secondary btn-sm" title="Làm mới dữ liệu">
+            <i class="fa-solid fa-rotate-right" aria-hidden="true"></i>
+            <span class="hide-sm">Làm mới</span>
+          </button>
+          <button type="button" id="export-csv-btn" class="btn btn-primary btn-sm" title="Xuất danh sách ra file CSV">
+            <i class="fa-solid fa-download" aria-hidden="true"></i>
+            <span>Xuất CSV</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- CONTENT BODY -->
+      <div class="admin-content">
+        <!-- VIEW 1: TỔNG QUAN (OVERVIEW) -->
+        <section id="view-overview" class="admin-view">
+          <div class="kpi-grid">
+            <div class="kpi-card" data-jump-status="all" role="button" tabindex="0">
+              <div class="kpi-card-top">
+                <span class="kpi-label">Tổng số đóng góp</span>
+                <span class="kpi-icon"><i class="fa-solid fa-inbox" aria-hidden="true"></i></span>
+              </div>
+              <div class="kpi-value" id="kpi-total">0</div>
+              <div class="kpi-foot">Toàn bộ bản ghi trong Cloudflare D1</div>
+            </div>
+
+            <div class="kpi-card kpi-card-pending" data-jump-status="pending" role="button" tabindex="0">
+              <div class="kpi-card-top">
+                <span class="kpi-label">Đóng góp chờ duyệt</span>
+                <span class="kpi-icon"><i class="fa-regular fa-clock" aria-hidden="true"></i></span>
+              </div>
+              <div class="kpi-value" id="kpi-pending">0</div>
+              <div class="kpi-foot">Cần quản trị viên xem xét</div>
+            </div>
+
+            <div class="kpi-card kpi-card-approved" data-jump-status="approved" role="button" tabindex="0">
+              <div class="kpi-card-top">
+                <span class="kpi-label">Đóng góp đã duyệt</span>
+                <span class="kpi-icon"><i class="fa-regular fa-circle-check" aria-hidden="true"></i></span>
+              </div>
+              <div class="kpi-value" id="kpi-approved">0</div>
+              <div class="kpi-foot">Tư liệu hợp lệ đã xác nhận</div>
+            </div>
+
+            <div class="kpi-card kpi-card-rejected" data-jump-status="rejected" role="button" tabindex="0">
+              <div class="kpi-card-top">
+                <span class="kpi-label">Đóng góp bị từ chối</span>
+                <span class="kpi-icon"><i class="fa-regular fa-circle-xmark" aria-hidden="true"></i></span>
+              </div>
+              <div class="kpi-value" id="kpi-rejected">0</div>
+              <div class="kpi-foot">Không đạt tiêu chuẩn hoặc trùng lặp</div>
+            </div>
+          </div>
+
+          <div class="overview-panels-grid">
+            <!-- Biểu đồ đóng góp 14 ngày gần nhất -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <div>
+                  <h3 class="panel-title">Số lượng đóng góp theo thời gian</h3>
+                  <p class="panel-subtitle">Thống kê 14 ngày gần nhất từ cơ sở dữ liệu D1</p>
+                </div>
+              </div>
+              <div class="chart-container" id="timeline-chart"></div>
+            </div>
+
+            <!-- Phân loại theo chủ đề & trường học -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <div>
+                  <h3 class="panel-title">Phân bổ theo loại đóng góp</h3>
+                  <p class="panel-subtitle">Tỷ trọng các nhóm nội dung gửi về</p>
+                </div>
+              </div>
+              <div class="breakdown-list" id="type-breakdown-list"></div>
+            </div>
+          </div>
+
+          <div class="overview-panels-grid overview-panels-bottom">
+            <!-- Đóng góp mới chờ duyệt -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <div>
+                  <h3 class="panel-title">Đóng góp mới chờ duyệt</h3>
+                  <p class="panel-subtitle">Nhấn vào bản ghi để xem chi tiết và kiểm duyệt nhanh</p>
+                </div>
+                <button type="button" class="btn btn-secondary btn-xs" id="overview-view-all-pending-btn">
+                  Xem tất cả chờ duyệt
+                </button>
+              </div>
+              <div class="recent-pending-list" id="recent-pending-list"></div>
+            </div>
+
+            <!-- Top Trường / Đơn vị đóng góp -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <div>
+                  <h3 class="panel-title">Trường / Đơn vị tích cực</h3>
+                  <p class="panel-subtitle">Các trường học và đơn vị có nhiều đóng góp nhất</p>
+                </div>
+              </div>
+              <div class="breakdown-list" id="school-breakdown-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 2: DANH SÁCH & QUẢN LÝ ĐÓNG GÓP -->
+        <section id="view-contributions" class="admin-view" hidden>
+          <div class="panel-card table-panel">
+            <!-- Thanh công cụ Tìm kiếm, Lọc, Sắp xếp -->
+            <div class="table-toolbar">
+              <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+                <input type="search" id="filter-search-input" class="form-input search-input"
+                  placeholder="Tìm mã đóng góp, họ tên, trường học hoặc nội dung...">
+                <button type="button" id="clear-search-btn" class="search-clear-btn" aria-label="Xóa từ khóa" hidden>
+                  <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+              </div>
+
+              <div class="toolbar-filters">
+                <div class="select-group">
+                  <label for="filter-status-select" class="sr-only">Trạng thái</label>
+                  <select id="filter-status-select" class="form-select">
+                    <option value="all">Tất cả trạng thái</option>
+                    <option value="pending">Chờ duyệt</option>
+                    <option value="approved">Đã duyệt</option>
+                    <option value="rejected">Từ chối</option>
+                    <option value="archived">Lưu trữ</option>
+                  </select>
+                </div>
+
+                <div class="select-group">
+                  <label for="filter-type-select" class="sr-only">Loại đóng góp</label>
+                  <select id="filter-type-select" class="form-select">
+                    <option value="all">Tất cả loại đóng góp</option>
+                    <option value="Bổ sung kiến thức di sản">Bổ sung kiến thức di sản</option>
+                    <option value="Chia sẻ câu chuyện văn hóa">Chia sẻ câu chuyện văn hóa</option>
+                    <option value="Đề xuất cải thiện website">Đề xuất cải thiện website</option>
+                    <option value="Báo lỗi hoặc đính chính thông tin">Báo lỗi hoặc đính chính thông tin</option>
+                    <option value="Ý tưởng phát triển dự án">Ý tưởng phát triển dự án</option>
+                    <option value="Khác">Khác</option>
+                  </select>
+                </div>
+
+                <div class="select-group">
+                  <label for="filter-sort-select" class="sr-only">Sắp xếp</label>
+                  <select id="filter-sort-select" class="form-select">
+                    <option value="newest">Mới nhất trước</option>
+                    <option value="oldest">Cũ nhất trước</option>
+                    <option value="updated">Cập nhật gần nhất</option>
+                    <option value="school">Theo tên trường (A–Z)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bảng dữ liệu -->
+            <div class="table-responsive">
+              <table class="data-table" aria-label="Danh sách đóng góp cộng đồng">
+                <thead>
+                  <tr>
+                    <th class="col-id">Mã đóng góp</th>
+                    <th class="col-contributor">Tên người đóng góp</th>
+                    <th class="col-school">Trường / đơn vị</th>
+                    <th class="col-type">Loại đóng góp</th>
+                    <th class="col-summary">Nội dung tóm tắt</th>
+                    <th class="col-time">Thời gian gửi</th>
+                    <th class="col-status">Trạng thái</th>
+                    <th class="col-actions">Hành động</th>
+                  </tr>
+                </thead>
+                <tbody id="contributions-tbody"></tbody>
+              </table>
+            </div>
+
+            <!-- Thanh phân trang -->
+            <div class="table-pagination" id="table-pagination">
+              <div class="pagination-info" id="pagination-info">Hiển thị 0–0 trên tổng số 0 đóng góp</div>
+              <div class="pagination-controls">
+                <button type="button" id="page-prev-btn" class="btn btn-secondary btn-xs" disabled>
+                  <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                  <span>Trước</span>
+                </button>
+                <span class="pagination-page-indicator" id="pagination-page-indicator">Trang 1 / 1</span>
+                <button type="button" id="page-next-btn" class="btn btn-secondary btn-xs" disabled>
+                  <span>Sau</span>
+                  <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VIEW 3: CÀI ĐẶT (SETTINGS) -->
+        <section id="view-settings" class="admin-view" hidden>
+          <div class="settings-grid">
+            <div class="panel-card">
+              <div class="panel-header">
+                <div>
+                  <h3 class="panel-title">Đổi mật khẩu quản trị</h3>
+                  <p class="panel-subtitle">Mật khẩu được băm bằng thuật toán PBKDF2-HMAC-SHA256 (100.000 vòng lặp)</p>
+                </div>
+              </div>
+              <form id="change-password-form" class="settings-form" novalidate>
+                <div class="form-group">
+                  <label for="cur-password" class="form-label">Mật khẩu hiện tại</label>
+                  <input type="password" id="cur-password" class="form-input" required autocomplete="current-password"
+                    placeholder="Nhập mật khẩu đang sử dụng...">
+                </div>
+                <div class="form-group">
+                  <label for="new-password" class="form-label">Mật khẩu mới (tối thiểu 8 ký tự)</label>
+                  <input type="password" id="new-password" class="form-input" required autocomplete="new-password"
+                    placeholder="Nhập mật khẩu mới...">
+                </div>
+                <div class="form-group">
+                  <label for="confirm-password" class="form-label">Xác nhận mật khẩu mới</label>
+                  <input type="password" id="confirm-password" class="form-input" required autocomplete="new-password"
+                    placeholder="Nhập lại mật khẩu mới...">
+                </div>
+                <div id="password-form-msg" class="settings-msg" role="alert" hidden></div>
+                <button type="submit" id="save-password-btn" class="btn btn-primary">Cập nhật mật khẩu</button>
+              </form>
+            </div>
+
+            <div class="panel-card">
+              <div class="panel-header">
+                <div>
+                  <h3 class="panel-title">Quy tắc kiểm duyệt & Bảo mật</h3>
+                  <p class="panel-subtitle">Thông tin vận hành hệ thống đóng góp cộng đồng</p>
+                </div>
+              </div>
+              <div class="settings-info-list">
+                <div class="settings-info-item">
+                  <div class="settings-info-title">1. Trạng thái mặc định</div>
+                  <div class="settings-info-desc">Mọi đóng góp mới gửi từ trang công khai đều mang trạng thái
+                    <strong>Chờ duyệt (pending)</strong> và không hiển thị công khai ra ngoài website.</div>
+                </div>
+                <div class="settings-info-item">
+                  <div class="settings-info-title">2. An toàn kho dữ liệu di sản gốc</div>
+                  <div class="settings-info-desc">Việc duyệt đóng góp chỉ xác nhận tư liệu trong cơ sở dữ liệu D1, không
+                    tự động chỉnh sửa <code>heritage-data.js</code>. Chủ dự án chủ động quyết định khi biên tập tư liệu
+                    chính thức.</div>
+                </div>
+                <div class="settings-info-item">
+                  <div class="settings-info-title">3. Bảo toàn lịch sử lưu trữ</div>
+                  <div class="settings-info-desc">Khi chuyển sang <strong>Lưu trữ (archived)</strong> hoặc <strong>Từ
+                      chối (rejected)</strong>, dữ liệu gốc và nhật ký kiểm duyệt vẫn được lưu giữ để phục vụ đối chiếu
+                    khoa học kỹ thuật.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- DRAWER CHI TIẾT ĐÓNG GÓP -->
+  <div id="detail-drawer-wrap" class="drawer-overlay" role="dialog" aria-modal="true"
+    aria-labelledby="detail-drawer-title" hidden>
+    <div class="drawer-backdrop" id="detail-drawer-backdrop"></div>
+    <aside class="detail-drawer">
+      <header class="drawer-header">
+        <div>
+          <div class="drawer-id-row">
+            <span class="drawer-id-code" id="detail-id">—</span>
+            <span class="status-badge" id="detail-status-badge">—</span>
+          </div>
+          <h3 class="drawer-title" id="detail-drawer-title">Chi tiết đóng góp</h3>
+        </div>
+        <button type="button" id="detail-close-btn" class="icon-btn" aria-label="Đóng chi tiết">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </header>
+
+      <div class="drawer-body">
+        <div class="detail-meta-grid">
+          <div class="detail-meta-box">
+            <span class="detail-meta-label">Người gửi</span>
+            <strong class="detail-meta-value" id="detail-contributor">—</strong>
+          </div>
+          <div class="detail-meta-box">
+            <span class="detail-meta-label">Trường đang học / đang giảng dạy</span>
+            <strong class="detail-meta-value" id="detail-school">—</strong>
+          </div>
+          <div class="detail-meta-box">
+            <span class="detail-meta-label">Loại đóng góp</span>
+            <span class="detail-meta-value" id="detail-type">—</span>
+          </div>
+          <div class="detail-meta-box">
+            <span class="detail-meta-label">Thời gian gửi</span>
+            <span class="detail-meta-value" id="detail-created-at">—</span>
+          </div>
+          <div class="detail-meta-box">
+            <span class="detail-meta-label">Thời gian duyệt</span>
+            <span class="detail-meta-value" id="detail-reviewed-at">Chưa duyệt</span>
+          </div>
+          <div class="detail-meta-box">
+            <span class="detail-meta-label">Cập nhật lần cuối</span>
+            <span class="detail-meta-value" id="detail-updated-at">—</span>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Nội dung đóng góp</div>
+          <div class="detail-content-box" id="detail-content"></div>
+        </div>
+
+        <div class="detail-section">
+          <label for="detail-admin-note" class="detail-section-label">Ghi chú quản trị (nội bộ)</label>
+          <textarea id="detail-admin-note" class="form-textarea" rows="3" maxlength="2000"
+            placeholder="Nhập nhận xét, kết quả xác minh nguồn tư liệu hoặc lý do duyệt / từ chối..."></textarea>
+          <div class="detail-note-actions">
+            <button type="button" id="save-note-only-btn" class="btn btn-secondary btn-xs">
+              <i class="fa-regular fa-floppy-disk" aria-hidden="true"></i>
+              <span>Lưu ghi chú</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <div class="detail-section-label">Lịch sử kiểm duyệt</div>
+          <div class="audit-log-list" id="detail-audit-logs"></div>
+        </div>
+      </div>
+
+      <footer class="drawer-footer">
+        <div class="drawer-footer-label">Hành động kiểm duyệt:</div>
+        <div class="drawer-action-btns">
+          <button type="button" class="btn btn-approve" id="action-approve-btn" data-action-status="approved">
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span>Duyệt</span>
+          </button>
+          <button type="button" class="btn btn-reject" id="action-reject-btn" data-action-status="rejected">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            <span>Từ chối</span>
+          </button>
+          <button type="button" class="btn btn-archive" id="action-archive-btn" data-action-status="archived">
+            <i class="fa-solid fa-box-archive" aria-hidden="true"></i>
+            <span>Lưu trữ</span>
+          </button>
+        </div>
+      </footer>
+    </aside>
+  </div>
+
+  <!-- MODAL XÁC NHẬN THAY ĐỔI TRẠNG THÁI -->
+  <div id="confirm-modal" class="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirm-modal-title"
+    hidden>
+    <div class="confirm-backdrop" id="confirm-backdrop"></div>
+    <div class="confirm-dialog">
+      <h4 class="confirm-title" id="confirm-modal-title">Xác nhận thay đổi trạng thái</h4>
+      <p class="confirm-desc" id="confirm-modal-desc">Bạn có chắc chắn muốn thực hiện thao tác này?</p>
+      <div class="confirm-actions">
+        <button type="button" id="confirm-cancel-btn" class="btn btn-secondary">Hủy bỏ</button>
+        <button type="button" id="confirm-ok-btn" class="btn btn-primary">Xác nhận</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST THÔNG BÁO -->
+  <div id="admin-toast" class="admin-toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="/admin/admin.js" defer></script>
+</body>
+
+</html>

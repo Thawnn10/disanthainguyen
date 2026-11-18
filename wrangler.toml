@@ -1,0 +1,11 @@
+name = "disanthainguyen"
+pages_build_output_dir = "."
+compatibility_date = "2025-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "disanthainguyen-db"
+# Thay database_id bằng ID thực tế sau khi chạy: npx wrangler d1 create disanthainguyen-db
+# Khi chạy local với --local, Wrangler tự động tạo SQLite D1 cục bộ trong .wrangler/state
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"

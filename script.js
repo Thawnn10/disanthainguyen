@@ -39,8 +39,11 @@
         '#am-box .am-khkt-item > div',
         '#am-box .am-sign',
         '#am-box .am-domain',
-        '#qr-modal p',
-        '#qr-modal small',
+        '#contrib-modal-title',
+        '#contrib-modal-subtitle',
+        '.contrib-success__title',
+        '.contrib-success__desc',
+        '.contrib-success__note',
         '#modal-name',
         '#modal-decision',
         '#modal-desc',
@@ -365,7 +368,7 @@
     const drList = el('dr-list'), bsList = el('bs-list'), drTitle = el('dr-title'), drSub = el('dr-sub'), bsTitle = el('bs-title'), bsSub = el('bs-sub');
     const drBack = el('dr-back'), bsBack = el('bs-back'), bsHandle = el('bs-handle'), bsClose = el('bs-close');
     const am = el('am'), themeBtn = el('theme-btn'), ctaBtn = el('cta-btn'), backBtn = el('back-btn'), ft = el('ft'), brand = el('brand');
-    const heritageModal = el('heritage-modal'), qrModal = el('qr-modal'), qrDonateBtn = el('qr-donate-btn'), qrCloseBtn = el('qr-close-btn');
+    const heritageModal = el('heritage-modal'), contribModal = el('contribution-modal'), contributeBtn = el('contribute-btn'), contribCloseBtn = el('contrib-close-btn');
     const lightbox = el('lightbox'), lbImg = el('lb-img'), lbCount = el('lb-count'), modalAudioBtn = el('modal-audio-btn');
 
     let mp = null, gL = null, aL = [], tileLayer = null, cXa = null, currentView = 'region';
@@ -420,7 +423,8 @@
             heroSlogan: '"Lắng nghe hồn xưa &mdash; Chạm vào di sản"',
             ctaBtn: '<i class="fa-solid fa-leaf"></i> KHÁM PHÁ NGAY',
             footerSchool: 'THPT Phú Bình',
-            donateBtnTitle: 'Ủng hộ chúng tôi',
+            contributeBtnTitle: 'Đóng góp tri thức cộng đồng',
+            contributeBtnLabel: 'ĐÓNG GÓP',
             footerKhkt: 'Sản phẩm dự thi Cuộc thi Khoa học Kỹ thuật cấp tỉnh',
             footerCopyright: '© 2026 Dự án số hóa Di sản Văn hóa Phi vật thể · THPT Phú Bình',
             backBtn: '<i class="fa-solid fa-arrow-left"></i> Trang chủ',
@@ -451,10 +455,32 @@
             amMessage: '...',
             amSign: '— Phát triển bởi <strong>THPT Phú Bình</strong> —<br><span style="font-size:0.78rem;opacity:0.85;">Sản phẩm dự thi Cuộc thi Khoa học Kỹ thuật cấp tỉnh</span>',
             amDomain: 'Nguồn dữ liệu: Danh mục di sản văn hóa phi vật thể Thái Nguyên sau sáp nhập.',
-            qrTitle: 'Ủng hộ chúng tôi',
-            qrDesc: 'Quét mã QR để ủng hộ',
-            qrThanks: 'Cảm ơn bạn đã đồng hành cùng dự án!',
-            qrClose: 'Đóng',
+            contribBadge: 'Đóng góp tri thức cộng đồng',
+            contribTitle: 'Chung tay bồi đắp Di sản Thái Nguyên',
+            contribSubtitle: 'Chia sẻ tư liệu, câu chuyện văn hóa hoặc đề xuất của bạn để cùng gìn giữ và lan tỏa giá trị di sản quê hương.',
+            contribSchoolLabel: 'Trường đang học / đang giảng dạy',
+            contribSchoolPlaceholder: 'Nhập tên trường của bạn...',
+            contribNameLabel: 'Họ và tên',
+            contribNamePlaceholder: 'Nhập họ và tên của bạn...',
+            contribTypeLabel: 'Bạn muốn đóng góp về nội dung gì?',
+            contribOptionalTag: 'Tùy chọn',
+            contribTypeOpt1: 'Bổ sung kiến thức di sản',
+            contribTypeOpt2: 'Chia sẻ câu chuyện văn hóa',
+            contribTypeOpt3: 'Đề xuất cải thiện website',
+            contribTypeOpt4: 'Báo lỗi hoặc đính chính thông tin',
+            contribTypeOpt5: 'Ý tưởng phát triển dự án',
+            contribTypeOpt6: 'Khác',
+            contribContentLabel: 'Nội dung đóng góp',
+            contribContentPlaceholder: 'Hãy chia sẻ ý kiến, tư liệu, thông tin hoặc đề xuất của bạn dành cho Di Sản Thái Nguyên...',
+            contribPrivacyNote: '<i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Nội dung đóng góp được tiếp nhận và kiểm duyệt bởi đội ngũ quản trị dự án trước khi sử dụng.',
+            contribSubmitBtn: 'Gửi đóng góp',
+            contribSubmittingBtn: 'Đang gửi đóng góp...',
+            contribSuccessTitle: 'Đóng góp của bạn đã được gửi thành công!',
+            contribSuccessDesc1: 'Cảm ơn bạn đã chung tay gìn giữ và lan tỏa những giá trị văn hóa của Di Sản Thái Nguyên.',
+            contribSuccessDesc2: 'Nội dung sẽ được đội ngũ quản trị kiểm duyệt trước khi sử dụng.',
+            contribReceiptLabel: 'Mã tiếp nhận:',
+            contribAnotherBtn: 'Gửi đóng góp khác',
+            contribDoneBtn: 'Đóng',
             lblCategory: 'Loại hình',
             lblYear: 'Năm ghi danh',
             lblLoc: 'Địa bàn',
@@ -515,7 +541,8 @@
             heroSlogan: '"Listen to the ancient soul &mdash; Touch the heritage"',
             ctaBtn: '<i class="fa-solid fa-leaf"></i> EXPLORE NOW',
             footerSchool: 'Phu Binh High School',
-            donateBtnTitle: 'Support us',
+            contributeBtnTitle: 'Contribute community knowledge',
+            contributeBtnLabel: 'CONTRIBUTE',
             footerKhkt: 'Provincial Science & Engineering Fair Project',
             footerCopyright: '© 2026 Intangible Cultural Heritage Digitization Project · Phu Binh High School',
             backBtn: '<i class="fa-solid fa-arrow-left"></i> Home',
@@ -546,10 +573,32 @@
             amMessage: '...',
             amSign: '— Developed by <strong>Phu Binh High School</strong> —<br><span style="font-size:0.78rem;opacity:0.85;">Provincial Science & Engineering Fair Project</span>',
             amDomain: 'Data source: Thai Nguyen Intangible Cultural Heritage List after merging.',
-            qrTitle: 'Support Us',
-            qrDesc: 'Scan QR code to support',
-            qrThanks: 'Thank you for accompanying the project!',
-            qrClose: 'Close',
+            contribBadge: 'Community Knowledge Contribution',
+            contribTitle: 'Contribute to Thai Nguyen Heritage',
+            contribSubtitle: 'Share cultural stories, documents, or suggestions to help preserve and spread our local heritage.',
+            contribSchoolLabel: 'Trường đang học / đang giảng dạy',
+            contribSchoolPlaceholder: 'Nhập tên trường của bạn...',
+            contribNameLabel: 'Họ và tên',
+            contribNamePlaceholder: 'Nhập họ và tên của bạn...',
+            contribTypeLabel: 'Bạn muốn đóng góp về nội dung gì?',
+            contribOptionalTag: 'Tùy chọn',
+            contribTypeOpt1: 'Bổ sung kiến thức di sản',
+            contribTypeOpt2: 'Chia sẻ câu chuyện văn hóa',
+            contribTypeOpt3: 'Đề xuất cải thiện website',
+            contribTypeOpt4: 'Báo lỗi hoặc đính chính thông tin',
+            contribTypeOpt5: 'Ý tưởng phát triển dự án',
+            contribTypeOpt6: 'Khác',
+            contribContentLabel: 'Nội dung đóng góp',
+            contribContentPlaceholder: 'Hãy chia sẻ ý kiến, tư liệu, thông tin hoặc đề xuất của bạn dành cho Di Sản Thái Nguyên...',
+            contribPrivacyNote: '<i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Nội dung đóng góp được tiếp nhận và kiểm duyệt bởi đội ngũ quản trị dự án trước khi sử dụng.',
+            contribSubmitBtn: 'Gửi đóng góp',
+            contribSubmittingBtn: 'Đang gửi đóng góp...',
+            contribSuccessTitle: 'Đóng góp của bạn đã được gửi thành công!',
+            contribSuccessDesc1: 'Cảm ơn bạn đã chung tay gìn giữ và lan tỏa những giá trị văn hóa của Di Sản Thái Nguyên.',
+            contribSuccessDesc2: 'Nội dung sẽ được đội ngũ quản trị kiểm duyệt trước khi sử dụng.',
+            contribReceiptLabel: 'Mã tiếp nhận:',
+            contribAnotherBtn: 'Gửi đóng góp khác',
+            contribDoneBtn: 'Đóng',
             lblCategory: 'Category',
             lblYear: 'Year inscribed',
             lblLoc: 'Location',
@@ -969,16 +1018,246 @@
     el('bn-search').addEventListener('click', () => openMobileSearch());
     el('bn-theme').addEventListener('click', () => applyTheme(!isDark));
 
-    /*════ MODAL ABOUT / QR ════*/
+    /*════ MODAL ABOUT & COMMUNITY CONTRIBUTION ════*/
     el('about-btn').addEventListener('click', () => {
         lastFocusEl = document.activeElement;
         am.classList.add('open'); am.setAttribute('aria-hidden', 'false');
     });
     el('am-close').addEventListener('click', () => { am.classList.remove('open'); am.setAttribute('aria-hidden', 'true'); });
     am.addEventListener('click', e => { if (e.target === am) { am.classList.remove('open'); am.setAttribute('aria-hidden', 'true'); } });
-    qrDonateBtn.addEventListener('click', () => { qrModal.classList.add('open'); qrModal.setAttribute('aria-hidden', 'false'); });
-    qrCloseBtn.addEventListener('click', () => { qrModal.classList.remove('open'); qrModal.setAttribute('aria-hidden', 'true'); });
-    qrModal.addEventListener('click', e => { if (e.target === qrModal) { qrModal.classList.remove('open'); qrModal.setAttribute('aria-hidden', 'true'); } });
+
+    /*── Hệ thống Đóng góp Tri thức Cộng đồng ──*/
+    const contribForm = el('contribution-form');
+    const contribSchoolInp = el('contrib-school');
+    const contribNameInp = el('contrib-name');
+    const contribTypeSel = el('contrib-type');
+    const contribContentInp = el('contrib-content');
+    const contribWebsiteInp = el('contrib-website');
+    const contribCharCount = el('contrib-char-count');
+    const contribSubmitBtn = el('contrib-submit-btn');
+    const contribSubmitText = el('contrib-submit-text');
+    const contribFormAlert = el('contrib-form-alert');
+    const contribSuccessView = el('contrib-success-view');
+    const contribReceiptId = el('contrib-receipt-id');
+    const contribAnotherBtn = el('contrib-another-btn');
+    const contribDoneBtn = el('contrib-done-btn');
+    let isContribSubmitting = false;
+
+    function autoResizeContribTextarea() {
+        if (!contribContentInp) return;
+        contribContentInp.style.height = 'auto';
+        const nextH = Math.min(260, Math.max(112, contribContentInp.scrollHeight));
+        contribContentInp.style.height = nextH + 'px';
+        if (contribCharCount) {
+            const len = (contribContentInp.value || '').length;
+            contribCharCount.textContent = len + ' / 5000';
+        }
+    }
+
+    function setContribFieldError(fieldKey, message) {
+        const wrapMap = {
+            school_name: el('field-wrap-school'),
+            contributor_name: el('field-wrap-name'),
+            content: el('field-wrap-content')
+        };
+        const errMap = {
+            school_name: el('contrib-school-err'),
+            contributor_name: el('contrib-name-err'),
+            content: el('contrib-content-err')
+        };
+        const wrap = wrapMap[fieldKey];
+        const errEl = errMap[fieldKey];
+        if (!wrap || !errEl) return;
+        if (message) {
+            wrap.classList.add('has-error');
+            errEl.textContent = message;
+        } else {
+            wrap.classList.remove('has-error');
+            errEl.textContent = '';
+        }
+    }
+
+    function clearAllContribErrors() {
+        setContribFieldError('school_name', '');
+        setContribFieldError('contributor_name', '');
+        setContribFieldError('content', '');
+        if (contribFormAlert) {
+            contribFormAlert.hidden = true;
+            contribFormAlert.textContent = '';
+        }
+    }
+
+    function showContribAlert(msg) {
+        if (!contribFormAlert) return;
+        contribFormAlert.textContent = msg;
+        contribFormAlert.hidden = false;
+    }
+
+    function openContributionModal() {
+        if (!contribModal) return;
+        lastFocusEl = document.activeElement;
+        contribModal.classList.add('open');
+        contribModal.setAttribute('aria-hidden', 'false');
+        setTimeout(() => {
+            if (contribForm && !contribForm.hidden && contribSchoolInp) {
+                try { contribSchoolInp.focus(); } catch (e) { }
+            } else if (contribDoneBtn) {
+                try { contribDoneBtn.focus(); } catch (e) { }
+            }
+        }, 120);
+    }
+
+    function closeContributionModal() {
+        if (!contribModal) return;
+        contribModal.classList.remove('open');
+        contribModal.setAttribute('aria-hidden', 'true');
+        if (lastFocusEl && typeof lastFocusEl.focus === 'function') {
+            try { lastFocusEl.focus(); } catch (e) { }
+        }
+    }
+
+    function resetContributionToForm() {
+        if (!contribForm || !contribSuccessView) return;
+        contribForm.reset();
+        clearAllContribErrors();
+        autoResizeContribTextarea();
+        contribSuccessView.hidden = true;
+        contribForm.hidden = false;
+        if (contribSchoolInp) {
+            try { contribSchoolInp.focus(); } catch (e) { }
+        }
+    }
+
+    window.openContributionModal = openContributionModal;
+
+    if (contributeBtn) contributeBtn.addEventListener('click', openContributionModal);
+    if (contribCloseBtn) contribCloseBtn.addEventListener('click', closeContributionModal);
+    if (contribDoneBtn) contribDoneBtn.addEventListener('click', closeContributionModal);
+    if (contribAnotherBtn) contribAnotherBtn.addEventListener('click', resetContributionToForm);
+    if (contribModal) {
+        contribModal.addEventListener('click', e => {
+            if (e.target === contribModal && !isContribSubmitting) closeContributionModal();
+        });
+    }
+
+    if (contribSchoolInp) contribSchoolInp.addEventListener('input', () => setContribFieldError('school_name', ''));
+    if (contribNameInp) contribNameInp.addEventListener('input', () => setContribFieldError('contributor_name', ''));
+    if (contribContentInp) {
+        contribContentInp.addEventListener('input', () => {
+            setContribFieldError('content', '');
+            autoResizeContribTextarea();
+        });
+    }
+
+    if (contribForm) {
+        contribForm.addEventListener('submit', async e => {
+            e.preventDefault();
+            if (isContribSubmitting) return;
+
+            clearAllContribErrors();
+
+            const schoolVal = (contribSchoolInp ? contribSchoolInp.value : '').trim();
+            const nameVal = (contribNameInp ? contribNameInp.value : '').trim();
+            const typeVal = (contribTypeSel ? contribTypeSel.value : 'Bổ sung kiến thức di sản').trim();
+            const contentVal = (contribContentInp ? contribContentInp.value : '').trim();
+            const websiteVal = (contribWebsiteInp ? contribWebsiteInp.value : '').trim();
+
+            let hasErr = false;
+            if (!schoolVal) {
+                setContribFieldError('school_name', 'Vui lòng nhập trường đang học / đang giảng dạy.');
+                hasErr = true;
+            } else if (schoolVal.length < 2) {
+                setContribFieldError('school_name', 'Tên trường / đơn vị cần có ít nhất 2 ký tự.');
+                hasErr = true;
+            }
+
+            if (!nameVal) {
+                setContribFieldError('contributor_name', 'Vui lòng nhập họ và tên của bạn.');
+                hasErr = true;
+            } else if (nameVal.length < 2) {
+                setContribFieldError('contributor_name', 'Họ và tên cần có ít nhất 2 ký tự.');
+                hasErr = true;
+            }
+
+            if (!contentVal) {
+                setContribFieldError('content', 'Vui lòng nhập nội dung đóng góp.');
+                hasErr = true;
+            } else if (contentVal.length < 10) {
+                setContribFieldError('content', 'Nội dung đóng góp cần có ít nhất 10 ký tự.');
+                hasErr = true;
+            } else if (contentVal.length > 5000) {
+                setContribFieldError('content', 'Nội dung đóng góp không vượt quá 5.000 ký tự.');
+                hasErr = true;
+            }
+
+            if (hasErr) {
+                const firstInvalid = contribForm.querySelector('.has-error input, .has-error textarea');
+                if (firstInvalid) try { firstInvalid.focus(); } catch (err) { }
+                return;
+            }
+
+            isContribSubmitting = true;
+            if (contribSubmitBtn) {
+                contribSubmitBtn.disabled = true;
+                contribSubmitBtn.classList.add('is-loading');
+            }
+            if (contribSubmitText) {
+                contribSubmitText.textContent = TXT[lg].contribSubmittingBtn || 'Đang gửi đóng góp...';
+            }
+
+            try {
+                const res = await fetch('/api/contributions', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        school_name: schoolVal,
+                        contributor_name: nameVal,
+                        contribution_type: typeVal || 'Bổ sung kiến thức di sản',
+                        content: contentVal,
+                        website: websiteVal
+                    })
+                });
+
+                let data = null;
+                try {
+                    data = await res.json();
+                } catch (parseErr) {
+                    data = null;
+                }
+
+                if (!res.ok || !data || !data.ok || !data.id) {
+                    if (data && data.fields) {
+                        if (data.fields.school_name) setContribFieldError('school_name', data.fields.school_name);
+                        if (data.fields.contributor_name) setContribFieldError('contributor_name', data.fields.contributor_name);
+                        if (data.fields.content) setContribFieldError('content', data.fields.content);
+                    }
+                    const errMsg = (data && data.error)
+                        ? data.error
+                        : 'Không thể gửi đóng góp lúc này (mã lỗi ' + res.status + '). Dữ liệu của bạn vẫn được giữ nguyên, vui lòng thử lại.';
+                    showContribAlert(errMsg);
+                    return;
+                }
+
+                // Chỉ hiển thị thành công khi server xác nhận đã lưu vào Cloudflare D1
+                if (contribReceiptId) contribReceiptId.textContent = data.id;
+                contribForm.reset();
+                autoResizeContribTextarea();
+                contribForm.hidden = true;
+                if (contribSuccessView) contribSuccessView.hidden = false;
+            } catch (netErr) {
+                showContribAlert('Không thể kết nối tới máy chủ. Vui lòng kiểm tra kết nối mạng và thử lại (dữ liệu đã nhập vẫn được giữ nguyên).');
+            } finally {
+                isContribSubmitting = false;
+                if (contribSubmitBtn) {
+                    contribSubmitBtn.disabled = false;
+                    contribSubmitBtn.classList.remove('is-loading');
+                }
+                if (contribSubmitText) {
+                    contribSubmitText.textContent = TXT[lg].contribSubmitBtn || 'Gửi đóng góp';
+                }
+            }
+        });
+    }
 
     /*════ LIGHTBOX ════*/
     let lbImages = [], lbIndex = 0;
@@ -1638,7 +1917,7 @@
             html += '<div class="m-region-commune" data-x="' + esc(xa) + '" role="button" tabindex="0"><i class="fa-solid fa-circle"></i><span>' + esc(xa) + '</span><span style="margin-left:auto;font-size:0.7rem;opacity:.65">' + n + ' ' + (lg === 'en' ? 'heritages' : 'di sản') + '</span></div>';
         });
         html += '</div></div></div>';
-        html += '<div class="m-menu-section"><button class="m-menu-item" id="m-about-item" type="button"><i class="fa-solid fa-circle-info"></i><span>' + (lg === 'en' ? 'About Project' : 'Về dự án') + '</span><i class="fa-solid fa-chevron-right m-menu-arrow"></i></button></div>';
+        html += '<div class="m-menu-section"><button class="m-menu-item" id="m-contribute-item" type="button"><i class="fa-solid fa-hand-holding-heart"></i><span>' + (lg === 'en' ? 'Contribute Knowledge' : 'Đóng góp tri thức') + '</span><i class="fa-solid fa-chevron-right m-menu-arrow"></i></button><button class="m-menu-item" id="m-about-item" type="button"><i class="fa-solid fa-circle-info"></i><span>' + (lg === 'en' ? 'About Project' : 'Về dự án') + '</span><i class="fa-solid fa-chevron-right m-menu-arrow"></i></button></div>';
         mobileMenuBody.innerHTML = html;
         $$('.m-region-province', mobileMenuBody).forEach(btn => btn.addEventListener('click', () => btn.parentElement.classList.toggle('open')));
         $$('.m-region-commune', mobileMenuBody).forEach(node => node.addEventListener('click', () => {
@@ -1653,6 +1932,10 @@
             if (icon) icon.className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
         });
         $$('.m-lang-btn', mobileMenuBody).forEach(b => b.addEventListener('click', () => swLang(b.dataset.lang)));
+        const contributeItem = mobileMenuBody.querySelector('#m-contribute-item');
+        if (contributeItem) contributeItem.addEventListener('click', () => {
+            closeMobileMenu(); setTimeout(openContributionModal, 200);
+        });
         const aboutItem = mobileMenuBody.querySelector('#m-about-item');
         if (aboutItem) aboutItem.addEventListener('click', () => {
             closeMobileMenu(); setTimeout(() => { am.classList.add('open'); am.setAttribute('aria-hidden', 'false'); }, 200);
@@ -1693,7 +1976,7 @@
         if (e.key === 'Escape') {
             if (lightbox.classList.contains('open')) { closeLightbox(); return; }
             if (heritageModal.classList.contains('open')) { closeHeritage(); return; }
-            if (qrModal.classList.contains('open')) { qrModal.classList.remove('open'); qrModal.setAttribute('aria-hidden', 'true'); return; }
+            if (contribModal && contribModal.classList.contains('open')) { if (!isContribSubmitting) closeContributionModal(); return; }
             if (am.classList.contains('open')) { am.classList.remove('open'); am.setAttribute('aria-hidden', 'true'); return; }
             if (mobileMenuDrawer && mobileMenuDrawer.classList.contains('open')) { closeMobileMenu(); return; }
             if (mSearchOverlay && mSearchOverlay.classList.contains('open')) { closeMobileSearch(); return; }

@@ -1,0 +1,6 @@
+# Sao chép file này thành .dev.vars khi chạy local (KHÔNG commit .dev.vars lên Git)
+# Tạo giá trị bằng lệnh: node scripts/hash-admin-password.mjs <username> <password>
+
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD_HASH=pbkdf2_sha256$100000$replace_with_salt_hex$replace_with_hash_hex
+SESSION_SECRET=replace_with_64_char_random_hex_secret

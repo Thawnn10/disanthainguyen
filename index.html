@@ -327,8 +327,20 @@
           <div class="ft-social">
             <a href="https://www.facebook.com/taqanthanw" target="_blank" rel="noopener noreferrer" title="Facebook"
               aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <button id="qr-donate-btn" title="Ủng hộ chúng tôi" data-i18n-title="donateBtnTitle"
-              aria-label="Ủng hộ chúng tôi qua mã QR"><i class="fa-solid fa-heart"></i></button>
+            <button id="contribute-btn" class="contribute-btn" type="button" title="Đóng góp tri thức cộng đồng"
+              data-i18n-title="contributeBtnTitle" aria-label="Đóng góp tri thức cộng đồng" aria-haspopup="dialog"
+              aria-controls="contribution-modal">
+              <svg class="contribute-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path
+                  d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                <path
+                  d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66" />
+                <path d="m18 15-2-2" />
+                <path d="m15 18-2-2" />
+              </svg>
+              <span class="contribute-btn__label" data-i18n="contributeBtnLabel">ĐÓNG GÓP</span>
+            </button>
           </div>
         </div>
         <div class="ft-khkt"><i class="fa-solid fa-flask"></i><span data-i18n="footerKhkt">Dự án dự thi Cuộc thi nghiên
@@ -466,13 +478,137 @@
       </div>
     </div>
 
-    <div id="qr-modal" role="dialog" aria-modal="true" aria-labelledby="qr-title" aria-hidden="true">
-      <div class="qr-box">
-        <h3 id="qr-title" data-i18n="qrTitle">Ủng hộ chúng tôi</h3>
-        <img src="qr.png" alt="Mã QR ngân hàng ủng hộ dự án di sản Thái Nguyên">
-        <p data-i18n="qrDesc">Quét mã QR để ủng hộ</p>
-        <small data-i18n="qrThanks">Cảm ơn bạn đã đồng hành cùng dự án!</small><br>
-        <button class="qr-close" id="qr-close-btn" data-i18n="qrClose">Đóng</button>
+    <div id="contribution-modal" class="contrib-modal" role="dialog" aria-modal="true"
+      aria-labelledby="contrib-modal-title" aria-describedby="contrib-modal-subtitle" aria-hidden="true">
+      <div class="contrib-dialog" role="document">
+        <header class="contrib-header">
+          <div class="contrib-header__badge">
+            <svg class="contrib-header__badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              <path d="M12 7v6" />
+              <path d="M9 10h6" />
+            </svg>
+            <span data-i18n="contribBadge">Đóng góp tri thức cộng đồng</span>
+          </div>
+          <button type="button" class="contrib-close" id="contrib-close-btn" aria-label="Đóng biểu mẫu đóng góp"
+            title="Đóng (Esc)">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+          <h2 id="contrib-modal-title" class="contrib-title" data-i18n="contribTitle">Chung tay bồi đắp Di sản Thái
+            Nguyên</h2>
+          <p id="contrib-modal-subtitle" class="contrib-subtitle" data-i18n="contribSubtitle">Chia sẻ tư liệu, câu
+            chuyện văn hóa hoặc đề xuất của bạn để cùng gìn giữ và lan tỏa giá trị di sản quê hương.</p>
+        </header>
+
+        <div class="contrib-body" id="contrib-body">
+          <form id="contribution-form" class="contrib-form" novalidate>
+            <div class="contrib-honeypot" aria-hidden="true">
+              <label for="contrib-website">Website</label>
+              <input type="text" id="contrib-website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="contrib-grid-2">
+              <div class="contrib-field" id="field-wrap-school">
+                <label for="contrib-school" class="contrib-label">
+                  <span data-i18n="contribSchoolLabel">Trường đang học / đang giảng dạy</span>
+                  <span class="contrib-req" aria-hidden="true">*</span>
+                </label>
+                <input type="text" id="contrib-school" name="school_name" class="contrib-input"
+                  placeholder="Nhập tên trường của bạn..." data-i18n-placeholder="contribSchoolPlaceholder"
+                  maxlength="180" required autocomplete="organization">
+                <p class="contrib-error" id="contrib-school-err" role="alert"></p>
+              </div>
+
+              <div class="contrib-field" id="field-wrap-name">
+                <label for="contrib-name" class="contrib-label">
+                  <span data-i18n="contribNameLabel">Họ và tên</span>
+                  <span class="contrib-req" aria-hidden="true">*</span>
+                </label>
+                <input type="text" id="contrib-name" name="contributor_name" class="contrib-input"
+                  placeholder="Nhập họ và tên của bạn..." data-i18n-placeholder="contribNamePlaceholder" maxlength="120"
+                  required autocomplete="name">
+                <p class="contrib-error" id="contrib-name-err" role="alert"></p>
+              </div>
+            </div>
+
+            <div class="contrib-field" id="field-wrap-type">
+              <div class="contrib-label-row">
+                <label for="contrib-type" class="contrib-label">
+                  <span data-i18n="contribTypeLabel">Bạn muốn đóng góp về nội dung gì?</span>
+                </label>
+                <span class="contrib-opt-tag" data-i18n="contribOptionalTag">Tùy chọn</span>
+              </div>
+              <div class="contrib-select-wrap">
+                <select id="contrib-type" name="contribution_type" class="contrib-select">
+                  <option value="Bổ sung kiến thức di sản" data-i18n="contribTypeOpt1">Bổ sung kiến thức di sản</option>
+                  <option value="Chia sẻ câu chuyện văn hóa" data-i18n="contribTypeOpt2">Chia sẻ câu chuyện văn hóa
+                  </option>
+                  <option value="Đề xuất cải thiện website" data-i18n="contribTypeOpt3">Đề xuất cải thiện website
+                  </option>
+                  <option value="Báo lỗi hoặc đính chính thông tin" data-i18n="contribTypeOpt4">Báo lỗi hoặc đính chính
+                    thông tin</option>
+                  <option value="Ý tưởng phát triển dự án" data-i18n="contribTypeOpt5">Ý tưởng phát triển dự án</option>
+                  <option value="Khác" data-i18n="contribTypeOpt6">Khác</option>
+                </select>
+                <i class="fa-solid fa-chevron-down contrib-select-chevron" aria-hidden="true"></i>
+              </div>
+            </div>
+
+            <div class="contrib-field" id="field-wrap-content">
+              <div class="contrib-label-row">
+                <label for="contrib-content" class="contrib-label">
+                  <span data-i18n="contribContentLabel">Nội dung đóng góp</span>
+                  <span class="contrib-req" aria-hidden="true">*</span>
+                </label>
+                <span class="contrib-char-count" id="contrib-char-count" aria-live="polite">0 / 5000</span>
+              </div>
+              <textarea id="contrib-content" name="content" class="contrib-textarea" rows="4" maxlength="5000" required
+                placeholder="Hãy chia sẻ ý kiến, tư liệu, thông tin hoặc đề xuất của bạn dành cho Di Sản Thái Nguyên..."
+                data-i18n-placeholder="contribContentPlaceholder"></textarea>
+              <p class="contrib-error" id="contrib-content-err" role="alert"></p>
+            </div>
+
+            <div class="contrib-alert" id="contrib-form-alert" role="alert" aria-live="assertive" hidden></div>
+
+            <div class="contrib-footer">
+              <p class="contrib-privacy-note" data-i18n="contribPrivacyNote">
+                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                Nội dung đóng góp được tiếp nhận và kiểm duyệt bởi đội ngũ quản trị dự án trước khi sử dụng.
+              </p>
+              <button type="submit" id="contrib-submit-btn" class="contrib-submit-btn">
+                <span class="contrib-submit-btn__spinner" id="contrib-submit-spinner" aria-hidden="true"></span>
+                <span class="contrib-submit-btn__text" id="contrib-submit-text" data-i18n="contribSubmitBtn">Gửi đóng
+                  góp</span>
+              </button>
+            </div>
+          </form>
+
+          <div id="contrib-success-view" class="contrib-success" hidden aria-live="polite">
+            <div class="contrib-success__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </div>
+            <h3 class="contrib-success__title" data-i18n="contribSuccessTitle">Đóng góp của bạn đã được gửi thành công!
+            </h3>
+            <p class="contrib-success__desc" data-i18n="contribSuccessDesc1">Cảm ơn bạn đã chung tay gìn giữ và lan tỏa
+              những giá trị văn hóa của Di Sản Thái Nguyên.</p>
+            <p class="contrib-success__note" data-i18n="contribSuccessDesc2">Nội dung sẽ được đội ngũ quản trị kiểm
+              duyệt trước khi sử dụng.</p>
+            <div class="contrib-receipt" id="contrib-receipt-box">
+              <span class="contrib-receipt__lbl" data-i18n="contribReceiptLabel">Mã tiếp nhận:</span>
+              <code class="contrib-receipt__code" id="contrib-receipt-id">—</code>
+            </div>
+            <div class="contrib-success__actions">
+              <button type="button" class="contrib-btn-secondary" id="contrib-another-btn"
+                data-i18n="contribAnotherBtn">Gửi đóng góp khác</button>
+              <button type="button" class="contrib-btn-primary" id="contrib-done-btn"
+                data-i18n="contribDoneBtn">Đóng</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

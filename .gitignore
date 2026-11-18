@@ -1,0 +1,13 @@
+# Cloudflare Wrangler & Local D1 state
+.wrangler/
+.dev.vars
+
+# Dependencies & logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS / Editor
+.DS_Store
+Thumbs.db
